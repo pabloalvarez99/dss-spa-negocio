@@ -9,10 +9,10 @@
 
 | Campo | Valor |
 |-------|--------|
-| **Siguiente sprint** | `B` — Performance |
-| **Archivo** | [`sprints/B-performance.md`](sprints/B-performance.md) |
+| **Siguiente sprint** | `C` — Demo-kit (o `D` Observabilidad si se prioriza medición) |
+| **Archivo** | [`sprints/C-demo-kit.md`](sprints/C-demo-kit.md) · [`sprints/D-observabilidad.md`](sprints/D-observabilidad.md) |
 | **Bloqueado por** | — |
-| **Notas** | Sprint A cerrado en prod (`dss-chile` → dss-chile.vercel.app) |
+| **Notas** | Sprint B cerrado en prod; no C/D/E en la sesión B |
 
 ## Progreso
 
@@ -20,8 +20,8 @@
 |--------|--------|--------------|-----------|-------|
 | 0 Higiene | `done` | 2026-07-19 | 2026-07-19 | ventas→docs; 123 demos OK; WA retiro 24h |
 | A Landing | `done` | 2026-07-19 | 2026-07-19 | A1+A2+A3 en index.html; deploy prod |
-| B Performance | `pending` | | | Ideal después de A (menos conflictos en index.html) |
-| C Demo-kit | `pending` | | | Puede ir en paralelo a B si hay sesión dedicada |
+| B Performance | `done` | 2026-07-19 | 2026-07-19 | CSS/JS/DEMOS extraídos; WebP dual; deploy prod |
+| C Demo-kit | `pending` | | | Puede ir en paralelo a D si hay sesión dedicada |
 | D Observabilidad | `pending` | | | Después de A (eventos de form/WA); stub track() ya listo |
 | E Ops comercial | `pending` | | | No es solo código; CRM/Sheet |
 | F Escala | `blocked` | | | Solo con ≥8 clientes pagos |
@@ -39,6 +39,14 @@ Al terminar trabajo, el agente o la persona debe:
 5. [x] No empezar otro sprint grande en la misma sesión  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-19 — Sprint B Performance / mantenibilidad (cerrado)
+- Extraídos `website/styles.css`, `website/app.js`, `website/demos.json` (fetch + fallback UI).
+- 123 thumbs dual jpg+webp (`<picture>`), avg ~21 KB/webp; preview-tu-farmacia webp; og-image.png se mantiene para OG.
+- `vercel.json` ya cachea webp; sin preload de thumbs; fonts Google async; `prefers-reduced-motion` + noscript OK.
+- Smoke local 36/36 (filtros/PAGE/ticker/form/track/stats/planes/privacidad a nivel de código + HTTP assets).
+- Deploy: `cd website && vercel --prod --yes` (proyecto `dss-chile`).
+- **Siguiente:** Sprint C (Demo-kit) o D (Observabilidad). **No** C/D/E en esta sesión.
 
 ### 2026-07-19 — Sprint A Landing / conversión (cerrado)
 - A1: copy chileno (sin voseo), hero Coquimbo/La Serena + demo 24–72 h, stats honestos, Schema planes reales (sin e-commerce core), FAQ con precios y sin permanencia.

@@ -1,0 +1,1003 @@
+[
+  {
+    "n": "Hotel Club La Serena",
+    "u": "hotel-club-la-serena",
+    "e": "🏨",
+    "c": "Hoteles & Turismo",
+    "city": "La Serena",
+    "r": "4.4"
+  },
+  {
+    "n": "Energy Club",
+    "u": "energy-club-gym",
+    "e": "💪",
+    "c": "Deporte & Fitness",
+    "city": "La Serena",
+    "r": "4.6"
+  },
+  {
+    "n": "Club Punto Verde",
+    "u": "club-punto-verde",
+    "e": "🎾",
+    "c": "Deporte & Fitness",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Veterinaria Larrain",
+    "u": "veterinaria-larrain",
+    "e": "🐾",
+    "c": "Veterinaria & Mascotas",
+    "city": "La Serena",
+    "r": "4.4"
+  },
+  {
+    "n": "Taller Automotriz S&R",
+    "u": "taller-sr-automotriz",
+    "e": "🔧",
+    "c": "Autos & Mecánica",
+    "city": "La Serena",
+    "r": "4.5"
+  },
+  {
+    "n": "BaseStudio Barbería",
+    "u": "base-studio-barberia",
+    "e": "💈",
+    "c": "Belleza & Barbería",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Refugio Misterios del Elqui",
+    "u": "refugio-misterios-elqui",
+    "e": "✦",
+    "c": "Cabañas & Turismo",
+    "city": "Pisco Elqui",
+    "r": ""
+  },
+  {
+    "n": "Mohen Odontología",
+    "u": "mohen-dental",
+    "e": "🦷",
+    "c": "Salud & Dental",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Óptica Marcopolo",
+    "u": "optica-marcopolo",
+    "e": "👓",
+    "c": "Ópticas",
+    "city": "La Serena",
+    "r": "4.6"
+  },
+  {
+    "n": "Florería La Pérgola",
+    "u": "floreria-la-pergola",
+    "e": "🌷",
+    "c": "Florerías",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Patricio Aravena Propiedades",
+    "u": "aravena-propiedades",
+    "e": "🏡",
+    "c": "Inmobiliaria",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Ferretería Islón",
+    "u": "ferreteria-islon",
+    "e": "🔩",
+    "c": "Ferreterías",
+    "city": "La Serena",
+    "r": "4.3"
+  },
+  {
+    "n": "At Your Service Laundry",
+    "u": "at-your-service-laundry",
+    "e": "🧺",
+    "c": "Lavandería",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Alfa Aldea",
+    "u": "alfa-aldea",
+    "e": "✦",
+    "c": "Astroturismo",
+    "city": "Vicuña",
+    "r": ""
+  },
+  {
+    "n": "Mascotiendas",
+    "u": "mascotiendas-ls",
+    "e": "🐾",
+    "c": "Mascotas",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "La Escalera",
+    "u": "la-escalera",
+    "e": "🍝",
+    "c": "Pizza & Pasta",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "Amo La Pizza",
+    "u": "amo-la-pizza",
+    "e": "🍕",
+    "c": "Pizza & Pasta",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "La Rusia Nikkei",
+    "u": "la-rusia-nikkei",
+    "e": "🍣",
+    "c": "Sushi & Nikkei",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "Bash Burger",
+    "u": "bash-burger",
+    "e": "🍔",
+    "c": "Burgers & Sánguches",
+    "city": "Coquimbo",
+    "r": "4.9"
+  },
+  {
+    "n": "Don Ostión",
+    "u": "don-ostion",
+    "e": "🦪",
+    "c": "Mariscos & Pescados",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "Luka Brunch",
+    "u": "luka-brunch",
+    "e": "🥞",
+    "c": "Café & Brunch",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "Taikin Sushi",
+    "u": "taikin-sushi",
+    "e": "🍣",
+    "c": "Sushi & Nikkei",
+    "city": "Coquimbo",
+    "r": "4.8"
+  },
+  {
+    "n": "Salisucre",
+    "u": "salisucre",
+    "e": "🍕",
+    "c": "Pizza & Pasta",
+    "city": "La Serena",
+    "r": "4.8"
+  },
+  {
+    "n": "Kogo Coreano",
+    "u": "kogo-coreano",
+    "e": "🍲",
+    "c": "Cocina del mundo",
+    "city": "La Serena",
+    "r": "4.8"
+  },
+  {
+    "n": "Shawarma Cairo",
+    "u": "shawarma-cairo",
+    "e": "🥙",
+    "c": "Cocina del mundo",
+    "city": "La Serena",
+    "r": "4.8"
+  },
+  {
+    "n": "El Amir",
+    "u": "el-amir",
+    "d": "el-amir.pages.dev",
+    "e": "🥙",
+    "c": "Cocina del mundo",
+    "city": "La Serena"
+  },
+  {
+    "n": "Cerrajería Vidales 24H",
+    "u": "cerrajeria-vidales",
+    "d": "cerrajeria-vidales.pages.dev",
+    "e": "🔑",
+    "c": "Cerrajería & Hogar",
+    "city": "Coquimbo",
+    "r": "5.0"
+  },
+  {
+    "n": "Centro Atlas Kinesiología",
+    "u": "atlas-kinesiologia",
+    "d": "atlas-kinesiologia.pages.dev",
+    "e": "🦴",
+    "c": "Salud & Dental",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "Boga Ink Tattoo",
+    "u": "boga-ink",
+    "d": "boga-ink.pages.dev",
+    "e": "🖋️",
+    "c": "Belleza & Barbería",
+    "city": "La Serena",
+    "r": "5.0"
+  },
+  {
+    "n": "Cabañas Pinamar",
+    "u": "cabanas-pinamar",
+    "d": "cabanas-pinamar.pages.dev",
+    "e": "🏖️",
+    "c": "Cabañas & Turismo",
+    "city": "La Serena",
+    "r": "4.4"
+  },
+  {
+    "n": "Zorro Bike",
+    "u": "zorro-bike",
+    "d": "zorro-bike.pages.dev",
+    "e": "🚲",
+    "c": "Deporte & Fitness",
+    "city": "La Serena",
+    "r": "4.7"
+  },
+  {
+    "n": "Nüba by Sisu Salón",
+    "u": "nuba-sisu-salon",
+    "d": "nuba-sisu-salon.pages.dev",
+    "e": "💅",
+    "c": "Belleza & Barbería",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "Vulcanización El Iquiqueño",
+    "u": "vulcanizacion-el-iquiqueno",
+    "d": "vulcanizacion-el-iquiqueno.pages.dev",
+    "e": "🛞",
+    "c": "Autos & Mecánica",
+    "city": "La Serena",
+    "r": "4.5"
+  },
+  {
+    "n": "Hostal Luna del Mar",
+    "u": "hostal-luna-del-mar",
+    "d": "hostal-luna-del-mar.pages.dev",
+    "e": "🌙",
+    "c": "Cabañas & Turismo",
+    "city": "La Serena",
+    "r": "4.5"
+  },
+  {
+    "n": "SPA Detailing Automotriz",
+    "u": "spa-detailing-automotriz",
+    "d": "spa-detailing-automotriz.pages.dev",
+    "e": "✨",
+    "c": "Autos & Mecánica",
+    "city": "Coquimbo",
+    "r": "4.9"
+  },
+  {
+    "n": "Veterinaria Claudia Ojeda",
+    "u": "veterinaria-claudia-ojeda",
+    "d": "veterinaria-claudia-ojeda.pages.dev",
+    "e": "🐾",
+    "c": "Veterinaria & Mascotas",
+    "city": "La Serena",
+    "r": "4.6"
+  },
+  {
+    "n": "Cabañas Agua Marina 2500",
+    "u": "cabanas-agua-marina",
+    "d": "cabanas-agua-marina.pages.dev",
+    "e": "🌊",
+    "c": "Cabañas & Turismo",
+    "city": "La Serena",
+    "r": "4.7"
+  },
+  {
+    "n": "Floristería Narciso II",
+    "u": "floristeria-narciso",
+    "d": "floristeria-narciso.pages.dev",
+    "e": "💐",
+    "c": "Florerías",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "El Gelatto de Vicuña",
+    "u": "el-gelatto",
+    "d": "el-gelatto.pages.dev",
+    "e": "🍨",
+    "c": "Pastelería & Dulce",
+    "city": "Peñuelas",
+    "r": "4.5"
+  },
+  {
+    "n": "Entre Costas",
+    "u": "entre-costas",
+    "d": "entre-costas.pages.dev",
+    "e": "⚓",
+    "c": "Mariscos & Pescados",
+    "city": "Peñuelas",
+    "r": "4.6"
+  },
+  {
+    "n": "Apart Hotel Escala Real",
+    "u": "escala-real",
+    "d": "escala-real.pages.dev",
+    "e": "🏨",
+    "c": "Hoteles & Turismo",
+    "city": "Peñuelas",
+    "r": "4.4"
+  },
+  {
+    "n": "PisKu Bar",
+    "u": "pisku-bar",
+    "d": "pisku-bar.pages.dev",
+    "e": "🍸",
+    "c": "Bar & Pub",
+    "city": "Peñuelas",
+    "r": "4.5"
+  },
+  {
+    "n": "Estación Chilenita",
+    "u": "estacion-chilenita",
+    "d": "estacion-chilenita.pages.dev",
+    "e": "🚂",
+    "c": "Restaurant & Cocina",
+    "city": "Peñuelas",
+    "r": "4.1"
+  },
+  {
+    "n": "Pescadería Don Santino",
+    "u": "pescaderia-don-santino",
+    "e": "🐟",
+    "c": "Mariscos & Pescados",
+    "city": "Peñuelas",
+    "r": "4.4"
+  },
+  {
+    "n": "Panadería La Mama Hilda",
+    "u": "panaderia-mama-hilda",
+    "e": "🥖",
+    "c": "Pastelería & Dulce",
+    "city": "Peñuelas",
+    "r": "4.5"
+  },
+  {
+    "n": "Las Brasas del Mar",
+    "u": "las-brasas-del-mar",
+    "e": "🔥",
+    "c": "Mariscos & Pescados",
+    "city": "Peñuelas",
+    "r": "4.0"
+  },
+  {
+    "n": "Emerson Express",
+    "u": "emerson-express",
+    "e": "🍟",
+    "c": "Burgers & Sánguches",
+    "city": "Peñuelas",
+    "r": "4.7"
+  },
+  {
+    "n": "Flores del Bosque",
+    "u": "flores-del-bosque",
+    "e": "❀",
+    "c": "Florerías",
+    "city": "Coquimbo",
+    "r": "4.7"
+  },
+  {
+    "n": "Fama Minimarket",
+    "u": "fama-minimarket",
+    "e": "🛒",
+    "c": "Tiendas online",
+    "city": "Peñuelas",
+    "r": "4.3"
+  },
+  {
+    "n": "Comida Rápida Fama",
+    "u": "comida-rapida-fama",
+    "e": "🌭",
+    "c": "Burgers & Sánguches",
+    "city": "Peñuelas",
+    "r": "4.1"
+  },
+  {
+    "n": "Family Power Neumáticos",
+    "u": "family-power",
+    "e": "🛞",
+    "c": "Autos & Mecánica",
+    "city": "La Serena",
+    "r": "4.9"
+  },
+  {
+    "n": "Cabañas Lonquimei",
+    "u": "cabanas-lonquimei",
+    "e": "🏕️",
+    "c": "Cabañas & Turismo",
+    "city": "Peñuelas",
+    "r": "4.1"
+  },
+  {
+    "n": "Panadería Robertini's",
+    "u": "panaderia-robertinis",
+    "e": "🥐",
+    "c": "Pastelería & Dulce",
+    "city": "La Serena",
+    "r": "4.6"
+  },
+  {
+    "n": "De Panes y Pasteles",
+    "u": "de-panes-y-pasteles",
+    "e": "🧁",
+    "c": "Pastelería & Dulce",
+    "city": "Coquimbo",
+    "r": "4.7"
+  },
+  {
+    "n": "Peñuelas Hostel",
+    "u": "penuelas-hostel",
+    "e": "🎒",
+    "c": "Cabañas & Turismo",
+    "city": "Peñuelas",
+    "r": "4.2"
+  },
+  {
+    "n": "Mecanicool A/C Automotriz",
+    "u": "mecanicool",
+    "e": "❄️",
+    "c": "Autos & Mecánica",
+    "city": "La Serena",
+    "r": "5.0"
+  },
+  {
+    "n": "Cabañas Morena",
+    "u": "cabanas-morena",
+    "e": "🏡",
+    "c": "Cabañas & Turismo",
+    "city": "Coquimbo",
+    "r": "4.9"
+  },
+  {
+    "n": "Vet. Blanco y Violeta",
+    "u": "vet-blanco-y-violeta",
+    "e": "🐾",
+    "c": "Veterinaria & Mascotas",
+    "city": "La Serena",
+    "r": "4.6"
+  },
+  {
+    "n": "Óptica Colón",
+    "u": "optica-colon",
+    "e": "👓",
+    "c": "Ópticas",
+    "city": "La Serena",
+    "r": "4.8"
+  },
+  {
+    "n": "Ecoturismo Nativas",
+    "u": "ecoturismo-nativas",
+    "e": "🌿",
+    "c": "Astroturismo",
+    "city": "La Serena",
+    "r": "5.0"
+  },
+  {
+    "n": "Cabañas Vientos del Sur",
+    "u": "cabanas-vientos-del-sur",
+    "e": "🌬️",
+    "c": "Cabañas & Turismo",
+    "city": "La Serena",
+    "r": "4.4"
+  },
+  {
+    "n": "Ferretería Los Moyano",
+    "u": "ferreteria-los-moyano",
+    "e": "🔨",
+    "c": "Ferreterías",
+    "city": "Coquimbo",
+    "r": "4.3"
+  },
+  {
+    "n": "Lavandería Maxicleaner",
+    "u": "lavanderia-maxicleaner",
+    "e": "🫧",
+    "c": "Lavandería",
+    "city": "La Serena",
+    "r": "4.6"
+  },
+  {
+    "n": "Petsitter Store & Spa",
+    "u": "petsitter-store-spa",
+    "e": "🐶",
+    "c": "Veterinaria & Mascotas",
+    "city": "La Serena",
+    "r": "4.5"
+  },
+  {
+    "n": "Cabañas Quilacan",
+    "u": "cabanas-quilacan",
+    "e": "🏘️",
+    "c": "Cabañas & Turismo",
+    "city": "La Serena",
+    "r": "4.3"
+  },
+  {
+    "n": "Automek Taller",
+    "u": "automek-psi",
+    "e": "🔧",
+    "c": "Autos & Mecánica",
+    "city": "Coquimbo",
+    "r": "4.1"
+  },
+  {
+    "n": "Thoros Bike",
+    "u": "thoros-bike",
+    "e": "🚴",
+    "c": "Deporte & Fitness",
+    "city": "La Serena",
+    "r": "4.0"
+  },
+  {
+    "n": "Podología Karen Manterola",
+    "u": "podologia-karen-manterola",
+    "e": "🦶",
+    "c": "Salud & Dental",
+    "city": "Coquimbo",
+    "r": "5.0"
+  },
+  {
+    "n": "La Arepa Cuadrada",
+    "u": "la-arepa-cuadrada",
+    "e": "🫓",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": "4.4"
+  },
+  {
+    "n": "El Toque De La Chef",
+    "u": "el-toque-de-la-chef",
+    "e": "👩‍🍳",
+    "c": "Burgers & Sánguches",
+    "city": "Coquimbo",
+    "r": "4.5"
+  },
+  {
+    "n": "Chile Tierra Querida",
+    "u": "chile-tierra-querida",
+    "e": "🇨🇱",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": "4.0"
+  },
+  {
+    "n": "El Viejo Bar Inglés",
+    "u": "el-viejo-bar-ingles",
+    "e": "🍺",
+    "c": "Bar & Pub",
+    "city": "Coquimbo",
+    "r": "4.3"
+  },
+  {
+    "n": "Pizzería Mendoza",
+    "u": "pizzeria-mendoza",
+    "e": "🍕",
+    "c": "Pizza & Pasta",
+    "city": "La Serena",
+    "r": "4.7"
+  },
+  {
+    "n": "Porto Ron",
+    "u": "porto-ron",
+    "e": "🥃",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": "4.4"
+  },
+  {
+    "n": "Jardín Sushi",
+    "u": "jardin-sushi",
+    "e": "🍣",
+    "c": "Sushi & Nikkei",
+    "city": "La Serena",
+    "r": "4.3"
+  },
+  {
+    "n": "El Bandido",
+    "u": "el-bandido",
+    "e": "🤠",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": "4.6"
+  },
+  {
+    "n": "Sumac Sabor Peruano",
+    "u": "sumac-sabor-peruano",
+    "e": "🇵🇪",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": "4.2"
+  },
+  {
+    "n": "Bullhouse",
+    "u": "bullhouse",
+    "e": "🐂",
+    "c": "Bar & Pub",
+    "city": "La Serena",
+    "r": "4.2"
+  },
+  {
+    "n": "Full Market",
+    "u": "full-market",
+    "e": "🛒",
+    "c": "Tiendas online",
+    "city": "La Serena",
+    "r": "3.9"
+  },
+  {
+    "n": "Mil Sabores de Casa",
+    "u": "mil-sabores-de-casa",
+    "e": "🥟",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": "4.2"
+  },
+  {
+    "n": "Marisquería Gladys",
+    "u": "marisqueria-gladys",
+    "e": "🦪",
+    "c": "Mariscos & Pescados",
+    "city": "Peñuelas",
+    "r": "4.3"
+  },
+  {
+    "n": "Ricopan",
+    "u": "ricopan-la-serena",
+    "e": "🥖",
+    "c": "Pastelería & Dulce",
+    "city": "La Serena",
+    "r": "4.4"
+  },
+  {
+    "n": "Tortuga Restaurant",
+    "u": "tortuga-restaurant",
+    "e": "🐢",
+    "c": "Mariscos & Pescados",
+    "city": "Coquimbo",
+    "r": "4.4"
+  },
+  {
+    "n": "Hand Rolls Sushi",
+    "u": "hand-rolls-sushi",
+    "e": "🍥",
+    "c": "Sushi & Nikkei",
+    "city": "La Serena",
+    "r": "4.2"
+  },
+  {
+    "n": "La Pica Frente al Mar",
+    "u": "la-pica-frente-al-mar",
+    "e": "🦀",
+    "c": "Mariscos & Pescados",
+    "city": "Peñuelas",
+    "r": "4.6"
+  },
+  {
+    "n": "Daga Beach",
+    "u": "daga-beach",
+    "e": "🏖️",
+    "c": "Café & Brunch",
+    "city": "La Serena",
+    "r": "4.8"
+  },
+  {
+    "n": "Café Elqui",
+    "u": "cafe-elqui",
+    "e": "🪐",
+    "c": "Tiendas online",
+    "city": "La Serena",
+    "r": "4.8"
+  },
+  {
+    "n": "Lemur Café",
+    "u": "lemur-cafe",
+    "e": "☕",
+    "c": "Café & Brunch",
+    "city": "La Serena",
+    "r": "4.7"
+  },
+  {
+    "n": "Dulce Salar",
+    "u": "dulce-salar",
+    "e": "🎂",
+    "c": "Pastelería & Dulce",
+    "city": "La Serena",
+    "r": "4.7"
+  },
+  {
+    "n": "Bocatta Food",
+    "u": "bocatta",
+    "e": "🍕",
+    "c": "Pizza & Pasta",
+    "city": "Coquimbo",
+    "r": "4.7"
+  },
+  {
+    "n": "Gelatería San Damián",
+    "u": "gelateria-san-damian",
+    "e": "🍦",
+    "c": "Pastelería & Dulce",
+    "city": "La Serena",
+    "r": "4.7"
+  },
+  {
+    "n": "Más Sabores Saludables",
+    "u": "mas-sabores-saludables",
+    "e": "🌱",
+    "c": "Tiendas online",
+    "city": "La Serena",
+    "r": "4.7"
+  },
+  {
+    "n": "Magnolia",
+    "u": "magnolia-seven",
+    "e": "🌿",
+    "c": "Restaurant & Cocina",
+    "city": "La Herradura",
+    "r": "4.6"
+  },
+  {
+    "n": "Martín Fierro",
+    "u": "martin-fierro-ten",
+    "e": "🥩",
+    "c": "Parrilla & Carnes",
+    "city": "La Serena",
+    "r": "4.6"
+  },
+  {
+    "n": "La Trinidad",
+    "u": "la-trinidad",
+    "e": "🧁",
+    "c": "Pastelería & Dulce",
+    "city": "La Serena",
+    "r": "4.5"
+  },
+  {
+    "n": "La Picá del Lupa",
+    "u": "la-pica-del-lupa",
+    "e": "🦀",
+    "c": "Mariscos & Pescados",
+    "city": "Coquimbo",
+    "r": "4.5"
+  },
+  {
+    "n": "El Vecino",
+    "u": "el-vecino",
+    "e": "🍔",
+    "c": "Burgers & Sánguches",
+    "city": "La Serena",
+    "r": "4.5"
+  },
+  {
+    "n": "La Pica El Pionero",
+    "u": "la-pica-el-pionero",
+    "e": "🦞",
+    "c": "Mariscos & Pescados",
+    "city": "Coquimbo",
+    "r": "4.4"
+  },
+  {
+    "n": "Mar Adentro",
+    "u": "picada-mar-adentro",
+    "e": "🦐",
+    "c": "Mariscos & Pescados",
+    "city": "Coquimbo",
+    "r": "4.4"
+  },
+  {
+    "n": "Invictus Sport Bar",
+    "u": "invictus-sport-bar",
+    "e": "🍻",
+    "c": "Bar & Pub",
+    "city": "La Serena",
+    "r": "4.4"
+  },
+  {
+    "n": "Che Pollo",
+    "u": "che-pollo123",
+    "e": "🍗",
+    "c": "Parrilla & Carnes",
+    "city": "Coquimbo",
+    "r": "4.3"
+  },
+  {
+    "n": "New Pirats",
+    "u": "new-pirats",
+    "e": "🏴‍☠️",
+    "c": "Bar & Pub",
+    "city": "Coquimbo",
+    "r": "4.3"
+  },
+  {
+    "n": "Crunchy Rolls",
+    "u": "crunchy-rolls",
+    "e": "🍣",
+    "c": "Sushi & Nikkei",
+    "city": "La Serena",
+    "r": "4.3"
+  },
+  {
+    "n": "Mar y Fuego",
+    "u": "mar-y-fuego",
+    "e": "🔥",
+    "c": "Mariscos & Pescados",
+    "city": "Coquimbo",
+    "r": "4.3"
+  },
+  {
+    "n": "Casona del 900",
+    "u": "casona-del-900",
+    "e": "🏛️",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": "4.3"
+  },
+  {
+    "n": "Duna Pub Rock",
+    "u": "pub-duna",
+    "e": "🎸",
+    "c": "Bar & Pub",
+    "city": "Coquimbo",
+    "r": "4.2"
+  },
+  {
+    "n": "Tacos & Tacones",
+    "u": "tacos-tacones",
+    "e": "🌮",
+    "c": "Cocina del mundo",
+    "city": "La Serena",
+    "r": "4.1"
+  },
+  {
+    "n": "Las Emilias",
+    "u": "las-emilias",
+    "e": "🧁",
+    "c": "Pastelería & Dulce",
+    "city": "La Serena",
+    "r": "4.1"
+  },
+  {
+    "n": "Tío Coco",
+    "u": "tio-coco",
+    "e": "🐟",
+    "c": "Mariscos & Pescados",
+    "city": "Coquimbo",
+    "r": "4.0"
+  },
+  {
+    "n": "Living & Loft",
+    "u": "living-loft",
+    "e": "🌅",
+    "c": "Bar & Pub",
+    "city": "La Serena",
+    "r": "4.0"
+  },
+  {
+    "n": "Vida Sana con Amor",
+    "u": "vida-sana-con-amor",
+    "e": "🌱",
+    "c": "Pastelería & Dulce",
+    "city": "La Serena",
+    "r": "4.0"
+  },
+  {
+    "n": "Bakulic",
+    "u": "bakulic",
+    "e": "🍽️",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Porota's",
+    "u": "porotas",
+    "e": "🍷",
+    "c": "Restaurant & Cocina",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Terracota Café",
+    "u": "terracota-cafe",
+    "e": "☕",
+    "c": "Café & Brunch",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "A'roma Caffè",
+    "u": "aroma-caffe-delta",
+    "e": "☕",
+    "c": "Café & Brunch",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Guanaqueros Café",
+    "u": "guanaqueros-cafe",
+    "e": "☕",
+    "c": "Café & Brunch",
+    "city": "Guanaqueros",
+    "r": ""
+  },
+  {
+    "n": "Donde Elbita",
+    "u": "donde-elbita",
+    "e": "🦪",
+    "c": "Mariscos & Pescados",
+    "city": "Coquimbo",
+    "r": ""
+  },
+  {
+    "n": "Rincón de Jenny",
+    "u": "rincon-de-jenny",
+    "e": "🐟",
+    "c": "Mariscos & Pescados",
+    "city": "Coquimbo",
+    "r": ""
+  },
+  {
+    "n": "Merendero Tía Sonia",
+    "u": "merendero-tia-sonia",
+    "e": "🥪",
+    "c": "Restaurant & Cocina",
+    "city": "Coquimbo",
+    "r": ""
+  },
+  {
+    "n": "Pollo Balón",
+    "u": "pollo-balon",
+    "e": "🍗",
+    "c": "Parrilla & Carnes",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Las Tías",
+    "u": "las-tias-eight",
+    "e": "🍟",
+    "c": "Burgers & Sánguches",
+    "city": "Coquimbo",
+    "r": ""
+  },
+  {
+    "n": "Fuente Liverpool",
+    "u": "fuente-liverpool",
+    "e": "🥪",
+    "c": "Burgers & Sánguches",
+    "city": "La Serena",
+    "r": ""
+  },
+  {
+    "n": "Nina Cakes",
+    "u": "nina-cakes",
+    "e": "🎂",
+    "c": "Tiendas online",
+    "city": "La Serena",
+    "r": "4.9"
+  }
+]

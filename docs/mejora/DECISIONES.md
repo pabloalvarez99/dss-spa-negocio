@@ -70,9 +70,9 @@ Formato: fecha · decisión · por qué · consecuencias.
 - Draft form: `localStorage` key `dss-postulacion`.
 
 ### T003 — Catálogo portafolio
-- Array `DEMOS` en `website/index.html`.  
+- Catálogo en `website/demos.json` (cargado por `fetch` desde `app.js`; fallback UI si falla).  
 - URL demo: `https://` + (`d.d` si existe, si no `d.u + '.vercel.app'`).  
-- Thumb: `shots/{u}.jpg`.
+- Thumb: `shots/{u}.webp` con fallback `shots/{u}.jpg` (`<picture>`).
 
 ### T004 — No commitear secretos
 - Repo privado; no tokens, chats de clientes, RUT de terceros, fotos privadas sin consentimiento (ver README).
