@@ -6,21 +6,75 @@
   var MAIL = "contactodssspa@gmail.com";     // correo de respaldo / contacto
   var FORM_MIN_MS = 2800;                    // anti-bot: tiempo mínimo de llenado
 
-  /* ===== Analytics stub (Sprint D wire real) ===== */
+  /* ===== Analytics (Sprint D): Vercel Web Analytics custom events ===== */
+  /* Queue stub so events before /_vercel/insights/script.js loads are not lost */
+  window.va = window.va || function(){ (window.vaq = window.vaq || []).push(arguments); };
+
+  function sanitizeProps(props){
+    var data = {};
+    if(!props) return data;
+    for(var k in props){
+      if(!Object.prototype.hasOwnProperty.call(props, k)) continue;
+      var v = props[k];
+      if(v == null || v === "") continue;
+      var t = typeof v;
+      if(t === "string"){
+        data[k] = v.length > 255 ? v.slice(0, 255) : v;
+      } else if(t === "number" || t === "boolean"){
+        data[k] = v;
+      } else {
+        var s = String(v);
+        data[k] = s.length > 255 ? s.slice(0, 255) : s;
+      }
+    }
+    return data;
+  }
+
   function track(event, props){
     try{
-      if(window.dataLayer && Array.isArray(window.dataLayer)){
-        var payload = { event: event };
-        if(props){ for(var k in props){ if(Object.prototype.hasOwnProperty.call(props,k)) payload[k] = props[k]; } }
-        window.dataLayer.push(payload);
-      }
-      if(typeof window.gtag === "function"){ window.gtag("event", event, props || {}); }
+      var name = String(event || "").slice(0, 100);
+      if(!name) return;
+      var data = sanitizeProps(props);
+      window.va("event", Object.keys(data).length ? { name: name, data: data } : { name: name });
     }catch(err){}
   }
   window.dssTrack = track;
+
+  /* WA click ids (canonical for dashboard filters) */
+  var WA_CLICK_IDS = {
+    "wa-header": "header",
+    "wa-hero": "hero",
+    "wa-cta": "cta",
+    "wa-footer": "footer",
+    "wa-mobar": "mobar",
+    "wa-fallback": "form_fallback",
+    "wa-tienda": "tienda",
+    "wa-retiro": "retiro",
+    "wa-retiro-foot": "retiro_footer"
+  };
+
   document.addEventListener("click", function(e){
-    var t = e.target.closest("[data-track]");
-    if(t) track(t.getAttribute("data-track"), { href: t.getAttribute("href") || "" });
+    var t = e.target.closest("a, button, [data-track]");
+    if(!t) return;
+
+    /* WhatsApp CTAs → wa_click + id */
+    var waId = t.id && WA_CLICK_IDS[t.id];
+    if(waId){
+      track("wa_click", { id: waId });
+      return;
+    }
+
+    var dt = t.getAttribute("data-track");
+    if(!dt) return;
+
+    /* Plan CTAs → plan_cta */
+    if(dt.indexOf("plan_") === 0){
+      track("plan_cta", { plan: dt.slice(5) || "n/d" });
+      return;
+    }
+
+    /* Other data-track (cta_hero_postular, form_submit_click, …) */
+    track(dt, { href: t.getAttribute("href") || "" });
   }, true);
 
   /* ===== WhatsApp links base ===== */
@@ -171,7 +225,7 @@
     /* honeypot: si viene lleno, fingir éxito sin enviar */
     var hp = form.elements["company_website"];
     if(hp && String(hp.value || "").trim()){
-      track("form_spam_honeypot");
+      track("form_spam_blocked", { reason: "honeypot" });
       form.querySelectorAll(".field, .form-submit").forEach(function(el){ el.style.display="none"; });
       ok.classList.add("show");
       return;
@@ -180,7 +234,7 @@
     /* tiempo mínimo de llenado */
     var started = parseInt((tsEl && tsEl.value) || formReadyAt, 10) || formReadyAt;
     if(Date.now() - started < FORM_MIN_MS){
-      track("form_spam_too_fast");
+      track("form_spam_blocked", { reason: "too_fast" });
       alert("Espera un segundo e intenta de nuevo.");
       return;
     }
@@ -281,7 +335,7 @@
         + "</picture>";
       var star = d.r ? '<span class="pf-tag star">⭐ '+d.r+"</span>" : "";
       var hay = (d.n+" "+d.c+" "+d.city).toLowerCase();
-      return '<a class="pf-card" href="'+demoUrl(d)+'" target="_blank" rel="noopener" data-cat="'+esc(d.c)+'" data-q="'+esc(hay)+'">'
+      return '<a class="pf-card" href="'+demoUrl(d)+'" target="_blank" rel="noopener" data-slug="'+esc(d.u)+'" data-cat="'+esc(d.c)+'" data-q="'+esc(hay)+'">'
         + '<div class="pf-prev"><span class="pf-badge"><span class="pulse"></span>DEMO</span><div class="emoji-bg" aria-hidden="true">'+d.e+"</div>"+img+"</div>"
         + '<div class="pf-meta"><div><h3>'+esc(d.n)+'</h3><div class="sub">'+esc(d.c)+" · "+esc(d.city)+"</div>"
         + '<div class="pf-tags">'+star+'</div></div><span class="live">Ver demo ↗</span></div></a>';
@@ -326,7 +380,14 @@
       filtersEl.querySelectorAll(".chip").forEach(function(c){ c.classList.remove("active"); });
       b.classList.add("active");
       curFilter = b.getAttribute("data-filter");
+      track("filter_use", { category: curFilter || "Todos" });
       apply();
+    });
+    grid.addEventListener("click", function(e){
+      var card = e.target.closest(".pf-card");
+      if(!card) return;
+      var slug = card.getAttribute("data-slug") || "";
+      if(slug) track("demo_open", { slug: slug });
     });
     if(qEl) qEl.addEventListener("input", apply);
     apply();

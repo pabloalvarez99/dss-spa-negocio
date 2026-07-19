@@ -63,6 +63,8 @@ Actualizá docs/mejora/STATUS.md al cerrar.
 | [`STATUS.md`](STATUS.md) | **Siempre** al abrir sesión |
 | [`ANALISIS.md`](ANALISIS.md) | Solo si necesitás contexto/estrategia; no en cada sprint |
 | [`DECISIONES.md`](DECISIONES.md) | Antes de proponer stack o cambios de modelo |
+| [`OBSERVABILIDAD.md`](OBSERVABILIDAD.md) | Cómo leer Analytics y correr uptime de demos (Sprint D) |
+| [`inventario-demos.md`](inventario-demos.md) | Último chequeo HTTP del portafolio |
 | [`sprints/*.md`](sprints/) | Solo el sprint activo |
 
 ---

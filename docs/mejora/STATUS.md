@@ -9,10 +9,10 @@
 
 | Campo | Valor |
 |-------|--------|
-| **Siguiente sprint** | `C` — Demo-kit (o `D` Observabilidad si se prioriza medición) |
-| **Archivo** | [`sprints/C-demo-kit.md`](sprints/C-demo-kit.md) · [`sprints/D-observabilidad.md`](sprints/D-observabilidad.md) |
+| **Sprint actual** | `E` — Ops comercial (sesión paralela a C/D) |
+| **Archivo** | [`sprints/E-ops-comercial.md`](sprints/E-ops-comercial.md) |
 | **Bloqueado por** | — |
-| **Notas** | Sprint B cerrado en prod; no C/D/E en la sesión B |
+| **Notas** | Solo docs/proceso. No tocar demo-kit/ ni website/app.js·index.html. C y D en paralelo: no pisar. |
 
 ## Progreso
 
@@ -21,9 +21,9 @@
 | 0 Higiene | `done` | 2026-07-19 | 2026-07-19 | ventas→docs; 123 demos OK; WA retiro 24h |
 | A Landing | `done` | 2026-07-19 | 2026-07-19 | A1+A2+A3 en index.html; deploy prod |
 | B Performance | `done` | 2026-07-19 | 2026-07-19 | CSS/JS/DEMOS extraídos; WebP dual; deploy prod |
-| C Demo-kit | `pending` | | | Puede ir en paralelo a D si hay sesión dedicada |
-| D Observabilidad | `pending` | | | Después de A (eventos de form/WA); stub track() ya listo |
-| E Ops comercial | `pending` | | | No es solo código; CRM/Sheet |
+| C Demo-kit | `in_progress` | 2026-07-19 | | C1 en curso; no C3 multi-host (sesión paralela) |
+| D Observabilidad | `done` | 2026-07-19 | 2026-07-19 | track→va; eventos WA/form/demo/filter/plan; uptime 123 OK; OBSERVABILIDAD.md |
+| E Ops comercial | `in_progress` | 2026-07-19 | | CRM + pack cierre + embudo; solo docs (sesión paralela) |
 | F Escala | `blocked` | | | Solo con ≥8 clientes pagos |
 
 Estados válidos: `pending` · `in_progress` · `done` · `blocked` · `skipped`
@@ -39,6 +39,15 @@ Al terminar trabajo, el agente o la persona debe:
 5. [x] No empezar otro sprint grande en la misma sesión  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-19 — Sprint D Observabilidad (cerrado)
+- Wire `track`/`dssTrack` → Vercel Web Analytics (`window.va` + queue); try/catch no-op si falla. Sin ads/pixel.
+- Eventos: `wa_click` (id), `form_submit` (rubro/comuna/fuente), `form_spam_blocked` (reason), `demo_open` (slug), `filter_use` (category), `plan_cta` (plan).
+- Insights: un solo `/_vercel/insights/script.js` en index (sin npm `@vercel/analytics`).
+- Uptime: `scripts/check-demos-uptime.mjs` → `inventario-demos.md` + `uptime-last.json` (123/123 OK).
+- Docs: `docs/mejora/OBSERVABILIDAD.md`; smoke `scripts/smoke-d-observability.mjs`.
+- Deploy: `cd website && vercel --prod --yes`; alias `dss-chile.vercel.app` → deploy nuevo.
+- **No tocar** `demo-kit/` (C) ni reescribir docs/ventas (E).
 
 ### 2026-07-19 — Sprint B Performance / mantenibilidad (cerrado)
 - Extraídos `website/styles.css`, `website/app.js`, `website/demos.json` (fetch + fallback UI).
