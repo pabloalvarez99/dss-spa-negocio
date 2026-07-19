@@ -95,7 +95,7 @@ Formato: fecha · decisión · por qué · consecuencias.
   - **D** → `website/`
   - **E** → ops en `docs/` (ventas, negocio ops, CRM; no código de C/D)
 - **STATUS.md:** cada sesión actualiza **solo su fila** de Progreso + su nota de sesión. No reescribir filas ajenas ni “Sprint activo” de otra sesión.
-- **Fuente operativa:** `docs/mejora/STATUS.md` § Sesiones paralelas.
+- **Fuente operativa:** `docs/mejora/STATUS.md` § Anti-conflicto (sesiones paralelas C / D / E).
 
 ---
 
