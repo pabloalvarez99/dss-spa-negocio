@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dss-chile.vercel.app/sitemap.xml
