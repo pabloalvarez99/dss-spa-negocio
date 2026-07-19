@@ -31,22 +31,11 @@ Sitio comercial + kit de ventas para demos web a negocios locales.
 │   ├── clients/{slug}/      # content.json (+ assets)
 │   ├── scripts/build-demo.mjs
 │   └── README.md
+├── scripts/                 # Uptime demos / smoke (Sprint D)
 ├── docs/
 │   ├── ventas/              # Scripts de campo (fuente de verdad)
-│   │   ├── CHECKLIST.md
-│   │   ├── WHATSAPP.md
-│   │   ├── CORREO.md
-│   │   └── PITCH.md
-│   ├── negocio/             # Plan y propuesta comercial
-│   │   ├── PLAN.md
-│   │   └── PROPUESTA.md
-│   └── mejora/              # Ultraplan + sprints (sesiones nuevas)
-│       ├── README.md
-│       ├── STATUS.md
-│       ├── ANALISIS.md
-│       ├── DECISIONES.md
-│       ├── inventario-demos.md
-│       └── sprints/
+│   ├── negocio/             # Plan, propuesta, contrato, extras, go-live
+│   └── mejora/              # Ultraplan + STATUS + sprints 0–F
 └── README.md
 ```
 
@@ -94,24 +83,29 @@ El proyecto Vercel es **`dss-chile`** → `https://dss-chile.vercel.app`.
 |---|---|
 | [Plan de negocio](docs/negocio/PLAN.md) | Estrategia, precios, embudo, metas 90 días |
 | [Propuesta comercial](docs/negocio/PROPUESTA.md) | PDF/WhatsApp al cliente |
-| [Checklist](docs/ventas/CHECKLIST.md) | Captura de datos en visita |
-| [WhatsApp](docs/ventas/WHATSAPP.md) | Scripts de seguimiento + retiro de portafolio |
+| [Contrato simple](docs/negocio/CONTRATO.md) | Mensualidad, incluye/no incluye, suspensión |
+| [Transferencia](docs/negocio/TRANSFERENCIA.md) | Plantilla cobro (sin secretos de más) |
+| [Go-live](docs/negocio/CHECKLIST-GO-LIVE.md) | Checklist al publicar cliente |
+| [Extras](docs/negocio/EXTRAS.md) | Cotizables fuera del plan |
+| [Checklist visita](docs/ventas/CHECKLIST.md) | Captura de datos en campo |
+| [WhatsApp](docs/ventas/WHATSAPP.md) | Seguimiento + retiro portafolio |
 | [Correo](docs/ventas/CORREO.md) | Propuesta por mail |
 | [Pitch](docs/ventas/PITCH.md) | Guion presencial |
 
 ## Mejora y sprints (ultraplan)
 
-Para no re-analizar el repo en cada sesión: **[`docs/mejora/`](docs/mejora/README.md)**.
+**[`docs/mejora/`](docs/mejora/README.md)** — no re-analizar el repo en cada sesión.
 
 | Documento | Uso |
 |---|---|
-| [Índice + cómo arrancar sesión](docs/mejora/README.md) | Prompt corto y orden de sprints |
-| [STATUS](docs/mejora/STATUS.md) | Qué sprint sigue; actualizar al cerrar |
-| [Análisis](docs/mejora/ANALISIS.md) | Diagnóstico (solo si hace falta contexto) |
-| [Decisiones](docs/mejora/DECISIONES.md) | Decisiones estables de producto/tech |
-| [Sprints 0–F](docs/mejora/sprints/) | Checklists ejecutables |
+| [STATUS](docs/mejora/STATUS.md) | **Siempre primero** — residuales y sprints |
+| [Índice](docs/mejora/README.md) | Cómo arrancar sesión post 0–E |
+| [CRM schema](docs/mejora/crm-schema.md) | Google Sheet embudo |
+| [Observabilidad](docs/mejora/OBSERVABILIDAD.md) | Analytics + uptime |
+| [Decisiones](docs/mejora/DECISIONES.md) | Decisiones estables |
+| [Sprints 0–F](docs/mejora/sprints/) | Checklists (0–E done; F blocked) |
 
-**Siguiente sprint:** ver `docs/mejora/STATUS.md` (hoy: Sprint A — landing).
+**Estado:** sprints **0–E cerrados**. Siguiente formal = **F** solo con ≥8 clientes. Residuales en `STATUS.md`.
 
 ---
 

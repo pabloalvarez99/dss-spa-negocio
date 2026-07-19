@@ -3,7 +3,25 @@
 > **Actualizar este archivo al cerrar cada sesión.**  
 > Es la única fuente de “qué sigue” para no gastar tokens re-descubriendo.
 
-Última actualización: 2026-07-19
+Última actualización: 2026-07-19 (sesión cerrada — 0–E done, F blocked)
+
+## Snapshot de cierre
+
+| | |
+|---|---|
+| **GitHub** | `main` @ `origin` limpio |
+| **Prod** | https://dss-chile.vercel.app (Vercel `dss-chile`, root `website/`) |
+| **Sprints código/docs** | 0 · A · B · C1+C2 · D · E = **done** |
+| **Siguiente formal** | F solo con ≥8 clientes pagos |
+| **Residuales (ops, no sprint F)** | Ver sección abajo |
+
+### Residuales abiertos (próximas sesiones cortas)
+
+1. **CRM real:** montar Google Sheet desde [`crm-schema.md`](crm-schema.md) y usarlo en cada lead.  
+2. **C3 / P002:** unificar host de demos (Vercel vs CF Pages) cuando se decida.  
+3. **Cuentas SpA:** rellenar `docs/negocio/TRANSFERENCIA.md` en privado (no secretos de más en repo).  
+4. **Testimonios reales** en landing cuando haya clientes pagos.  
+5. **Uptime demos:** correr `node scripts/check-demos-uptime.mjs` de vez en cuando (ver [`OBSERVABILIDAD.md`](OBSERVABILIDAD.md)).
 
 ## Anti-conflicto (sesiones paralelas C / D / E)
 
@@ -58,6 +76,13 @@ Al terminar trabajo, el agente o la persona debe:
 6. Commit + push con mensaje solo de tu sprint  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-19 — Cierre de jornada (ordenado para terminar sesión)
+- Repo limpio, `main` = `origin/main`. Sin tmp sueltos.
+- Ultraplan 0–E cerrado en código/docs. Landing en prod.
+- Anti-conflicto C∥D∥E queda documentado por si reaparecen sprints paralelos.
+- **No abrir Sprint F** sin tracción (D009). Trabajo útil entre sesiones: residuales del snapshot.
+- Prompt próxima sesión (ops o residual): ver `docs/mejora/README.md` → “Después de 0–E”.
 
 ### 2026-07-19 — Sprint E Ops comercial (cerrado)
 - Solo docs de E (`docs/negocio/*` pack, `crm-schema.md`, DECISIONES P003/D011, sprint E). **No** `website/`, **no** `demo-kit/`, **no** deploy.
