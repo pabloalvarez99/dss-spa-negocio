@@ -9,20 +9,20 @@
 
 | Campo | Valor |
 |-------|--------|
-| **Siguiente sprint** | `A` — Landing |
-| **Archivo** | [`sprints/A-landing.md`](sprints/A-landing.md) |
+| **Siguiente sprint** | `B` — Performance |
+| **Archivo** | [`sprints/B-performance.md`](sprints/B-performance.md) |
 | **Bloqueado por** | — |
-| **Notas** | Sprint 0 cerrado; docs de ventas + inventario demos listos |
+| **Notas** | Sprint A cerrado en prod (`dss-chile` → dss-chile.vercel.app) |
 
 ## Progreso
 
 | Sprint | Estado | Fecha inicio | Fecha fin | Notas |
 |--------|--------|--------------|-----------|-------|
 | 0 Higiene | `done` | 2026-07-19 | 2026-07-19 | ventas→docs; 123 demos OK; WA retiro 24h |
-| A Landing | `pending` | | | Depende de 0 en parte (docs paths) |
+| A Landing | `done` | 2026-07-19 | 2026-07-19 | A1+A2+A3 en index.html; deploy prod |
 | B Performance | `pending` | | | Ideal después de A (menos conflictos en index.html) |
 | C Demo-kit | `pending` | | | Puede ir en paralelo a B si hay sesión dedicada |
-| D Observabilidad | `pending` | | | Después de A (eventos de form/WA) |
+| D Observabilidad | `pending` | | | Después de A (eventos de form/WA); stub track() ya listo |
 | E Ops comercial | `pending` | | | No es solo código; CRM/Sheet |
 | F Escala | `blocked` | | | Solo con ≥8 clientes pagos |
 
@@ -39,6 +39,13 @@ Al terminar trabajo, el agente o la persona debe:
 5. [x] No empezar otro sprint grande en la misma sesión  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-19 — Sprint A Landing / conversión (cerrado)
+- A1: copy chileno (sin voseo), hero Coquimbo/La Serena + demo 24–72 h, stats honestos, Schema planes reales (sin e-commerce core), FAQ con precios y sin permanencia.
+- A2: sección `#planes` (29.990 / 49.990 / 79.990), nav + scrollspy, testimonios placeholder honestos, `#privacidad`, link retiro portafolio WA (≤24 h), sin permanencia cerca de CTAs.
+- A3: honeypot + tiempo mínimo, validación celular +56 9, “¿Cómo nos conociste?”, WA + Web3Forms, stub `track()` / `dssTrack`.
+- Deploy: `cd website && vercel --prod --yes` (proyecto `dss-chile`). Alias `dss-chile.vercel.app` reasignado al deploy nuevo (antes apuntaba al proyecto `website`).
+- **Siguiente:** Sprint B — Performance (extraer CSS/JS).
 
 ### 2026-07-19 — Sprint 0 Higiene base (cerrado)
 - `.obsidian/` añadido a `.gitignore`; `_mirror/` ya ignorado; remote `origin` OK.
