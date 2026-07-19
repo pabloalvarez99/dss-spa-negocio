@@ -43,10 +43,10 @@ Al terminar trabajo, el agente o la persona debe:
 ### 2026-07-19 — Sprint 0 Higiene base (cerrado)
 - `.obsidian/` añadido a `.gitignore`; `_mirror/` ya ignorado; remote `origin` OK.
 - `website/ventas/*` unificado en `docs/ventas/`; stub README en `website/ventas/`.
-- README + PLAN + DECISIONES (T001) alineados a prod `dss-spa` / `https://dss-spa.vercel.app`.
+- README + PLAN + DECISIONES (T001) alineados a prod Vercel **`dss-chile`** → `https://dss-chile.vercel.app`.
 - Inventario: 123 demos, todas HTTP 200 → `docs/mejora/inventario-demos.md`.
 - Texto WA retiro portafolio 24 h + D010 en DECISIONES.
-- Sin deploy: no se modificó copy/UI de `website/index.html` (meta URLs legacy `dss-chile` quedan para Sprint A si se desea).
+- Sin deploy de landing en Sprint 0 (solo docs + higiene).
 - **Siguiente:** Sprint A — Landing.
 
 ### 2026-07-19 — Documentación del ultraplan

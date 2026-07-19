@@ -64,4 +64,4 @@ No implementes Sprint A todavía.
 - Ventas canónicas en `docs/ventas/`; `website/ventas/README.md` solo redirige
 - 123/123 demos HTTP 200; inventario en `docs/mejora/inventario-demos.md`
 - WA retiro 24 h: `docs/ventas/WHATSAPP.md` §8 + decisión D010
-- Sitio prod documentado: Vercel `dss-spa` → `https://dss-spa.vercel.app` (sin deploy en este sprint: no se tocó `index.html`)
+- Sitio prod documentado: Vercel `dss-chile` → `https://dss-chile.vercel.app` (sin deploy en este sprint: no se tocó `index.html`)
