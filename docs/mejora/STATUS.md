@@ -45,7 +45,7 @@ Al terminar trabajo, el agente o la persona debe:
 - 123 thumbs dual jpg+webp (`<picture>`), avg ~21 KB/webp; preview-tu-farmacia webp; og-image.png se mantiene para OG.
 - `vercel.json` ya cachea webp; sin preload de thumbs; fonts Google async; `prefers-reduced-motion` + noscript OK.
 - Smoke local 36/36 (filtros/PAGE/ticker/form/track/stats/planes/privacidad a nivel de código + HTTP assets).
-- Deploy: `cd website && vercel --prod --yes` (proyecto `dss-chile`).
+- Deploy: `cd website && vercel --prod --yes` (proyecto `dss-chile`); re-alias manual de `dss-chile.vercel.app` al deploy nuevo (prod URL del proyecto sigue en `website-henna-alpha-60.vercel.app`).
 - **Siguiente:** Sprint C (Demo-kit) o D (Observabilidad). **No** C/D/E en esta sesión.
 
 ### 2026-07-19 — Sprint A Landing / conversión (cerrado)
