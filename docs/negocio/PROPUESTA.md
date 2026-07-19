@@ -1,7 +1,29 @@
 # Propuesta comercial — DSS Chile
 
 **Desarrollo de Software y Sistemas SpA · RUT 78.392.075-1**  
-Sitio: https://dss-chile.vercel.app
+Sitio: https://dss-chile.vercel.app  
+
+**Versión:** exportable (Markdown → PDF / WhatsApp) · Sprint E  
+**Documentos de cierre:** `CONTRATO.md` · `TRANSFERENCIA.md` · `CHECKLIST-GO-LIVE.md` · `EXTRAS.md`
+
+---
+
+## Cómo exportar / enviar
+
+| Canal | Cómo |
+|-------|------|
+| WhatsApp | Copiar secciones Planes + Condiciones + Contacto; o adjuntar PDF |
+| PDF | Abrir este `.md` en editor / VS Code / Pandoc / “Print to PDF” del preview |
+| Correo | Usar también `docs/ventas/CORREO.md` y adjuntar esta propuesta |
+| Personalizar | Reemplazar `[NOMBRE DEL NEGOCIO]` abajo si se usa la variante dirigida |
+
+Variante de encabezado dirigido (opcional):
+
+```text
+Propuesta para: [NOMBRE DEL NEGOCIO]
+Fecha: [DD/MM/AAAA]
+Plan sugerido: [Presencia | Comercial | Pro]
+```
 
 ---
 
@@ -57,7 +79,7 @@ Incluye de forma típica:
 
 ## No incluido por defecto
 
-Se cotiza aparte:
+Se cotiza aparte (detalle interno: `EXTRAS.md`):
 
 - Pagos online  
 - Inventario  
@@ -67,25 +89,29 @@ Se cotiza aparte:
 - Fotografía profesional  
 - Publicidad pagada  
 - Redacción avanzada de contenido  
+- Dominio `.cl` de marca propia (setup; puede negociarse en Pro)  
+- Catálogo muy grande o reservas complejas  
 
 ## Forma de trabajo
 
 1. Se prepara demo gratuita.  
 2. El cliente revisa en su celular.  
 3. Ajustes básicos si corresponde.  
-4. Si aprueba, se activa la mensualidad.  
-5. La página queda publicada y mantenida.  
+4. Si aprueba, se activa la mensualidad (contrato simple + transferencia).  
+5. La página queda publicada y mantenida (checklist go-live interno).  
 
 ## Condiciones
 
-- Pago mensual anticipado (transferencia).  
+- Pago mensual anticipado (transferencia a la SpA).  
 - Sin permanencia obligatoria.  
 - Si deja de pagar, la página puede suspenderse.  
 - Cambios incluidos = texto, imágenes, horarios, precios o promociones.  
 - Funcionalidades nuevas = cotización aparte.  
+- Condiciones ampliadas: `CONTRATO.md`.  
 
 ## Contacto
 
 - WhatsApp: +56 9 9364 9604  
 - Correo: contactodssspa@gmail.com  
 - Web: https://dss-chile.vercel.app  
+

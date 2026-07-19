@@ -51,6 +51,17 @@ Formato: fecha · decisión · por qué · consecuencias.
 ### D008 — CRM simple antes que software custom
 - **Decisión:** Notion o Google Sheet; no construir CRM propio en fase 0–2.
 - **Estados mínimos:** contactado → demo → seguimiento → pago → perdido.
+- **Resuelto en P003 / D011:** herramienta elegida = **Google Sheet**.
+
+### D011 — CRM = Google Sheet (P003)
+- **Fecha:** 2026-07-19 (Sprint E)
+- **Decisión:** Usar **Google Sheet** como CRM mínimo (no Notion en fase actual).
+- **Por qué:** columnas y KPI (demo→pago, lead→demo ≤72 h) son tabulares; filtros y metas semanales más simples en calle; sin setup de workspace Notion.
+- **Esquema canónico:** `docs/mejora/crm-schema.md`
+- **Reglas embudo:** follow-up 48–72 h y 7 d; máx. ~15 demos activas sin respuesta; 14 d → archivar/expirar; metas semanales desde `PLAN.md`
+- **KPI meta (documentar, no inventar datos):** demo→pago ≥25%; lead→demo ≤72 h en el 90%
+- **Consecuencia:** todo lead nuevo entra al Sheet el mismo día; no hay CRM custom ni Notion obligatorio.
+- **Revisar si:** >30 clientes pagos activos o varios operadores en paralelo (reabrir Notion/HubSpot).
 
 ### D009 — Escala solo con tracción
 - **Decisión:** Sprint F (ads, junior, QR barato, multi-región) solo con **≥8 clientes pagos**.
@@ -77,6 +88,15 @@ Formato: fecha · decisión · por qué · consecuencias.
 ### T004 — No commitear secretos
 - Repo privado; no tokens, chats de clientes, RUT de terceros, fotos privadas sin consentimiento (ver README).
 
+### T005 — Sesiones paralelas C / D / E (anti-conflicto)
+- **Fecha:** 2026-07-19
+- **Partición de árboles:**
+  - **C** → `demo-kit/`
+  - **D** → `website/`
+  - **E** → ops en `docs/` (ventas, negocio ops, CRM; no código de C/D)
+- **STATUS.md:** cada sesión actualiza **solo su fila** de Progreso + su nota de sesión. No reescribir filas ajenas ni “Sprint activo” de otra sesión.
+- **Fuente operativa:** `docs/mejora/STATUS.md` § Sesiones paralelas.
+
 ---
 
 ## Pendientes de decisión (no asumir)
@@ -85,5 +105,5 @@ Formato: fecha · decisión · por qué · consecuencias.
 |----|----------|--------------|
 | P001 | Dominio final de marca (¿dsschile.cl u otro?) | Pablo / SpA |
 | P002 | Vercel vs Cloudflare Pages para **todas** las demos | Al hacer Sprint C |
-| P003 | ¿CRM Notion o Google Sheet? | Al hacer Sprint E |
+| P003 | ¿CRM Notion o Google Sheet? | **Resuelto 2026-07-19:** Google Sheet (D011) |
 | P004 | ¿Publicar precios exactos o solo “desde $29.990”? | Preferencia: tabla completa (D007) |

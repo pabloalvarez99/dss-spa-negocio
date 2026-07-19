@@ -226,6 +226,11 @@ Mantención mensual
 ## Documentos relacionados
 
 - Propuesta al cliente → `docs/negocio/PROPUESTA.md`
+- Contrato 1 pág. → `docs/negocio/CONTRATO.md`
+- Transferencia (plantilla sin secretos) → `docs/negocio/TRANSFERENCIA.md`
+- Go-live post-pago → `docs/negocio/CHECKLIST-GO-LIVE.md`
+- Extras cotizables → `docs/negocio/EXTRAS.md`
+- CRM / embudo / KPI → `docs/mejora/crm-schema.md`
 - Checklist de datos → `docs/ventas/CHECKLIST.md`
 - Scripts WhatsApp → `docs/ventas/WHATSAPP.md`
 - Correo → `docs/ventas/CORREO.md`

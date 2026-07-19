@@ -27,10 +27,10 @@ Reglas:
 
 | Campo | Valor |
 |-------|--------|
-| **Sprint actual** | `E` — Ops comercial (sesión paralela a C/D) |
-| **Archivo** | [`sprints/E-ops-comercial.md`](sprints/E-ops-comercial.md) |
-| **Bloqueado por** | — |
-| **Notas** | E en curso (solo docs). C y D cerrados. C3 residual si se decide P002. No F. |
+| **Sprint actual** | — (0–E cerrados; F blocked) |
+| **Archivo** | [`sprints/F-escala.md`](sprints/F-escala.md) (solo con tracción) |
+| **Bloqueado por** | F: ≥8 clientes pagos (D009) |
+| **Notas** | C3 residual si se decide P002. Residual ops: montar Sheet real desde `crm-schema.md`. |
 
 ## Progreso
 
@@ -41,7 +41,7 @@ Reglas:
 | B Performance | `done` | 2026-07-19 | 2026-07-19 | CSS/JS/DEMOS extraídos; WebP dual; deploy prod |
 | C Demo-kit | `done` | 2026-07-19 | 2026-07-19 | C1+C2 done (4 skins + build/check); C3 diferido (P002) |
 | D Observabilidad | `done` | 2026-07-19 | 2026-07-19 | track→va; eventos WA/form/demo/filter/plan; uptime 123 OK; OBSERVABILIDAD.md |
-| E Ops comercial | `in_progress` | 2026-07-19 | | CRM + pack cierre + embudo; solo docs (sesión paralela) |
+| E Ops comercial | `done` | 2026-07-19 | 2026-07-19 | Sheet CRM + pack cierre + EXTRAS; solo docs |
 | F Escala | `blocked` | | | Solo con ≥8 clientes pagos |
 
 Estados válidos: `pending` · `in_progress` · `done` · `blocked` · `skipped`
@@ -58,6 +58,16 @@ Al terminar trabajo, el agente o la persona debe:
 6. Commit + push con mensaje solo de tu sprint  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-19 — Sprint E Ops comercial (cerrado)
+- Solo docs de E (`docs/negocio/*` pack, `crm-schema.md`, DECISIONES P003/D011, sprint E). **No** `website/`, **no** `demo-kit/`, **no** deploy.
+- CRM: **Google Sheet** (P003→D011). Esquema + embudo + KPI en `docs/mejora/crm-schema.md`.
+- Embudo: FU 48–72 h y 7 d; máx ~15 demos activas sin respuesta; 14 d archivar/expirar; metas semanales desde PLAN.
+- Pack cierre: `PROPUESTA.md` (export), `CONTRATO.md`, `TRANSFERENCIA.md` (sin cuentas reales), `CHECKLIST-GO-LIVE.md`.
+- Extras: `docs/negocio/EXTRAS.md` (dominio .cl, fotos, catálogo grande, reservas, solo-links delivery).
+- KPI meta documentados (sin inventar datos): demo→pago ≥25%; lead→demo ≤72 h en 90%.
+- Leads históricos: N/A (Sheet en cero; portafolio ilustrativo ≠ CRM).
+- Filas C/D no pisadas.
 
 ### 2026-07-19 — Sprint C Demo-kit (C1+C2 cerrados; C3 diferido)
 - Scaffold `demo-kit/`: templates `restaurant` · `barber` · `clinic` · `services` (layout `_shared`), clients ejemplo, `scripts/build-demo.mjs` + `preview.mjs` + `check-demo.mjs`.
