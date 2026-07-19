@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dss-chile.local/demo-kit/content.schema.json",
+  "title": "DSS demo-kit content.json",
+  "type": "object",
+  "required": ["slug", "name", "phone_wa", "city", "template"],
+  "additionalProperties": true,
+  "properties": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "ID de carpeta en clients/{slug}. Debe coincidir con el nombre de la carpeta."
+    },
+    "template": {
+      "type": "string",
+      "enum": ["restaurant", "barber", "clinic", "services"],
+      "description": "Skin/rubro en templates/{template}/"
+    },
+    "name": { "type": "string", "minLength": 2, "description": "Nombre comercial visible" },
+    "tagline": { "type": "string", "description": "Frase corta bajo el hero / SEO fallback" },
+    "phone_wa": {
+      "type": "string",
+      "description": "Solo dígitos internacionales, ej. 56912345678 (sin + ni espacios)"
+    },
+    "city": { "type": "string" },
+    "address": { "type": "string" },
+    "maps_url": { "type": "string", "description": "URL de Google Maps. Si falta, se arma desde address+city" },
+    "instagram": { "type": "string" },
+    "hours": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "days": { "type": "string" },
+          "time": { "type": "string" }
+        },
+        "required": ["days", "time"]
+      }
+    },
+    "menu": {
+      "type": "array",
+      "description": "Carta, servicios o prestaciones según rubro",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "category": { "type": "string" },
+          "name": { "type": "string" },
+          "desc": { "type": "string" },
+          "price": { "type": "string" }
+        }
+      }
+    },
+    "colors": {
+      "type": "object",
+      "properties": {
+        "primary": { "type": "string" },
+        "on_primary": { "type": "string" },
+        "bg": { "type": "string" }
+      }
+    },
+    "images": {
+      "type": "array",
+      "description": "Rutas relativas (assets/foto.webp) o URLs absolutas",
+      "items": {
+        "oneOf": [
+          { "type": "string" },
+          {
+            "type": "object",
+            "properties": {
+              "src": { "type": "string" },
+              "alt": { "type": "string" }
+            }
+          }
+        ]
+      }
+    },
+    "stats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "string" },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "marquee": { "type": "array", "items": { "type": "string" } },
+    "highlights": { "type": "array", "items": { "type": "string" } },
+    "about": { "type": "string" },
+    "about_title": { "type": "string" },
+    "about_card": { "type": "string" },
+    "hero_title": { "type": "string", "description": "Soporta {name}" },
+    "menu_title": { "type": "string" },
+    "menu_intro": { "type": "string" },
+    "label_menu": { "type": "string" },
+    "contact_title": { "type": "string" },
+    "cta_primary": { "type": "string" },
+    "cta_secondary": { "type": "string" },
+    "cta_short": { "type": "string" },
+    "eyebrow": { "type": "string" },
+    "wa_message": { "type": "string", "description": "Texto prearmado; soporta {name}" },
+    "seo_title": { "type": "string" },
+    "seo_description": { "type": "string" },
+    "canonical_url": { "type": "string" },
+    "og_image": { "type": "string" },
+    "schema_type": { "type": "string", "description": "Tipo Schema.org, default LocalBusiness" },
+    "show_demo_badge": { "type": "boolean", "default": true }
+  }
+}

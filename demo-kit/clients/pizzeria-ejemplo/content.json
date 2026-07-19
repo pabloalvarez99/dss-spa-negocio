@@ -1,0 +1,77 @@
+{
+  "slug": "pizzeria-ejemplo",
+  "template": "restaurant",
+  "name": "Pizzería Ejemplo",
+  "tagline": "Pizza al horno de leña en Coquimbo. Masa de fermentación lenta, ingredientes frescos y pedido por WhatsApp.",
+  "phone_wa": "56912345678",
+  "city": "Coquimbo",
+  "address": "Av. Costanera 1200, Coquimbo",
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=Costanera+Coquimbo",
+  "instagram": "https://instagram.com/",
+  "hours": [
+    { "days": "Mar–Jue", "time": "12:00–22:00" },
+    { "days": "Vie–Sáb", "time": "12:00–23:30" },
+    { "days": "Dom", "time": "13:00–21:00" },
+    { "days": "Lun", "time": "Cerrado" }
+  ],
+  "menu": [
+    {
+      "category": "Clásicas",
+      "name": "Margarita",
+      "desc": "Salsa de tomate, mozzarella y albahaca fresca",
+      "price": "$8.900"
+    },
+    {
+      "category": "Clásicas",
+      "name": "Pepperoni",
+      "desc": "Mozzarella y pepperoni crocante",
+      "price": "$10.900"
+    },
+    {
+      "category": "Especiales",
+      "name": "Cuatro quesos",
+      "desc": "Mozzarella, gorgonzola, parmesano y provolone",
+      "price": "$12.500"
+    },
+    {
+      "category": "Especiales",
+      "name": "Napolitana",
+      "desc": "Tomate, anchoas, aceitunas y orégano",
+      "price": "$11.500"
+    },
+    {
+      "category": "Para compartir",
+      "name": "Tabla de la casa",
+      "desc": "Picoteo para 2–3 personas",
+      "price": "$14.900"
+    },
+    {
+      "category": "Bebidas",
+      "name": "Bebida 1.5 L",
+      "desc": "Variedades disponibles",
+      "price": "$2.500"
+    }
+  ],
+  "stats": [
+    { "value": "4.9★", "label": "Valoración demo" },
+    { "value": "25–40", "label": "Min. retiro" },
+    { "value": "WA", "label": "Pedidos" }
+  ],
+  "marquee": [
+    "Masa de fermentación lenta",
+    "Horno de leña",
+    "Pedido por WhatsApp",
+    "Coquimbo y La Serena"
+  ],
+  "about": "Somos una pizzería de barrio en Coquimbo. Esta es una demo de cómo se ve tu negocio online: carta clara, horarios, mapa y WhatsApp listo para pedir.",
+  "about_title": "Pizza con carácter",
+  "hero_title": "Pizza al horno en Coquimbo",
+  "colors": {
+    "primary": "#e8a33d"
+  },
+  "seo_title": "Pizzería Ejemplo · Pizza al horno en Coquimbo",
+  "seo_description": "Pizzería Ejemplo en Coquimbo. Pizza al horno, carta online y pedidos por WhatsApp. Demo de sitio web local.",
+  "wa_message": "Hola Pizzería Ejemplo, quiero hacer un pedido",
+  "images": [],
+  "show_demo_badge": true
+}

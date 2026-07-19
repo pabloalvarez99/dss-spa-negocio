@@ -1,0 +1,14 @@
+/* Services skin — industrial orange / slate */
+:root{
+  --bg:#111318;
+  --bg2:#171b22;
+  --card:#1d232d;
+  --line:#2f3847;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --primary:#f97316;
+  --on-primary:#111318;
+  --accent:#3b4250;
+  --font-display:'Space Grotesk',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+}

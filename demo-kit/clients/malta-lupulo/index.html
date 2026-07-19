@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Malta & Lúpulo — Cervecería Artesanal · Coquimbo</title>
+<meta name="description" content="Cervecería artesanal en Coquimbo. 12 schoperas de autor, cocina de bar y terraza frente al mar. Reserva por WhatsApp." />
+<meta name="theme-color" content="#14100b" />
+<meta property="og:title" content="Malta & Lúpulo — Cervecería Artesanal" />
+<meta property="og:description" content="12 schoperas de autor, cocina de bar y terraza frente al mar en Coquimbo." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#14100b; --bg2:#1c1610; --card:#241c13; --line:#3a2d1e;
+    --amber:#e8a33d; --amber-l:#f5c470; --cream:#f3e9d7; --muted:#a8977f;
+    --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--cream);font-family:'Manrope',sans-serif;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;line-height:1.05}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  ::selection{background:var(--amber);color:#14100b}
+
+  /* grain overlay */
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+  nav.scrolled{background:rgba(20,16,11,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .logo{font-family:'Fraunces',serif;font-weight:900;font-size:20px;letter-spacing:.02em}
+  .logo em{color:var(--amber);font-style:normal}
+  .nav-links{display:flex;gap:26px;font-size:14px;font-weight:600}
+  .nav-links a{color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--amber-l)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:700;font-size:15px;transition:.25s;border:1px solid transparent;cursor:pointer}
+  .btn-amber{background:var(--amber);color:#14100b}
+  .btn-amber:hover{background:var(--amber-l);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(232,163,61,.5)}
+  .btn-ghost{border-color:var(--line);color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber-l)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;
+    background:
+      radial-gradient(60% 55% at 78% 30%,rgba(232,163,61,.22),transparent 65%),
+      radial-gradient(45% 45% at 15% 80%,rgba(120,60,20,.35),transparent 60%),
+      linear-gradient(180deg,#14100b 0%,#1c130a 100%)}
+  .hero-ring{position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:640px;height:640px;border-radius:50%;
+    border:1px solid rgba(232,163,61,.25);animation:spin 40s linear infinite}
+  .hero-ring::before{content:"";position:absolute;inset:60px;border-radius:50%;border:1px dashed rgba(232,163,61,.18)}
+  .hero-ring::after{content:"🍺";position:absolute;top:8%;left:12%;font-size:44px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.5))}
+  @keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
+  .hero-inner{position:relative;z-index:2;max-width:680px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:22px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--amber)}
+  .hero h1{font-size:clamp(46px,8.5vw,92px);font-weight:900;letter-spacing:-.02em}
+  .hero h1 em{font-style:italic;color:var(--amber);font-weight:600}
+  .hero p{margin:24px 0 34px;font-size:18px;color:var(--muted);max-width:520px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:38px;margin-top:60px;flex-wrap:wrap}
+  .hero-stats b{display:block;font-family:'Fraunces',serif;font-size:34px;color:var(--amber-l)}
+  .hero-stats span{font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+  /* marquee */
+  .marquee{border-block:1px solid var(--line);padding:18px 0;overflow:hidden;background:var(--bg2)}
+  .marquee-track{display:flex;gap:48px;width:max-content;animation:mq 26s linear infinite;font-family:'Fraunces',serif;font-size:20px;color:var(--muted);white-space:nowrap}
+  .marquee-track i{color:var(--amber);font-style:normal;margin-right:48px}
+  @keyframes mq{to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:96px 0}
+  .sec-head{max-width:620px;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-.01em}
+  .sec-head h2 em{color:var(--amber);font-style:italic;font-weight:600}
+  .sec-head p{margin-top:14px;color:var(--muted)}
+
+  /* taps */
+  .taps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+  .tap{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;position:relative;overflow:hidden;transition:.3s}
+  .tap:hover{transform:translateY(-6px);border-color:rgba(232,163,61,.5);box-shadow:0 24px 50px -20px rgba(0,0,0,.7)}
+  .tap::before{content:"";position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(232,163,61,.16),transparent 70%)}
+  .tap .num{font-family:'Fraunces',serif;font-size:13px;color:var(--amber);letter-spacing:.2em}
+  .tap h3{font-size:24px;margin:10px 0 4px}
+  .tap .style{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .tap .desc{font-size:14.5px;color:var(--muted);margin:14px 0 18px}
+  .tap .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+  .tap .abv{font-size:12.5px;font-weight:800;color:var(--amber-l);background:rgba(232,163,61,.12);padding:4px 10px;border-radius:999px}
+  .tap .price{font-family:'Fraunces',serif;font-size:20px;color:var(--cream)}
+
+  /* food strip */
+  .food{background:var(--bg2);border-block:1px solid var(--line)}
+  .food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .food-card{border-radius:18px;padding:30px 24px;border:1px solid var(--line);background:linear-gradient(160deg,var(--card),#1a140d);transition:.3s}
+  .food-card:hover{transform:translateY(-5px)}
+  .food-card .ico{font-size:34px}
+  .food-card h3{font-size:19px;margin:14px 0 6px}
+  .food-card p{font-size:14px;color:var(--muted)}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  .hours{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px}
+  .hours h3{font-size:24px;margin-bottom:18px}
+  .hrow{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .hrow:last-child{border:none}
+  .hrow span{color:var(--muted)}
+  .hrow b{color:var(--amber-l)}
+  .hrow .closed{color:#c96a5a}
+  .map-card{border-radius:22px;overflow:hidden;border:1px solid var(--line);position:relative;min-height:300px;
+    background:
+      radial-gradient(40% 40% at 60% 40%,rgba(232,163,61,.14),transparent 70%),
+      linear-gradient(150deg,#20180f,#14100b)}
+  .map-card .pin{position:absolute;top:42%;left:55%;transform:translate(-50%,-100%);text-align:center}
+  .map-card .pin .dot{width:16px;height:16px;background:var(--amber);border-radius:50%;margin:0 auto;box-shadow:0 0 0 8px rgba(232,163,61,.2);animation:pulse 2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 16px rgba(232,163,61,0)}}
+  .map-card .pin p{margin-top:12px;font-size:14px;font-weight:700;background:rgba(20,16,11,.8);padding:6px 14px;border-radius:999px;border:1px solid var(--line)}
+  .map-lines{position:absolute;inset:0;opacity:.5;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:52px 52px}
+
+  /* cta */
+  .cta-final{text-align:center;padding:110px 0;position:relative;overflow:hidden}
+  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 100%,rgba(232,163,61,.16),transparent 70%)}
+  .cta-final h2{font-size:clamp(34px,6vw,64px);font-weight:900;position:relative}
+  .cta-final h2 em{color:var(--amber);font-style:italic;font-weight:600}
+  .cta-final p{color:var(--muted);margin:18px auto 34px;max-width:460px;position:relative}
+  .cta-final .btn{position:relative}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Malta <em>&</em> Lúpulo</a>
+    <div class="nav-links">
+      <a href="#schoperas">Schoperas</a>
+      <a href="#cocina">Cocina</a>
+      <a href="#visita">Visítanos</a>
+    </div>
+    <a class="btn btn-amber" href="https://wa.me/56912000011?text=Hola%20Malta%20%26%20L%C3%BApulo%2C%20quiero%20reservar%20mesa%20🍺" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-ring"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Cervecería artesanal · Coquimbo</span>
+    <h1>Cerveza de autor,<br /><em>frente al mar.</em></h1>
+    <p>Doce schoperas rotativas de nuestra propia cocción, cocina de bar honesta y la mejor terraza del puerto. Sin prisa, con espuma.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-amber" href="https://wa.me/56912000011?text=Hola%2C%20quiero%20reservar%20mesa%20para%20hoy%20🍺" target="_blank" rel="noopener">Reservar mesa</a>
+      <a class="btn btn-ghost" href="#schoperas">Ver schoperas ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>12</b><span>Schoperas</span></div>
+      <div><b>2019</b><span>Desde</span></div>
+      <div><b>4.8★</b><span>Reseñas</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>IPA Costa<i>●</i>Stout Puerto<i>●</i>Golden Brisa<i>●</i>Porter Niebla<i>●</i>Amber Faro<i>●</i>Sour Mar<i>●</i></span>
+    <span>IPA Costa<i>●</i>Stout Puerto<i>●</i>Golden Brisa<i>●</i>Porter Niebla<i>●</i>Amber Faro<i>●</i>Sour Mar<i>●</i></span>
+  </div>
+</div>
+
+<section id="schoperas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">De la cuba al vaso</span>
+      <h2>Las <em>schoperas</em> de la casa</h2>
+      <p>Cocción propia en lotes de 500 litros. Rotamos estilos según temporada — esto es lo que corre hoy.</p>
+    </div>
+    <div class="taps-grid">
+      <article class="tap reveal"><span class="num">Nº 01</span><h3>IPA Costa</h3><span class="style">West Coast IPA</span><p class="desc">Cítrica y resinosa, lúpulo Mosaic y Simcoe. Final seco que pide otro sorbo.</p><div class="foot"><span class="abv">6.5% ABV</span><span class="price">$4.500</span></div></article>
+      <article class="tap reveal"><span class="num">Nº 02</span><h3>Stout Puerto</h3><span class="style">Oatmeal Stout</span><p class="desc">Café, cacao y avena. Cremosa como la niebla de mayo en el puerto.</p><div class="foot"><span class="abv">5.2% ABV</span><span class="price">$4.200</span></div></article>
+      <article class="tap reveal"><span class="num">Nº 03</span><h3>Golden Brisa</h3><span class="style">Golden Ale</span><p class="desc">Liviana y floral. La puerta de entrada perfecta al mundo artesanal.</p><div class="foot"><span class="abv">4.8% ABV</span><span class="price">$3.800</span></div></article>
+      <article class="tap reveal"><span class="num">Nº 04</span><h3>Porter Niebla</h3><span class="style">Robust Porter</span><p class="desc">Tostada y oscura, con notas de caramelo quemado. Para tardes lentas.</p><div class="foot"><span class="abv">5.6% ABV</span><span class="price">$4.200</span></div></article>
+      <article class="tap reveal"><span class="num">Nº 05</span><h3>Amber Faro</h3><span class="style">Amber Ale</span><p class="desc">Maltosa y equilibrada, color cobre. La favorita de los parroquianos.</p><div class="foot"><span class="abv">5.0% ABV</span><span class="price">$3.800</span></div></article>
+      <article class="tap reveal"><span class="num">Nº 06</span><h3>Sour Mar</h3><span class="style">Sour Frutal</span><p class="desc">Frambuesa y maracuyá sobre base ácida. Refrescante como chapuzón.</p><div class="foot"><span class="abv">4.2% ABV</span><span class="price">$4.500</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="food" id="cocina">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Para acompañar</span>
+      <h2>Cocina de <em>bar honesta</em></h2>
+    </div>
+    <div class="food-grid">
+      <div class="food-card reveal"><span class="ico">🍔</span><h3>Smash Puerto</h3><p>Doble smash, queso mantecoso y mayo de malta. Con papas rústicas — $8.900</p></div>
+      <div class="food-card reveal"><span class="ico">🍟</span><h3>Papas Cerveceras</h3><p>Baño de reducción Amber, tocino y ciboulette — $6.500</p></div>
+      <div class="food-card reveal"><span class="ico">🧀</span><h3>Tabla del Valle</h3><p>Quesos de la región, frutos secos y pan de masa madre — $9.900</p></div>
+      <div class="food-card reveal"><span class="ico">🌮</span><h3>Tacos de Pescado</h3><p>Pescado del día en tempura de IPA, repollo y salsa criolla — $7.900</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visita">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Encuéntranos</span>
+      <h2>Terraza con <em>vista al puerto</em></h2>
+    </div>
+    <div class="visit-grid">
+      <div class="hours reveal">
+        <h3>Horarios</h3>
+        <div class="hrow"><span>Lunes</span><b class="closed">Cerrado</b></div>
+        <div class="hrow"><span>Martes – Jueves</span><b>17:00 – 00:00</b></div>
+        <div class="hrow"><span>Viernes – Sábado</span><b>16:00 – 01:30</b></div>
+        <div class="hrow"><span>Domingo</span><b>13:00 – 22:00</b></div>
+        <p style="margin-top:18px;font-size:14px;color:var(--muted)">📍 Av. Costanera 1240, Coquimbo<br />🐕 Pet friendly en terraza · 🎵 Viernes: música en vivo</p>
+      </div>
+      <div class="map-card reveal">
+        <div class="map-lines"></div>
+        <div class="pin"><div class="dot"></div><p>Av. Costanera 1240</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>¿Nos vemos <em>hoy?</em></h2>
+    <p>Reserva por WhatsApp y te guardamos mesa en la terraza. Los viernes se llena temprano.</p>
+    <a class="btn btn-amber" href="https://wa.me/56912000011?text=Hola%20Malta%20%26%20L%C3%BApulo%2C%20quiero%20reservar%20mesa%20🍺" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Malta & Lúpulo · Coquimbo</span>
+    <span>Demo ilustrativa creada por DSS · dss-chile.vercel.app</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56912000011?text=Hola%20Malta%20%26%20L%C3%BApulo%20🍺" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

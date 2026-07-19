@@ -1,0 +1,15 @@
+{
+  "name": "dss-demo-kit",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Fábrica de demos estáticas por rubro — DSS Chile",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-demo.mjs",
+    "preview": "node scripts/preview.mjs",
+    "check": "node scripts/check-demo.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

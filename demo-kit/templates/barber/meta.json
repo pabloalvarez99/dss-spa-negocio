@@ -1,0 +1,19 @@
+{
+  "id": "barber",
+  "label": "Barbería / salón",
+  "fonts_url": "https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap",
+  "defaults": {
+    "eyebrow": "Barbería",
+    "label_menu": "Servicios",
+    "menu_title": "Carta de servicios",
+    "menu_intro": "Cortes, barba y combos. Reserva por WhatsApp en minutos.",
+    "cta_primary": "Reservar por WhatsApp",
+    "cta_secondary": "Ver servicios",
+    "cta_short": "Reservar",
+    "about_title": "Estilo y precisión",
+    "about_card": "Agenda clara, precios visibles y reserva sin vueltas. Ideal para barberías locales.",
+    "contact_title": "Agenda tu hora",
+    "wa_message": "Hola {name}, quiero reservar una hora",
+    "hero_title": "{name}"
+  }
+}

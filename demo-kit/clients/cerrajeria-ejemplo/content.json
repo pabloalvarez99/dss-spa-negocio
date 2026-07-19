@@ -1,0 +1,33 @@
+{
+  "slug": "cerrajeria-ejemplo",
+  "template": "services",
+  "name": "Cerrajería Ejemplo",
+  "tagline": "Aperturas, cambios de cerradura y copias de llave en Coquimbo y La Serena. Atención por WhatsApp.",
+  "phone_wa": "56912345678",
+  "city": "Coquimbo",
+  "address": "Sector centro, Coquimbo (móvil a domicilio)",
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=Coquimbo+centro",
+  "hours": [
+    { "days": "Lun–Sáb", "time": "08:00–20:00" },
+    { "days": "Dom / urgencias", "time": "Consultar WA" }
+  ],
+  "menu": [
+    { "category": "Urgencia", "name": "Apertura de puerta", "desc": "Casa o auto según caso", "price": "Desde $25.000" },
+    { "category": "Seguridad", "name": "Cambio de cerradura", "desc": "Incluye mano de obra base", "price": "Desde $35.000" },
+    { "category": "Llaves", "name": "Copia de llave", "desc": "Variedad de modelos", "price": "Desde $3.000" },
+    { "category": "Instalación", "name": "Cerradura digital", "desc": "Cotización según modelo", "price": "Consultar" }
+  ],
+  "stats": [
+    { "value": "Rápido", "label": "Respuesta WA" },
+    { "value": "Móvil", "label": "A domicilio" },
+    { "value": "Cotiza", "label": "Sin compromiso" }
+  ],
+  "marquee": ["Aperturas", "Cerraduras", "A domicilio", "WhatsApp"],
+  "about": "Servicio local para cuando necesitas una solución ya. Precios de referencia; la cotización final va por WhatsApp.",
+  "hero_title": "Cerrajería cuando la necesitas",
+  "seo_title": "Cerrajería Ejemplo · Coquimbo y La Serena",
+  "seo_description": "Cerrajería a domicilio en Coquimbo y La Serena. Aperturas y cambios de cerradura. Demo de sitio web local.",
+  "wa_message": "Hola Cerrajería Ejemplo, necesito cotizar un servicio",
+  "colors": { "primary": "#f97316" },
+  "show_demo_badge": true
+}

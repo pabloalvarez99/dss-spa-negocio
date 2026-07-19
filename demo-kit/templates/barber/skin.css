@@ -1,0 +1,14 @@
+/* Barber skin — charcoal / steel */
+:root{
+  --bg:#0c0e12;
+  --bg2:#12161d;
+  --card:#181e28;
+  --line:#2a3342;
+  --text:#eef2f7;
+  --muted:#93a0b4;
+  --primary:#7dd3fc;
+  --on-primary:#0c0e12;
+  --accent:#334155;
+  --font-display:'Archivo',system-ui,sans-serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+}

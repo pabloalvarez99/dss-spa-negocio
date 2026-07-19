@@ -1,0 +1,14 @@
+/* Clinic skin — clean teal / white-blue */
+:root{
+  --bg:#f4f8fb;
+  --bg2:#eaf1f6;
+  --card:#ffffff;
+  --line:#d5e2ec;
+  --text:#0f2433;
+  --muted:#5b7384;
+  --primary:#0d9488;
+  --on-primary:#ffffff;
+  --accent:#99f6e4;
+  --font-display:'Source Serif 4',Georgia,serif;
+  --font-body:'Source Sans 3',system-ui,sans-serif;
+}

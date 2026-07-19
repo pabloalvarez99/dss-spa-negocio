@@ -1,0 +1,19 @@
+{
+  "id": "clinic",
+  "label": "Clínica / salud",
+  "fonts_url": "https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,700;8..60,900&display=swap",
+  "defaults": {
+    "eyebrow": "Salud y bienestar",
+    "label_menu": "Prestaciones",
+    "menu_title": "Qué ofrecemos",
+    "menu_intro": "Información clara para que tus pacientes sepan cómo contactarte.",
+    "cta_primary": "Agendar por WhatsApp",
+    "cta_secondary": "Ver prestaciones",
+    "cta_short": "Agendar",
+    "about_title": "Atención cercana",
+    "about_card": "Presencia profesional, horarios visibles y contacto directo. Demo ilustrativa.",
+    "contact_title": "Contáctanos",
+    "wa_message": "Hola {name}, quiero agendar una hora / consulta",
+    "hero_title": "{name}"
+  }
+}

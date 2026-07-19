@@ -43,11 +43,13 @@ demo-kit/
 
 ## C1 — Scaffold + 1 template piloto
 
-- [ ] Crear `demo-kit/` con README de uso  
-- [ ] Template `restaurant` (o el rubro más vendido) funcional  
-- [ ] `content.json` schema documentado (nombre, WA, horarios, menú, colores, city, maps)  
-- [ ] `npm run build -- --slug=ejemplo` genera carpeta estática  
-- [ ] Preview local del output  
+- [x] Crear `demo-kit/` con README de uso  
+- [x] Template `restaurant` (o el rubro más vendido) funcional  
+- [x] `content.json` schema documentado (nombre, WA, horarios, menú, colores, city, maps)  
+- [x] `npm run build -- --slug=ejemplo` genera carpeta estática  
+- [x] Preview local del output  
+
+**Hecho 2026-07-19:** `demo-kit/` con layout compartido, `npm run build -- --slug=pizzeria-ejemplo`, preview en `http://127.0.0.1:8765/` (puerto libre), schema en `demo-kit/schema/content.schema.json` + README.
 
 ### Schema mínimo `content.json`
 ```json
@@ -69,14 +71,16 @@ demo-kit/
 
 ## C2 — Multi-template + calidad
 
-- [ ] Al menos 4 templates de rubro  
-- [ ] Checklist “demo enviable” automatizable o en README:
-  - [ ] WA prearmado  
-  - [ ] Horarios + mapa  
-  - [ ] ≥3 fotos optimizadas  
-  - [ ] title/description con nombre  
-  - [ ] Sin lorem  
-- [ ] Tema visual distinto por rubro sin fork total del layout  
+- [x] Al menos 4 templates de rubro  
+- [x] Checklist “demo enviable” automatizable o en README:
+  - [x] WA prearmado  
+  - [x] Horarios + mapa  
+  - [x] ≥3 fotos optimizadas  
+  - [x] title/description con nombre  
+  - [x] Sin lorem  
+- [x] Tema visual distinto por rubro sin fork total del layout  
+
+**Hecho 2026-07-19:** skins `restaurant` · `barber` · `clinic` · `services` (layout `_shared`); `npm run check -- --slug=…`; checklist en README. Fotos ≥3 son soft-check (pilotos sin assets OK).
 
 ## C3 — Deploy unificado
 
@@ -86,6 +90,8 @@ demo-kit/
 - [ ] Registrar cada deploy en log o Sheet (link + fecha + cliente)  
 - [ ] Documentar SLA interno alineado a `docs/negocio/PLAN.md`  
 
+**Diferido:** P002 abierto; no multi-host en esta sesión.
+
 ## KPI del sprint
 | Métrica | Meta |
 |---------|------|
@@ -94,9 +100,9 @@ demo-kit/
 | Hosting | 1 sola convención de URL |
 
 ## Definition of done
-- [ ] Una persona puede generar y publicar demo con el README  
-- [ ] No hace falta clonar a mano un sitio viejo  
-- [ ] `STATUS.md` actualizado  
+- [x] Una persona puede **generar** demo con el README (publicar = C3 / P002)  
+- [x] No hace falta clonar a mano un sitio viejo  
+- [x] `STATUS.md` actualizado  
 
 ## Fuera de alcance
 - Panel admin multi-tenant  

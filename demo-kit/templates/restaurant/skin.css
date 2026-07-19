@@ -1,0 +1,14 @@
+/* Restaurant skin — warm amber / cream */
+:root{
+  --bg:#14100b;
+  --bg2:#1c1610;
+  --card:#241c13;
+  --line:#3a2d1e;
+  --text:#f3e9d7;
+  --muted:#a8977f;
+  --primary:#e8a33d;
+  --on-primary:#14100b;
+  --accent:#7a3e14;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Manrope',system-ui,sans-serif;
+}

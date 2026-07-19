@@ -1,0 +1,35 @@
+{
+  "slug": "barberia-norte",
+  "template": "barber",
+  "name": "Barbería Norte",
+  "tagline": "Cortes clásicos y fade moderno en La Serena. Reserva tu hora por WhatsApp.",
+  "phone_wa": "56912345678",
+  "city": "La Serena",
+  "address": "Calle Brasil 450, La Serena",
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=Brasil+La+Serena",
+  "hours": [
+    { "days": "Lun–Vie", "time": "10:00–19:30" },
+    { "days": "Sáb", "time": "10:00–14:00" },
+    { "days": "Dom", "time": "Cerrado" }
+  ],
+  "menu": [
+    { "category": "Corte", "name": "Corte clásico", "desc": "Tijera y máquina, termina con peinado", "price": "$12.000" },
+    { "category": "Corte", "name": "Fade / degradado", "desc": "Skin, mid o high fade", "price": "$14.000" },
+    { "category": "Barba", "name": "Perfilado de barba", "desc": "Navaja y toalla caliente", "price": "$8.000" },
+    { "category": "Combo", "name": "Corte + barba", "desc": "El combo más pedido", "price": "$18.000" },
+    { "category": "Kids", "name": "Corte niños", "desc": "Hasta 12 años", "price": "$9.000" }
+  ],
+  "stats": [
+    { "value": "30–40", "label": "Min. por servicio" },
+    { "value": "WA", "label": "Reservas" },
+    { "value": "Walk-in", "label": "Si hay cupo" }
+  ],
+  "marquee": ["Fade", "Barba", "Clásico", "Reserva por WhatsApp"],
+  "about": "Barbería de barrio con agenda simple: miras los servicios, eliges horario y escribes por WhatsApp.",
+  "hero_title": "Tu corte, sin vueltas",
+  "seo_title": "Barbería Norte · Cortes en La Serena",
+  "seo_description": "Barbería Norte en La Serena. Cortes, fade y barba. Reserva por WhatsApp. Demo de sitio web local.",
+  "wa_message": "Hola Barbería Norte, quiero reservar una hora",
+  "colors": { "primary": "#7dd3fc" },
+  "show_demo_badge": true
+}

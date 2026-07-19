@@ -26,6 +26,11 @@ Sitio comercial + kit de ventas para demos web a negocios locales.
 │   ├── shots/               # Previews del portafolio
 │   ├── ventas/              # Solo README → apunta a docs/ventas/
 │   └── …assets
+├── demo-kit/                # Fábrica de demos (templates + content.json + build)
+│   ├── templates/           # restaurant, barber, clinic, services
+│   ├── clients/{slug}/      # content.json (+ assets)
+│   ├── scripts/build-demo.mjs
+│   └── README.md
 ├── docs/
 │   ├── ventas/              # Scripts de campo (fuente de verdad)
 │   │   ├── CHECKLIST.md
@@ -44,6 +49,16 @@ Sitio comercial + kit de ventas para demos web a negocios locales.
 │       └── sprints/
 └── README.md
 ```
+
+### Demo-kit (fábrica de demos)
+
+```bash
+cd demo-kit
+npm run build -- --slug=pizzeria-ejemplo
+npm run preview -- --slug=pizzeria-ejemplo
+```
+
+Ver [`demo-kit/README.md`](demo-kit/README.md). No se deploya a `dss-chile` (landing comercial aparte).
 
 ---
 

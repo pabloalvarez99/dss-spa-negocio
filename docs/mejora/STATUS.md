@@ -12,7 +12,7 @@
 | **Sprint actual** | `E` — Ops comercial (sesión paralela a C/D) |
 | **Archivo** | [`sprints/E-ops-comercial.md`](sprints/E-ops-comercial.md) |
 | **Bloqueado por** | — |
-| **Notas** | Solo docs/proceso. No tocar demo-kit/ ni website/app.js·index.html. C y D en paralelo: no pisar. |
+| **Notas** | E en curso (solo docs). C y D cerrados. C3 residual si se decide P002. No F. |
 
 ## Progreso
 
@@ -21,7 +21,7 @@
 | 0 Higiene | `done` | 2026-07-19 | 2026-07-19 | ventas→docs; 123 demos OK; WA retiro 24h |
 | A Landing | `done` | 2026-07-19 | 2026-07-19 | A1+A2+A3 en index.html; deploy prod |
 | B Performance | `done` | 2026-07-19 | 2026-07-19 | CSS/JS/DEMOS extraídos; WebP dual; deploy prod |
-| C Demo-kit | `in_progress` | 2026-07-19 | | C1 en curso; no C3 multi-host (sesión paralela) |
+| C Demo-kit | `done` | 2026-07-19 | 2026-07-19 | C1+C2 done (4 skins + build/check); C3 diferido (P002) |
 | D Observabilidad | `done` | 2026-07-19 | 2026-07-19 | track→va; eventos WA/form/demo/filter/plan; uptime 123 OK; OBSERVABILIDAD.md |
 | E Ops comercial | `in_progress` | 2026-07-19 | | CRM + pack cierre + embudo; solo docs (sesión paralela) |
 | F Escala | `blocked` | | | Solo con ≥8 clientes pagos |
@@ -39,6 +39,15 @@ Al terminar trabajo, el agente o la persona debe:
 5. [x] No empezar otro sprint grande en la misma sesión  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-19 — Sprint C Demo-kit (C1+C2 cerrados; C3 diferido)
+- Scaffold `demo-kit/`: templates `restaurant` · `barber` · `clinic` · `services` (layout `_shared`), clients ejemplo, `scripts/build-demo.mjs` + `preview.mjs` + `check-demo.mjs`.
+- Schema: `demo-kit/schema/content.schema.json` + README (flujo objetivo ≤45 min).
+- Build: `npm run build -- --slug=pizzeria-ejemplo` → `dist/{slug}/index.html` (cero deps npm). Preview local OK (puerto 8765).
+- Check enviable: hard checks OK; fotos ≥3 soft (pilotos sin assets).
+- **No** C3 multi-host (P002 abierto). **No** deploy a `dss-chile`. No reescribir landing.
+- Legacy: `clients/malta-lupulo` HTML a mano (sin content.json).
+- **Siguiente residual C:** C3 cuando se decida P002. Sprint activo paralelo: E Ops.
 
 ### 2026-07-19 — Sprint D Observabilidad (cerrado)
 - Wire `track`/`dssTrack` → Vercel Web Analytics (`window.va` + queue); try/catch no-op si falla. Sin ads/pixel.
