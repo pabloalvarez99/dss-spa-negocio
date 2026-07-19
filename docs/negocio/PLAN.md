@@ -226,8 +226,9 @@ Mantención mensual
 ## Documentos relacionados
 
 - Propuesta al cliente → `docs/negocio/PROPUESTA.md`
-- Checklist de datos → `docs/ventas/CHECKLIST.md`
-- Scripts WhatsApp → `docs/ventas/WHATSAPP.md`
-- Correo → `docs/ventas/CORREO.md`
-- Pitch presencial → `docs/ventas/PITCH.md`
+- Checklist de datos → `website/ventas/CHECKLIST.md` (unificar a `docs/ventas/` en Sprint 0)
+- Scripts WhatsApp → `website/ventas/WHATSAPP.md`
+- Correo → `website/ventas/CORREO.md`
+- Pitch presencial → `website/ventas/PITCH.md`
 - Sitio fuente → `website/`
+- Ultraplan y sprints de mejora → `docs/mejora/` (empezar por `STATUS.md`)

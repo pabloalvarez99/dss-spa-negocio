@@ -23,16 +23,18 @@ Sitio comercial + kit de ventas para demos web a negocios locales.
 │   ├── index.html
 │   ├── vercel.json
 │   ├── shots/               # Previews del portafolio
+│   ├── ventas/              # Scripts de campo (canónico futuro: docs/ventas/)
 │   └── …assets
 ├── docs/
 │   ├── negocio/             # Plan y propuesta comercial
 │   │   ├── PLAN.md
 │   │   └── PROPUESTA.md
-│   └── ventas/              # Scripts y checklist de campo
-│       ├── CHECKLIST.md
-│       ├── WHATSAPP.md
-│       ├── CORREO.md
-│       └── PITCH.md
+│   └── mejora/              # Ultraplan + sprints (sesiones nuevas)
+│       ├── README.md
+│       ├── STATUS.md
+│       ├── ANALISIS.md
+│       ├── DECISIONES.md
+│       └── sprints/
 └── README.md
 ```
 
@@ -70,10 +72,24 @@ El proyecto Vercel debe llamarse **`dss-chile`** para que la URL sea `https://ds
 |---|---|
 | [Plan de negocio](docs/negocio/PLAN.md) | Estrategia, precios, embudo, metas 90 días |
 | [Propuesta comercial](docs/negocio/PROPUESTA.md) | PDF/WhatsApp al cliente |
-| [Checklist](docs/ventas/CHECKLIST.md) | Captura de datos en visita |
-| [WhatsApp](docs/ventas/WHATSAPP.md) | Scripts de seguimiento |
-| [Correo](docs/ventas/CORREO.md) | Propuesta por mail |
-| [Pitch](docs/ventas/PITCH.md) | Guion presencial |
+| [Checklist](website/ventas/CHECKLIST.md) | Captura de datos en visita |
+| [WhatsApp](website/ventas/WHATSAPP.md) | Scripts de seguimiento |
+| [Correo](website/ventas/CORREO.md) | Propuesta por mail |
+| [Pitch](website/ventas/PITCH.md) | Guion presencial |
+
+## Mejora y sprints (ultraplan)
+
+Para no re-analizar el repo en cada sesión: **[`docs/mejora/`](docs/mejora/README.md)**.
+
+| Documento | Uso |
+|---|---|
+| [Índice + cómo arrancar sesión](docs/mejora/README.md) | Prompt corto y orden de sprints |
+| [STATUS](docs/mejora/STATUS.md) | Qué sprint sigue; actualizar al cerrar |
+| [Análisis](docs/mejora/ANALISIS.md) | Diagnóstico (solo si hace falta contexto) |
+| [Decisiones](docs/mejora/DECISIONES.md) | Decisiones estables de producto/tech |
+| [Sprints 0–F](docs/mejora/sprints/) | Checklists ejecutables |
+
+**Siguiente sprint:** ver `docs/mejora/STATUS.md` (hoy: Sprint 0 — higiene).
 
 ---
 
