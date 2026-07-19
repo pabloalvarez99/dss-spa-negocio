@@ -5,6 +5,24 @@
 
 Última actualización: 2026-07-19
 
+## Anti-conflicto (sesiones paralelas C / D / E)
+
+Cuando C, D y E corren a la vez, **no compartir árbol de archivos** y **no reescribir filas ajenas**:
+
+| Sesión | Sprint | Árbol permitido | En `STATUS.md` al cerrar |
+|--------|--------|-----------------|--------------------------|
+| **C** | Demo-kit | `demo-kit/` (+ `sprints/C-*.md`) | **Solo** fila **C** (+ nota de sesión C) |
+| **D** | Observabilidad | `website/` (+ scripts uptime D, `docs/mejora/OBSERVABILIDAD.md`, inventario/uptime, `sprints/D-*.md`) | **Solo** fila **D** (+ nota de sesión D) |
+| **E** | Ops comercial | `docs/` ops/ventas/negocio de E (+ `sprints/E-*.md`) | **Solo** fila **E** (+ nota de sesión E) |
+
+Reglas:
+
+1. **No tocar** el árbol de otra sesión (C ≠ `website/`, D ≠ `demo-kit/`, E ≠ código de landing/kit salvo lo que liste el sprint E).
+2. Al cerrar: actualizar **solo tu fila** en la tabla Progreso. No pisar estado/notas de filas ajenas.
+3. **No reescribir** el bloque “Sprint activo” si otra sesión lo usa; solo tocarlo si eres dueño actual o la única sesión activa.
+4. Commits con mensaje **solo de tu sprint**. Si choca `STATUS.md`: merge conservando filas C/D/E.
+5. Inventario demos / uptime: escribe **D**; C no borra demos del portafolio sin coordinar.
+
 ## Sprint activo
 
 | Campo | Valor |
@@ -32,11 +50,12 @@ Estados válidos: `pending` · `in_progress` · `done` · `blocked` · `skipped`
 
 Al terminar trabajo, el agente o la persona debe:
 
-1. [x] Marcar ítems hechos en el archivo del sprint  
-2. [x] Actualizar la tabla de arriba  
-3. [x] Poner el **siguiente sprint** en “Sprint activo”  
-4. [x] Anotar en **Notas de sesión** qué quedó a medias  
-5. [x] No empezar otro sprint grande en la misma sesión  
+1. Marcar ítems hechos en el archivo del sprint (**solo el tuyo**)
+2. Actualizar **solo tu fila** en la tabla Progreso (ver anti-conflicto C/D/E)
+3. Si no hay paralelismo: poner el siguiente sprint en “Sprint activo”. **Con C∥D∥E: no pisar “Sprint activo” ajeno**
+4. Anotar en **Notas de sesión** una entrada de **tu** sprint (no borrar notas ajenas)
+5. No empezar otro sprint grande en la misma sesión
+6. Commit + push con mensaje solo de tu sprint  
 
 ## Notas de sesión (más reciente arriba)
 
