@@ -32,6 +32,13 @@ Formato: fecha · decisión · por qué · consecuencias.
 - **Decisión:** Demos de terceros = ilustrativas; disclaimer obligatorio; proceso de retiro 24 h.
 - **Meta:** ~70% genéricas / con permiso; no inflar “clientes” si son solo demos.
 
+### D010 — Retiro de portafolio en 24 h (operativo)
+- **Fecha:** 2026-07-19 (Sprint 0)
+- **Decisión:** Si un dueño pide no figurar en el portafolio, se confirma por WhatsApp y se retira en **≤ 24 h hábiles**.
+- **Texto canónico:** `docs/ventas/WHATSAPP.md` §8 (recepción + confirmación post-retiro).
+- **Ops:** quitar de `DEMOS` → deploy `dss-chile` → bajar demo si aplica → marcar `retirar` en `docs/mejora/inventario-demos.md` → avisar al solicitante.
+- **Por qué:** reduce riesgo reputacional/legal; alinea con D005.
+
 ### D006 — Copy orientado a Chile
 - **Decisión:** Evitar voseo rioplatense en UI; preferir español chileno neutro o “usted” en pitch calle.
 - **Ejemplos a corregir:** postulás → postula; Activá → Activa; vos → tú/usted según tono.
@@ -54,7 +61,8 @@ Formato: fecha · decisión · por qué · consecuencias.
 ## Técnicas
 
 ### T001 — Root de deploy
-- Vercel project `dss-chile`, directorio `website/`, URL `https://dss-chile.vercel.app`.
+- Vercel project **`dss-chile`**, directorio `website/`, URL `https://dss-chile.vercel.app`.
+- GitHub: `pabloalvarez99/dss-spa-negocio` (privado, `main`).
 
 ### T002 — Lead capture
 - Primario: `wa.me/56993649604` con texto prearmado.  

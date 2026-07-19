@@ -10,8 +10,9 @@ Sitio comercial + kit de ventas para demos web a negocios locales.
 | **RUT** | 78.392.075-1 |
 | **Base** | Coquimbo, Chile |
 | **Contacto** | contactodssspa@gmail.com · +56 9 9364 9604 |
+| **GitHub** | https://github.com/pabloalvarez99/dss-spa-negocio (privado) |
 
-> **Nota de URL:** Vercel solo permite letras minúsculas, números y guiones en el nombre del proyecto. Por eso el dominio es `dss-chile.vercel.app` (no `dss_chile`).
+> **Proyecto Vercel:** `dss-chile` → `https://dss-chile.vercel.app` (root de deploy: `website/`).
 
 ---
 
@@ -19,13 +20,18 @@ Sitio comercial + kit de ventas para demos web a negocios locales.
 
 ```
 .
-├── website/                 # Sitio estático (deploy Vercel)
+├── website/                 # Sitio estático (deploy Vercel proyecto dss-chile)
 │   ├── index.html
 │   ├── vercel.json
 │   ├── shots/               # Previews del portafolio
-│   ├── ventas/              # Scripts de campo (canónico futuro: docs/ventas/)
+│   ├── ventas/              # Solo README → apunta a docs/ventas/
 │   └── …assets
 ├── docs/
+│   ├── ventas/              # Scripts de campo (fuente de verdad)
+│   │   ├── CHECKLIST.md
+│   │   ├── WHATSAPP.md
+│   │   ├── CORREO.md
+│   │   └── PITCH.md
 │   ├── negocio/             # Plan y propuesta comercial
 │   │   ├── PLAN.md
 │   │   └── PROPUESTA.md
@@ -34,6 +40,7 @@ Sitio comercial + kit de ventas para demos web a negocios locales.
 │       ├── STATUS.md
 │       ├── ANALISIS.md
 │       ├── DECISIONES.md
+│       ├── inventario-demos.md
 │       └── sprints/
 └── README.md
 ```
@@ -62,7 +69,7 @@ vercel link --yes --project dss-chile
 vercel --prod --yes
 ```
 
-El proyecto Vercel debe llamarse **`dss-chile`** para que la URL sea `https://dss-chile.vercel.app`.
+El proyecto Vercel es **`dss-chile`** → `https://dss-chile.vercel.app`.
 
 ---
 
@@ -72,10 +79,10 @@ El proyecto Vercel debe llamarse **`dss-chile`** para que la URL sea `https://ds
 |---|---|
 | [Plan de negocio](docs/negocio/PLAN.md) | Estrategia, precios, embudo, metas 90 días |
 | [Propuesta comercial](docs/negocio/PROPUESTA.md) | PDF/WhatsApp al cliente |
-| [Checklist](website/ventas/CHECKLIST.md) | Captura de datos en visita |
-| [WhatsApp](website/ventas/WHATSAPP.md) | Scripts de seguimiento |
-| [Correo](website/ventas/CORREO.md) | Propuesta por mail |
-| [Pitch](website/ventas/PITCH.md) | Guion presencial |
+| [Checklist](docs/ventas/CHECKLIST.md) | Captura de datos en visita |
+| [WhatsApp](docs/ventas/WHATSAPP.md) | Scripts de seguimiento + retiro de portafolio |
+| [Correo](docs/ventas/CORREO.md) | Propuesta por mail |
+| [Pitch](docs/ventas/PITCH.md) | Guion presencial |
 
 ## Mejora y sprints (ultraplan)
 
@@ -89,7 +96,7 @@ Para no re-analizar el repo en cada sesión: **[`docs/mejora/`](docs/mejora/READ
 | [Decisiones](docs/mejora/DECISIONES.md) | Decisiones estables de producto/tech |
 | [Sprints 0–F](docs/mejora/sprints/) | Checklists ejecutables |
 
-**Siguiente sprint:** ver `docs/mejora/STATUS.md` (hoy: Sprint 0 — higiene).
+**Siguiente sprint:** ver `docs/mejora/STATUS.md` (hoy: Sprint A — landing).
 
 ---
 

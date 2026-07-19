@@ -90,3 +90,31 @@ Entiendo. La demo ya está lista y es gratis. El plan más simple es $29.990 al 
 Si lo compara con un diseñador o una agencia de una sola vez, suele salir más caro y después nadie actualiza la web. Acá paga por mes y puede cancelar cuando quiera.
 
 ¿Le sirve partir un mes y evaluar?
+
+---
+
+## 8. Retiro del portafolio (pedido del dueño — SLA 24 h)
+
+Usar cuando un negocio pida que saquemos su demo del portafolio público o del sitio comercial.
+
+### Respuesta inmediata (confirmar recepción)
+
+Hola, recibí su mensaje. Entendido: no quieren que su negocio figure en nuestro portafolio / sitio de ejemplos.
+
+Lo retiro a la brevedad. El compromiso es **dejarlo fuera en un máximo de 24 horas hábiles** desde este mensaje. Cuando esté listo le confirmo por aquí.
+
+¿Me confirma el nombre exacto del local y, si lo tiene a mano, el link de la demo?
+
+### Confirmación después de retirar
+
+Listo: ya saqué **[NOMBRE DEL NEGOCIO]** del portafolio público de DSS. El link de demo también queda despublicado / fuera de catálogo.
+
+Si en el futuro quiere una web con nosotros (sin aparecer como ejemplo), me avisa y lo conversamos. Gracias por avisar.
+
+### Checklist interno (ops)
+
+1. Quitar el item del array `DEMOS` en `website/index.html` (o marcarlo fuera de grilla).
+2. Deploy del sitio comercial (`website/` → Vercel `dss-chile`).
+3. Despublicar o bajar el proyecto de la demo (`*.vercel.app` / `*.pages.dev`) si aplica.
+4. Actualizar `docs/mejora/inventario-demos.md` (acción = `retirar`).
+5. Confirmar al solicitante por WhatsApp.

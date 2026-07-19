@@ -6,6 +6,7 @@ desktop.ini
 # Editors / IDEs
 .idea/
 .vscode/
+.obsidian/
 *.swp
 *.swo
 
