@@ -45,10 +45,10 @@ Reglas:
 
 | Campo | Valor |
 |-------|--------|
-| **Sprint actual** | — (0–E cerrados; F blocked) |
-| **Archivo** | [`sprints/F-escala.md`](sprints/F-escala.md) (solo con tracción) |
-| **Bloqueado por** | F: ≥8 clientes pagos (D009) |
-| **Notas** | C3 residual si se decide P002. Residual ops: montar Sheet real desde `crm-schema.md`. |
+| **Sprint actual** | **G — Cloudflare + CI** (spec aprobada 2026-07-24, sin implementar) |
+| **Archivo** | [`sprints/G-cloudflare-ci.md`](sprints/G-cloudflare-ci.md) |
+| **Bloqueado por** | — (F sigue blocked por ≥8 clientes pagos, D009) |
+| **Notas** | G cierra P002 (demos → Cloudflare) y elimina el residual 5. P001 sigue abierto: landing va a `dss-chile.pages.dev`. |
 
 ## Progreso
 
@@ -61,6 +61,7 @@ Reglas:
 | D Observabilidad | `done` | 2026-07-19 | 2026-07-19 | track→va; eventos WA/form/demo/filter/plan; uptime 123 OK; OBSERVABILIDAD.md |
 | E Ops comercial | `done` | 2026-07-19 | 2026-07-19 | Sheet CRM + pack cierre + EXTRAS; solo docs |
 | F Escala | `blocked` | | | Solo con ≥8 clientes pagos |
+| G Cloudflare + CI | `pending` | | | Spec aprobada 2026-07-24. G1 landing+analytics · G2 demos (cierra P002) · G3 ship · G4 CI · G5 tests · G6 guards |
 
 Estados válidos: `pending` · `in_progress` · `done` · `blocked` · `skipped`
 
@@ -76,6 +77,20 @@ Al terminar trabajo, el agente o la persona debe:
 6. Commit + push con mensaje solo de tu sprint  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-24 — Sprint G: spec de Cloudflare + CI (solo diseño, sin implementar)
+
+Hallazgos medidos con `wrangler` / `vercel` (no estimados):
+
+- wrangler 4.100.0 autenticado (`timadapa@gmail.com`, scope `pages (write)`); **21 proyectos** en Cloudflare Pages.
+- Demos partidas: **18** en `*.pages.dev`, **105** en `*.vercel.app`. `shawarma-cairo` existe en CF pero `demos.json` lo manda a Vercel.
+- **La fuente de las 105 demos Vercel no existe en el repo ni en el disco.** Migración = espejo HTTP con puerta de verificación.
+- Sin `.github/` y sin tests. Uptime, deploy y re-alias son manuales.
+- Vercel Insights no sirve fuera de Vercel → G1 reemplaza el sink de `track()` por Pages Function + D1, misma firma y mismos 6 eventos.
+
+Decisiones: P002 → **Cloudflare Pages** (se formaliza en `DECISIONES.md` al implementar G2). P001 sigue abierto; la landing va a `dss-chile.pages.dev` y el dominio se conecta después sin rehacer nada.
+
+Spec: [`sprints/G-cloudflare-ci.md`](sprints/G-cloudflare-ci.md). Nada implementado todavía.
 
 ### 2026-07-19 — Cierre de jornada (ordenado para terminar sesión)
 - Repo limpio, `main` = `origin/main`. Sin tmp sueltos.
