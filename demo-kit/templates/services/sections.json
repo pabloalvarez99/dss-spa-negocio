@@ -1,0 +1,12 @@
+{
+  "$comment": "Services — hero propio (teléfono gigante, variant custom), banda de datos, catálogo indexado, protocolo numerado, cierre en CTA.",
+  "blocks": [
+    { "block": "hero", "variant": "custom", "anchor": "inicio" },
+    { "block": "stats", "variant": "band", "anchor": "datos", "if": "stats_items" },
+    { "block": "menu", "variant": "index", "anchor": "servicios", "nav": "{{label_menu}}" },
+    { "block": "steps", "variant": "numbered", "anchor": "como-funciona", "nav": "Cómo funciona" },
+    { "block": "about", "variant": "split", "anchor": "nosotros", "nav": "Nosotros" },
+    { "block": "contact", "variant": "split", "anchor": "contacto", "nav": "Contacto" },
+    { "block": "cta", "variant": "center", "anchor": "cotizar" }
+  ]
+}

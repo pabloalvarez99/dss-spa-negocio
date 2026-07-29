@@ -1,0 +1,13 @@
+{
+  "$comment": "Atelier — hero de declaración, catálogo indexado, proceso numerado, cierre antes del contacto.",
+  "blocks": [
+    { "block": "hero", "variant": "statement", "anchor": "inicio" },
+    { "block": "stats", "variant": "band", "anchor": "datos", "if": "stats_items" },
+    { "block": "menu", "variant": "index", "anchor": "carta", "nav": "{{label_menu}}" },
+    { "block": "steps", "variant": "numbered", "anchor": "proceso", "nav": "Proceso" },
+    { "block": "about", "variant": "editorial", "anchor": "nosotros", "nav": "Taller" },
+    { "block": "gallery", "variant": "grid", "anchor": "galeria", "nav": "Fotos", "if": "gallery_items" },
+    { "block": "cta", "variant": "center", "anchor": "encargar" },
+    { "block": "contact", "variant": "panel", "anchor": "contacto", "nav": "Contacto" }
+  ]
+}

@@ -1,0 +1,26 @@
+<section class="{{blk.classes}}" id="{{blk.anchor}}">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Visita</p>
+      <h2>{{contact_title_html}}</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-hours reveal">
+        <p class="visit-label">Horarios</p>
+        <ul class="hours-list">
+          {{#each hours_rows}}<li><span>{{this.days}}</span><b>{{this.time}}</b></li>{{/each}}
+        </ul>
+        <p class="visit-phone"><a href="{{wa_url}}" target="_blank" rel="noopener" data-track="contact-wa">{{phone_display}}</a></p>
+      </div>
+      <div class="visit-place reveal">
+        <p class="visit-label">Dónde</p>
+        <p class="visit-addr">{{address_display}}</p>
+        <div class="visit-map" aria-hidden="true"><span class="map-pin"></span></div>
+        <div class="visit-ctas">
+          <a class="btn btn-solid" href="{{wa_url}}" target="_blank" rel="noopener" data-track="contact-wa">{{cta_primary}}</a>
+          {{#if maps_url}}<a class="btn btn-line" href="{{maps_url}}" target="_blank" rel="noopener">Cómo llegar</a>{{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

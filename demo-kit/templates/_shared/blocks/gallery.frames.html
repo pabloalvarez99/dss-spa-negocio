@@ -1,0 +1,17 @@
+<section class="{{blk.classes}}" id="{{blk.anchor}}" aria-label="Galería">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Fotos</p>
+      <h2>{{gallery_title_html}}</h2>
+      <p>{{gallery_intro}}</p>
+    </div>
+  </div>
+  <div class="frames">
+    {{#each gallery_items}}
+    <figure class="frame reveal">
+      <img src="{{this.src}}" alt="{{this.alt}}" loading="lazy" width="1200" height="900" />
+      <figcaption>{{@n2}} · {{this.alt}}</figcaption>
+    </figure>
+    {{/each}}
+  </div>
+</section>

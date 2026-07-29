@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Observatorio Kallfü — Astroturismo · Andacollo</title>
+<meta name="description" content="Observatorio Kallfü en Andacollo: tours nocturnos bajo uno de los cielos más limpios de Chile. Telescopios de 16 pulgadas, astrofotografía y noches privadas. Reserva por WhatsApp." />
+<meta name="theme-color" content="#04060f" />
+<meta property="og:title" content="Observatorio Kallfü — Astroturismo en Andacollo" />
+<meta property="og:description" content="Tours nocturnos, telescopios de 16&quot; y el cielo más limpio del Valle de Elqui. Reserva tu noche de estrellas." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#04060f; --bg2:#090e1f; --card:#0c1226; --line:#1c2545;
+    --ink:#dfe6f7; --muted:#8b96b8; --acc:#a9c1ff; --gold:#e3c98b;
+    --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+  h1,h2,h3{font-family:'Marcellus',serif;font-weight:400;line-height:1.1}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--acc);color:#04060f}
+
+  /* demo badge */
+  .demo{font-family:'Jost',sans-serif;font-size:10px;font-weight:500;letter-spacing:.3em;color:var(--gold);border:1px solid rgba(227,201,139,.45);padding:4px 10px;border-radius:2px;text-transform:uppercase}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.4s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px;gap:14px}
+  nav.scrolled{background:rgba(4,6,15,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .logo{display:flex;align-items:center;gap:12px;font-family:'Marcellus',serif;font-size:19px;letter-spacing:.32em;text-transform:uppercase}
+  .logo small{display:block;font-family:'Jost',sans-serif;font-size:9.5px;letter-spacing:.42em;color:var(--muted);text-transform:uppercase}
+  .nav-links{display:flex;gap:34px;font-size:12.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+  .nav-links a{transition:.25s}
+  .nav-links a:hover{color:var(--acc)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 30px;border:1px solid var(--gold);color:var(--gold);font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:400;transition:.3s;cursor:pointer;background:transparent}
+  .btn:hover{background:var(--gold);color:#04060f;box-shadow:0 0 34px rgba(227,201,139,.35)}
+  .btn-solid{background:var(--gold);color:#04060f}
+  .btn-solid:hover{background:#f0dba8;border-color:#f0dba8}
+  .btn-ghost{border-color:var(--line);color:var(--muted)}
+  .btn-ghost:hover{border-color:var(--acc);color:var(--acc);background:transparent;box-shadow:none}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:140px 0 100px}
+  #sky{position:absolute;inset:0;width:100%;height:100%}
+  .nebula{position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(55% 45% at 75% 20%,rgba(88,110,200,.20),transparent 70%),
+      radial-gradient(40% 38% at 18% 78%,rgba(120,80,180,.14),transparent 70%),
+      linear-gradient(180deg,rgba(4,6,15,0) 55%,var(--bg) 96%)}
+  .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%}
+  @media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+  .eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:11.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--acc);margin-bottom:26px}
+  .eyebrow::before{content:"";width:44px;height:1px;background:var(--acc)}
+  .hero h1{font-size:clamp(48px,9vw,110px);letter-spacing:.08em;text-transform:uppercase;text-shadow:0 0 60px rgba(169,193,255,.35)}
+  .hero h1 em{font-style:normal;color:var(--gold);display:block;font-size:.42em;letter-spacing:.34em;margin-top:14px}
+  .hero p{margin:26px 0 36px;font-size:17px;color:var(--muted);max-width:520px}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:44px;margin-top:64px;flex-wrap:wrap}
+  .hero-stats b{display:block;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(26px,3vw,36px);color:var(--acc)}
+  .hero-stats span{font-size:10.5px;color:var(--muted);letter-spacing:.3em;text-transform:uppercase}
+  .constel{justify-self:center;opacity:.9}
+  .constel svg{width:min(380px,80vw);height:auto;filter:drop-shadow(0 0 14px rgba(169,193,255,.4))}
+  .constel figcaption{text-align:center;margin-top:18px;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted)}
+  @media(max-width:900px){.constel{display:none}}
+  .star-dot{animation:tw 3s ease-in-out infinite}
+  @keyframes tw{50%{opacity:.35}}
+  .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
+  .scroll-hint::after{content:"";width:1px;height:44px;background:linear-gradient(var(--acc),transparent);animation:drop 2s ease-in-out infinite}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* sections */
+  section{padding:110px 0;position:relative}
+  .sec-head{max-width:640px;margin-bottom:60px}
+  .sec-head h2{font-size:clamp(30px,4.6vw,50px);letter-spacing:.06em;text-transform:uppercase}
+  .sec-head h2 em{font-style:normal;color:var(--gold)}
+  .sec-head p{margin-top:16px;color:var(--muted)}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+  /* tours */
+  .tours-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:20px}
+  .tour{background:linear-gradient(170deg,var(--card),rgba(9,14,31,.6));border:1px solid var(--line);padding:34px 28px;position:relative;overflow:hidden;transition:.35s}
+  .tour:hover{transform:translateY(-8px);border-color:rgba(169,193,255,.45);box-shadow:0 30px 60px -25px rgba(20,40,120,.55)}
+  .tour::before{content:"✦";position:absolute;top:20px;right:22px;color:var(--gold);opacity:.55;font-size:15px}
+  .tour .num{font-size:11px;letter-spacing:.34em;color:var(--acc);text-transform:uppercase}
+  .tour h3{font-size:26px;margin:14px 0 6px;letter-spacing:.04em}
+  .tour .meta{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .tour .desc{font-size:14.5px;color:var(--muted);margin:18px 0 24px}
+  .tour .foot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:16px}
+  .tour .price{font-family:'Marcellus',serif;font-size:23px;color:var(--gold)}
+  .tour .per{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+  .tour .wa-link{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-top:14px;display:inline-block;border-bottom:1px solid transparent;transition:.25s}
+  .tour .wa-link:hover{color:var(--gold);border-color:var(--gold)}
+
+  /* sky data */
+  .sky{background:var(--bg2);border-block:1px solid var(--line)}
+  .sky-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .sky-cell{background:var(--bg2);padding:34px 28px;transition:.3s}
+  .sky-cell:hover{background:#0d1430}
+  .sky-cell .ico{font-size:22px;color:var(--gold)}
+  .sky-cell b{display:block;font-family:'Marcellus',serif;font-weight:400;font-size:clamp(24px,2.6vw,32px);color:var(--ink);margin:14px 0 4px}
+  .sky-cell span{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+  .moon{display:flex;align-items:center;gap:22px;margin-top:44px;flex-wrap:wrap;border:1px solid var(--line);padding:28px 32px;background:rgba(4,6,15,.5)}
+  .moon svg{width:64px;height:64px;flex:none}
+  .moon p{color:var(--muted);font-size:15px;max-width:640px}
+  .moon strong{color:var(--ink);font-weight:400}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+  .about-visual{position:relative;min-height:380px;border:1px solid var(--line);overflow:hidden;
+    background:
+      radial-gradient(70% 60% at 50% 100%,rgba(88,110,200,.22),transparent 72%),
+      linear-gradient(180deg,#060a18,#0a1024)}
+  .about-visual svg{position:absolute;inset:0;width:100%;height:100%}
+  .about-copy p{color:var(--muted);margin-bottom:18px;font-size:16px}
+  .about-copy p strong{color:var(--ink);font-weight:400}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:stretch}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  .hours{border:1px solid var(--line);padding:38px 34px;background:var(--card)}
+  .hours h3{font-size:22px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px}
+  .hrow{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .hrow:last-child{border:none}
+  .hrow span{color:var(--muted)}
+  .hrow b{font-weight:400;color:var(--acc)}
+  .map-card{position:relative;min-height:320px;border:1px solid var(--line);overflow:hidden;
+    background:radial-gradient(45% 45% at 58% 42%,rgba(169,193,255,.12),transparent 70%),linear-gradient(160deg,#070b1a,#04060f)}
+  .map-lines{position:absolute;inset:0;opacity:.4;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px}
+  .pin{position:absolute;top:44%;left:56%;transform:translate(-50%,-100%);text-align:center}
+  .pin .dot{width:14px;height:14px;background:var(--gold);border-radius:50%;margin:0 auto;box-shadow:0 0 0 7px rgba(227,201,139,.2);animation:pulse 2.2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 16px rgba(227,201,139,0)}}
+  .pin p{margin-top:12px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;background:rgba(4,6,15,.85);padding:7px 16px;border:1px solid var(--line)}
+
+  /* cta */
+  .cta-final{text-align:center;padding:130px 0;position:relative;overflow:hidden}
+  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 100%,rgba(88,110,200,.18),transparent 70%)}
+  .cta-final h2{font-size:clamp(32px,6vw,62px);letter-spacing:.08em;text-transform:uppercase;position:relative}
+  .cta-final h2 em{font-style:normal;color:var(--gold)}
+  .cta-final p{color:var(--muted);margin:20px auto 38px;max-width:480px;position:relative}
+  .cta-final .btn{position:relative}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.55);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  @media (max-width:560px){nav .logo{font-size:14px;letter-spacing:.16em;gap:8px}nav .logo small{font-size:8px;letter-spacing:.2em}nav .demo{font-size:8px;letter-spacing:.1em;padding:3px 6px}nav .btn{font-size:11.5px;padding:10px 14px}}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #e3c98b;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">✦ <span>Kallfü<small>Observatorio · Andacollo</small></span> <span class="demo">Concepto</span></a>
+    <div class="nav-links">
+      <a href="#experiencias">Experiencias</a>
+      <a href="#cielo">El cielo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#visita">Visita</a>
+    </div>
+    <a class="btn" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="nebula" id="nebula"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow">Astroturismo premium · Valle de Elqui</span>
+      <h1>Kallfü<em>El cielo, de cerca</em></h1>
+      <p>En mapudungún, <strong style="font-weight:400;color:var(--ink)">kallfü</strong> significa «azul». Y no hay azul más profundo que la noche de Andacollo: ven a recorrerla con telescopios de 16 pulgadas y guías que la conocen de memoria.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar mi noche</a>
+        <a class="btn btn-ghost" href="#experiencias">Ver experiencias</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>300+</b><span>Noches despejadas / año</span></div>
+        <div><b>1.035 m</b><span>Altitud del cerro</span></div>
+        <div><b>Bortle 2</b><span>Cielo casi prístino</span></div>
+      </div>
+    </div>
+    <figure class="constel" aria-hidden="true">
+      <svg aria-hidden="true" viewBox="0 0 300 300">
+        <polyline points="150,40 168,140 150,240" fill="none" stroke="#a9c1ff" stroke-width="1" opacity=".55"/>
+        <polyline points="80,120 168,140 226,160" fill="none" stroke="#a9c1ff" stroke-width="1" opacity=".55"/>
+        <line x1="168" y1="140" x2="236" y2="88" stroke="#a9c1ff" stroke-width="1" opacity=".55"/>
+        <circle class="star-dot" cx="150" cy="40" r="4" fill="#e3c98b"/>
+        <circle class="star-dot" cx="150" cy="240" r="4.5" fill="#dfe6f7" style="animation-delay:.6s"/>
+        <circle class="star-dot" cx="80" cy="120" r="4" fill="#dfe6f7" style="animation-delay:1.1s"/>
+        <circle class="star-dot" cx="226" cy="160" r="4.5" fill="#dfe6f7" style="animation-delay:1.6s"/>
+        <circle class="star-dot" cx="168" cy="140" r="3" fill="#a9c1ff" style="animation-delay:2s"/>
+        <circle class="star-dot" cx="236" cy="88" r="3" fill="#a9c1ff" style="animation-delay:2.4s"/>
+        <circle cx="52" cy="220" r="1.5" fill="#8b96b8"/>
+        <circle cx="260" cy="230" r="1.5" fill="#8b96b8"/>
+        <circle cx="110" cy="60" r="1.2" fill="#8b96b8"/>
+      </svg>
+      <figcaption>Cruz del Sur · visible todo el año</figcaption>
+    </figure>
+  </div>
+  <div class="scroll-hint">Baja a mirar</div>
+</header>
+
+<section id="experiencias">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Tours nocturnos</span>
+      <h2>Elige tu <em>noche</em></h2>
+      <p>Grupos de máximo 12 personas por salida. Todos los tours incluyen chocolate caliente, poncho térmico y charla de astronomía a cielo abierto.</p>
+    </div>
+    <div class="tours-grid">
+      <article class="tour reveal">
+        <span class="num">Exp. 01</span>
+        <h3>Tour Estelar</h3>
+        <span class="meta">2 horas · 21:00</span>
+        <p class="desc">La puerta de entrada: constelaciones, planetas de la temporada y la Luna en el telescopio. Ideal para familias y primeras visitas.</p>
+        <div class="foot"><span class="price">$18.000</span><span class="per">por persona</span></div>
+        <a class="wa-link" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar →</a>
+      </article>
+      <article class="tour reveal">
+        <span class="num">Exp. 02</span>
+        <h3>Tour Profundo</h3>
+        <span class="meta">3,5 horas · 22:30</span>
+        <p class="desc">Nebulosas, cúmulos globulares y galaxias vecinas en el reflector de 16". Incluye sesión de observación con binoculares a cielo abierto.</p>
+        <div class="foot"><span class="price">$32.000</span><span class="per">por persona</span></div>
+        <a class="wa-link" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar →</a>
+      </article>
+      <article class="tour reveal">
+        <span class="num">Exp. 03</span>
+        <h3>Astrofotografía</h3>
+        <span class="meta">4 horas · 23:00</span>
+        <p class="desc">Taller práctico con tu propia cámara: trípodes, seguimiento ecuatorial y revelado básico. Te llevas tu primera Vía Láctea en RAW.</p>
+        <div class="foot"><span class="price">$45.000</span><span class="per">por persona</span></div>
+        <a class="wa-link" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar →</a>
+      </article>
+      <article class="tour reveal">
+        <span class="num">Exp. 04</span>
+        <h3>Noche Privada</h3>
+        <span class="meta">Solo tu grupo · hasta 8 personas</span>
+        <p class="desc">El observatorio completo para ustedes: propuesta de matrimonio, cumpleaños o simplemente el lujo de un cielo sin compañía. Con picoteo del valle.</p>
+        <div class="foot"><span class="price">$190.000</span><span class="per">por grupo</span></div>
+        <a class="wa-link" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Cotizar →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sky" id="cielo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Por qué aquí</span>
+      <h2>El cielo del <em>valle</em></h2>
+      <p>Andacollo comparte cordillera con los grandes observatorios del mundo. Estos números explican por qué los astrónomos eligen este rincón del norte chico.</p>
+    </div>
+    <div class="sky-grid reveal">
+      <div class="sky-cell"><span class="ico">☀</span><b>~300 noches</b><span>Despejadas al año</span></div>
+      <div class="sky-cell"><span class="ico">◐</span><b>&lt; 20 %</b><span>Humedad relativa media</span></div>
+      <div class="sky-cell"><span class="ico">✦</span><b>21,9 mag</b><span>Brillo de fondo de cielo</span></div>
+      <div class="sky-cell"><span class="ico">◉</span><b>2 vecinos</b><span>Gemini Sur y Cerro Tololo</span></div>
+    </div>
+    <div class="moon reveal">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="26" fill="#1c2545"/>
+        <path d="M32 6a26 26 0 0 1 0 52 30 30 0 0 0 0-52z" fill="#e3c98b"/>
+        <circle cx="24" cy="22" r="3.4" fill="#0c1226" opacity=".5"/>
+        <circle cx="20" cy="38" r="2.4" fill="#0c1226" opacity=".5"/>
+      </svg>
+      <p><strong>Consejo de la casa:</strong> la semana de Luna nueva es la mejor para ver la Vía Láctea; con Luna llena, en cambio, el Tour Estelar se luce con cráteres que parecen tallados. Escríbenos y te decimos cómo estará el cielo en tus fechas.</p>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal" aria-hidden="true">
+      <svg aria-hidden="true" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+        <circle cx="70" cy="80" r="1.6" fill="#dfe6f7" opacity=".8"/>
+        <circle cx="140" cy="50" r="1.2" fill="#8b96b8"/>
+        <circle cx="230" cy="70" r="1.8" fill="#dfe6f7" opacity=".9"/>
+        <circle cx="320" cy="110" r="1.3" fill="#8b96b8"/>
+        <circle cx="90" cy="160" r="1.4" fill="#a9c1ff"/>
+        <circle cx="290" cy="40" r="1.1" fill="#8b96b8"/>
+        <circle cx="350" cy="190" r="1.5" fill="#dfe6f7" opacity=".7"/>
+        <path d="M0 340 Q100 280 200 320 T400 300 V400 H0 Z" fill="#060a18"/>
+        <path d="M0 365 Q120 315 240 350 T400 335 V400 H0 Z" fill="#04060f"/>
+        <g transform="translate(200 240)">
+          <rect x="-8" y="30" width="16" height="60" fill="#10182f"/>
+          <path d="M-46 90 a46 46 0 0 1 92 0 Z" fill="#1c2545"/>
+          <rect x="-30" y="58" width="60" height="6" fill="#0c1226"/>
+          <rect x="20" y="10" width="12" height="52" rx="6" fill="#26335c" transform="rotate(28 26 36)"/>
+          <circle cx="38" cy="14" r="7" fill="#a9c1ff"/>
+        </g>
+      </svg>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">Quiénes somos</span>
+      <h2 style="font-size:clamp(28px,4vw,44px);letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px">Una familia,<br />un cerro, <em style="font-style:normal;color:var(--gold)">un cielo</em></h2>
+      <p>Somos <strong>los Millán</strong>, andacollinos de toda la vida. En 2016 subimos el primer telescopio a este cerro que era de mis abuelos, y desde entonces no hemos parado de recibir gente que llega «solo a mirar un rato» y se queda hasta las tres de la mañana.</p>
+      <p>No somos un centro turístico gigante: somos una cúpula, dos terrazas de observación y la convicción de que <strong>el mejor espectáculo del mundo no cobra entrada, solo hay que saber dónde sentarse.</strong></p>
+      <a class="btn btn-ghost" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" style="margin-top:10px">Escríbenos</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="visita">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Planifica tu visita</span>
+      <h2>Cómo <em>llegar</em></h2>
+    </div>
+    <div class="visit-grid">
+      <div class="hours reveal">
+        <h3>Horarios y datos</h3>
+        <div class="hrow"><span>Miércoles – Domingo</span><b>Salidas 21:00 y 22:30</b></div>
+        <div class="hrow"><span>Lunes y Martes</span><b>Noches privadas (con reserva)</b></div>
+        <div class="hrow"><span>Recepción</span><b>Desde las 20:15</b></div>
+        <div class="hrow"><span>Temporada alta</span><b>Diciembre – Marzo (agota rápido)</b></div>
+        <p style="margin-top:20px;font-size:14.5px;color:var(--muted)">📍 Camino a Collowara km 3,2, Andacollo, Región de Coquimbo<br />🚗 A 55 min de La Serena · transfer ida y vuelta $12.000 por persona<br />🧥 Trae abrigo: en el cerro la noche baja a 4 °C incluso en verano</p>
+      </div>
+      <div class="map-card reveal">
+        <div class="map-lines"></div>
+        <div class="pin"><div class="dot"></div><p>Camino a Collowara km 3,2</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>La noche <em>te espera</em></h2>
+    <p>Cupos limitados a 12 personas por salida. Escríbenos por WhatsApp y te confirmamos el cielo de la semana.</p>
+    <a class="btn btn-solid" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Observatorio Kallfü · Andacollo</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Observatorio%20Kallf%C3%BC%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.getElementById('nav');
+  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 40); }, {passive:true});
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* starfield */
+  var cv = document.getElementById('sky'), ctx = cv.getContext('2d');
+  var stars = [], W, H, dpr = Math.min(devicePixelRatio || 1, 2);
+  function size(){
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    stars = [];
+    var n = Math.min(240, Math.floor(W * H / 4200));
+    for (var i = 0; i < n; i++){
+      stars.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.4 + .3, p: Math.random() * Math.PI * 2, s: .4 + Math.random() * 1.4, c: Math.random() < .12 ? '#e3c98b' : (Math.random() < .3 ? '#a9c1ff' : '#dfe6f7') });
+    }
+  }
+  var t = 0, shooting = null, nextShot = 0;
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    t += .016;
+    for (var i = 0; i < stars.length; i++){
+      var st = stars[i];
+      var a = .45 + .55 * Math.abs(Math.sin(st.p + t * st.s));
+      ctx.globalAlpha = a;
+      ctx.fillStyle = st.c;
+      ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, 7); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    if (!reduce){
+      if (!shooting && t > nextShot){
+        shooting = { x: Math.random() * W * .7 + W * .2, y: Math.random() * H * .3, vx: -6 - Math.random() * 4, vy: 2.4 + Math.random() * 1.6, life: 1 };
+        nextShot = t + 5 + Math.random() * 7;
+      }
+      if (shooting){
+        shooting.x += shooting.vx; shooting.y += shooting.vy; shooting.life -= .02;
+        var g = ctx.createLinearGradient(shooting.x, shooting.y, shooting.x - shooting.vx * 9, shooting.y - shooting.vy * 9);
+        g.addColorStop(0, 'rgba(223,230,247,' + Math.max(shooting.life, 0) + ')');
+        g.addColorStop(1, 'rgba(223,230,247,0)');
+        ctx.strokeStyle = g; ctx.lineWidth = 1.6;
+        ctx.beginPath(); ctx.moveTo(shooting.x, shooting.y);
+        ctx.lineTo(shooting.x - shooting.vx * 9, shooting.y - shooting.vy * 9); ctx.stroke();
+        if (shooting.life <= 0) shooting = null;
+      }
+      requestAnimationFrame(draw);
+    }
+  }
+  size(); addEventListener('resize', size);
+  draw();
+
+  /* subtle hero parallax */
+  var nebula = document.getElementById('nebula');
+  if (!reduce){
+    addEventListener('scroll', function(){
+      var y = Math.min(scrollY, innerHeight);
+      nebula.style.transform = 'translateY(' + y * .18 + 'px)';
+    }, {passive:true});
+  }
+})();
+</script>
+</body>
+</html>

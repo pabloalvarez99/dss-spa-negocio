@@ -14,11 +14,8 @@ Genera un sitio estático **enviable** para un negocio local en minutos: WhatsAp
 ```text
 demo-kit/
   templates/
-    _shared/layout.html     # layout base (WA float, mapa, SEO, mobile-first)
-    restaurant/             # skin + meta (comida)
-    barber/
-    clinic/
-    services/
+    _shared/                # shell, base/classic CSS, blocks/, sections.default
+    restaurant|barber|clinic|services|boutique|atelier|nocturno/
   clients/
     {slug}/
       content.json          # datos del negocio
@@ -69,6 +66,9 @@ Otros ejemplos de rubro:
 | `barberia-norte` | `barber` |
 | `kine-ejemplo` | `clinic` |
 | `cerrajeria-ejemplo` | `services` |
+| `cabanas-elqui-astral` | `boutique` |
+| `orfebreria-andacollo` | `atelier` |
+| `bar-cuarto-menguante` | `nocturno` |
 
 ```bash
 npm run build -- --all
@@ -104,7 +104,7 @@ Campos obligatorios para build:
 | Campo | Ejemplo | Notas |
 |-------|---------|--------|
 | `slug` | `"pizzeria-ejemplo"` | = nombre de carpeta |
-| `template` | `"restaurant"` | `restaurant` \| `barber` \| `clinic` \| `services` |
+| `template` | `"restaurant"` | `restaurant` \| `barber` \| `clinic` \| `services` \| `boutique` \| `atelier` \| `nocturno` |
 | `name` | `"Pizzería Ejemplo"` | Visible en UI + SEO |
 | `phone_wa` | `"56912345678"` | Solo dígitos, sin `+` |
 | `city` | `"Coquimbo"` | |
@@ -159,26 +159,86 @@ Manual (venta):
 - [ ] Mobile: botón WA flotante visible
 - [ ] Badge “Demo” si aún no es cliente pago (`show_demo_badge`)
 
-Checks **duros** (fallan el script): `wa`, `hours`, `map`, `seo_*`, `no_lorem`, `name`, `city`, `menu`.  
-Fotos ≥3 es **recomendado** (el piloto puede ir sin fotos).
+Checks **duros** (fallan el script, exit 1):
+
+- De contenido: `wa`, `hours`, `map`, `seo_title`, `seo_desc`, `no_lorem`, `name`, `city`, `menu`.
+- De salida (H3, sobre `dist/{slug}/index.html`):
+  - `build` — hay salida (corre `npm run build` antes de `check`).
+  - `no_tokens` — cero `{{ }}` sin resolver.
+  - `reduced_motion` — si el CSS anima, existe `@media (prefers-reduced-motion: reduce)`.
+  - `contrast_aa` — texto principal sobre fondo del skin ≥ 4.5:1 (WCAG).
+  - `fonts_preconnect` — si carga Google Fonts: preconnect a `googleapis` + `gstatic` y `display=swap`.
+  - `no_fixed_width` — sin anchos fijos > 360 px que puedan generar scroll horizontal.
+
+**Avisos** (no fallan): `photos` ≥3 y `contrast_muted` ≥4.5:1.
 
 ---
 
-## Templates / skins
+## Templates / skins (H3)
 
-Un solo layout (`templates/_shared/layout.html`). Cada rubro aporta:
+Cada skin controla **dirección de arte y composición**, no solo color.
 
-- `skin.css` — variables CSS (`--primary`, fuentes, fondos)
-- `meta.json` — labels por defecto (Carta vs Servicios, CTAs, mensaje WA)
+```text
+templates/
+  _shared/
+    shell.html              # chrome: nav, footer, WA, SEO
+    base.css                # invariantes estructurales
+    classic.css             # look C1/C2 (si meta.base = "classic")
+    sections.default.json   # composición por defecto
+    blocks/{block}.{variant}.html
+  {skin}/
+    meta.json               # labels, fonts_url, base?
+    skin.css                # arte (tipografía, ritmo, motion)
+    sections.json           # bloques + orden + variantes
+    hero.html               # opcional (variant custom)
+```
 
-| ID | Uso típico |
-|----|------------|
-| `restaurant` | Pizza, café, sandwich, picada |
-| `barber` | Barbería, peluquería |
-| `clinic` | Kine, dental, estética, podología |
-| `services` | Cerrajería, taller, ferretería, oficios |
+| ID | Uso típico | Ejemplo |
+|----|------------|---------|
+| `restaurant` | Pizza, café, sandwich | `pizzeria-ejemplo` |
+| `barber` | Barbería, peluquería | `barberia-norte` |
+| `clinic` | Kine, dental, estética | `kine-ejemplo` |
+| `services` | Cerrajería, oficios | `cerrajeria-ejemplo` |
+| `boutique` | Hotel, cabaña, viña, astroturismo | `cabanas-elqui-astral` |
+| `atelier` | Taller, estudio, oficio de autor | `orfebreria-andacollo` |
+| `nocturno` | Bar, pub, gastronomía nocturna, eventos | `bar-cuarto-menguante` |
 
-Añadir rubro: copiar una carpeta de `templates/`, ajustar `skin.css` + `meta.json`, registrar en `schema/content.schema.json` enum.
+`restaurant`, `boutique`, `atelier` y `nocturno` tienen dirección de arte propia (`base: "none"`).
+`barber`, `clinic` y `services` siguen con `base: "classic"` + composición por defecto: funcionan, pero
+**les falta dirección de arte propia** (deuda declarada en [`H3-fabrica.md`](../docs/mejora/sprints/H3-fabrica.md)).
+
+### Bloques disponibles
+
+| Bloque | Variantes | Notas |
+|---|---|---|
+| `hero` | `classic` · `editorial` · `statement` · `custom` | `custom` usa `templates/{skin}/hero.html` |
+| `marquee` | `line` · `band` | se omite sin `marquee[]` |
+| `menu` | `cards` · `leader` · `index` | `leader` agrupa por `category` |
+| `about` | `split` · `editorial` | `editorial` muestra `facts[]` y `hero_image` |
+| `quote` | `pull` | se omite sin `quote` |
+| `steps` | `numbered` | se omite sin `steps[]` (propios o del skin) |
+| `gallery` | `grid` · `frames` | se omite sin `images[]` |
+| `stats` | `band` | se omite sin `stats[]` |
+| `contact` | `panel` · `split` | siempre lleva horarios + mapa |
+| `cta` | `center` | cierre con WhatsApp |
+
+### Añadir un rubro (skin nuevo)
+
+1. `templates/{id}/meta.json` — `id`, `label`, `fonts_url`, `base` (`"none"` para arte propio) y `defaults` (labels, CTAs, `wa_message`).
+2. `templates/{id}/sections.json` — bloques, orden, variantes, `anchor`, `nav`, `if`.
+3. `templates/{id}/skin.css` — dirección de arte. Engancha por `.blk-{bloque}--{variante}`.
+   Mantén el contraste AA y no uses anchos fijos > 360 px: los valida `check`.
+4. Opcional: `templates/{id}/hero.html` + `"variant": "custom"` si el hero no sale de una variante compartida.
+5. Agregar `{id}` al enum `template` en `schema/content.schema.json`.
+6. Cliente de ejemplo en `clients/{slug}/content.json`.
+7. `npm run build -- --slug=…` && `npm run check -- --slug=…`.
+
+### Añadir una variante de bloque
+
+Crear `templates/_shared/blocks/{bloque}.{variante}.html` y referenciarla desde el `sections.json` del skin.
+No hay que tocar `build-demo.mjs`.
+
+Diseño del mecanismo: [`docs/mejora/sprints/H3-fabrica.md`](../docs/mejora/sprints/H3-fabrica.md).
 
 ---
 

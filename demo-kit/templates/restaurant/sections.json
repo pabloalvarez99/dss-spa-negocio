@@ -1,0 +1,12 @@
+{
+  "$comment": "Restaurant migrado a H3: hero editorial oscuro, carta con línea de puntos agrupada por categoría, cierre en CTA.",
+  "blocks": [
+    { "block": "hero", "variant": "editorial", "anchor": "inicio" },
+    { "block": "marquee", "variant": "band", "if": "marquee_items" },
+    { "block": "menu", "variant": "leader", "anchor": "carta", "nav": "{{label_menu}}" },
+    { "block": "about", "variant": "editorial", "anchor": "nosotros", "nav": "Nosotros" },
+    { "block": "gallery", "variant": "frames", "anchor": "galeria", "nav": "Fotos", "if": "gallery_items" },
+    { "block": "contact", "variant": "split", "anchor": "contacto", "nav": "Visita" },
+    { "block": "cta", "variant": "center", "anchor": "pedir" }
+  ]
+}

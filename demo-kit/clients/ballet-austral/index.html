@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ballet Austral — Compañía de Danza Contemporánea · La Serena</title>
+<meta name="description" content="Compañía de danza contemporánea en La Serena. Cartelera de funciones, obras de autor y escuela de movimiento frente al Pacífico. Entradas por WhatsApp." />
+<meta name="theme-color" content="#0d0a1f" />
+<meta property="og:title" content="Ballet Austral — Danza Contemporánea" />
+<meta property="og:description" content="Obras de autor y cartelera de funciones en La Serena. El movimiento que nace del sur." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0d0a1f; --bg2:#141030; --card:#1a1538; --line:rgba(196,173,255,.16);
+    --lila:#c4adff; --rosa:#f2a7c3; --durazno:#ffc9a3; --tinta:#ece7fa; --muted:#9b90c4;
+    --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--tinta);font-family:'Jost',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--rosa);color:#0d0a1f}
+
+  /* demo badge */
+  .demo{position:fixed;top:14px;right:16px;z-index:80;font-size:10px;letter-spacing:.28em;font-weight:500;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:rgba(13,10,31,.6);backdrop-filter:blur(6px)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.4s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px}
+  nav.scrolled{background:rgba(13,10,31,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:23px;letter-spacing:.03em}
+  .logo em{font-style:normal;background:linear-gradient(100deg,var(--lila),var(--rosa),var(--durazno));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;gap:32px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:400}
+  .nav-links a{color:var(--muted);transition:.25s;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:linear-gradient(90deg,var(--lila),var(--rosa));transition:.3s}
+  .nav-links a:hover{color:var(--tinta)}
+  .nav-links a:hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:999px;font-weight:500;font-size:14px;letter-spacing:.1em;text-transform:uppercase;transition:.35s;border:1px solid transparent;cursor:pointer}
+  .btn-glow{background:linear-gradient(100deg,var(--lila),var(--rosa));color:#181028;box-shadow:0 10px 40px -12px rgba(242,167,195,.55)}
+  .btn-glow:hover{transform:translateY(-3px);box-shadow:0 20px 50px -12px rgba(196,173,255,.6)}
+  .btn-ghost{border-color:var(--line);color:var(--tinta)}
+  .btn-ghost:hover{border-color:var(--rosa);color:var(--rosa)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 0 90px;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;
+    background:
+      radial-gradient(55% 60% at 72% 28%,rgba(196,173,255,.20),transparent 65%),
+      radial-gradient(45% 50% at 18% 78%,rgba(242,167,195,.14),transparent 60%),
+      radial-gradient(35% 35% at 85% 85%,rgba(255,201,163,.10),transparent 60%),
+      linear-gradient(165deg,#0d0a1f 0%,#171031 55%,#1e1236 100%)}
+  #dust{position:absolute;inset:0;z-index:1}
+  .dancer{position:absolute;right:-6vw;top:50%;transform:translateY(-52%);width:min(58vw,620px);opacity:.9;z-index:1;pointer-events:none}
+  @media(max-width:900px){.dancer{right:-24vw;width:92vw;opacity:.5}}
+  .trail{position:absolute;left:-10vw;bottom:6vh;width:120vw;z-index:1;pointer-events:none;opacity:.7}
+  .hero-inner{position:relative;z-index:3;max-width:640px}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--rosa);margin-bottom:26px}
+  .eyebrow::before{content:"";width:44px;height:1px;background:linear-gradient(90deg,var(--rosa),transparent)}
+  .hero h1{font-size:clamp(52px,9vw,104px);font-weight:500;letter-spacing:-.015em}
+  .hero h1 em{font-style:italic;background:linear-gradient(100deg,var(--lila) 0%,var(--rosa) 55%,var(--durazno) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{margin:28px 0 40px;font-size:18px;color:var(--muted);max-width:500px}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:44px;margin-top:70px;flex-wrap:wrap}
+  .hero-meta b{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:38px;color:var(--durazno)}
+  .hero-meta span{font-size:11.5px;color:var(--muted);letter-spacing:.22em;text-transform:uppercase}
+
+  /* wave divider */
+  .wave{display:block;width:100%;height:110px;margin-bottom:-1px}
+
+  /* sections */
+  section{padding:100px 0;position:relative}
+  .sec-head{max-width:640px;margin-bottom:60px}
+  .sec-head h2{font-size:clamp(38px,5.5vw,58px);letter-spacing:-.01em}
+  .sec-head h2 em{font-style:italic;color:var(--lila)}
+  .sec-head p{margin-top:16px;color:var(--muted)}
+
+  /* cartelera */
+  .cartelera{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+  .shows{display:flex;flex-direction:column;gap:0}
+  .show{display:grid;grid-template-columns:120px 1fr auto;gap:28px;align-items:center;padding:34px 8px;border-bottom:1px solid var(--line);transition:.35s;position:relative}
+  .show:first-child{border-top:1px solid var(--line)}
+  .show:hover{background:linear-gradient(90deg,rgba(196,173,255,.06),transparent 70%);padding-left:22px}
+  .show .fecha{text-align:center;font-family:'Cormorant Garamond',serif}
+  .show .fecha b{display:block;font-size:44px;font-weight:600;color:var(--rosa);line-height:1}
+  .show .fecha span{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  .show h3{font-size:clamp(24px,3.4vw,34px);font-weight:500}
+  .show h3 em{font-style:italic;color:var(--lila)}
+  .show .sinopsis{font-size:15px;color:var(--muted);margin-top:6px;max-width:560px}
+  .show .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+  .show .tags i{font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--muted)}
+  .show .right{text-align:right;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+  .show .precio{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--durazno)}
+  .show .precio small{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .link-wa{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--rosa);border-bottom:1px solid rgba(242,167,195,.4);padding-bottom:2px;transition:.25s}
+  .link-wa:hover{color:var(--durazno);border-color:var(--durazno)}
+  @media(max-width:820px){
+    .show{grid-template-columns:76px 1fr;gap:18px}
+    .show .right{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;border-top:1px dashed var(--line);padding-top:16px}
+    .show .fecha b{font-size:32px}
+  }
+
+  /* compañia */
+  .compania-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  @media(max-width:860px){.compania-grid{grid-template-columns:1fr}}
+  .compania-txt p{color:var(--muted);margin-bottom:18px;font-size:16.5px}
+  .compania-txt p b{color:var(--tinta);font-weight:500}
+  .firma{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--rosa);margin-top:26px}
+  .escena{position:relative;min-height:420px;border-radius:200px 200px 24px 24px;overflow:hidden;border:1px solid var(--line);
+    background:
+      radial-gradient(60% 45% at 50% 30%,rgba(242,167,195,.28),transparent 70%),
+      radial-gradient(80% 60% at 50% 100%,rgba(196,173,255,.18),transparent 70%),
+      linear-gradient(180deg,#151030,#0d0a1f)}
+  .escena svg{position:absolute;inset:0;width:100%;height:100%}
+  .escena .telon{position:absolute;top:0;left:0;right:0;height:70px;background:linear-gradient(180deg,rgba(13,10,31,.9),transparent)}
+  .escena .pie{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--muted)}
+
+  /* escuela strip */
+  .escuela{border-block:1px solid var(--line);background:var(--bg2)}
+  .escuela-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .clase{border:1px solid var(--line);border-radius:22px;padding:30px 26px;background:linear-gradient(165deg,rgba(196,173,255,.05),transparent);transition:.35s}
+  .clase:hover{transform:translateY(-6px);border-color:rgba(242,167,195,.45);box-shadow:0 26px 50px -24px rgba(0,0,0,.8)}
+  .clase .nivel{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rosa)}
+  .clase h3{font-size:23px;margin:12px 0 8px}
+  .clase p{font-size:14.5px;color:var(--muted)}
+  .clase .valor{margin-top:16px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--durazno)}
+
+  /* visita */
+  .visita-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  @media(max-width:860px){.visita-grid{grid-template-columns:1fr}}
+  .horarios{border:1px solid var(--line);border-radius:24px;padding:38px;background:linear-gradient(160deg,var(--card),#120d28)}
+  .horarios h3{font-size:26px;margin-bottom:20px}
+  .hrow{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .hrow:last-child{border:none}
+  .hrow span{color:var(--muted)}
+  .hrow b{color:var(--lila);font-weight:500}
+  .nota{margin-top:20px;font-size:14px;color:var(--muted)}
+  .sala{border:1px solid var(--line);border-radius:24px;min-height:320px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(45% 45% at 62% 38%,rgba(242,167,195,.14),transparent 70%),
+      linear-gradient(150deg,#191234,#0d0a1f)}
+  .sala .calles{position:absolute;inset:0;opacity:.45;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px}
+  .sala .curva{position:absolute;inset:0}
+  .pin{position:absolute;top:40%;left:56%;transform:translate(-50%,-100%);text-align:center}
+  .pin .dot{width:15px;height:15px;background:linear-gradient(120deg,var(--lila),var(--rosa));border-radius:50%;margin:0 auto;box-shadow:0 0 0 8px rgba(242,167,195,.18);animation:latir 2.2s infinite}
+  @keyframes latir{50%{box-shadow:0 0 0 17px rgba(242,167,195,0)}}
+  .pin p{margin-top:12px;font-size:13.5px;font-weight:500;background:rgba(13,10,31,.85);padding:7px 16px;border-radius:999px;border:1px solid var(--line)}
+
+  /* cta final */
+  .cta-final{text-align:center;padding:120px 0;position:relative;overflow:hidden}
+  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 65% at 50% 100%,rgba(196,173,255,.16),transparent 70%)}
+  .cta-final h2{font-size:clamp(40px,6.5vw,72px);position:relative}
+  .cta-final h2 em{font-style:italic;background:linear-gradient(100deg,var(--lila),var(--rosa),var(--durazno));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cta-final p{color:var(--muted);margin:20px auto 38px;max-width:480px;position:relative}
+  .cta-final .btn{position:relative}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;color:var(--muted);font-size:13px;letter-spacing:.04em}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:.3s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:29px;height:29px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:.9s cubic-bezier(.19,.8,.26,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+    html{scroll-behavior:auto}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #c4adff;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body>
+
+<span class="demo"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></span>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Ballet <em>Austral</em></a>
+    <div class="nav-links">
+      <a href="#cartelera">Cartelera</a>
+      <a href="#compania">Compañía</a>
+      <a href="#escuela">Escuela</a>
+      <a href="#visita">Visita</a>
+    </div>
+    <a class="btn btn-glow" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Ballet%20Austral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Entradas</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <canvas id="dust" aria-hidden="true"></canvas>
+
+  <!-- bailarina: figura caligráfica con estelas de movimiento -->
+  <svg class="dancer" viewBox="0 0 520 640" fill="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="gd" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#c4adff"/>
+        <stop offset=".55" stop-color="#f2a7c3"/>
+        <stop offset="1" stop-color="#ffc9a3"/>
+      </linearGradient>
+    </defs>
+    <g opacity=".14" stroke="url(#gd)" stroke-width="22" stroke-linecap="round" transform="translate(26 10)">
+      <path d="M300 96 C 272 170, 262 232, 276 300"/><path d="M276 300 C 282 380, 270 470, 246 560"/>
+      <path d="M276 300 C 210 300, 140 322, 84 372"/><path d="M296 130 C 350 150, 402 132, 446 84"/>
+      <path d="M292 138 C 240 168, 188 162, 132 128"/>
+    </g>
+    <g opacity=".3" stroke="url(#gd)" stroke-width="18" stroke-linecap="round" transform="translate(12 4)">
+      <path d="M300 96 C 272 170, 262 232, 276 300"/><path d="M276 300 C 282 380, 270 470, 246 560"/>
+      <path d="M276 300 C 210 300, 140 322, 84 372"/><path d="M296 130 C 350 150, 402 132, 446 84"/>
+      <path d="M292 138 C 240 168, 188 162, 132 128"/>
+    </g>
+    <g stroke="url(#gd)" stroke-width="15" stroke-linecap="round">
+      <path d="M300 96 C 272 170, 262 232, 276 300"/>
+      <path d="M276 300 C 282 380, 270 470, 246 560"/>
+      <path d="M276 300 C 210 300, 140 322, 84 372"/>
+      <path d="M296 130 C 350 150, 402 132, 446 84"/>
+      <path d="M292 138 C 240 168, 188 162, 132 128"/>
+    </g>
+    <circle cx="312" cy="66" r="24" fill="url(#gd)"/>
+    <circle cx="246" cy="560" r="7" fill="#ffc9a3"/>
+    <circle cx="84" cy="372" r="7" fill="#c4adff"/>
+    <circle cx="446" cy="84" r="6" fill="#f2a7c3"/>
+  </svg>
+
+  <!-- curva de movimiento -->
+  <svg class="trail" viewBox="0 0 1440 220" fill="none" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-20 170 C 240 60, 480 210, 720 120 S 1200 40, 1480 140" stroke="rgba(196,173,255,.28)" stroke-width="1.5" stroke-dasharray="6 10"/>
+    <path d="M-20 190 C 260 90, 500 230, 740 140 S 1220 60, 1500 160" stroke="rgba(242,167,195,.18)" stroke-width="1" stroke-dasharray="3 12"/>
+  </svg>
+
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Danza contemporánea · La Serena</span>
+    <h1>El cuerpo<br />también <em>sueña.</em></h1>
+    <p>Compañía de danza contemporánea del norte de Chile. Obras de autor, una escuela de movimiento y una sala junto al mar donde cada temporada nace algo nuevo.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-glow" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Ballet%20Austral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar entradas</a>
+      <a class="btn btn-ghost" href="#cartelera">Ver cartelera ↓</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>14</b><span>Bailarines</span></div>
+      <div><b>23</b><span>Montajes</span></div>
+      <div><b>2016</b><span>Fundación</span></div>
+    </div>
+  </div>
+</header>
+
+<svg class="wave" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 60 C 240 110, 480 10, 720 55 S 1200 100, 1440 45 L1440 110 L0 110 Z" fill="#141030"/>
+</svg>
+
+<section class="cartelera" id="cartelera">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Temporada 2026</span>
+      <h2>Cartelera de <em>funciones</em></h2>
+      <p>Cuatro montajes en rotación este semestre. Aforo limitado a 90 personas por función — reserva con anticipación.</p>
+    </div>
+    <div class="shows">
+      <article class="show reveal">
+        <div class="fecha"><b>07</b><span>Ago</span></div>
+        <div>
+          <h3>Marea <em>Interior</em></h3>
+          <p class="sinopsis">Estreno. Siete intérpretes exploran la memoria del agua: la caleta, la niebla y todo lo que el mar devuelve. Música original en vivo con chelo y electrónica.</p>
+          <div class="tags"><i>Estreno</i><i>55 min</i><i>Todo espectador</i></div>
+        </div>
+        <div class="right">
+          <span class="precio">$12.000<small>General · $8.000 est.</small></span>
+          <a class="link-wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Ballet%20Austral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar →</a>
+        </div>
+      </article>
+      <article class="show reveal">
+        <div class="fecha"><b>21</b><span>Ago</span></div>
+        <div>
+          <h3>Desierto <em>Florido</em></h3>
+          <p class="sinopsis">Homenaje al fenómeno del desierto florido: un solo de 40 minutos que florece en escena entre proyecciones del valle de Elqui y silencio absoluto.</p>
+          <div class="tags"><i>Repertorio</i><i>40 min</i><i>Solo</i></div>
+        </div>
+        <div class="right">
+          <span class="precio">$10.000<small>General</small></span>
+          <a class="link-wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Ballet%20Austral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar →</a>
+        </div>
+      </article>
+      <article class="show reveal">
+        <div class="fecha"><b>04</b><span>Sep</span></div>
+        <div>
+          <h3>Piedra <em>&amp; Viento</em></h3>
+          <p class="sinopsis">Dueto físico y visceral sobre los diaguitas del valle: peso, resistencia y ceremonia. Vestuario en fibras de telar de Combarbalá.</p>
+          <div class="tags"><i>Dueto</i><i>50 min</i><i>+12 años</i></div>
+        </div>
+        <div class="right">
+          <span class="precio">$12.000<small>General</small></span>
+          <a class="link-wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Ballet%20Austral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar →</a>
+        </div>
+      </article>
+      <article class="show reveal">
+        <div class="fecha"><b>18</b><span>Sep</span></div>
+        <div>
+          <h3>Luz de <em>Observatorio</em></h3>
+          <p class="sinopsis">Cierre de temporada bajo las estrellas: función al aire libre en la terraza de la sala, inspirada en los cielos más limpios del planeta. Trae abrigo.</p>
+          <div class="tags"><i>Al aire libre</i><i>70 min</i><i>Familiar</i></div>
+        </div>
+        <div class="right">
+          <span class="precio">$15.000<small>Incluye copa de pisco</small></span>
+          <a class="link-wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Ballet%20Austral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="compania">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">La compañía</span>
+      <h2>Danza que nace <em>del territorio</em></h2>
+    </div>
+    <div class="compania-grid">
+      <div class="compania-txt reveal">
+        <p>Nacimos en <b>2016</b> en una bodega portuaria de Coquimbo y hoy somos la compañía estable de danza contemporánea de la Región de Coquimbo. Nuestro lenguaje mezcla técnica clásica, improvisación y la identidad del norte: el mar, el valle y el desierto.</p>
+        <p>Somos <b>14 intérpretes</b>, un músico residente y un equipo de diseño que construye cada montaje desde cero. Hemos girado por Santiago, Valparaíso y el Festival Danzalborde, pero nuestra casa es — y será — La Serena.</p>
+        <p>La sala <b>Espacio Austral</b> tiene 90 butacas, piso de danza profesional y un foyer donde después de cada función conversamos con el público, pisco sour de por medio.</p>
+        <p class="firma">— Violeta Rondanelli, directora artística</p>
+      </div>
+      <div class="escena reveal" aria-hidden="true">
+        <div class="telon"></div>
+        <svg aria-hidden="true" viewBox="0 0 400 420" fill="none">
+          <defs>
+            <linearGradient id="gd2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f2a7c3"/><stop offset="1" stop-color="#c4adff"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="200" cy="392" rx="150" ry="10" fill="rgba(196,173,255,.12)"/>
+          <g stroke="url(#gd2)" stroke-width="11" stroke-linecap="round">
+            <path d="M200 120 C 190 170, 188 210, 196 250"/>
+            <path d="M196 250 C 200 300, 192 340, 178 385"/>
+            <path d="M196 250 C 240 262, 272 250, 300 220"/>
+            <path d="M198 150 C 240 128, 276 132, 310 158"/>
+            <path d="M196 152 C 160 140, 128 150, 104 182"/>
+          </g>
+          <circle cx="206" cy="98" r="17" fill="url(#gd2)"/>
+          <path d="M60 400 C 120 350, 180 410, 240 370 S 340 330, 380 380" stroke="rgba(255,201,163,.35)" stroke-width="1.2" stroke-dasharray="4 8"/>
+        </svg>
+        <p class="pie">Ensayo de «Marea Interior», sala Espacio Austral</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="escuela" id="escuela">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Escuela de movimiento</span>
+      <h2>Clases para <em>todos los cuerpos</em></h2>
+      <p>No hace falta experiencia previa: solo ganas de moverte. Prueba la primera clase gratis.</p>
+    </div>
+    <div class="escuela-grid">
+      <div class="clase reveal"><span class="nivel">Iniciación</span><h3>Danza Contemporánea I</h3><p>Ma &amp; Ju 19:00–20:30 · Técnica base, piso y consciencia corporal para principiantes.</p><p class="valor">$38.000 / mes</p></div>
+      <div class="clase reveal"><span class="nivel">Intermedio</span><h3>Improvisación &amp; Contacto</h3><p>Mié 20:00–21:30 · Juego, peso compartido y composición en tiempo real.</p><p class="valor">$34.000 / mes</p></div>
+      <div class="clase reveal"><span class="nivel">Niños 6–11</span><h3>Pequeños Intérpretes</h3><p>Sá 11:00–12:15 · Movimiento creativo, música y juego escénico.</p><p class="valor">$30.000 / mes</p></div>
+      <div class="clase reveal"><span class="nivel">Intensivo</span><h3>Taller de Creación</h3><p>Sá 16:00–19:00 · Montaje grupal con muestra final en la sala. Cupos por audición.</p><p class="valor">$55.000 / mes</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visita">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Encuéntranos</span>
+      <h2>Espacio Austral, <em>junto al faro</em></h2>
+    </div>
+    <div class="visita-grid">
+      <div class="horarios reveal">
+        <h3>Funciones &amp; boletería</h3>
+        <div class="hrow"><span>Funciones</span><b>Vie &amp; Sáb · 20:00</b></div>
+        <div class="hrow"><span>Función familiar</span><b>Dom · 18:00</b></div>
+        <div class="hrow"><span>Boletería presencial</span><b>Ma – Sá · 16:00 – 19:30</b></div>
+        <div class="hrow"><span>Lunes</span><b>Cerrado</b></div>
+        <p class="nota">📍 Av. del Mar 2100, sector El Faro, La Serena<br />🅿️ Estacionamiento en calle Los Naranjos · ♿ Sala accesible</p>
+      </div>
+      <div class="sala reveal" aria-hidden="true">
+        <div class="calles"></div>
+        <svg aria-hidden="true" class="curva" viewBox="0 0 500 320" fill="none" preserveAspectRatio="none">
+          <path d="M-10 250 C 120 180, 260 290, 510 190" stroke="rgba(196,173,255,.3)" stroke-width="1.4" stroke-dasharray="5 9"/>
+          <path d="M-10 80 C 140 150, 300 30, 510 110" stroke="rgba(242,167,195,.22)" stroke-width="1" stroke-dasharray="3 10"/>
+        </svg>
+        <div class="pin"><div class="dot"></div><p>Av. del Mar 2100 · El Faro</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>Ven a vernos <em>mover.</em></h2>
+    <p>Escríbenos por WhatsApp y te apartamos butaca. Las funciones de estreno se agotan la primera semana.</p>
+    <a class="btn btn-glow" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Ballet%20Austral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Ballet Austral · La Serena, Región de Coquimbo</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Ballet%20Austral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* polvo de escenario: partículas flotantes ligeras */
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cv=document.getElementById('dust');
+  if(cv&&!reduced){
+    const cx=cv.getContext('2d');let W,H,ps=[];
+    const resize=()=>{W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight};
+    resize();addEventListener('resize',resize,{passive:true});
+    for(let i=0;i<42;i++)ps.push({x:Math.random(),y:Math.random(),r:.6+Math.random()*1.8,s:.06+Math.random()*.22,o:.15+Math.random()*.4,dx:(Math.random()-.5)*.08});
+    (function tick(){
+      cx.clearRect(0,0,W,H);
+      for(const p of ps){
+        p.y-=p.s/H*2;p.x+=p.dx/W*2;
+        if(p.y<-.02){p.y=1.02;p.x=Math.random()}
+        if(p.x<-.02)p.x=1.02;if(p.x>1.02)p.x=-.02;
+        cx.beginPath();cx.arc(p.x*W,p.y*H,p.r,0,7);
+        cx.fillStyle=`rgba(226,207,255,${p.o})`;cx.fill();
+      }
+      requestAnimationFrame(tick);
+    })();
+  }
+</script>
+</body>
+</html>

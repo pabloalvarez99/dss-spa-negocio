@@ -1,0 +1,13 @@
+{
+  "$comment": "Barber — póster de barber shop: hero statement bajo franja pole, marquee entre franjas, stats en banda, carta con línea de puntos, visita en paneles, cierre en CTA.",
+  "blocks": [
+    { "block": "hero", "variant": "statement", "anchor": "inicio" },
+    { "block": "marquee", "variant": "band", "if": "marquee_items" },
+    { "block": "stats", "variant": "band", "anchor": "datos", "if": "stats_items" },
+    { "block": "menu", "variant": "leader", "anchor": "carta", "nav": "{{label_menu}}" },
+    { "block": "about", "variant": "editorial", "anchor": "nosotros", "nav": "La barbería" },
+    { "block": "gallery", "variant": "frames", "anchor": "galeria", "nav": "Fotos", "if": "gallery_items" },
+    { "block": "contact", "variant": "split", "anchor": "contacto", "nav": "Visita" },
+    { "block": "cta", "variant": "center", "anchor": "reservar" }
+  ]
+}

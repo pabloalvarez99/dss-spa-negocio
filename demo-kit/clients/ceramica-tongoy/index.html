@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Taller Tongoy — Cerámica Artesanal · Guanaqueros</title>
+<meta name="description" content="Taller Tongoy: cerámica artesanal hecha a mano en Guanaqueros, Región de Coquimbo. Piezas únicas de gres y arcilla local, clases de torno y tienda online. Escríbenos por WhatsApp." />
+<meta name="theme-color" content="#b85c38" />
+<meta property="og:title" content="Taller Tongoy — Cerámica Artesanal de Guanaqueros" />
+<meta property="og:description" content="Piezas únicas de gres y arcilla local, hechas a mano frente a la bahía de Tongoy. Tienda y clases de torno." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#faf3ea; --sand:#f0e1cd; --sand2:#e6d2b8;
+    --terra:#b85c38; --terra-d:#8f4225; --clay:#5f3a28; --ink:#3a2a20;
+    --muted:#8b7461; --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:'Nunito Sans',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden}
+  h1,h2,h3{font-family:'DM Serif Display',serif;font-weight:400;line-height:1.08}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--terra);color:var(--cream)}
+
+  /* demo badge */
+  .demo{font-family:'Nunito Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--cream);background:var(--clay);padding:4px 10px;border-radius:999px;text-transform:uppercase;vertical-align:middle}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:18px;padding-bottom:18px}
+  nav.scrolled{background:rgba(250,243,234,.92);backdrop-filter:blur(14px);box-shadow:0 12px 34px -22px rgba(95,58,40,.5)}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'DM Serif Display',serif;font-size:22px}
+  .logo .mark{width:34px;height:34px;border-radius:50% 50% 46% 46%/58% 58% 42% 42%;background:linear-gradient(160deg,var(--terra),var(--terra-d));flex:none;position:relative}
+  .logo .mark::after{content:"";position:absolute;top:6px;left:9px;width:10px;height:6px;border-radius:50%;background:rgba(250,243,234,.5)}
+  .nav-links{display:flex;gap:28px;font-size:14px;font-weight:600}
+  .nav-links a{color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--terra)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:var(--cream);font-weight:700;font-size:14.5px;padding:14px 30px;border-radius:999px;transition:.25s;border:none;cursor:pointer;box-shadow:0 14px 28px -14px rgba(184,92,56,.7)}
+  .btn:hover{background:var(--terra-d);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--clay);box-shadow:inset 0 0 0 1.5px var(--sand2)}
+  .btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--terra);color:var(--terra);background:rgba(184,92,56,.06)}
+  @media(max-width:800px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:130px 0 90px}
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none;will-change:transform}
+  .b1{width:520px;height:520px;background:#eec9a8;top:-140px;right:-120px}
+  .b2{width:420px;height:420px;background:#e3b48c;bottom:-120px;left:-140px}
+  .b3{width:280px;height:280px;background:#f4dcc2;top:38%;left:44%}
+  .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;width:100%}
+  @media(max-width:900px){.hero-inner{grid-template-columns:1fr}}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:22px}
+  .eyebrow::before{content:"";width:36px;height:2px;background:var(--terra);border-radius:2px}
+  .hero h1{font-size:clamp(46px,7.5vw,88px);color:var(--clay)}
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero p{margin:24px 0 34px;font-size:17.5px;color:var(--muted);max-width:480px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-stats{display:flex;gap:36px;margin-top:56px;flex-wrap:wrap}
+  .hero-stats b{display:block;font-family:'DM Serif Display',serif;font-weight:400;font-size:32px;color:var(--clay)}
+  .hero-stats span{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+
+  /* hero ceramics composition */
+  .shelf{position:relative;min-height:420px;display:flex;align-items:flex-end;justify-content:center;gap:26px;padding-bottom:56px}
+  @media(max-width:900px){.shelf{min-height:320px}}
+  .shelf::after{content:"";position:absolute;bottom:38px;left:6%;right:6%;height:16px;border-radius:999px;background:linear-gradient(180deg,var(--sand2),#d9c3a4);box-shadow:0 14px 26px -12px rgba(95,58,40,.45)}
+  .piece{position:relative;filter:drop-shadow(0 18px 18px rgba(95,58,40,.25));animation:float 7s ease-in-out infinite}
+  .piece:nth-child(2){animation-delay:1.4s}
+  .piece:nth-child(3){animation-delay:2.6s}
+  @keyframes float{50%{transform:translateY(-10px)}}
+  .jar{width:120px;height:170px;border-radius:46% 54% 50% 50%/26% 26% 60% 60%;background:linear-gradient(155deg,#d3805a 10%,var(--terra) 45%,var(--terra-d))}
+  .jar::before{content:"";position:absolute;top:-16px;left:32px;width:56px;height:26px;border-radius:50% 50% 30% 30%/100% 100% 20% 20%;background:linear-gradient(180deg,#e0996f,var(--terra))}
+  .jar::after{content:"";position:absolute;top:34px;right:-26px;width:40px;height:58px;border:10px solid var(--terra-d);border-left:none;border-radius:0 50% 50% 0}
+  .bowl{width:150px;height:78px;border-radius:14px 14px 90px 90px/10px 10px 80px 80px;background:linear-gradient(165deg,#f0d9bd,var(--sand2) 40%,#c9a87e);align-self:flex-end;margin-bottom:0}
+  .bowl::before{content:"";position:absolute;top:8px;left:10%;right:10%;height:14px;border-radius:50%;background:rgba(250,243,234,.55)}
+  .vase{width:96px;height:210px;border-radius:50% 50% 46% 46%/30% 30% 62% 62%;background:linear-gradient(160deg,#8f6b4e,var(--clay) 55%,#452a1c)}
+  .vase::before{content:"";position:absolute;top:-12px;left:26px;width:44px;height:22px;border-radius:50% 50% 40% 40%;background:#7a553c}
+  .vase::after{content:"";position:absolute;top:26px;left:16px;width:14px;height:120px;border-radius:999px;background:rgba(250,243,234,.14)}
+
+  /* sections */
+  section{padding:104px 0}
+  .sec-head{max-width:600px;margin-bottom:56px}
+  .sec-head h2{font-size:clamp(32px,5vw,52px);color:var(--clay)}
+  .sec-head h2 em{font-style:italic;color:var(--terra)}
+  .sec-head p{margin-top:14px;color:var(--muted)}
+
+  /* shop */
+  .shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:24px}
+  .card{background:#fff;border-radius:28px;overflow:hidden;border:1px solid var(--sand);transition:.3s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-7px);box-shadow:0 30px 54px -26px rgba(95,58,40,.45)}
+  .card .stage{height:210px;display:grid;place-items:center;position:relative;overflow:hidden}
+  .card .stage::before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(184,92,56,.14),transparent 68%)}
+  .stage .shape{position:relative;filter:drop-shadow(0 14px 12px rgba(95,58,40,.28))}
+  .s1{background:linear-gradient(150deg,#fdf6ee,var(--sand))}
+  .s2{background:linear-gradient(150deg,#f7ead9,#eed9be)}
+  .s3{background:linear-gradient(150deg,#fbf1e4,var(--sand))}
+  .s4{background:linear-gradient(150deg,#f6e8d4,#e9d3b4)}
+  .s5{background:linear-gradient(150deg,#fdf6ee,#f0dec6)}
+  .s6{background:linear-gradient(150deg,#f9eddc,var(--sand))}
+  .sh-bowl{width:130px;height:66px;border-radius:12px 12px 80px 80px/8px 8px 72px 72px;background:linear-gradient(165deg,#d98a5f,var(--terra) 55%,var(--terra-d))}
+  .sh-jarra{width:88px;height:120px;border-radius:44% 56% 50% 50%/24% 24% 58% 58%;background:linear-gradient(155deg,#e8c39b,#cf9460 60%,#a9713f)}
+  .sh-jarra::after{content:"";position:absolute;top:20px;right:-20px;width:30px;height:44px;border:8px solid #a9713f;border-left:none;border-radius:0 50% 50% 0}
+  .sh-macetero{width:104px;height:96px;border-radius:16px 16px 34px 34px;background:linear-gradient(160deg,#c98a6a,#a05c3a 60%,#7c4327);clip-path:polygon(4% 0,96% 0,86% 100%,14% 100%)}
+  .sh-plato{width:140px;height:34px;border-radius:50%;background:linear-gradient(180deg,#f2dfc3,#caa87d)}
+  .sh-plato::before{content:"";position:absolute;top:6px;left:14%;right:14%;height:10px;border-radius:50%;background:rgba(250,243,234,.6)}
+  .sh-lampara{width:118px;height:88px;border-radius:60px 60px 18px 18px/70px 70px 14px 14px;background:linear-gradient(165deg,#8f6b4e,var(--clay) 65%,#452a1c)}
+  .sh-lampara::after{content:"";position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:34px;height:12px;border-radius:50%;background:#e8c98f;filter:blur(2px)}
+  .sh-tetera{width:112px;height:96px;border-radius:50% 50% 46% 46%/56% 56% 40% 40%;background:linear-gradient(155deg,#dba06f,var(--terra) 60%,var(--terra-d))}
+  .sh-tetera::before{content:"";position:absolute;top:8px;left:-24px;width:30px;height:16px;border-radius:50% 0 0 50%;background:var(--terra);transform:rotate(-18deg)}
+  .sh-tetera::after{content:"";position:absolute;top:14px;right:-20px;width:26px;height:40px;border:8px solid var(--terra-d);border-left:none;border-radius:0 50% 50% 0}
+  .card .c-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card .tag{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
+  .card h3{font-size:23px;color:var(--clay)}
+  .card .desc{font-size:14px;color:var(--muted);flex:1}
+  .card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;border-top:1px dashed var(--sand2);padding-top:14px}
+  .card .price{font-family:'DM Serif Display',serif;font-size:22px;color:var(--terra-d)}
+  .card .get{font-size:12.5px;font-weight:700;color:var(--terra);border-bottom:1.5px solid transparent;transition:.2s}
+  .card .get:hover{border-color:var(--terra)}
+
+  /* process */
+  .process{background:var(--sand);border-radius:60px 60px 0 0;margin-top:40px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;counter-reset:paso}
+  .step{background:var(--cream);border-radius:26px;padding:32px 26px;position:relative;transition:.3s;counter-increment:paso}
+  .step:hover{transform:translateY(-6px);box-shadow:0 24px 44px -24px rgba(95,58,40,.4)}
+  .step::before{content:"0" counter(paso);font-family:'DM Serif Display',serif;font-size:54px;color:var(--terra);opacity:.9;line-height:1;display:block;margin-bottom:14px}
+  .step h3{font-size:21px;color:var(--clay);margin-bottom:8px}
+  .step p{font-size:14px;color:var(--muted)}
+  .step .ico{position:absolute;top:26px;right:24px;font-size:24px}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+  .about-art{position:relative;min-height:380px;border-radius:200px 200px 28px 28px;overflow:hidden;background:linear-gradient(175deg,#e9c39c,#cf9460 55%,#a9713f)}
+  .about-art::before{content:"";position:absolute;inset:14px;border-radius:190px 190px 20px 20px;border:2px dashed rgba(250,243,234,.55)}
+  .about-art .sun{position:absolute;top:44px;left:50%;transform:translateX(-50%);width:88px;height:88px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fdf0dd,#e8c98f)}
+  .about-art .hands{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:170px;height:110px}
+  .about-art .hands i{position:absolute;bottom:0;width:80px;height:96px;border-radius:44px 44px 30px 30px;background:linear-gradient(160deg,#8f5a3c,#6b3f27)}
+  .about-art .hands i:first-child{left:0;transform:rotate(-14deg)}
+  .about-art .hands i:last-child{right:0;transform:rotate(14deg)}
+  .about-art .pot{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);width:74px;height:88px;border-radius:50% 50% 44% 44%/28% 28% 60% 60%;background:linear-gradient(160deg,#f0d9bd,#c9a87e);z-index:2}
+  .about-copy p{color:var(--muted);margin-bottom:18px;font-size:16px}
+  .about-copy p strong{color:var(--ink)}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:stretch}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  .hours{background:#fff;border:1px solid var(--sand);border-radius:30px;padding:38px 34px}
+  .hours h3{font-size:24px;color:var(--clay);margin-bottom:20px}
+  .hrow{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px dashed var(--sand2);font-size:15px}
+  .hrow:last-child{border:none}
+  .hrow span{color:var(--muted)}
+  .hrow b{color:var(--terra-d)}
+  .map-card{position:relative;min-height:320px;border-radius:30px;overflow:hidden;background:linear-gradient(160deg,#f3e3cb,#e2c9a4)}
+  .map-waves{position:absolute;inset:0;opacity:.5;
+    background-image:repeating-radial-gradient(circle at 70% 30%,transparent 0 34px,rgba(184,92,56,.16) 34px 36px)}
+  .pin{position:absolute;top:46%;left:54%;transform:translate(-50%,-100%);text-align:center}
+  .pin .dot{width:16px;height:16px;background:var(--terra);border-radius:50% 50% 50% 0;transform:rotate(-45deg);margin:0 auto;box-shadow:0 0 0 8px rgba(184,92,56,.18);animation:pulse 2.2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 17px rgba(184,92,56,0)}}
+  .pin p{margin-top:14px;font-size:13px;font-weight:700;background:rgba(250,243,234,.9);padding:7px 16px;border-radius:999px;border:1px solid var(--sand2);color:var(--clay)}
+
+  /* cta */
+  .cta-final{text-align:center;padding:110px 0;position:relative;overflow:hidden;background:var(--clay);color:var(--cream);border-radius:60px 60px 0 0}
+  .cta-final::before{content:"";position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(232,201,143,.16),transparent 65%)}
+  .cta-final h2{font-size:clamp(34px,6vw,62px);position:relative}
+  .cta-final h2 em{font-style:italic;color:#e8c98f}
+  .cta-final p{color:#d8c2b0;margin:18px auto 36px;max-width:460px;position:relative}
+  .cta-final .btn{position:relative;background:var(--cream);color:var(--clay);box-shadow:0 14px 28px -12px rgba(0,0,0,.4)}
+  .cta-final .btn:hover{background:#fff}
+
+  footer{background:var(--clay);color:#c9ae9c;padding:0 0 34px;font-size:13px}
+  footer .wrap{border-top:1px solid rgba(250,243,234,.18);padding-top:28px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.55);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:.75s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  @media (max-width:560px){.hero-inner{grid-template-columns:minmax(0,1fr)}.shelf{gap:12px;transform:scale(.82);transform-origin:bottom center}nav .logo{font-size:17px}nav .demo{font-size:8px;letter-spacing:.1em;padding:3px 6px}nav .btn{font-size:12.5px;padding:11px 18px}}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #b85c38;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="mark"></span> Taller Tongoy <span class="demo">Concepto</span></a>
+    <div class="nav-links">
+      <a href="#coleccion">Colección</a>
+      <a href="#proceso">El barro</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#visita">Visita</a>
+    </div>
+    <a class="btn" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Encargar pieza</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob b1" data-depth="18"></div>
+  <div class="blob b2" data-depth="-14"></div>
+  <div class="blob b3" data-depth="9"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="eyebrow">Cerámica artesanal · Guanaqueros</span>
+      <h1>Tierra que<br /><em>guarda el mar.</em></h1>
+      <p>Cada pieza sale del torno de nuestro taller frente a la bahía de Tongoy: gres de la zona, esmaltes de ceniza y curvas que no se repiten. Cerámica lenta para mesas con historia.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Ver colección</a>
+        <a class="btn btn-ghost" href="#proceso">Cómo lo hacemos</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>2014</b><span>Taller fundado</span></div>
+        <div><b>1.180 °C</b><span>Horno de gres</span></div>
+        <div><b>100 %</b><span>Hecho a mano</span></div>
+      </div>
+    </div>
+    <div class="shelf" aria-hidden="true">
+      <div class="piece bowl"></div>
+      <div class="piece jar"></div>
+      <div class="piece vase"></div>
+    </div>
+  </div>
+</header>
+
+<section id="coleccion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Tienda del taller</span>
+      <h2>Colección <em>Marea</em></h2>
+      <p>Piezas disponibles este mes. Cada una es única: si se vende, la hacemos de nuevo parecida, nunca igual. Retiro en el taller o envío a todo Chile.</p>
+    </div>
+    <div class="shop-grid">
+      <article class="card reveal">
+        <div class="stage s1"><div class="shape sh-bowl"></div></div>
+        <div class="c-body">
+          <span class="tag">Gres esmaltado</span>
+          <h3>Cuenco Marea</h3>
+          <p class="desc">Para pebre, mariscal o lo que salga del fogón. Esmalte turquesa corrido, borde a mano.</p>
+          <div class="foot"><span class="price">$12.000</span><a class="get" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Lo quiero →</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="stage s2"><div class="shape sh-jarra"></div></div>
+        <div class="c-body">
+          <span class="tag">Arcilla local</span>
+          <h3>Jarra Duna</h3>
+          <p class="desc">Un litro y medio de agua fresca o de pipeño, según la ocasión. Asa gruesa, vertedor firme.</p>
+          <div class="foot"><span class="price">$24.000</span><a class="get" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Lo quiero →</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="stage s3"><div class="shape sh-macetero"></div></div>
+        <div class="c-body">
+          <span class="tag">Terracota cruda</span>
+          <h3>Macetero Cacto</h3>
+          <p class="desc">Pensado para cactus y suculentas del norte: sin esmalte, respira con la planta.</p>
+          <div class="foot"><span class="price">$18.500</span><a class="get" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Lo quiero →</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="stage s4"><div class="shape sh-plato"></div></div>
+        <div class="c-body">
+          <span class="tag">Gres arena</span>
+          <h3>Plato Totoralillo</h3>
+          <p class="desc">Llano, amplio, de 26 cm. El fondo deja ver la tierra: cada uno tiene su propio dibujo.</p>
+          <div class="foot"><span class="price">$15.000</span><a class="get" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Lo quiero →</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="stage s5"><div class="shape sh-lampara"></div></div>
+        <div class="c-body">
+          <span class="tag">Pieza de autor</span>
+          <h3>Lámpara Rincón</h3>
+          <p class="desc">Pantalla torneada en gres oscuro con luz cálida. Para veladores y esquinas de lectura.</p>
+          <div class="foot"><span class="price">$36.000</span><a class="get" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Lo quiero →</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="stage s6"><div class="shape sh-tetera"></div></div>
+        <div class="c-body">
+          <span class="tag">Serie limitada</span>
+          <h3>Tetera Chagual</h3>
+          <p class="desc">Seis tazas de té bien servidas. Solo salen diez por hornada; quedan tres de la última.</p>
+          <div class="foot"><span class="price">$42.000</span><a class="get" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Lo quiero →</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="proceso">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Del cerro a la mesa</span>
+      <h2>El camino del <em>barro</em></h2>
+      <p>Cuatro pasos, tres semanas, cero apuro. Así nace cada pieza del taller.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="ico">⛰</span><h3>Extraer y amasar</h3><p>La arcilla viene de quebradas cercanas a Tongoy. Se seca al sol, se muele y se amasa a pie, como se ha hecho siempre.</p></div>
+      <div class="step reveal"><span class="ico">◎</span><h3>Tornear</h3><p>Cada pieza gira en el torno hasta encontrar su curva. Acá no hay moldes: hay manos, agua y paciencia.</p></div>
+      <div class="step reveal"><span class="ico">♨</span><h3>Hornear</h3><p>Primera horneada a 980 °C, esmalte de ceniza y óxidos, y segunda subida a 1.180 °C en el horno a gas del patio.</p></div>
+      <div class="step reveal"><span class="ico">✿</span><h3>Despedir</h3><p>Lijamos la base, firmamos abajo y la pieza se va a tu mesa. Si se quiebra en el camino, la reponemos nosotros.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="wrap about-grid">
+    <div class="about-art reveal" aria-hidden="true">
+      <div class="sun"></div>
+      <div class="pot"></div>
+      <div class="hands"><i></i><i></i></div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">Quiénes somos</span>
+      <h2 style="font-size:clamp(30px,4.4vw,46px);color:var(--clay);margin-bottom:22px">Dos manos y<br />una <em style="font-style:italic;color:var(--terra)">bahía</em></h2>
+      <p>Soy <strong>Ester Morales</strong>, alfarera. Aprendí el oficio con mi abuela en Guanaqueros, entre chicha de uva país y harina tostada, y en 2014 abrí este taller a cuadras de la playa con un torno de segunda mano.</p>
+      <p>Hoy trabajamos con mi hija <strong>Camila</strong>: ella esmalta, yo torneo, y las dos discutimos cada curva. Creemos que una taza hecha a mano cambia el desayuno, y que el norte tiene una cerámica propia que todavía estamos descubriendo.</p>
+      <a class="btn btn-ghost" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" style="margin-top:8px">Conversemos</a>
+    </div>
+  </div>
+</section>
+
+<section id="visita" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Ven a ensuciarte las manos</span>
+      <h2>Visita el <em>taller</em></h2>
+    </div>
+    <div class="visit-grid">
+      <div class="hours reveal">
+        <h3>Horarios y clases</h3>
+        <div class="hrow"><span>Tienda · Mar – Sáb</span><b>10:00 – 19:00</b></div>
+        <div class="hrow"><span>Domingo</span><b>11:00 – 15:00</b></div>
+        <div class="hrow"><span>Lunes</span><b>Cerrado (día de hornada)</b></div>
+        <div class="hrow"><span>Clase de torno · Sáb 11:00</span><b>$25.000 c/ materiales</b></div>
+        <div class="hrow"><span>Curso mensual (4 clases)</span><b>$85.000</b></div>
+        <p style="margin-top:20px;font-size:14.5px;color:var(--muted)">📍 Camino a la Playa 187, Guanaqueros, Región de Coquimbo<br />🚗 A 20 min de Tongoy y 40 min de La Serena por la Ruta 5<br />🐚 Los niños son bienvenidos: hay torno chico para ellos</p>
+      </div>
+      <div class="map-card reveal">
+        <div class="map-waves"></div>
+        <div class="pin"><div class="dot"></div><p>Camino a la Playa 187</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>Llévate un pedazo<br />de la <em>bahía</em></h2>
+    <p>Escríbenos por WhatsApp: te mandamos fotos de las piezas disponibles hoy y agendamos retiro o envío.</p>
+    <a class="btn" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Taller Tongoy · Guanaqueros</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Taller%20Tongoy%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5c.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.getElementById('nav');
+  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 40); }, {passive:true});
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* gentle blob drift following the cursor */
+  if (!reduce && matchMedia('(pointer: fine)').matches){
+    var blobs = document.querySelectorAll('.blob');
+    var tx = 0, ty = 0, cx = 0, cy = 0;
+    addEventListener('mousemove', function(e){
+      tx = (e.clientX / innerWidth - .5);
+      ty = (e.clientY / innerHeight - .5);
+    }, {passive:true});
+    (function drift(){
+      cx += (tx - cx) * .04;
+      cy += (ty - cy) * .04;
+      blobs.forEach(function(b){
+        var d = parseFloat(b.dataset.depth || 10);
+        b.style.transform = 'translate(' + (cx * d * 3) + 'px,' + (cy * d * 3) + 'px)';
+      });
+      requestAnimationFrame(drift);
+    })();
+  }
+})();
+</script>
+</body>
+</html>

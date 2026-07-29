@@ -1,0 +1,11 @@
+{
+  "$comment": "Composición por defecto si un skin no trae sections.json propio. Equivale al layout único de C1/C2.",
+  "blocks": [
+    { "block": "hero", "variant": "classic", "anchor": "inicio" },
+    { "block": "marquee", "variant": "line", "if": "marquee_items" },
+    { "block": "menu", "variant": "cards", "anchor": "carta", "nav": "{{label_menu}}" },
+    { "block": "about", "variant": "split", "anchor": "nosotros", "nav": "Nosotros" },
+    { "block": "gallery", "variant": "grid", "anchor": "galeria", "nav": "Fotos", "if": "gallery_items" },
+    { "block": "contact", "variant": "panel", "anchor": "contacto", "nav": "Contacto" }
+  ]
+}

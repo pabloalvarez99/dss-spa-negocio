@@ -1,19 +1,31 @@
 {
   "id": "services",
-  "label": "Servicios locales (taller, ferretería, etc.)",
-  "fonts_url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap",
+  "label": "Servicios / oficios (cerrajería, gasfitería, electricidad, urgencias)",
+  "base": "none",
+  "schema_type": "Locksmith",
+  "fonts_url": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap",
   "defaults": {
-    "eyebrow": "Servicio local",
+    "eyebrow": "Servicio 24/7",
     "label_menu": "Servicios",
-    "menu_title": "En qué te ayudamos",
-    "menu_intro": "Lista clara de servicios y precios de referencia. Cotiza por WhatsApp.",
+    "menu_title": "Catálogo de servicios",
+    "menu_intro": "Precios de referencia, sin letra chica. La cotización final va por WhatsApp.",
+    "menu_note": "Valores desde. Urgencias nocturnas se cotizan al momento.",
     "cta_primary": "Cotizar por WhatsApp",
     "cta_secondary": "Ver servicios",
-    "cta_short": "Cotizar",
-    "about_title": "Rápido y confiable",
-    "about_card": "Para negocios de oficio que viven del WhatsApp y la recomendación de boca en boca.",
-    "contact_title": "Escríbenos",
-    "wa_message": "Hola {name}, quiero cotizar un servicio",
-    "hero_title": "{name}"
+    "cta_short": "Llamar",
+    "about_title": "Oficio que responde",
+    "about_card": "Servicio local y móvil, con precios claros y atención directa. Demo ilustrativa.",
+    "contact_title": "Coordinar una visita",
+    "steps_kicker": "Protocolo",
+    "steps_title": "Cómo funciona",
+    "cta_title": "¿Lo necesitas ahora?",
+    "cta_text": "Escríbenos por WhatsApp: respondemos rápido y vamos a domicilio.",
+    "wa_message": "Hola {name}, necesito cotizar un servicio",
+    "hero_title": "{name}",
+    "steps": [
+      { "title": "Cotiza por WhatsApp", "desc": "Cuéntanos qué pasó y te damos valor de referencia al tiro." },
+      { "title": "Coordinamos la visita", "desc": "Acordamos hora y dirección. Vamos a domicilio." },
+      { "title": "Solucionado", "desc": "Trabajo terminado, con garantía y boleta si la necesitas." }
+    ]
   }
 }

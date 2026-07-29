@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Vuelta — Bar Speakeasy · La Serena</title>
+<meta name="description" content="Bar clandestino estilo años 20 en La Serena. Coctelería de autor, jazz en vivo y una puerta que no vas a encontrar solo. Reserva y recibe la clave por WhatsApp." />
+<meta name="theme-color" content="#0a0e1c" />
+<meta property="og:title" content="La Vuelta — Bar Speakeasy · La Serena" />
+<meta property="og:description" content="Coctelería de autor y jazz detrás de una puerta sin letrero en La Serena. Pide la clave por WhatsApp." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --night:#0a0e1c; --night2:#0e1428; --panel:#111831;
+    --gold:#c9a24b; --gold-l:#e8cf8f; --cream:#f1e8d4; --muted:#8b8fa6;
+    --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--night);color:var(--cream);font-family:'Jost',sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;line-height:1.05;font-weight:500}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  ::selection{background:var(--gold);color:var(--night)}
+
+  /* humo ambiental */
+  .smoke{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.7;
+    background:
+      radial-gradient(45% 35% at 20% 15%,rgba(201,162,75,.10),transparent 70%),
+      radial-gradient(50% 40% at 85% 75%,rgba(60,80,160,.12),transparent 70%),
+      radial-gradient(35% 30% at 60% 100%,rgba(201,162,75,.07),transparent 70%)}
+  main,header,footer{position:relative;z-index:2}
+
+  .demo-badge{position:fixed;top:16px;right:16px;z-index:70;border:1px solid var(--gold);color:var(--gold);font-size:10px;letter-spacing:.35em;padding:5px 12px 5px 15px;font-weight:500;background:rgba(10,14,28,.7);backdrop-filter:blur(6px)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
+  nav.scrolled{background:rgba(10,14,28,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,162,75,.25)}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:.14em;color:var(--gold-l);display:flex;align-items:center;gap:12px}
+  .logo svg{width:26px;height:26px}
+  .nav-links{display:flex;gap:34px;font-size:13px;letter-spacing:.28em;text-transform:uppercase;font-weight:400}
+  .nav-links a{color:var(--muted);transition:.3s;position:relative}
+  .nav-links a:hover{color:var(--gold-l)}
+  .nav-links a::after{content:"";position:absolute;left:50%;bottom:-6px;width:0;height:1px;background:var(--gold);transition:.3s;transform:translateX(-50%)}
+  .nav-links a:hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 30px;font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;transition:.35s;border:1px solid var(--gold);cursor:pointer}
+  .btn-gold{background:linear-gradient(120deg,var(--gold),var(--gold-l) 55%,var(--gold));color:var(--night)}
+  .btn-gold:hover{box-shadow:0 0 34px rgba(201,162,75,.45);transform:translateY(-2px)}
+  .btn-ghost{color:var(--gold-l)}
+  .btn-ghost:hover{background:rgba(201,162,75,.1)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:120px 0 80px}
+  .hero-glow{position:absolute;inset:0;background:radial-gradient(55% 45% at 50% 42%,rgba(201,162,75,.16),transparent 70%)}
+  #embers{position:absolute;inset:0;width:100%;height:100%}
+  .fan{position:absolute;top:50%;left:50%;transform:translate(-50%,-56%);width:min(88vw,640px);opacity:.5;animation:fan-breathe 9s ease-in-out infinite}
+  @keyframes fan-breathe{50%{opacity:.85;transform:translate(-50%,-56%) scale(1.03)}}
+  .hero-inner{position:relative;z-index:3;max-width:760px;padding:0 20px}
+  .hero-frame{border:1px solid rgba(201,162,75,.5);padding:clamp(30px,6vw,64px) clamp(22px,5vw,56px);position:relative;background:rgba(10,14,28,.35)}
+  .hero-frame::before{content:"";position:absolute;inset:7px;border:1px solid rgba(201,162,75,.28);pointer-events:none}
+  .corner{position:absolute;width:22px;height:22px;border-color:var(--gold);border-style:solid;border-width:0}
+  .corner.tl{top:-4px;left:-4px;border-top-width:2px;border-left-width:2px}
+  .corner.tr{top:-4px;right:-4px;border-top-width:2px;border-right-width:2px}
+  .corner.bl{bottom:-4px;left:-4px;border-bottom-width:2px;border-left-width:2px}
+  .corner.br{bottom:-4px;right:-4px;border-bottom-width:2px;border-right-width:2px}
+  .eyebrow{font-size:12px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:20px}
+  .hero h1{font-size:clamp(52px,10vw,110px);letter-spacing:.06em;color:var(--cream)}
+  .hero h1 em{font-style:italic;color:var(--gold-l)}
+  .deco-line{display:flex;align-items:center;justify-content:center;gap:16px;margin:26px auto;color:var(--gold)}
+  .deco-line::before,.deco-line::after{content:"";height:1px;width:min(120px,22vw);background:linear-gradient(90deg,transparent,var(--gold))}
+  .deco-line::after{background:linear-gradient(270deg,transparent,var(--gold))}
+  .deco-line svg{width:16px;height:16px;flex:none}
+  .hero p{color:var(--muted);font-size:17px;max-width:480px;margin:0 auto 34px}
+  .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* sections */
+  section{padding:100px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 60px}
+  .sec-head h2{font-size:clamp(38px,6vw,62px);color:var(--cream)}
+  .sec-head h2 em{color:var(--gold-l);font-style:italic}
+  .sec-head p{color:var(--muted);margin-top:16px;font-size:16px}
+
+  /* carta */
+  .carta{background:linear-gradient(180deg,var(--night) 0%,var(--night2) 50%,var(--night) 100%)}
+  .carta-frame{border:1px solid rgba(201,162,75,.45);padding:clamp(26px,5vw,60px);position:relative;max-width:860px;margin:0 auto}
+  .carta-frame::before{content:"";position:absolute;inset:8px;border:1px solid rgba(201,162,75,.22);pointer-events:none}
+  .carta-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,5vw,60px)}
+  @media(max-width:720px){.carta-cols{grid-template-columns:1fr}}
+  .cat{font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);text-align:center;margin:34px 0 22px;font-weight:500}
+  .cat:first-child{margin-top:0}
+  .drink{padding:15px 0;border-bottom:1px solid rgba(201,162,75,.14)}
+  .drink:last-child{border-bottom:none}
+  .drink-top{display:flex;align-items:baseline;gap:10px}
+  .drink-top h3{font-size:22px;color:var(--cream)}
+  .drink-top .dots{flex:1;border-bottom:1px dotted rgba(201,162,75,.5);transform:translateY(-5px)}
+  .drink-top .price{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold-l);white-space:nowrap}
+  .drink p{font-size:13.5px;color:var(--muted);margin-top:3px}
+  .carta-note{text-align:center;margin-top:38px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--gold-l)}
+
+  /* experiencia */
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,162,75,.3);border:1px solid rgba(201,162,75,.3)}
+  .exp{background:var(--night);padding:40px 30px;text-align:center;transition:.4s}
+  .exp:hover{background:var(--panel)}
+  .exp svg{width:42px;height:42px;margin-bottom:18px}
+  .exp h3{font-size:24px;margin-bottom:10px;color:var(--gold-l)}
+  .exp p{font-size:14px;color:var(--muted)}
+  @media(max-width:760px){.exp-grid{grid-template-columns:1fr}}
+
+  /* sobre */
+  .sobre-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  @media(max-width:820px){.sobre-grid{grid-template-columns:1fr;gap:36px}}
+  .sobre-art{border:1px solid rgba(201,162,75,.4);padding:14px}
+  .sobre-art>div{border:1px solid rgba(201,162,75,.25);padding:50px 30px;text-align:center;background:
+    radial-gradient(60% 50% at 50% 30%,rgba(201,162,75,.14),transparent 70%)}
+  .sobre-art .num{font-family:'Cormorant Garamond',serif;font-size:clamp(70px,10vw,110px);color:var(--gold);line-height:1}
+  .sobre-art .cap{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+  .sobre-txt h2{font-size:clamp(32px,5vw,50px);margin-bottom:20px}
+  .sobre-txt h2 em{color:var(--gold-l);font-style:italic}
+  .sobre-txt p{color:var(--muted);margin-bottom:16px;font-size:16px}
+  .sobre-txt .firma{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--gold-l);margin-top:22px}
+
+  /* visita */
+  .visita-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,162,75,.3);border:1px solid rgba(201,162,75,.3)}
+  .visita-grid>div{background:var(--night);padding:44px 38px}
+  @media(max-width:760px){.visita-grid{grid-template-columns:1fr}}
+  .vlabel{font-size:12px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-weight:500}
+  .hrow{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(201,162,75,.15);font-size:15px}
+  .hrow:last-child{border:none}
+  .hrow span{color:var(--muted)}
+  .hrow b{font-weight:400;color:var(--gold-l)}
+  .addr{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1.3;color:var(--cream);margin-bottom:18px}
+  .hint{font-size:14px;color:var(--muted);font-style:italic}
+  .hint b{color:var(--gold-l);font-weight:500}
+
+  /* cta */
+  .cta-final{text-align:center;position:relative;overflow:hidden}
+  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 110%,rgba(201,162,75,.18),transparent 70%)}
+  .cta-final .wrap{position:relative}
+  .cta-final h2{font-size:clamp(36px,6vw,66px)}
+  .cta-final h2 em{color:var(--gold-l);font-style:italic}
+  .cta-final p{color:var(--muted);margin:18px auto 34px;max-width:460px}
+
+  footer{border-top:1px solid rgba(201,162,75,.25);padding:30px 0;color:var(--muted);font-size:13px;letter-spacing:.12em}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  .wa{position:fixed;bottom:22px;right:22px;z-index:70;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.6);transition:.3s}
+  .wa:hover{transform:scale(1.08)}
+  .wa svg{width:28px;height:28px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.9s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+    .reveal{opacity:1;transform:none}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #c9a24b;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body>
+
+<div class="smoke" aria-hidden="true"></div>
+<div class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></div>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="1.2"><path d="M12 21 L4 5 M12 21 L20 5 M12 21 L12 3 M12 21 L7.2 3.6 M12 21 L16.8 3.6"/><path d="M4 5 Q12 11 20 5" fill="none"/></svg>
+      LA VUELTA
+    </a>
+    <div class="nav-links">
+      <a href="#carta">Carta</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#visita">Cómo llegar</a>
+    </div>
+    <a class="btn btn-gold" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20La%20Vuelta%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-glow"></div>
+  <canvas id="embers" aria-hidden="true"></canvas>
+  <svg class="fan" viewBox="0 0 400 260" aria-hidden="true" fill="none" stroke="#c9a24b">
+    <g opacity=".9">
+      <path d="M200 250 L40 90" stroke-width="1"/><path d="M200 250 L80 50" stroke-width="1"/><path d="M200 250 L130 25" stroke-width="1"/><path d="M200 250 L200 15" stroke-width="1.4"/><path d="M200 250 L270 25" stroke-width="1"/><path d="M200 250 L320 50" stroke-width="1"/><path d="M200 250 L360 90" stroke-width="1"/>
+      <path d="M40 90 Q200 -30 360 90" stroke-width="1.2"/>
+      <path d="M65 115 Q200 5 335 115" stroke-width=".8"/>
+      <path d="M95 145 Q200 50 305 145" stroke-width=".8"/>
+      <path d="M130 180 Q200 105 270 180" stroke-width=".8"/>
+      <circle cx="200" cy="250" r="10" stroke-width="1.2"/>
+      <circle cx="200" cy="250" r="4" fill="#c9a24b" stroke="none"/>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <p class="eyebrow">La Serena · Est. 1923*</p>
+      <h1>La <em>Vuelta</em></h1>
+      <div class="deco-line">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="1.5"><rect x="7" y="7" width="10" height="10" transform="rotate(45 12 12)"/></svg>
+      </div>
+      <p>Un bar clandestino detrás de una barbería. Jazz bajo, hielo tallado a mano y cócteles que tu abuelo tomaría si tu abuelo hubiera sido interesante.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20La%20Vuelta%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Pedir la clave</a>
+        <a class="btn btn-ghost" href="#carta">Ver la carta</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="carta" id="carta">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">La carta</p>
+      <h2>Cócteles de <em>la casa</em></h2>
+      <p>Carta corta, ejecutada lento. Cada copa sale cuando está lista, no antes.</p>
+    </div>
+    <div class="carta-frame reveal">
+      <div class="carta-cols">
+        <div>
+          <p class="cat">— Clásicos de la casa —</p>
+          <div class="drink">
+            <div class="drink-top"><h3>La Vuelta Sour</h3><span class="dots"></span><span class="price">$8.500</span></div>
+            <p>Pisco de Vicuña, limón de Pica, jarabe de membrillo y espuma de malbec. Nuestro nombre en una copa.</p>
+          </div>
+          <div class="drink">
+            <div class="drink-top"><h3>Barbería Negroni</h3><span class="dots"></span><span class="price">$9.000</span></div>
+            <p>Gin, campari y vermut rojo ahumado con cedrón. Servido en vaso bajo, hielo de un solo bloque.</p>
+          </div>
+          <div class="drink">
+            <div class="drink-top"><h3>Old Fashioned Elqui</h3><span class="dots"></span><span class="price">$9.500</span></div>
+            <p>Bourbon, azúcar de chañar y bitter de naranja quemada. El favorito de los parroquianos de siempre.</p>
+          </div>
+          <div class="drink">
+            <div class="drink-top"><h3>French 75 de Medianoche</h3><span class="dots"></span><span class="price">$8.000</span></div>
+            <p>Gin, limón y espumante brut del Valle de Limarí. Elegante, burbujeante, peligroso.</p>
+          </div>
+        </div>
+        <div>
+          <p class="cat">— De autor —</p>
+          <div class="drink">
+            <div class="drink-top"><h3>Puerta Verde</h3><span class="dots"></span><span class="price">$9.000</span></div>
+            <p>Mezcal joven, albahaca, pepino y tónica artesanal. Verde como la puerta que no encontraste.</p>
+          </div>
+          <div class="drink">
+            <div class="drink-top"><h3>Humo de Faro</h3><span class="dots"></span><span class="price">$10.000</span></div>
+            <p>Whisky ahumado, licor de papaya y bitter casero. Terminado bajo una campana de humo de ulmo.</p>
+          </div>
+          <div class="drink">
+            <div class="drink-top"><h3>Daiquiri Gabriela</h3><span class="dots"></span><span class="price">$7.500</span></div>
+            <p>Ron añejo, limón fresco y un toque de miel de ulmo. Homenaje a la poeta de la casa.</p>
+          </div>
+          <div class="drink">
+            <div class="drink-top"><h3>Sin Licor, Con Estilo</h3><span class="dots"></span><span class="price">$5.500</span></div>
+            <p>Mocktail de copihue, jengibre y soda de rica-rica. Para el conductor designado con buen gusto.</p>
+          </div>
+        </div>
+      </div>
+      <p class="carta-note">“Aquí no se pide carta de tragos largos. Se conversa con el barman.”</p>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">La experiencia</p>
+      <h2>Tres reglas de <em>la casa</em></h2>
+    </div>
+    <div class="exp-grid">
+      <div class="exp reveal">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="1.1"><rect x="4" y="10" width="16" height="10"/><path d="M8 10 V7 a4 4 0 0 1 8 0 v3"/><circle cx="12" cy="15" r="1.6" fill="#c9a24b" stroke="none"/></svg>
+        <h3>Con clave</h3>
+        <p>Cada semana cambia la palabra. Reserva por WhatsApp y la recibes el mismo día, junto con las indicaciones para encontrar la puerta verde.</p>
+      </div>
+      <div class="exp reveal">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="1.1"><path d="M9 18 V6 l10 -2 v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>
+        <h3>Sin gritos</h3>
+        <p>Jazz y swing en vivo jueves, viernes y sábados a las 22:30. El volumen de la conversación lo pone la música, no tu mesa.</p>
+      </div>
+      <div class="exp reveal">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="1.1"><path d="M6 3 h12 l-1.5 7 a4.6 4.6 0 0 1 -9 0 Z"/><path d="M12 14.5 V20 M8.5 20 h7"/></svg>
+        <h3>Vestir la ocasión</h3>
+        <p>No pedimos esmoquin, pero sí intención. Zapatillas de buceo y shorts de playa se quedan en La Vuelta de la esquina, no en esta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap sobre-grid">
+    <div class="sobre-art reveal">
+      <div>
+        <div class="num">1923*</div>
+        <div class="cap">* El año es una mentira elegante.<br />El bar abrió en 2019.</div>
+      </div>
+    </div>
+    <div class="sobre-txt reveal">
+      <h2>Detrás de la <em>barbería</em></h2>
+      <p>La Vuelta nació cuando encontramos una bodega de 1923 — esa parte es verdad — bajo una peluquería del centro de La Serena. Conservamos el ladrillo a la vista, los candelabros originales y la costumbre de no poner letrero.</p>
+      <p>Somos doce mesas, una barra de roble de ocho metros y un barman que memoriza tu trago a la segunda visita. La cocina es breve y nocturna: tablas, ostiones y un sándwich de mechada que tiene fan club propio.</p>
+      <p class="firma">— El Barman Jefe</p>
+    </div>
+  </div>
+</section>
+
+<section id="visita">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Cómo llegar</p>
+      <h2>La puerta <em>verde</em></h2>
+      <p>No vas a encontrar un letrero. Ese es el punto.</p>
+    </div>
+    <div class="visita-grid reveal">
+      <div>
+        <p class="vlabel">Dirección</p>
+        <p class="addr">Calle Cienfuegos 222,<br />segundo subterráneo,<br />La Serena</p>
+        <p class="hint">Entra por la <b>Barbería El Candado</b>, cruza hasta el espejo del fondo y empuja. Si el barbero te mira, ya vas bien.</p>
+      </div>
+      <div>
+        <p class="vlabel">Horarios</p>
+        <div class="hrow"><span>Miércoles – Jueves</span><b>20:00 – 01:00</b></div>
+        <div class="hrow"><span>Viernes – Sábado</span><b>20:00 – 02:30</b></div>
+        <div class="hrow"><span>Domingo – Martes</span><b>Cerrado (el jazz descansa)</b></div>
+        <div class="hrow"><span>Capacidad</span><b>12 mesas · solo con reserva</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <p class="eyebrow">Última llamada</p>
+    <h2>¿Tienes <em>la clave?</em></h2>
+    <p>Escríbenos por WhatsApp, cuéntanos cuántos son y te enviamos la palabra de la semana con la confirmación de tu mesa.</p>
+    <a class="btn btn-gold" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20La%20Vuelta%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 La Vuelta · La Serena — Prohibido menores de 18 años</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20La%20Vuelta%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // brasas / polvo dorado en el hero
+  const cv = document.getElementById('embers');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (cv && !reduce) {
+    const ctx = cv.getContext('2d');
+    let W, H, parts = [];
+    function resize(){ W = cv.width = cv.offsetWidth; H = cv.height = cv.offsetHeight; }
+    resize(); addEventListener('resize', resize);
+    const N = Math.min(46, Math.floor(W / 26));
+    for (let i = 0; i < N; i++) parts.push({
+      x: Math.random() * W, y: Math.random() * H,
+      r: .6 + Math.random() * 1.8, vy: .12 + Math.random() * .35,
+      vx: (Math.random() - .5) * .18, a: Math.random() * Math.PI * 2
+    });
+    (function tick(){
+      ctx.clearRect(0, 0, W, H);
+      for (const p of parts) {
+        p.y -= p.vy; p.x += p.vx + Math.sin(p.a += .01) * .15;
+        if (p.y < -6) { p.y = H + 6; p.x = Math.random() * W; }
+        const tw = .35 + Math.abs(Math.sin(p.a * 2)) * .5;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7);
+        ctx.fillStyle = 'rgba(232,207,143,' + tw.toFixed(2) + ')'; ctx.fill();
+      }
+      requestAnimationFrame(tick);
+    })();
+  }
+</script>
+</body>
+</html>

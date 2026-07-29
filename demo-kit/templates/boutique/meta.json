@@ -1,0 +1,26 @@
+{
+  "id": "boutique",
+  "label": "Boutique / hospitalidad (hotel, cabaña, viña, astroturismo)",
+  "base": "none",
+  "schema_type": "LodgingBusiness",
+  "fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap",
+  "defaults": {
+    "eyebrow": "Hospitalidad",
+    "label_menu": "Experiencias",
+    "menu_title": "Qué ofrecemos",
+    "menu_intro": "Estancias y experiencias pensadas con calma. Consulta disponibilidad por WhatsApp.",
+    "menu_note": "Tarifas y cupos se confirman por WhatsApp.",
+    "cta_primary": "Consultar por WhatsApp",
+    "cta_secondary": "Ver experiencias",
+    "cta_short": "Consultar",
+    "about_title": "Un lugar para quedarse",
+    "about_card": "Atención cercana, ritmo lento y detalles que se sienten. Demo de presencia online.",
+    "contact_title": "Reserva tu visita",
+    "gallery_title": "El lugar",
+    "gallery_intro": "Luz, paisaje y silencio de la Región de Coquimbo.",
+    "cta_title": "¿Planeas tu escapada?",
+    "cta_text": "Escríbenos con fechas y cantidad de personas y te confirmamos disponibilidad.",
+    "wa_message": "Hola {name}, quiero consultar disponibilidad",
+    "hero_title": "{name}"
+  }
+}

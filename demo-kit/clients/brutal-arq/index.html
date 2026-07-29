@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BRUTAL — Estudio de Arquitectura · Coquimbo</title>
+<meta name="description" content="Estudio de arquitectura en Coquimbo. Hormigón visto, luz del norte y cero adornos. Viviendas, equipamiento y remodelaciones desde el anteproyecto hasta la entrega de llaves." />
+<meta name="theme-color" content="#f4f4ef" />
+<meta property="og:title" content="BRUTAL — Estudio de Arquitectura · Coquimbo" />
+<meta property="og:description" content="Hormigón visto, luz del norte y cero adornos. Arquitectura honesta en la Región de Coquimbo." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f4f4ef; --ink:#0d0d0b; --acid:#d9ff00; --grey:#e3e3da;
+    --b:3px solid var(--ink);
+    --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;border-radius:0 !important}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Space Mono',monospace;line-height:1.55;overflow-x:hidden;font-size:16px}
+  h1,h2,h3,.display{font-family:'Archivo Black',sans-serif;text-transform:uppercase;line-height:.95;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+  ::selection{background:var(--acid);color:var(--ink)}
+
+  /* progress + demo badge */
+  #progress{position:fixed;top:0;left:0;height:5px;width:0;background:var(--acid);z-index:99;border-right:var(--b)}
+  .demo-badge{position:fixed;top:64px;right:14px;z-index:60;background:var(--ink);color:var(--acid);font-size:10px;font-weight:700;letter-spacing:.25em;padding:5px 10px;border:2px solid var(--acid)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--paper);border-bottom:var(--b)}
+  nav .wrap{display:flex;align-items:stretch;justify-content:space-between}
+  .logo{font-family:'Archivo Black',sans-serif;font-size:22px;padding:14px 18px 14px 0;border-right:var(--b);display:flex;align-items:center;gap:10px}
+  .logo .sq{width:16px;height:16px;background:var(--acid);border:2px solid var(--ink)}
+  .nav-links{display:flex;align-items:center}
+  .nav-links a{padding:20px 22px;border-left:var(--b);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+  .nav-links a:hover{background:var(--ink);color:var(--acid)}
+  .nav-cta{padding:20px 24px;background:var(--acid);border-left:var(--b);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center}
+  .nav-cta:hover{background:var(--ink);color:var(--acid)}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:130px 0 60px;position:relative;
+    background-image:linear-gradient(rgba(13,13,11,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(13,13,11,.09) 1px,transparent 1px);
+    background-size:72px 72px;cursor:crosshair}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:0;border:var(--b);width:max-content;max-width:100%;margin-bottom:34px;background:var(--paper)}
+  .hero-meta span{padding:8px 16px;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border-right:var(--b)}
+  .hero-meta span:last-child{border-right:none;background:var(--acid)}
+  .hero h1{font-size:clamp(52px,11vw,150px)}
+  .hero h1 .hollow{color:transparent;-webkit-text-stroke:3px var(--ink)}
+  .hero h1 .acid-mark{background:var(--acid);padding:0 .08em;display:inline-block}
+  .hero-sub{display:grid;grid-template-columns:1.1fr .9fr;gap:0;margin-top:44px;border:var(--b);background:var(--paper)}
+  .hero-sub>div{padding:28px}
+  .hero-sub>div:first-child{border-right:var(--b)}
+  .hero-sub p{font-size:15px;max-width:46ch}
+  .hero-sub .tags{margin-top:16px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#55554d}
+  .hero-ctas{display:flex;flex-direction:column;gap:14px;justify-content:center}
+  @media(max-width:820px){.hero-sub{grid-template-columns:1fr}.hero-sub>div:first-child{border-right:none;border-bottom:var(--b)}}
+  .btn{display:inline-block;border:var(--b);padding:16px 22px;font-family:'Space Mono',monospace;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.08em;text-align:center;transition:none;box-shadow:6px 6px 0 var(--ink)}
+  .btn-acid{background:var(--acid)}
+  .btn-acid:hover{transform:translate(6px,6px);box-shadow:0 0 0 var(--ink)}
+  .btn-ink{background:var(--ink);color:var(--paper)}
+  .btn-ink:hover{background:var(--acid);color:var(--ink);transform:translate(6px,6px);box-shadow:0 0 0 var(--ink)}
+
+  /* blueprint */
+  .blueprint{border:var(--b);margin-top:44px;background:var(--ink);position:relative;overflow:hidden}
+  .blueprint svg{display:block;width:100%;height:auto}
+  .blueprint .bp-label{position:absolute;top:10px;left:12px;color:var(--acid);font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+  .bp-draw{stroke-dasharray:1400;stroke-dashoffset:1400}
+  .bp-draw.on{animation:draw 3.2s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+
+  /* ticker */
+  .ticker{border-block:var(--b);background:var(--ink);color:var(--paper);overflow:hidden;padding:14px 0}
+  .ticker-track{display:flex;width:max-content;animation:mq 22s linear infinite;font-weight:700;font-size:15px;letter-spacing:.15em;text-transform:uppercase;white-space:nowrap}
+  .ticker-track b{color:var(--acid);margin:0 28px}
+  @keyframes mq{to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:90px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:44px;border-bottom:var(--b);padding-bottom:22px}
+  .sec-head h2{font-size:clamp(34px,6vw,72px)}
+  .sec-head .idx{font-size:13px;font-weight:700;letter-spacing:.2em;border:var(--b);padding:8px 14px;background:var(--acid)}
+
+  /* obras */
+  .obras{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:var(--b)}
+  .obra{border-right:var(--b);border-bottom:var(--b);padding:26px;min-height:250px;display:flex;flex-direction:column;position:relative;background:var(--paper)}
+  .obra:nth-child(3n){border-right:none}
+  .obra:nth-last-child(-n+3){border-bottom:none}
+  .obra:hover{background:var(--ink);color:var(--paper)}
+  .obra:hover .obra-year{background:var(--acid);color:var(--ink)}
+  .obra-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:auto}
+  .obra-num{font-size:12px;font-weight:700;letter-spacing:.2em}
+  .obra-year{border:2px solid currentColor;padding:3px 10px;font-size:12px;font-weight:700}
+  .obra h3{font-size:clamp(20px,2.4vw,27px);margin:26px 0 8px}
+  .obra .loc{font-size:12px;text-transform:uppercase;letter-spacing:.15em;margin-bottom:12px}
+  .obra .loc::before{content:"▦ "}
+  .obra .desc{font-size:13.5px;opacity:.85}
+  .obra .m2{margin-top:16px;font-size:12px;font-weight:700;letter-spacing:.1em;border-top:2px solid currentColor;padding-top:10px}
+  @media(max-width:900px){.obras{grid-template-columns:1fr 1fr}.obra:nth-child(3n){border-right:var(--b)}.obra:nth-child(2n){border-right:none}.obra:nth-last-child(-n+3){border-bottom:var(--b)}.obra:nth-last-child(-n+2){border-bottom:none}}
+  @media(max-width:560px){.obras{grid-template-columns:1fr}.obra{border-right:none !important;border-bottom:var(--b) !important}.obra:last-child{border-bottom:none !important}}
+
+  /* servicios */
+  .servicios{border:var(--b)}
+  .serv{display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:24px;padding:26px 28px;border-bottom:var(--b);background:var(--paper)}
+  .serv:last-child{border-bottom:none}
+  .serv:hover{background:var(--acid)}
+  .serv .n{font-family:'Archivo Black',sans-serif;font-size:34px}
+  .serv h3{font-size:clamp(17px,2.4vw,24px);margin-bottom:6px}
+  .serv p{font-size:13.5px;max-width:60ch}
+  .serv .price{font-weight:700;font-size:14px;border:var(--b);padding:10px 16px;white-space:nowrap;background:var(--paper)}
+  @media(max-width:720px){.serv{grid-template-columns:1fr;gap:10px}.serv .price{width:max-content}}
+
+  /* estudio */
+  .estudio-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:0;border:var(--b)}
+  .estudio-grid>div{padding:36px}
+  .estudio-txt{border-right:var(--b)}
+  .estudio-txt p{margin-bottom:18px;font-size:15px}
+  .estudio-txt p b{background:var(--acid);padding:0 4px}
+  .estudio-facts{display:flex;flex-direction:column}
+  .fact{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:2px solid var(--ink);font-size:14px}
+  .fact:last-child{border-bottom:none}
+  .fact b{font-weight:700}
+  .fact span{text-align:right}
+  @media(max-width:820px){.estudio-grid{grid-template-columns:1fr}.estudio-txt{border-right:none;border-bottom:var(--b)}}
+
+  /* visita */
+  .visita-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:var(--b)}
+  .visita-grid>div{padding:32px}
+  .visita-grid>div:first-child{border-right:var(--b)}
+  .vrow{display:flex;justify-content:space-between;padding:12px 0;border-bottom:2px dashed var(--ink);font-size:14px}
+  .vrow:last-child{border-bottom:none}
+  .vrow b{font-weight:700}
+  .dir{font-family:'Archivo Black',sans-serif;font-size:clamp(20px,3vw,30px);text-transform:uppercase;line-height:1.15;margin:14px 0 20px}
+  .dir em{font-style:normal;background:var(--acid);padding:0 6px}
+  @media(max-width:820px){.visita-grid{grid-template-columns:1fr}.visita-grid>div:first-child{border-right:none;border-bottom:var(--b)}}
+
+  /* cta */
+  .cta-final{border:var(--b);background:var(--ink);color:var(--paper);padding:70px 30px;text-align:center}
+  .cta-final h2{font-size:clamp(34px,7vw,84px)}
+  .cta-final h2 span{color:var(--acid)}
+  .cta-final p{margin:22px auto 34px;max-width:52ch;font-size:15px;opacity:.85}
+  .cta-final .btn-acid{box-shadow:6px 6px 0 var(--acid)}
+  .cta-final .btn-acid:hover{box-shadow:0 0 0 var(--acid)}
+
+  footer{border-top:var(--b);padding:26px 0;font-size:12.5px;text-transform:uppercase;letter-spacing:.1em}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  /* coords + wa */
+  #coords{position:fixed;left:14px;bottom:14px;z-index:60;background:var(--ink);color:var(--acid);font-size:11px;padding:6px 12px;letter-spacing:.12em;border:2px solid var(--acid)}
+  @media(hover:none){#coords{display:none}}
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:58px;height:58px;background:var(--wa);border:var(--b);display:grid;place-items:center;box-shadow:5px 5px 0 var(--ink)}
+  .wa:hover{transform:translate(5px,5px);box-shadow:0 0 0 var(--ink)}
+  .wa svg{width:28px;height:28px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.55s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+    .reveal{opacity:1;transform:none}
+    .bp-draw{stroke-dashoffset:0}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  @media (max-width:560px){.hero-meta{width:auto}.hero-meta span{font-size:11px;padding:7px 12px}.hero h1{font-size:clamp(38px,12.2vw,52px)}}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #d9ff00;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body>
+
+<div id="progress" aria-hidden="true"></div>
+<div class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="sq"></span>BRUTAL</a>
+    <div class="nav-links">
+      <a href="#obras">Obras</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#estudio">Estudio</a>
+      <a href="#visita">Contacto</a>
+    </div>
+    <a class="nav-cta" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20BRUTAL%20Arquitectura%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Cotizar →</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span>EST. 2016</span><span>COQUIMBO, CL</span><span>-29.95° / -71.34°</span><span>ARQUITECTURA SIN MAQUILLAJE</span>
+    </div>
+    <h1>
+      HORMIGÓN.<br />
+      <span class="hollow">LUZ DEL</span><br />
+      <span class="acid-mark">NORTE.</span>
+    </h1>
+    <div class="hero-sub">
+      <div>
+        <p>Somos un estudio de arquitectura en Coquimbo. Diseñamos casas, equipamiento y espacios de trabajo con materialidad honesta: hormigón visto, acero, madera de la zona. Nada de yeso fingiendo ser otra cosa.</p>
+        <p class="tags">#anteproyecto #regularización #direccióndeobra #remodelaciones</p>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-acid" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20BRUTAL%20Arquitectura%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Cotizar proyecto →</a>
+        <a class="btn btn-ink" href="#obras">Ver obras ↓</a>
+      </div>
+    </div>
+    <div class="blueprint reveal">
+      <span class="bp-label">PLANO — CASA HORMIGÓN / GUANAQUEROS / ESC 1:100</span>
+      <svg viewBox="0 0 900 320" role="img" aria-label="Plano de arquitectura de una casa">
+        <g stroke="#d9ff00" stroke-width="1" opacity=".25">
+          <line x1="0" y1="80" x2="900" y2="80"/><line x1="0" y1="160" x2="900" y2="160"/><line x1="0" y1="240" x2="900" y2="240"/>
+          <line x1="150" y1="0" x2="150" y2="320"/><line x1="300" y1="0" x2="300" y2="320"/><line x1="450" y1="0" x2="450" y2="320"/><line x1="600" y1="0" x2="600" y2="320"/><line x1="750" y1="0" x2="750" y2="320"/>
+        </g>
+        <g class="bp-draw" stroke="#d9ff00" stroke-width="2.5" fill="none">
+          <rect x="90" y="50" width="500" height="220"/>
+          <line x1="340" y1="50" x2="340" y2="270"/>
+          <line x1="90" y1="170" x2="340" y2="170"/>
+          <rect x="380" y="90" width="170" height="140"/>
+          <rect x="620" y="50" width="190" height="220"/>
+          <path d="M 340 170 A 60 60 0 0 1 400 230"/>
+          <path d="M 550 230 A 55 55 0 0 0 605 175"/>
+          <line x1="620" y1="130" x2="810" y2="130"/>
+          <rect x="660" y="150" width="110" height="80"/>
+        </g>
+        <g fill="#d9ff00" font-family="'Space Mono',monospace" font-size="13" letter-spacing="2">
+          <text x="120" y="100">ESTAR</text>
+          <text x="120" y="230">DORM.</text>
+          <text x="395" y="165">COCINA</text>
+          <text x="640" y="80">TERRAZA</text>
+          <text x="670" y="195">QUINCHO</text>
+        </g>
+        <g stroke="#d9ff00" stroke-width="1" opacity=".8">
+          <line x1="90" y1="295" x2="590" y2="295"/><line x1="90" y1="288" x2="90" y2="302"/><line x1="590" y1="288" x2="590" y2="302"/>
+        </g>
+        <text x="300" y="312" fill="#d9ff00" font-family="'Space Mono',monospace" font-size="12" letter-spacing="2">12.40 m</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>VIVIENDA<b>■</b>EQUIPAMIENTO<b>■</b>REMODELACIÓN<b>■</b>REGULARIZACIÓN<b>■</b>DIRECCIÓN DE OBRA<b>■</b>HORMIGÓN VISTO<b>■</b>ACERO<b>■</b>MADERA<b>■</b></span>
+    <span>VIVIENDA<b>■</b>EQUIPAMIENTO<b>■</b>REMODELACIÓN<b>■</b>REGULARIZACIÓN<b>■</b>DIRECCIÓN DE OBRA<b>■</b>HORMIGÓN VISTO<b>■</b>ACERO<b>■</b>MADERA<b>■</b></span>
+  </div>
+</div>
+
+<section id="obras">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Obras<br />seleccionadas</h2>
+      <span class="idx">[ 01 / OBRAS ]</span>
+    </div>
+    <div class="obras">
+      <article class="obra reveal">
+        <div class="obra-top"><span class="obra-num">OB—01</span><span class="obra-year">2025</span></div>
+        <h3>Casa Hormigón</h3><span class="loc">Guanaqueros</span>
+        <p class="desc">Vivienda unifamiliar frente a la bahía. Hormigón visto graneado y ventanales al poniente. Cero revestimientos.</p>
+        <div class="m2">140 m² — ENTREGADA</div>
+      </article>
+      <article class="obra reveal">
+        <div class="obra-top"><span class="obra-num">OB—02</span><span class="obra-year">2024</span></div>
+        <h3>Edificio Faro</h3><span class="loc">La Herradura</span>
+        <p class="desc">Cuatro departamentos en tres pisos, estructura mixta acero-hormigón. Circulaciones exteriores a la vista.</p>
+        <div class="m2">520 m² — ENTREGADA</div>
+      </article>
+      <article class="obra reveal">
+        <div class="obra-top"><span class="obra-num">OB—03</span><span class="obra-year">2024</span></div>
+        <h3>Galpón Andacollo</h3><span class="loc">Andacollo</span>
+        <p class="desc">Bodega minera con oficinas. Cerchas de acero recicladas y revestimiento de ondulada negra.</p>
+        <div class="m2">780 m² — ENTREGADA</div>
+      </article>
+      <article class="obra reveal">
+        <div class="obra-top"><span class="obra-num">OB—04</span><span class="obra-year">2026</span></div>
+        <h3>Casa Patio</h3><span class="loc">Vicuña</span>
+        <p class="desc">Casa de descanso en torno a un patio de quillayes. Muros de 60 cm de espesor para el calor del valle.</p>
+        <div class="m2">110 m² — EN OBRA</div>
+      </article>
+      <article class="obra reveal">
+        <div class="obra-top"><span class="obra-num">OB—05</span><span class="obra-year">2025</span></div>
+        <h3>Mirador Elqui</h3><span class="loc">Pisco Elqui</span>
+        <p class="desc">Plataforma de observación astronómica en acero corten. Anclaje directo a la roca, sin fundaciones invasivas.</p>
+        <div class="m2">48 m² — ENTREGADA</div>
+      </article>
+      <article class="obra reveal">
+        <div class="obra-top"><span class="obra-num">OB—06</span><span class="obra-year">2026</span></div>
+        <h3>Oficinas Puerto</h3><span class="loc">Coquimbo</span>
+        <p class="desc">Reciclaje de galpón portuario en oficinas abiertas. Se conservó la estructura original de 1962.</p>
+        <div class="m2">340 m² — ANTEPROYECTO</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Servicios<br />y honorarios</h2>
+      <span class="idx">[ 02 / SERVICIOS ]</span>
+    </div>
+    <div class="servicios">
+      <div class="serv reveal">
+        <span class="n">01</span>
+        <div><h3>Anteproyecto completo</h3><p>Estudio de terreno, volumetría, plantas y cortes. Incluye maqueta digital y dos rondas de ajustes.</p></div>
+        <span class="price">desde $2.400.000</span>
+      </div>
+      <div class="serv reveal">
+        <span class="n">02</span>
+        <div><h3>Permiso de edificación</h3><p>Proyecto de arquitectura, especialidades y tramitación completa ante la DOM correspondiente.</p></div>
+        <span class="price">desde $1.800.000</span>
+      </div>
+      <div class="serv reveal">
+        <span class="n">03</span>
+        <div><h3>Dirección de obra</h3><p>Visitas semanales, libro de obra, control de presupuesto y recepción final. Sin sorpresas.</p></div>
+        <span class="price">8% del presupuesto</span>
+      </div>
+      <div class="serv reveal">
+        <span class="n">04</span>
+        <div><h3>Remodelación integral</h3><p>De la demolición al último enchufe. Especialidad en casas antiguas del centro de Coquimbo y La Serena.</p></div>
+        <span class="price">desde $950.000 / m²</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="estudio">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>El estudio</h2>
+      <span class="idx">[ 03 / ESTUDIO ]</span>
+    </div>
+    <div class="estudio-grid">
+      <div class="estudio-txt reveal">
+        <p>BRUTAL nace en 2016 en un galpón del Barrio Inglés de Coquimbo. Creemos que la arquitectura del norte debe responder al <b>desierto, al viento y a la luz</b> — no a las revistas.</p>
+        <p>Trabajamos con constructoras locales y maestros de la zona. Cada proyecto parte con una visita al terreno, caminándolo a la hora del sol poniente. Si el sitio no pide hormigón, no lo usamos. <b>La forma sigue al clima.</b></p>
+        <p>Somos dos arquitectos, una calculista y un perro de oficina llamado Escombro.</p>
+      </div>
+      <div class="estudio-facts reveal">
+        <div class="fact"><b>Obras entregadas</b><span>31</span></div>
+        <div class="fact"><b>m² proyectados</b><span>7.900</span></div>
+        <div class="fact"><b>Comunas</b><span>Coquimbo · La Serena · Vicuña · Andacollo</span></div>
+        <div class="fact"><b>Colegio de Arquitectos</b><span>Reg. 18.442 / 19.017</span></div>
+        <div class="fact"><b>Respuesta cotización</b><span>&lt; 48 horas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visita">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Oficina<br />y horarios</h2>
+      <span class="idx">[ 04 / CONTACTO ]</span>
+    </div>
+    <div class="visita-grid">
+      <div class="reveal">
+        <span class="obra-num">DIRECCIÓN</span>
+        <p class="dir">Calle <em>Aldunate 842</em>, Barrio Inglés,<br />Coquimbo</p>
+        <p style="font-size:14px">Galpón amarillo con reja negra, frente al muelle de pescadores. Estacionamiento en la puerta. Timbre: golpear la reja dos veces.</p>
+      </div>
+      <div class="reveal">
+        <span class="obra-num">HORARIO DE ATENCIÓN</span>
+        <div class="vrow"><span>Lunes – Jueves</span><b>09:00 – 18:30</b></div>
+        <div class="vrow"><span>Viernes</span><b>09:00 – 14:00</b></div>
+        <div class="vrow"><span>Sábado</span><b>Visitas a terreno (con cita)</b></div>
+        <div class="vrow"><span>Domingo</span><b>Cerrado</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-final reveal">
+      <h2>TU TERRENO<br /><span>MERECE PLANOS.</span></h2>
+      <p>Escríbenos por WhatsApp con la ubicación de tu sitio y te devolvemos una primera lectura + presupuesto en menos de 48 horas.</p>
+      <a class="btn btn-acid" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20BRUTAL%20Arquitectura%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Hablar con un arquitecto →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 BRUTAL — Estudio de Arquitectura · Coquimbo</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<div id="coords" aria-hidden="true">X:0000 Y:0000</div>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20BRUTAL%20Arquitectura%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  // barra de progreso
+  const bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  }, {passive:true});
+
+  // reveals
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // dibujo del plano al entrar en pantalla
+  const bp = document.querySelector('.bp-draw');
+  if (bp) new IntersectionObserver((es, o) => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); o.disconnect(); }
+  }), {threshold:.3}).observe(bp);
+
+  // coordenadas del cursor (brutalist HUD)
+  const coords = document.getElementById('coords');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && matchMedia('(hover:hover)').matches) {
+    addEventListener('mousemove', e => {
+      coords.textContent = 'X:' + String(e.clientX).padStart(4,'0') + ' Y:' + String(e.clientY).padStart(4,'0');
+    }, {passive:true});
+  }
+</script>
+</body>
+</html>

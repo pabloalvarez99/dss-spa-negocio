@@ -1,0 +1,19 @@
+<header class="{{blk.classes}} hero" id="{{blk.anchor}}">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="eyebrow">{{city}} · {{eyebrow}}</p>
+      <h1>{{hero_title_html}}</h1>
+      <p class="lead">{{tagline}}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-wa" href="{{wa_url}}" target="_blank" rel="noopener" data-track="hero-wa">{{cta_primary}}</a>
+        <a class="btn btn-ghost" href="#{{menu_anchor}}">{{cta_secondary}}</a>
+      </div>
+      {{#if stats_items}}
+      <div class="hero-meta">
+        {{#each stats_items}}<div><b>{{this.value}}</b><span>{{this.label}}</span></div>{{/each}}
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</header>

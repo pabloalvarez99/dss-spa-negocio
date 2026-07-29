@@ -1,0 +1,33 @@
+{
+  "id": "atelier",
+  "label": "Atelier / oficio de autor (taller, estudio, servicio de autor)",
+  "base": "none",
+  "schema_type": "LocalBusiness",
+  "fonts_url": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap",
+  "defaults": {
+    "eyebrow": "Taller de autor",
+    "label_menu": "Piezas y servicios",
+    "menu_title": "Catálogo",
+    "menu_intro": "Trabajo hecho a mano, con proceso visible y entrega coordinada por WhatsApp.",
+    "menu_note": "Cada pieza puede variar. Confirma stock y plazos por WhatsApp.",
+    "cta_primary": "Encargar por WhatsApp",
+    "cta_secondary": "Ver catálogo",
+    "cta_short": "Encargar",
+    "about_title": "Oficio con nombre",
+    "about_card": "Materiales honestos, tiradas chicas y atención personal. Demo de sitio de taller.",
+    "contact_title": "Pedidos y visitas",
+    "gallery_title": "Taller",
+    "gallery_intro": "Proceso, material y piezas terminadas.",
+    "steps_kicker": "Proceso",
+    "steps_title": "Cómo se encarga",
+    "cta_title": "¿Tienes una pieza en mente?",
+    "cta_text": "Cuéntanos qué necesitas y te respondemos con plazos y valor.",
+    "wa_message": "Hola {name}, me interesa una pieza / servicio",
+    "hero_title": "{name}",
+    "steps": [
+      { "title": "Escribes", "desc": "Cuéntanos qué buscas o qué pieza te gustó." },
+      { "title": "Acordamos", "desc": "Material, plazos y valor por WhatsApp." },
+      { "title": "Entregamos", "desc": "Retiro en el taller o envío según el caso." }
+    ]
+  }
+}

@@ -1,18 +1,25 @@
 {
   "id": "restaurant",
   "label": "Restaurant / comida",
-  "fonts_url": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap",
+  "base": "none",
+  "schema_type": "Restaurant",
+  "fonts_url": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap",
   "defaults": {
-    "eyebrow": "Comida local",
+    "eyebrow": "Cocina de barrio",
     "label_menu": "Carta",
     "menu_title": "Nuestro menú",
     "menu_intro": "Platos pensados para pedir fácil por WhatsApp o comer en el local.",
+    "menu_note": "Precios referenciales. Confirma disponibilidad por WhatsApp.",
     "cta_primary": "Pedir por WhatsApp",
     "cta_secondary": "Ver la carta",
     "cta_short": "Pedir",
     "about_title": "Hecho con ganas",
     "about_card": "Negocio de barrio con atención cercana. Esta demo muestra cómo se vería tu presencia online.",
+    "gallery_title": "El local por dentro",
+    "gallery_intro": "Fotos del salón, la cocina y los platos del día.",
     "contact_title": "Pide o visita",
+    "cta_title": "El horno ya está caliente",
+    "cta_text": "Manda tu pedido por WhatsApp y te confirmamos el tiempo de espera.",
     "wa_message": "Hola {name}, quiero hacer un pedido / consulta",
     "hero_title": "{name}"
   }

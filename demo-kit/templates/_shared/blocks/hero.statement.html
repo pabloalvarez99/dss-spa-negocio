@@ -1,0 +1,24 @@
+<header class="{{blk.classes}}" id="{{blk.anchor}}">
+  <div class="wrap">
+    <div class="hero-tags">
+      <span>{{city}}</span><span>{{eyebrow}}</span><span class="is-mark">Demo</span>
+    </div>
+    <h1>{{hero_title_html}}</h1>
+    <div class="hero-split">
+      <div class="hero-lead">
+        <p>{{tagline}}</p>
+        {{#if facts}}
+        <dl class="hero-facts">
+          {{#each facts}}<div><dt>{{this.label}}</dt><dd>{{this.value}}</dd></div>{{/each}}
+        </dl>
+        {{/if}}
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="{{wa_url}}" target="_blank" rel="noopener" data-track="hero-wa">{{cta_primary}}</a>
+        <a class="btn btn-line" href="#{{menu_anchor}}">{{cta_secondary}}</a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Sin hero-meta a propósito: esta variante deja los números al bloque `stats`,
+     que es el que declara la composición. Los datos cortos van en `facts`. -->
