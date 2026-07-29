@@ -62,9 +62,9 @@ Reglas:
 | E Ops comercial | `done` | 2026-07-19 | 2026-07-19 | Sheet CRM + pack cierre + EXTRAS; solo docs |
 | F Escala | `blocked` | | | Solo con ≥8 clientes pagos |
 | G Cloudflare + CI | `pending` | | | Spec aprobada 2026-07-24. G1 landing+analytics · G2 demos (cierra P002) · G3 ship · G4 CI · G5 tests · G6 guards |
-| H3 Fábrica: skins con arte | `done` | 2026-07-27 | 2026-07-27 | Shell+bloques+`sections.json`; skins `boutique`·`atelier`·`nocturno`; `restaurant` migrado; checks duros nuevos. Falta arte propio en `barber`/`clinic`/`services` |
+| H3 Fábrica: skins con arte | `done` | 2026-07-27 | 2026-07-27 | Shell+bloques+`sections.json`; skins `boutique`·`atelier`·`nocturno`; `restaurant` migrado; checks duros nuevos. Arte propio de `barber`/`clinic`/`services` completado 2026-07-29 |
 | H2 Vitrina 3 niveles | `done` | 2026-07-27 | 2026-07-27 | `#estudio` (nivel 1 tu-farmacia + nivel 2 15 conceptuales) antes de `#trabajo`; 123 demos colapsadas; evento `estudio_open`. **Sin deploy.** Faltan las URLs de las 15 (dependen de H1) |
-| H3 Fábrica / skins arte | `done` | 2026-07-27 | 2026-07-27 | shell+blocks+sections; skins boutique/atelier/nocturno; restaurant migrado; barber/clinic/services en classic |
+| H3 Fábrica / skins arte | `done` | 2026-07-27 | 2026-07-27 | shell+blocks+sections; skins boutique/atelier/nocturno; restaurant migrado; barber/clinic/services con arte propio desde 2026-07-29 |
 
 Estados válidos: `pending` · `in_progress` · `done` · `blocked` · `skipped`
 
@@ -80,6 +80,18 @@ Al terminar trabajo, el agente o la persona debe:
 6. Commit + push con mensaje solo de tu sprint  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-29 — Deuda H3 saldada: arte propio en `barber`, `clinic` y `services`
+
+- Los 3 skins que quedaban en `base: "classic"` + skin de 14 líneas pasaron a dirección de arte completa (`base: "none"`, `skin.css` de ~250–265 líneas, `sections.json` propio):
+  - **barber** — póster de barber shop vintage: tinta oscura cálida, Bebas Neue + DM Sans, franja barber-pole (hero/marquee/footer), precios en latón con línea de puntos, `schema_type: BarberShop`. Hero `statement` → marquee → stats → menu `leader` → about `editorial` → contact `split` → cta.
+  - **clinic** — "calma clínica con luz": **único skin claro** de la fábrica (marfil verdoso), Fraunces + Source Sans 3, halos orgánicos, tarjetas blancas suaves, `schema_type: MedicalClinic`, steps por defecto en meta.json (Escríbenos → Agendamos → Plan). Hero `editorial` → stats → menu `cards` → steps → about `split` → contact `panel` → cta.
+  - **services** — "plano técnico / servicio 24-7": grafito + retícula blueprint, ámbar seguridad, IBM Plex Mono como voz, `schema_type: Locksmith`. **Hero `custom` propio** (segundo skin con hero.html, precedente nocturno) con `{{phone_display}}` gigante y badge pulsante. Stats → menu `index` (catálogo 01–04) → steps → about → contact → cta.
+- `clients/{barberia-norte,kine-ejemplo,cerrajeria-ejemplo}/content.json`: se eliminó solo el campo `colors` (el override de `--primary` aplastaba la paleta diseñada).
+- `classic.css` queda **sin ningún skin que la cargue**: comentario actualizado a "desuso, candidata a eliminar"; no se borró por precaución.
+- Verificado: `npm run build -- --all && npm run check -- --all` → **7 demos, todos los checks duros OK** (7 avisos `photos`, esperado: los ejemplos van sin fotos). Contraste AA 15.5–16.7:1 en los 3 skins nuevos; `contrast_muted` también pasa.
+- Revisión visual con chrome-devtools-axi (file:// sobre `dist/`): desktop 1440×900 y móvil estrecho, hero/medio/cierre de las 3 demos — sin scroll horizontal, composición y motion OK.
+- No se tocó `_shared/` (salvo comentario de classic.css), otros skins, `website/`, ni las 15 piezas a mano. Sin deploy ni commits.
 
 ### 2026-07-27 — Sprint H3 Fábrica: skins con dirección de arte (cerrado)
 

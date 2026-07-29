@@ -134,7 +134,7 @@ Si faltan, el skin usa su default de `meta.json`; si tampoco hay, el bloque se o
 
 ## 7. Qué quedó fuera
 
-- **Dirección de arte de `barber`, `clinic` y `services`.** Funcionan, pero siguen siendo color sobre `classic.css`.
+- **Dirección de arte de `barber`, `clinic` y `services`.** ~~Funcionan, pero siguen siendo color sobre `classic.css`.~~ **Resuelto 2026-07-29** (ver nota en `STATUS.md`): los 3 tienen arte propio (`base: "none"`); `classic.css` quedó en desuso.
 - **Override de composición desde `content.json`.** Hoy la composición la fija el skin; un cliente no puede reordenar bloques.
 - **Variantes de bloque por skin** más allá de `hero.html`: el resolver mira `_shared/blocks/` salvo el hero custom.
 - **Fotos reales.** Los tres ejemplos van sin `images[]`, así que `photos` queda en aviso y el bloque `gallery` no se dibuja.

@@ -1,8 +1,8 @@
 /* ─────────────────────────────────────────────────────────────
    classic.css — capa de compatibilidad (el look de C1/C2).
-   La cargan los skins con "base": "classic" en meta.json:
-   hoy barber, clinic y services, que todavía no tienen
-   dirección de arte propia (pendiente, ver H3-fabrica.md).
+   DESUSO (2026-07-29): ningún skin la carga ya — los 7 tienen
+   dirección de arte propia (base: "none"). Se mantiene sólo
+   como referencia histórica; candidata a eliminar.
    Un skin nuevo NO debería cargar esta capa.
    ───────────────────────────────────────────────────────────── */
 
