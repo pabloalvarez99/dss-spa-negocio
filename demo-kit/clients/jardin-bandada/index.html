@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bandada — Jardín infantil · La Serena</title>
+<meta name="description" content="Jardín infantil en La Serena para niños de 1 a 5 años. Grupos chicos, patio grande, comida hecha en casa y puerta abierta para los papás." />
+<meta name="theme-color" content="#fff6ec" />
+<meta property="og:title" content="Bandada — Jardín infantil en La Serena" />
+<meta property="og:description" content="Grupos chicos, patio grande y puerta abierta. Agenda una visita y conoce la sala de tu hijo." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --crema:#fff6ec; --crema2:#ffeedd; --blanco:#fffdfa;
+    --tinta:#2a2118; --tinta2:#5f5346; --tenue:#93877a;
+    --coral:#ff6b4a; --azul:#3a6fe0; --amarillo:#ffc93c; --verde:#3fa97a;
+    --line:#ead9c5; --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
+  body{background:var(--crema);color:var(--tinta);font-family:'Nunito Sans',system-ui,sans-serif;line-height:1.68}
+  h1,h2,h3{font-family:'Gabarito','Nunito Sans',system-ui,sans-serif;font-weight:800;line-height:1.02;letter-spacing:-.025em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--amarillo);color:var(--tinta)}
+  .label{font-family:'Gabarito','Nunito Sans',sans-serif;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);font-weight:700}
+  .idx{font-family:'Gabarito','Nunito Sans',sans-serif;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tenue);font-weight:700}
+
+  .demo-badge{position:fixed;left:16px;bottom:16px;z-index:70;font-size:10px;letter-spacing:.2em;font-weight:700;color:var(--tenue);border:1.5px solid var(--line);padding:5px 12px;border-radius:100px;background:rgba(255,246,236,.92);backdrop-filter:blur(6px)}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
+  nav.scrolled{background:rgba(255,246,236,.95);backdrop-filter:blur(10px);border-bottom:1.5px solid var(--line)}
+  nav.scrolled .wrap{padding-top:12px;padding-bottom:12px}
+  .logo{font-family:'Gabarito','Nunito Sans',sans-serif;font-size:27px;font-weight:900;letter-spacing:-.035em;display:flex;align-items:center;gap:9px}
+  .logo i{display:flex;gap:3px}
+  .logo i b{width:9px;height:9px;border-radius:50%;display:block}
+  .logo i b:nth-child(1){background:var(--coral)}
+  .logo i b:nth-child(2){background:var(--amarillo)}
+  .logo i b:nth-child(3){background:var(--azul)}
+  .nav-links{display:flex;gap:26px;font-size:15px;font-weight:600}
+  .nav-links a{color:var(--tinta2);transition:.2s}
+  .nav-links a:hover{color:var(--coral)}
+  @media(max-width:880px){.nav-links{display:none}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;border-radius:100px;font-family:'Gabarito','Nunito Sans',sans-serif;font-size:15.5px;font-weight:700;border:2px solid var(--tinta);transition:.22s;cursor:pointer;background:transparent}
+  .btn-solid{background:var(--coral);border-color:var(--coral);color:var(--blanco)}
+  .btn-solid:hover{background:var(--tinta);border-color:var(--tinta)}
+  .btn-line:hover{background:var(--tinta);color:var(--crema)}
+
+  /* hero */
+  .hero{padding:130px 0 76px;position:relative;overflow:hidden}
+  .blob{position:absolute;border-radius:50%;z-index:0;pointer-events:none}
+  .b1{width:340px;height:340px;background:var(--amarillo);opacity:.34;top:-90px;right:6%}
+  .b2{width:210px;height:210px;background:var(--azul);opacity:.2;top:210px;right:26%}
+  .b3{width:270px;height:270px;background:var(--verde);opacity:.18;bottom:-120px;left:-70px}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+  .hero h1{font-size:clamp(44px,7.8vw,92px);margin:18px 0 20px}
+  .hero h1 em{font-style:normal;color:var(--coral)}
+  .hero p{font-size:18.5px;color:var(--tinta2);max-width:480px}
+  .hero p b{color:var(--tinta);font-weight:700}
+  .hero-ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+
+  /* tarjeta ratio */
+  .card{background:var(--blanco);border:2px solid var(--tinta);border-radius:28px;padding:32px 30px;box-shadow:10px 10px 0 var(--amarillo)}
+  .card .label{display:block;margin-bottom:14px}
+  .card h3{font-size:27px;margin-bottom:12px}
+  .card p{font-size:15.5px;color:var(--tinta2)}
+  .ratio{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0 12px;max-width:158px}
+  .ratio b{width:26px;height:26px;border-radius:50%;background:var(--azul);display:block}
+  .ratio b.ad{background:var(--coral)}
+  .ratio-leg{display:flex;gap:20px;font-size:13.5px;color:var(--tinta2);flex-wrap:wrap}
+  .ratio-leg span{display:flex;align-items:center;gap:7px}
+  .ratio-leg i{width:12px;height:12px;border-radius:50%;display:block}
+  .ratio-leg i.n{background:var(--azul)}
+  .ratio-leg i.t{background:var(--coral)}
+
+  /* secciones */
+  .sec{padding:88px 0}
+  .sec-head{max-width:700px;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(32px,5.2vw,62px);margin:14px 0 14px}
+  .sec-head h2 em{font-style:normal;color:var(--coral)}
+  .sec-head p{color:var(--tinta2);font-size:16.5px}
+
+  /* el día */
+  .dia{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-radius:22px;overflow:hidden;border:2px solid var(--tinta)}
+  @media(max-width:900px){.dia{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.dia{grid-template-columns:1fr}}
+  .mom{padding:26px 20px 28px;border-right:2px solid var(--tinta)}
+  .mom:last-child{border-right:0}
+  @media(max-width:900px){.mom{border-right:2px solid var(--tinta);border-bottom:2px solid var(--tinta)}}
+  .mom:nth-child(1){background:#ffe9dd}
+  .mom:nth-child(2){background:#fff2cf}
+  .mom:nth-child(3){background:#dff0e6}
+  .mom:nth-child(4){background:#ddeaff}
+  .mom:nth-child(5){background:#efe6f7}
+  .mom:nth-child(6){background:#ffe9dd}
+  .mom b{font-family:'Gabarito','Nunito Sans',sans-serif;font-size:26px;font-weight:900;display:block;letter-spacing:-.03em}
+  .mom h3{font-size:18px;margin:8px 0 7px}
+  .mom p{font-size:14px;color:var(--tinta2)}
+
+  /* niveles */
+  .nvls{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:900px){.nvls{grid-template-columns:1fr}}
+  .nvl{border:2px solid var(--tinta);border-radius:24px;padding:30px 26px;background:var(--blanco);display:flex;flex-direction:column;gap:12px;transition:.24s}
+  .nvl:hover{transform:translate(-4px,-4px)}
+  .nvl:nth-child(1):hover{box-shadow:8px 8px 0 var(--coral)}
+  .nvl:nth-child(2):hover{box-shadow:8px 8px 0 var(--verde)}
+  .nvl:nth-child(3):hover{box-shadow:8px 8px 0 var(--azul)}
+  .nvl .edad{display:inline-block;font-family:'Gabarito','Nunito Sans',sans-serif;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;width:fit-content;color:var(--blanco)}
+  .nvl:nth-child(1) .edad{background:var(--coral)}
+  .nvl:nth-child(2) .edad{background:var(--verde)}
+  .nvl:nth-child(3) .edad{background:var(--azul)}
+  .nvl h3{font-size:27px}
+  .nvl p{font-size:15px;color:var(--tinta2)}
+  .nvl ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14.5px;color:var(--tinta2);flex:1}
+  .nvl li::before{content:"● ";font-size:9px;vertical-align:middle;color:var(--tenue)}
+  .nvl .cupos{font-family:'Gabarito','Nunito Sans',sans-serif;font-weight:700;font-size:14.5px;color:var(--tinta)}
+
+  /* preguntas */
+  .preg{background:var(--tinta);color:var(--crema);padding:90px 0}
+  .preg .label{color:var(--amarillo)}
+  .preg h2{font-size:clamp(32px,5.2vw,60px);margin:14px 0 44px;max-width:720px}
+  .preg h2 em{font-style:normal;color:var(--amarillo)}
+  .qs{display:grid;grid-template-columns:1fr 1fr;gap:30px 44px}
+  @media(max-width:860px){.qs{grid-template-columns:1fr;gap:28px}}
+  .q h3{font-size:21px;margin-bottom:9px;color:var(--amarillo)}
+  .q p{font-size:15.5px;color:#c8bcae}
+
+  /* equipo */
+  .eq-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:58px;align-items:start}
+  @media(max-width:900px){.eq-grid{grid-template-columns:1fr;gap:42px}}
+  .eq h2{font-size:clamp(30px,4.6vw,54px);margin:14px 0 20px}
+  .eq h2 em{font-style:normal;color:var(--coral)}
+  .eq p{color:var(--tinta2);max-width:540px}
+  .eq p+p{margin-top:14px}
+  .firma{font-family:'Gabarito','Nunito Sans',sans-serif;font-weight:700;font-size:19px;margin-top:24px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .stat{border:2px solid var(--tinta);border-radius:22px;padding:24px 20px;background:var(--blanco)}
+  .stat b{font-family:'Gabarito','Nunito Sans',sans-serif;font-size:42px;font-weight:900;display:block;line-height:1;letter-spacing:-.04em}
+  .stat:nth-child(1) b{color:var(--coral)}
+  .stat:nth-child(2) b{color:var(--verde)}
+  .stat:nth-child(3) b{color:var(--azul)}
+  .stat:nth-child(4) b{color:var(--amarillo)}
+  .stat span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--tenue);font-weight:700}
+
+  /* visita */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr;gap:38px}}
+  .hrow{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1.5px solid var(--line);font-size:16px}
+  .hrow span{color:var(--tinta2)}
+  .hrow b{font-family:'Gabarito','Nunito Sans',sans-serif;font-weight:700}
+  .hrow .closed{color:var(--coral)}
+  .nota-vis{margin-top:20px;font-size:14.5px;color:var(--tinta2)}
+  .mapa{position:relative;aspect-ratio:4/3.2;border:2px solid var(--tinta);border-radius:24px;background:var(--crema2);overflow:hidden}
+  .mapa-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px}
+  .mapa-parque{position:absolute;width:44%;height:38%;left:6%;bottom:8%;border-radius:22px;background:var(--verde);opacity:.28}
+  .mapa-via{position:absolute;left:0;right:0;top:44%;height:6px;background:var(--crema);border-block:2px solid var(--line)}
+  .pin{position:absolute;top:44%;left:62%;transform:translate(-50%,-50%);text-align:center}
+  .pin .dot{width:16px;height:16px;border-radius:50%;background:var(--coral);margin:0 auto;box-shadow:0 0 0 7px rgba(255,107,74,.2);animation:pulse 2.2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 16px rgba(255,107,74,0)}}
+  .pin p{margin-top:11px;font-family:'Gabarito','Nunito Sans',sans-serif;font-size:12px;font-weight:700;background:var(--blanco);border:2px solid var(--tinta);border-radius:100px;padding:5px 13px}
+
+  .cta{text-align:center;padding:104px 0;border-top:1.5px solid var(--line)}
+  .cta h2{font-size:clamp(36px,6.6vw,84px)}
+  .cta h2 em{font-style:normal;color:var(--coral)}
+  .cta p{color:var(--tinta2);margin:20px auto 34px;max-width:490px;font-size:17px}
+
+  footer{border-top:1.5px solid var(--line);padding:28px 0;font-size:13.5px;color:var(--tenue)}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.5);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:29px;height:29px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* --- DSS · capa estudio --- */
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    .demo-badge{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--azul);outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body id="top">
+
+<span class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></span>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><i><b></b><b></b><b></b></i>Bandada</a>
+    <div class="nav-links">
+      <a href="#dia">El día</a>
+      <a href="#niveles">Niveles</a>
+      <a href="#preguntas">Preguntas</a>
+      <a href="#donde">Dónde</a>
+    </div>
+    <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Bandada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar visita</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="blob b3" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="label">Jardín infantil · La Serena</span>
+        <h1>Dejarlo aquí <em>no debería doler.</em></h1>
+        <p>Salas de pocos niños, patio con tierra de verdad y comida hecha en la cocina de al lado. <b>Puedes venir a ver la sala cuando quieras</b>, sin avisar y sin pedir permiso.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Bandada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar una visita</a>
+          <a class="btn btn-line" href="#dia">Ver cómo es el día</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <span class="label">Sala medianos</span>
+        <h3>Doce niños, tres adultos</h3>
+        <p>Así se ve una sala completa en Bandada. Nunca hay más de cuatro niños por adulto, ni siquiera en la hora de almuerzo.</p>
+        <div class="ratio" aria-hidden="true">
+          <b></b><b></b><b></b><b></b><b class="ad"></b>
+          <b></b><b></b><b></b><b></b><b class="ad"></b>
+          <b></b><b></b><b></b><b></b><b class="ad"></b>
+        </div>
+        <div class="ratio-leg">
+          <span><i class="n"></i>12 niños</span>
+          <span><i class="t"></i>3 educadoras</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="dia">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">01 — El día</span>
+      <h2>Qué pasa entre que <em>lo dejas y lo buscas</em></h2>
+      <p>Publicamos la rutina completa porque sabemos que es lo primero que uno se pregunta cuando cierra la puerta y se va a trabajar.</p>
+    </div>
+    <div class="dia reveal">
+      <div class="mom">
+        <b>08:00</b>
+        <h3>Llegada</h3>
+        <p>Recibimos en la puerta, uno por uno. Nada de entrar corriendo: hay tiempo para despedirse bien.</p>
+      </div>
+      <div class="mom">
+        <b>09:30</b>
+        <h3>Círculo</h3>
+        <p>Canciones, calendario y contar qué pasó ayer. Es donde los más callados encuentran su turno.</p>
+      </div>
+      <div class="mom">
+        <b>10:30</b>
+        <h3>Patio</h3>
+        <p>Hora y media afuera, llueva o haga sol. Tierra, agua, arena y ropa que se ensucia.</p>
+      </div>
+      <div class="mom">
+        <b>12:30</b>
+        <h3>Almuerzo</h3>
+        <p>Cocinado esa mañana en el jardín. Se sirven solos desde los tres años y nadie obliga a nadie.</p>
+      </div>
+      <div class="mom">
+        <b>13:30</b>
+        <h3>Siesta</h3>
+        <p>Luz baja y colchoneta propia. Los que no duermen leen o miran cuentos en la alfombra.</p>
+      </div>
+      <div class="mom">
+        <b>16:00</b>
+        <h3>Taller</h3>
+        <p>Pintura, masa, música o huerta según el día. Después, fruta y a esperar a quien venga a buscarlos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="niveles" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">02 — Niveles</span>
+      <h2>Tres salas, <em>tres momentos</em></h2>
+      <p>Cada sala tiene su propia educadora estable durante todo el año. Los niños no cambian de adulto a mitad de camino.</p>
+    </div>
+    <div class="nvls">
+      <div class="nvl reveal">
+        <span class="edad">1 a 2 años</span>
+        <h3>Pollitos</h3>
+        <p>Sala de cuna mayor. Todo pasa a ras de suelo: gatear, pararse, tocar y llevarse cosas a la boca.</p>
+        <ul>
+          <li>Ocho niños, tres adultos</li>
+          <li>Mudas y siestas a demanda</li>
+          <li>Bitácora diaria por WhatsApp</li>
+        </ul>
+        <span class="cupos">Quedan 2 cupos para marzo</span>
+      </div>
+      <div class="nvl reveal">
+        <span class="edad">2 a 3 años</span>
+        <h3>Medianos</h3>
+        <p>El año del «yo solo». Empiezan el control de esfínteres, comen sin ayuda y aprenden a esperar turno.</p>
+        <ul>
+          <li>Doce niños, tres adultos</li>
+          <li>Acompañamiento de control de esfínteres</li>
+          <li>Primeros talleres de arte y huerta</li>
+        </ul>
+        <span class="cupos">Quedan 4 cupos para marzo</span>
+      </div>
+      <div class="nvl reveal">
+        <span class="edad">4 a 5 años</span>
+        <h3>Voladores</h3>
+        <p>Prekínder. Juego con reglas, primeras letras y proyectos que duran semanas, no una tarde.</p>
+        <ul>
+          <li>Dieciséis niños, tres adultos</li>
+          <li>Preparación para el colegio sin apuro</li>
+          <li>Salidas al parque y a la playa</li>
+        </ul>
+        <span class="cupos">Lista de espera</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="preg" id="preguntas">
+  <div class="wrap">
+    <span class="label">03 — Lo que siempre preguntan</span>
+    <h2>Las cuatro dudas que <em>llegan primero</em></h2>
+    <div class="qs">
+      <div class="q reveal">
+        <h3>¿Puedo venir a ver la sala?</h3>
+        <p>Cuando quieras y sin avisar. Si estás en la vereda a las once de la mañana, entras. No tenemos días de visita ni horarios especiales para mostrar el jardín ordenado.</p>
+      </div>
+      <div class="q reveal">
+        <h3>¿Y si llora todos los días?</h3>
+        <p>La adaptación dura entre una y tres semanas y la hacemos de a poco: primero una hora contigo dentro, después solo. Si a la tercera semana sigue mal, nos sentamos a conversarlo en serio.</p>
+      </div>
+      <div class="q reveal">
+        <h3>¿Quién cocina?</h3>
+        <p>Nuestra cocinera, en el jardín, cada mañana. Publicamos la minuta de la semana en la puerta y por WhatsApp. Si tu hijo tiene alergia o dieta especial, se cocina aparte sin costo.</p>
+      </div>
+      <div class="q reveal">
+        <h3>¿Cómo sé qué hizo hoy?</h3>
+        <p>Cada tarde mandamos una bitácora corta por WhatsApp: qué comió, cuánto durmió, cómo estuvo de ánimo y una foto. Sin grupos con cincuenta apoderados hablando a la vez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec eq">
+  <div class="wrap eq-grid">
+    <div class="reveal">
+      <span class="idx">04 — El jardín</span>
+      <h2>Una casa con patio, <em>no un edificio</em></h2>
+      <p>Bandada funciona desde el 2016 en una casa antigua de Las Compañías con un patio de doscientos metros que dejamos a propósito sin cemento. Hay tierra, un limonero, una huerta y espacio para correr sin chocar con nadie.</p>
+      <p>Somos nueve personas: seis educadoras y técnicos, una cocinera, una persona en administración y una educadora diferencial que acompaña a los niños que lo necesitan, sin separarlos de su sala.</p>
+      <p class="firma">— Carolina Véliz, directora</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>2016</b><span>Primer año</span></div>
+      <div class="stat"><b>4:1</b><span>Niños por adulto</span></div>
+      <div class="stat"><b>200 m²</b><span>De patio con tierra</span></div>
+      <div class="stat"><b>36</b><span>Niños en total</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="donde" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">05 — Dónde</span>
+      <h2>Al lado del <em>parque</em></h2>
+    </div>
+    <div class="visit-grid">
+      <div class="reveal">
+        <div class="hrow"><span>Jornada completa</span><b>08:00 – 17:30</b></div>
+        <div class="hrow"><span>Media jornada</span><b>08:00 – 13:00</b></div>
+        <div class="hrow"><span>Extensión horaria</span><b>Hasta 19:00</b></div>
+        <div class="hrow"><span>Enero</span><b class="closed">Colonia de verano</b></div>
+        <p class="nota-vis">📍 Los Almendros 1140, Las Compañías, La Serena<br />Matrícula abierta de octubre a marzo · Convenio con empresas · Estacionamiento para dejar y buscar sin bajarse.</p>
+        <div style="margin-top:26px">
+          <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Bandada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Preguntar por cupos</a>
+        </div>
+      </div>
+      <div class="mapa reveal">
+        <div class="mapa-grid"></div>
+        <div class="mapa-parque"></div>
+        <div class="mapa-via"></div>
+        <div class="pin"><div class="dot"></div><p>Los Almendros 1140</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap reveal">
+    <h2>Ven a verlo <em>un martes cualquiera.</em></h2>
+    <p>Sin cita, sin recorrido guiado y sin discurso. Miras la sala, hueles el almuerzo y decides.</p>
+    <a class="btn btn-solid" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Bandada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Jardín Infantil Bandada · La Serena</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Bandada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hornada — Panadería de masa madre · La Serena</title>
+<meta name="description" content="Panadería de masa madre en La Serena. Fermentación de 24 horas, harinas del valle y cuatro hornadas al día. Mira a qué hora sale cada pan." />
+<meta name="theme-color" content="#f0e7d6" />
+<meta property="og:title" content="Hornada — Panadería de masa madre" />
+<meta property="og:description" content="Masa madre, harina del valle y cuatro hornadas al día en La Serena." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f0e7d6; --paper2:#e6d9c1; --flour:#fffdf7;
+    --ink:#24201a; --ink2:#5b5348; --muted:#8a8071;
+    --horno:#c43d22; --miga:#b98a3e;
+    --line:#d3c5a9; --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
+  body{background:var(--paper);color:var(--ink);font-family:'Karla',sans-serif;line-height:1.68}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:700;line-height:1.02;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--horno);color:var(--flour)}
+  .label{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--horno);font-weight:700}
+  .idx{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  /* textura de papel */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(rgba(36,32,26,.055) 1px,transparent 1px);background-size:4px 4px}
+  body>*{position:relative;z-index:1}
+
+  .demo-badge{position:fixed;left:16px;bottom:16px;z-index:70;font-size:10px;letter-spacing:.22em;font-weight:700;color:var(--muted);border:1px solid var(--line);padding:5px 11px;background:rgba(240,231,214,.9);backdrop-filter:blur(6px)}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px}
+  nav.scrolled{background:rgba(240,231,214,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav.scrolled .wrap{padding-top:13px;padding-bottom:13px}
+  .logo{font-family:'Fraunces',serif;font-weight:900;font-size:25px;letter-spacing:-.03em;display:flex;align-items:center;gap:10px}
+  .logo i{width:15px;height:15px;border-radius:50% 50% 50% 6px;background:var(--horno);display:block}
+  .nav-links{display:flex;gap:28px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+  .nav-links a{color:var(--ink2);transition:.2s}
+  .nav-links a:hover{color:var(--horno)}
+  @media(max-width:840px){.nav-links{display:none}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 26px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border:1.5px solid var(--ink);transition:.22s;cursor:pointer;background:transparent;border-radius:2px}
+  .btn-solid{background:var(--ink);color:var(--flour)}
+  .btn-solid:hover{background:var(--horno);border-color:var(--horno)}
+  .btn-line:hover{background:var(--ink);color:var(--flour)}
+
+  /* hero */
+  .hero{padding:114px 0 76px}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:44px;align-items:start}}
+  .hero h1{font-size:clamp(48px,8vw,104px);margin:20px 0 0}
+  .hero h1 em{font-style:italic;color:var(--horno)}
+  .hero .sub{margin-top:24px;max-width:470px;font-size:18px;color:var(--ink2)}
+  .hero .sub b{color:var(--ink);font-weight:700}
+  .hero-ctas{display:flex;gap:13px;margin-top:32px;flex-wrap:wrap}
+
+  /* ticket próxima hornada */
+  .ticket{background:var(--flour);border:1.5px solid var(--ink);padding:26px 24px 22px;position:relative;
+    box-shadow:8px 8px 0 var(--paper2)}
+  .ticket::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:9px;
+    background-image:radial-gradient(circle at 6px 0,transparent 6px,var(--flour) 6.5px);background-size:12px 9px}
+  .ticket .label{display:block;margin-bottom:14px}
+  .ticket h3{font-size:22px;margin-bottom:4px}
+  .ticket .hora{font-family:'Fraunces',serif;font-size:64px;font-weight:900;line-height:.95;color:var(--horno);letter-spacing:-.05em}
+  .ticket .cuenta{font-size:14px;color:var(--muted);margin-top:6px}
+  .ticket .lista{margin-top:18px;border-top:1px dashed var(--line);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+  .ticket .lista div{display:flex;justify-content:space-between;gap:12px;font-size:14.5px}
+  .ticket .lista b{font-weight:700}
+
+  /* hornadas */
+  .sec{padding:88px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(34px,5.6vw,68px)}
+  .sec-head h2 em{font-style:italic;color:var(--horno)}
+  .sec-head p{max-width:340px;color:var(--ink2);font-size:15.5px}
+
+  .horario{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1.5px solid var(--ink)}
+  @media(max-width:820px){.horario{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.horario{grid-template-columns:1fr}}
+  .tanda{background:var(--paper);padding:26px 22px 28px;position:relative}
+  .tanda.now{background:var(--flour)}
+  .tanda .h{font-family:'Fraunces',serif;font-size:40px;font-weight:900;letter-spacing:-.045em;line-height:1}
+  .tanda.now .h{color:var(--horno)}
+  .tanda .est{display:inline-block;margin-top:10px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;border:1px solid var(--line);padding:4px 10px;color:var(--muted)}
+  .tanda.now .est{background:var(--horno);border-color:var(--horno);color:var(--flour)}
+  .tanda ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:7px;font-size:15px;color:var(--ink2)}
+  .tanda li::before{content:"— "}
+
+  /* panes */
+  .panes{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 34px}
+  @media(max-width:900px){.panes{grid-template-columns:1fr 1fr;gap:38px 26px}}
+  @media(max-width:560px){.panes{grid-template-columns:1fr}}
+  .pan .art{aspect-ratio:4/3;border:1.5px solid var(--ink);position:relative;overflow:hidden;transition:.3s}
+  .pan:hover .art{transform:translate(-4px,-4px);box-shadow:6px 6px 0 var(--ink)}
+  .p1{background:radial-gradient(ellipse 62% 52% at 50% 54%,#d9a95f 0%,#b5813a 52%,#8a5c25 74%,rgba(138,92,37,0) 75%),
+      linear-gradient(180deg,var(--paper2),#dccdae)}
+  .p2{background:repeating-linear-gradient(72deg,rgba(36,32,26,.5) 0 1.5px,transparent 1.5px 15px),
+      radial-gradient(ellipse 55% 60% at 50% 50%,#c99a52 0%,#a5762f 60%,rgba(165,118,47,0) 62%),
+      linear-gradient(180deg,#e9dcc2,#d8c8a6)}
+  .p3{background:radial-gradient(circle at 34% 42%,#3b2a1c 0%,#5a3d24 26%,rgba(90,61,36,0) 27%),
+      radial-gradient(circle at 63% 58%,#3b2a1c 0%,#5a3d24 20%,rgba(90,61,36,0) 21%),
+      radial-gradient(ellipse 58% 50% at 50% 50%,#c08f4a 0%,#9c6d2c 66%,rgba(156,109,44,0) 68%),
+      linear-gradient(180deg,#e7d9bd,#d5c4a0)}
+  .p4{background:conic-gradient(from 0deg at 50% 50%,#c99a52 0 30deg,#b5813a 30deg 60deg,#c99a52 60deg 90deg,#b5813a 90deg 120deg,#c99a52 120deg 150deg,#b5813a 150deg 180deg,#c99a52 180deg 210deg,#b5813a 210deg 240deg,#c99a52 240deg 270deg,#b5813a 270deg 300deg,#c99a52 300deg 330deg,#b5813a 330deg 360deg),
+      linear-gradient(180deg,#e9dcc2,#d8c8a6);
+      background-size:66% 66%,100% 100%;background-position:center,center;background-repeat:no-repeat}
+  .p5{background:linear-gradient(180deg,transparent 0 26%,#8a5c25 26% 28%,transparent 28% 46%,#8a5c25 46% 48%,transparent 48% 66%,#8a5c25 66% 68%,transparent 68%),
+      radial-gradient(ellipse 70% 44% at 50% 50%,#cfa055 0%,#a87a34 70%,rgba(168,122,52,0) 72%),
+      linear-gradient(180deg,#ebdec4,#d9c9a7)}
+  .p6{background:radial-gradient(ellipse 30% 46% at 32% 50%,#c99a52 0%,#a5762f 68%,rgba(165,118,47,0) 70%),
+      radial-gradient(ellipse 30% 46% at 68% 50%,#c99a52 0%,#a5762f 68%,rgba(165,118,47,0) 70%),
+      linear-gradient(180deg,#e9dcc2,#d8c8a6)}
+  .pan figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:16px}
+  .pan h3{font-size:24px}
+  .pan .val{font-family:'Fraunces',serif;font-size:21px;font-weight:700;white-space:nowrap}
+  .pan p{font-size:14.5px;color:var(--ink2);margin-top:5px}
+  .pan .nota{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--horno);font-weight:700;margin-top:8px;display:block}
+
+  /* proceso */
+  .proceso{background:var(--ink);color:var(--paper);padding:92px 0}
+  .proceso .label{color:var(--miga)}
+  .proceso h2{font-size:clamp(34px,5.4vw,66px);margin:18px 0 46px;max-width:780px}
+  .proceso h2 em{font-style:italic;color:var(--miga)}
+  .fases{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  @media(max-width:860px){.fases{grid-template-columns:1fr;gap:30px}}
+  .fase{border-top:2px solid var(--miga);padding-top:20px}
+  .fase b{font-family:'Fraunces',serif;font-size:15px;letter-spacing:.16em;color:var(--miga);display:block}
+  .fase h3{font-size:24px;margin:12px 0 10px}
+  .fase p{font-size:15.5px;color:#b6ac9a}
+
+  /* panaderia */
+  .sobre-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+  @media(max-width:900px){.sobre-grid{grid-template-columns:1fr;gap:42px}}
+  .sobre h2{font-size:clamp(32px,4.8vw,58px);margin:18px 0 22px}
+  .sobre h2 em{font-style:italic;color:var(--horno)}
+  .sobre p{color:var(--ink2);max-width:540px}
+  .sobre p+p{margin-top:14px}
+  .firma{font-family:'Fraunces',serif;font-style:italic;font-size:23px;margin-top:26px;color:var(--ink)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1.5px solid var(--ink)}
+  .stat{background:var(--paper);padding:26px 22px}
+  .stat b{font-family:'Fraunces',serif;font-size:44px;font-weight:900;color:var(--horno);display:block;line-height:1;letter-spacing:-.045em}
+  .stat span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+  /* visita */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr;gap:38px}}
+  .hrow{display:flex;justify-content:space-between;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);font-size:16px}
+  .hrow span{color:var(--ink2)}
+  .hrow b{font-weight:700}
+  .hrow .closed{color:var(--horno)}
+  .nota-vis{margin-top:20px;font-size:14.5px;color:var(--ink2)}
+  .mapa{position:relative;aspect-ratio:4/3.2;border:1.5px solid var(--ink);background:var(--paper2);overflow:hidden}
+  .mapa-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:42px 42px}
+  .mapa-via{position:absolute;left:0;right:0;top:48%;height:2px;background:var(--ink);opacity:.45}
+  .mapa-via2{position:absolute;top:0;bottom:0;left:36%;width:2px;background:var(--ink);opacity:.45}
+  .pin{position:absolute;top:48%;left:36%;transform:translate(-50%,-50%);text-align:center}
+  .pin .dot{width:14px;height:14px;border-radius:50%;background:var(--horno);margin:0 auto;box-shadow:0 0 0 7px rgba(196,61,34,.16);animation:pulse 2.2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 16px rgba(196,61,34,0)}}
+  .pin p{margin-top:11px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:var(--flour);border:1px solid var(--ink);padding:5px 12px}
+
+  .cta{border-top:1.5px solid var(--ink);text-align:center;padding:108px 0}
+  .cta h2{font-size:clamp(40px,7.4vw,96px)}
+  .cta h2 em{font-style:italic;color:var(--horno)}
+  .cta p{color:var(--ink2);margin:22px auto 34px;max-width:470px;font-size:17px}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.5);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:29px;height:29px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* --- DSS · capa estudio --- */
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    .demo-badge{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--horno);outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body id="top">
+
+<span class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></span>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>Hornada</a>
+    <div class="nav-links">
+      <a href="#hornadas">Hornadas</a>
+      <a href="#panes">Los panes</a>
+      <a href="#proceso">El proceso</a>
+      <a href="#visita">Dónde</a>
+    </div>
+    <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Hornada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Encargar</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="label">Panadería de masa madre · La Serena</span>
+        <h1>Pan que tarda<br /><em>lo que tiene<br />que tardar.</em></h1>
+        <p class="sub">Veinticuatro horas de fermentación, harina molida en el valle del Elqui y un horno de piedra que prendemos a las cuatro de la mañana. <b>Cuatro hornadas al día</b>, hasta que se acaban.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-solid" href="#hornadas">Ver hornadas de hoy</a>
+          <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Hornada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Encargar por WhatsApp</a>
+        </div>
+      </div>
+      <div class="ticket reveal">
+        <span class="label">Próxima hornada</span>
+        <div class="hora">16:00</div>
+        <p class="cuenta">En 2 horas y 20 minutos · quedan cupos de encargo</p>
+        <div class="lista">
+          <div><span>Campesino 1 kg</span><b>18 unidades</b></div>
+          <div><span>Integral de centeno</span><b>12 unidades</b></div>
+          <div><span>Focaccia de romero</span><b>9 bandejas</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="hornadas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="idx">01 — El día</span>
+        <h2>A qué hora sale <em>cada pan</em></h2>
+      </div>
+      <p>No horneamos todo de una vez. Así el pan de las siete de la tarde está tan tibio como el de la mañana.</p>
+    </div>
+    <div class="horario reveal">
+      <div class="tanda">
+        <div class="h">07:00</div>
+        <span class="est">Agotada</span>
+        <ul><li>Campesino</li><li>Marraqueta de masa madre</li><li>Hallulla integral</li></ul>
+      </div>
+      <div class="tanda">
+        <div class="h">11:00</div>
+        <span class="est">Agotada</span>
+        <ul><li>Centeno con nueces</li><li>Focaccia de romero</li><li>Baguette</li></ul>
+      </div>
+      <div class="tanda now">
+        <div class="h">16:00</div>
+        <span class="est">En el horno</span>
+        <ul><li>Campesino</li><li>Integral de centeno</li><li>Focaccia de romero</li></ul>
+      </div>
+      <div class="tanda">
+        <div class="h">19:00</div>
+        <span class="est">Con encargo</span>
+        <ul><li>Brioche de aceite de oliva</li><li>Pan de molde</li><li>Lo que quede de la tarde</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="panes" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="idx">02 — La mesa</span>
+        <h2>Ocho panes y <em>ninguno con prisa</em></h2>
+      </div>
+      <p>Todo lleva masa madre, agua, sal y harina. Nada más: sin mejoradores, sin levadura industrial, sin conservantes.</p>
+    </div>
+    <div class="panes">
+      <figure class="pan reveal">
+        <div class="art p1"></div>
+        <figcaption><h3>Campesino</h3><span class="val">$4.900</span></figcaption>
+        <p>Hogaza de 1 kg, corteza gruesa y miga alveolada. El que se lleva todo el mundo la primera vez.</p>
+        <span class="nota">Fermenta 24 h</span>
+      </figure>
+      <figure class="pan reveal">
+        <div class="art p2"></div>
+        <figcaption><h3>Centeno con nueces</h3><span class="val">$5.600</span></figcaption>
+        <p>Setenta por ciento centeno del valle y nueces de Vicuña tostadas en casa. Denso, dulce, larga vida.</p>
+        <span class="nota">Fermenta 36 h</span>
+      </figure>
+      <figure class="pan reveal">
+        <div class="art p3"></div>
+        <figcaption><h3>Aceituna y tomillo</h3><span class="val">$5.200</span></figcaption>
+        <p>Con aceitunas de Huasco picadas a cuchillo. Para acompañar sopa o para comérselo entero de pie.</p>
+        <span class="nota">Solo jueves y sábado</span>
+      </figure>
+      <figure class="pan reveal">
+        <div class="art p4"></div>
+        <figcaption><h3>Focaccia de romero</h3><span class="val">$6.400</span></figcaption>
+        <p>Bandeja entera, aceite de oliva de Ovalle y sal de Cáhuil. Sale a las once y a las cuatro.</p>
+        <span class="nota">Bandeja de 6 porciones</span>
+      </figure>
+      <figure class="pan reveal">
+        <div class="art p5"></div>
+        <figcaption><h3>Pan de molde</h3><span class="val">$4.200</span></figcaption>
+        <p>El de los sándwiches de la semana. Miga cerrada, se corta parejo y aguanta cinco días envuelto en paño.</p>
+        <span class="nota">Solo con encargo</span>
+      </figure>
+      <figure class="pan reveal">
+        <div class="art p6"></div>
+        <figcaption><h3>Marraqueta madre</h3><span class="val">$2.400</span></figcaption>
+        <p>La de siempre, pero con masa madre y sin levadura añadida. Media docena. Se acaba antes de las nueve.</p>
+        <span class="nota">Media docena</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="proceso" id="proceso">
+  <div class="wrap">
+    <span class="label">03 — El proceso</span>
+    <h2>Tres días entre la harina <em>y tu mesa</em></h2>
+    <div class="fases">
+      <div class="fase reveal">
+        <b>DÍA 1 · 18:00</b>
+        <h3>Se alimenta la madre</h3>
+        <p>Nuestra masa madre se llama Rosalía y tiene once años. Cada tarde recibe harina y agua del valle, y descansa hasta la noche siguiente. Si un día no la alimentamos, al otro no hay pan.</p>
+      </div>
+      <div class="fase reveal">
+        <b>DÍA 2 · 20:00</b>
+        <h3>Amasado y frío</h3>
+        <p>Mezclamos, plegamos a mano cada cuarenta minutos y mandamos las masas a cámara de frío. Ahí pasan la noche entera: el frío es lo que le da al pan ese sabor un poco ácido.</p>
+      </div>
+      <div class="fase reveal">
+        <b>DÍA 3 · 04:00</b>
+        <h3>Horno de piedra</h3>
+        <p>Prendemos a las cuatro. Cada hogaza se marca a navaja y entra con vapor. Sale cuando la corteza suena hueca al golpearla — no cuando lo dice un temporizador.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sobre">
+  <div class="wrap sobre-grid">
+    <div class="reveal">
+      <span class="idx">04 — La panadería</span>
+      <h2>Un local chico con <em>vista al horno</em></h2>
+      <p>Hornada abrió el 2019 en una casa del barrio Balmaceda, con un horno de piedra que armamos ladrillo por ladrillo y una vitrina que da directo a la mesa de trabajo. Puedes ver quién amasa tu pan mientras esperas.</p>
+      <p>Compramos harina a dos molinos del valle del Elqui y aceite a una familia de Ovalle. Lo que sobra al cierre lo lleva la olla común del sector — nunca botamos pan.</p>
+      <p class="firma">— Julia Contador, panadera</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>11</b><span>Años de masa madre</span></div>
+      <div class="stat"><b>24 h</b><span>Fermentación mínima</span></div>
+      <div class="stat"><b>4</b><span>Hornadas al día</span></div>
+      <div class="stat"><b>2</b><span>Molinos del valle</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="visita" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="idx">05 — Dónde</span>
+        <h2>Ven temprano. <em>O encarga.</em></h2>
+      </div>
+    </div>
+    <div class="visit-grid">
+      <div class="reveal">
+        <div class="hrow"><span>Martes – Viernes</span><b>07:30 – 20:00</b></div>
+        <div class="hrow"><span>Sábado</span><b>08:00 – 15:00</b></div>
+        <div class="hrow"><span>Domingo</span><b>08:00 – 13:30</b></div>
+        <div class="hrow"><span>Lunes</span><b class="closed">Descansa el horno</b></div>
+        <p class="nota-vis">📍 Balmaceda 1247, La Serena<br />Encargos hasta las 18:00 del día anterior por WhatsApp · Café de filtro mientras esperas · Llevamos a domicilio dentro de La Serena los sábados.</p>
+        <div style="margin-top:26px">
+          <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Hornada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Encargar mi pan</a>
+        </div>
+      </div>
+      <div class="mapa reveal">
+        <div class="mapa-grid"></div>
+        <div class="mapa-via"></div>
+        <div class="mapa-via2"></div>
+        <div class="pin"><div class="dot"></div><p>Balmaceda 1247</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap reveal">
+    <h2>El pan bueno <em>se acaba temprano.</em></h2>
+    <p>Escríbenos hoy y te dejamos apartado lo tuyo para la hornada que elijas.</p>
+    <a class="btn btn-solid" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Hornada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Hornada · La Serena</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Hornada%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

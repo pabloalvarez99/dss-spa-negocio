@@ -148,5 +148,75 @@
     "shot": "shots/estudio/revista-contrafuerte",
     "solves": "Una revista se lee, no se hojea: jerarquía editorial de portada, secciones fijas y la suscripción como cierre, no como pop-up que interrumpe.",
     "accent": "#E8402F"
+  },
+  {
+    "slug": "box-fragua",
+    "name": "FRAGUA",
+    "kind": "Box de entrenamiento funcional",
+    "city": "Coquimbo",
+    "url": null,
+    "shot": "shots/estudio/box-fragua",
+    "solves": "Un box vive de su pizarra: el entrenamiento del día ocupa el centro de la página y el horario muestra qué bloque está lleno, para que nadie llegue a preguntar.",
+    "accent": "#E8FF4D"
+  },
+  {
+    "slug": "surf-rompiente",
+    "name": "Rompiente",
+    "kind": "Escuela de surf",
+    "city": "Totoralillo",
+    "url": null,
+    "shot": "shots/estudio/surf-rompiente",
+    "solves": "Antes de reservar una clase, el alumno quiere saber cómo está el mar: el parte de olas con altura, viento y curva de marea es la primera pieza, no un dato escondido.",
+    "accent": "#5EC8B8"
+  },
+  {
+    "slug": "panaderia-hornada",
+    "name": "Hornada",
+    "kind": "Panadería de masa madre",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/panaderia-hornada",
+    "solves": "El pan bueno se acaba temprano: la página se organiza por hora de horneado, marca cuál tanda está agotada y convierte el encargo en la acción principal.",
+    "accent": "#C43D22"
+  },
+  {
+    "slug": "dental-sereno",
+    "name": "Sereno",
+    "kind": "Clínica dental",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/dental-sereno",
+    "solves": "El miedo es la verdadera barrera: cada tratamiento declara cuánto dura y cuánta molestia esperar, y la primera visita se explica paso a paso antes de pedir hora.",
+    "accent": "#4A6B58"
+  },
+  {
+    "slug": "taller-pinon",
+    "name": "Piñón",
+    "kind": "Taller de bicicletas",
+    "city": "Coquimbo",
+    "url": null,
+    "shot": "shots/estudio/taller-pinon",
+    "solves": "La pregunta que llega todos los días es «¿ya está lista?»: el tablero de órdenes con su estado va en el hero y los servicios se explican sobre un despiece técnico.",
+    "accent": "#E8551F"
+  },
+  {
+    "slug": "destileria-cielo-seco",
+    "name": "Cielo Seco",
+    "kind": "Destilería de pisco",
+    "city": "Vicuña",
+    "url": null,
+    "shot": "shots/estudio/destileria-cielo-seco",
+    "solves": "Un destilado chico compite contra marcas de supermercado: la página se juega por el origen — altura, uva y alambique como dato duro — y termina en la visita a la bodega, no en el carro.",
+    "accent": "#C9A227"
+  },
+  {
+    "slug": "jardin-bandada",
+    "name": "Bandada",
+    "kind": "Jardín infantil",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/jardin-bandada",
+    "solves": "Un papá decide por confianza, no por folleto: la rutina completa del día, la proporción de adultos por niño dibujada y las cuatro dudas de siempre, respondidas sin rodeos.",
+    "accent": "#3A6FE0"
   }
 ]

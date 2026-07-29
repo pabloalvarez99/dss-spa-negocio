@@ -29,7 +29,32 @@ demo-kit/
   README.md
 ```
 
-**Legacy:** `clients/malta-lupulo/` es HTML a mano (pre-fábrica). No tiene `content.json`; no entra en `npm run build -- --all`.
+### Dos tipos de cliente en `clients/`
+
+| Tipo | Cómo se hace | Entra en `build --all` |
+|------|--------------|------------------------|
+| **De fábrica** | `content.json` + skin. Son los 7 ejemplos de rubro (`pizzeria-ejemplo`, `barberia-norte`, …) | Sí |
+| **Conceptual (Nivel 2)** | `index.html` escrito a mano, con dirección de arte propia y arte hecho solo con CSS | No |
+
+Los conceptuales son negocios ficticios de la Región de Coquimbo que existen para mostrar hasta
+dónde llega el diseño del estudio. No pasan por la fábrica a propósito: cada uno inventa su propia
+paleta, tipografía y composición. Se publican en la landing como **Nivel 2** vía
+[`website/estudio.json`](../website/estudio.json).
+
+**Legacy:** `clients/malta-lupulo/` es HTML a mano pre-fábrica y **no** es una pieza conceptual: no
+tiene badge, ni pie de «negocio ficticio», ni entrada en `estudio.json`.
+
+### Añadir una pieza conceptual
+
+1. `clients/{slug}/index.html` — autocontenido. Copia la estructura de uno existente:
+   badge `PROYECTO CONCEPTUAL`, nav, hero con una **pieza firma** propia del rubro, secciones,
+   horario + mapa, CTA, pie con «Negocio ficticio… DSS Chile», botón WA flotante y la
+   `capa estudio` del final del CSS (focus visible, `overflow-x:clip`, `prefers-reduced-motion`).
+2. Sin imágenes: todo el arte se dibuja con CSS o SVG inline.
+3. Capturas a **1440×900** y móvil, en `.jpg` + `.webp` → `estudio-shots/` y, las desktop,
+   a `../website/shots/estudio/{slug}.{jpg,webp}`.
+4. Entrada en `../website/estudio.json` con `slug`, `name`, `kind`, `city`, `url` (`null` mientras
+   no esté publicada), `shot`, `solves` (el problema de diseño que resuelve) y `accent` único.
 
 ---
 
@@ -203,9 +228,10 @@ templates/
 | `atelier` | Taller, estudio, oficio de autor | `orfebreria-andacollo` |
 | `nocturno` | Bar, pub, gastronomía nocturna, eventos | `bar-cuarto-menguante` |
 
-`restaurant`, `boutique`, `atelier` y `nocturno` tienen dirección de arte propia (`base: "none"`).
-`barber`, `clinic` y `services` siguen con `base: "classic"` + composición por defecto: funcionan, pero
-**les falta dirección de arte propia** (deuda declarada en [`H3-fabrica.md`](../docs/mejora/sprints/H3-fabrica.md)).
+Los 7 skins tienen dirección de arte propia (`base: "none"`): `restaurant`, `boutique`, `atelier` y
+`nocturno` desde H3; `barber` (póster barber shop vintage), `clinic` (calma clínica, único skin claro) y
+`services` (plano técnico 24/7, teléfono gigante) desde 2026-07-29. `classic.css` ya no lo carga ningún
+skin: queda como referencia histórica, candidato a borrar.
 
 ### Bloques disponibles
 
