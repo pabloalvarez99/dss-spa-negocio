@@ -1,19 +1,20 @@
 {
   "id": "services",
-  "label": "Servicios locales (taller, ferretería, etc.)",
-  "fonts_url": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap",
+  "label": "Servicios / oficios",
+  "base": "classic",
+  "fonts_url": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap",
   "defaults": {
     "eyebrow": "Servicio local",
     "label_menu": "Servicios",
-    "menu_title": "En qué te ayudamos",
-    "menu_intro": "Lista clara de servicios y precios de referencia. Cotiza por WhatsApp.",
-    "cta_primary": "Cotizar por WhatsApp",
+    "menu_title": "Qué hacemos",
+    "menu_intro": "Servicios claros, precios orientativos y respuesta por WhatsApp.",
+    "cta_primary": "Pedir por WhatsApp",
     "cta_secondary": "Ver servicios",
-    "cta_short": "Cotizar",
-    "about_title": "Rápido y confiable",
-    "about_card": "Para negocios de oficio que viven del WhatsApp y la recomendación de boca en boca.",
-    "contact_title": "Escríbenos",
-    "wa_message": "Hola {name}, quiero cotizar un servicio",
+    "cta_short": "Pedir",
+    "about_title": "Oficio de confianza",
+    "about_card": "Negocio local con presencia online lista para atender. Demo ilustrativa.",
+    "contact_title": "Llámanos o escríbenos",
+    "wa_message": "Hola {name}, necesito un servicio / cotización",
     "hero_title": "{name}"
   }
 }

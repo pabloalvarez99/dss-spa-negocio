@@ -1,0 +1,88 @@
+{
+  "slug": "cabanas-elqui-astral",
+  "template": "boutique",
+  "name": "Elqui Astral",
+  "tagline": "Tres cabañas de piedra y madera en el Valle de Elqui, con terraza de observación y cielo sin luz artificial.",
+  "phone_wa": "56951234567",
+  "city": "Vicuña",
+  "address": "Camino a Pisco Elqui km 7, Vicuña, Región de Coquimbo",
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=Vicu%C3%B1a+Valle+de+Elqui",
+  "instagram": "https://instagram.com/",
+  "eyebrow": "Cabañas y astroturismo",
+  "hero_title": "Dormir bajo el cielo más limpio de Chile",
+  "hours": [
+    { "days": "Check-in", "time": "15:00–21:00" },
+    { "days": "Check-out", "time": "hasta 12:00" },
+    { "days": "Observación guiada", "time": "Mié–Dom · 21:30" },
+    { "days": "Atención por WhatsApp", "time": "09:00–21:00" }
+  ],
+  "menu": [
+    {
+      "category": "Estadía",
+      "name": "Cabaña Zodiaco",
+      "desc": "Para 2 personas. Terraza privada, cocina equipada y tina exterior.",
+      "price": "$96.000 / noche"
+    },
+    {
+      "category": "Estadía",
+      "name": "Cabaña Vía Láctea",
+      "desc": "Para 4 personas. Dos dormitorios, chimenea y living con ventanal al valle.",
+      "price": "$138.000 / noche"
+    },
+    {
+      "category": "Estadía",
+      "name": "Cabaña Nebulosa",
+      "desc": "Para 6 personas. Ideal para grupos, con quincho y mesa larga.",
+      "price": "$175.000 / noche"
+    },
+    {
+      "category": "Experiencias",
+      "name": "Noche de observación",
+      "desc": "Telescopio y guía por 90 minutos en la terraza del mirador.",
+      "price": "$22.000 por persona"
+    },
+    {
+      "category": "Experiencias",
+      "name": "Desayuno de valle",
+      "desc": "Pan amasado, fruta de temporada, huevos de campo y café de grano.",
+      "price": "$9.500 por persona"
+    },
+    {
+      "category": "Experiencias",
+      "name": "Ruta del pisco",
+      "desc": "Traslado y visita a dos destilerías del valle, media jornada.",
+      "price": "$34.000 por persona"
+    }
+  ],
+  "stats": [
+    { "value": "3", "label": "Cabañas" },
+    { "value": "320", "label": "Noches despejadas al año" },
+    { "value": "7 km", "label": "De Vicuña" },
+    { "value": "WA", "label": "Reservas" }
+  ],
+  "marquee": [
+    "Valle de Elqui",
+    "Cielo sin contaminación lumínica",
+    "Terraza de observación",
+    "Desayuno incluido en estadías largas"
+  ],
+  "facts": [
+    { "label": "Capacidad", "value": "2 a 6 personas" },
+    { "label": "Mascotas", "value": "Sí, en Nebulosa" },
+    { "label": "Estadía mínima", "value": "2 noches en fin de semana" },
+    { "label": "Estacionamiento", "value": "Sí, en el predio" }
+  ],
+  "about": "Elqui Astral son tres cabañas construidas con piedra del río y madera reutilizada, a siete kilómetros de Vicuña. Están orientadas al sur del valle para que la Vía Láctea quede sobre la terraza y no sobre el techo.",
+  "about_title": "Un valle que se mira de noche",
+  "about_card": "Reservas directas por WhatsApp: sin comisiones de plataforma y con respuesta el mismo día.",
+  "quote": "Apagamos las luces exteriores a las diez de la noche. Lo que queda arriba es el motivo por el que la gente viene.",
+  "quote_by": "Elqui Astral · Valle de Elqui",
+  "menu_intro": "Estadías y experiencias del valle. Escríbenos con tus fechas y te confirmamos disponibilidad.",
+  "cta_title": "El cielo despeja a las diez",
+  "cta_text": "Cuéntanos fechas y cuántas personas vienen y te reservamos la cabaña.",
+  "seo_title": "Elqui Astral · Cabañas y astroturismo en Vicuña, Valle de Elqui",
+  "seo_description": "Cabañas de piedra y madera en el Valle de Elqui, con terraza de observación astronómica. Reservas directas por WhatsApp. Demo de sitio web.",
+  "wa_message": "Hola Elqui Astral, quiero consultar disponibilidad de cabañas",
+  "images": [],
+  "show_demo_badge": true
+}

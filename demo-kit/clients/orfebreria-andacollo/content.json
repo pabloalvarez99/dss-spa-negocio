@@ -1,0 +1,86 @@
+{
+  "slug": "orfebreria-andacollo",
+  "template": "atelier",
+  "name": "Orfebrería Andacollo",
+  "tagline": "Taller de joyería en cobre y plata, con piezas hechas a mano y encargos por medida en la comuna de Andacollo.",
+  "phone_wa": "56952345678",
+  "city": "Andacollo",
+  "address": "Calle Urmeneta 128, Andacollo, Región de Coquimbo",
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=Andacollo+Coquimbo",
+  "instagram": "https://instagram.com/",
+  "eyebrow": "Taller de orfebrería",
+  "hero_title": "Cobre del norte trabajado a mano",
+  "hours": [
+    { "days": "Mar–Vie", "time": "10:00–18:30" },
+    { "days": "Sáb", "time": "10:00–14:00" },
+    { "days": "Dom–Lun", "time": "Cerrado" }
+  ],
+  "menu": [
+    {
+      "category": "Anillos",
+      "name": "Anillo martillado",
+      "desc": "Plata 950 con textura de martillo. Ancho 4 mm.",
+      "price": "$38.000"
+    },
+    {
+      "category": "Anillos",
+      "name": "Alianza mixta",
+      "desc": "Plata y cobre fundidos en el taller. Se hace a medida.",
+      "price": "$62.000"
+    },
+    {
+      "category": "Aros",
+      "name": "Aros media luna",
+      "desc": "Cobre pulido con cierre de plata. Livianos.",
+      "price": "$24.000"
+    },
+    {
+      "category": "Colgantes",
+      "name": "Colgante piedra de Andacollo",
+      "desc": "Engaste de piedra local en montura de plata.",
+      "price": "$45.000"
+    },
+    {
+      "category": "Encargos",
+      "name": "Pieza por encargo",
+      "desc": "Diseño conversado, boceto y una corrección incluida.",
+      "price": "Desde $70.000"
+    },
+    {
+      "category": "Taller",
+      "name": "Clase de iniciación",
+      "desc": "Cuatro horas, materiales incluidos. Te llevas tu pieza.",
+      "price": "$45.000"
+    }
+  ],
+  "stats": [
+    { "value": "12", "label": "Años de taller" },
+    { "value": "100%", "label": "Hecho a mano" },
+    { "value": "10 días", "label": "Plazo de encargo" }
+  ],
+  "steps": [
+    { "title": "Conversamos", "desc": "Nos cuentas la idea, el material y el presupuesto." },
+    { "title": "Boceto", "desc": "Te enviamos un dibujo y el valor final antes de empezar." },
+    { "title": "Taller", "desc": "Fundido, forjado y pulido. Te mandamos fotos del proceso." },
+    { "title": "Entrega", "desc": "Retiro en el taller o envío a todo Chile." }
+  ],
+  "facts": [
+    { "label": "Materiales", "value": "Plata 950 y cobre" },
+    { "label": "Encargos", "value": "Sí, con boceto previo" },
+    { "label": "Envíos", "value": "A todo Chile" },
+    { "label": "Grabado", "value": "Incluido en alianzas" }
+  ],
+  "marquee": ["Plata 950", "Cobre del norte", "Piezas únicas", "Encargos a medida", "Clases de iniciación"],
+  "about": "El taller funciona en Andacollo desde 2014. Trabajamos cobre y plata con herramientas de banco: fundido, forjado, calado y pulido a mano. No hay dos piezas idénticas y eso es parte del trato.",
+  "about_title": "Un banco, dos manos",
+  "about_card": "Cada encargo parte con un boceto y un valor cerrado. Sin sorpresas al final.",
+  "menu_intro": "Piezas de stock y encargos por medida. Consulta stock y plazos por WhatsApp.",
+  "steps_title": "Cómo se encarga una pieza",
+  "cta_title": "¿Tienes una pieza en mente?",
+  "cta_text": "Escríbenos con la idea y te respondemos con boceto, plazo y valor.",
+  "seo_title": "Orfebrería Andacollo · Joyería en cobre y plata hecha a mano",
+  "seo_description": "Taller de orfebrería en Andacollo, Región de Coquimbo. Anillos, aros y encargos a medida en plata 950 y cobre. Pedidos por WhatsApp. Demo de sitio web.",
+  "wa_message": "Hola Orfebrería Andacollo, me interesa una pieza",
+  "images": [],
+  "show_demo_badge": true
+}

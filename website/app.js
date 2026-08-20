@@ -162,7 +162,7 @@
         navLinks.forEach(function(a){ a.classList.toggle("active", a.getAttribute("href")===id); });
       });
     }, {rootMargin:"-30% 0px -60% 0px"});
-    ["trabajo","como","planes","servicios","faq","postular","privacidad"].forEach(function(id){
+    ["estudio","trabajo","como","planes","servicios","faq","postular","privacidad"].forEach(function(id){
       var s = document.getElementById(id); if(s) spy.observe(s);
     });
   }
@@ -304,6 +304,12 @@
   /* ===== Catálogo / portafolio ===== */
   function demoUrl(d){ return "https://" + (d.d || d.u + ".vercel.app"); }
 
+  function esc(s){
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+
   function initPortfolio(DEMOS){
     var grid = document.getElementById("pf-grid");
     var filtersEl = document.getElementById("pf-filters");
@@ -323,11 +329,6 @@
       if(cats.indexOf(d.c)<0) cats.push(d.c);
       catCount[d.c] = (catCount[d.c]||0)+1;
     });
-    var esc = function(s){
-      return String(s).replace(/[&<>"]/g, function(c){
-        return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
-      });
-    };
     function cardHTML(d){
       var img = "<picture>"
         + '<source srcset="shots/'+d.u+'.webp?v=4" type="image/webp" />'
@@ -355,7 +356,8 @@
       tickEl.innerHTML = tickItems + tickItems;
     }
 
-    var curFilter = "Todos", expanded = false, PAGE = 14;
+    /* nivel 3: la grilla arranca colapsada detrás de pf-more; el contador sigue visible */
+    var curFilter = "Todos", collapsed = true, expanded = false, PAGE = 14;
     var moreWrap = document.querySelector(".pf-more");
     var moreBtn = document.getElementById("pf-more-btn");
     function apply(){
@@ -365,21 +367,32 @@
         var match = (curFilter==="Todos" || card.getAttribute("data-cat")===curFilter)
           && (!q || card.getAttribute("data-q").indexOf(q)>=0);
         if(match) matched++;
-        var visible = match && (expanded || shown < PAGE);
+        var visible = match && !collapsed && (expanded || shown < PAGE);
         if(visible) shown++;
         card.classList.toggle("hide", !visible);
       });
       countEl.innerHTML = "<b>"+matched+"</b> de "+DEMOS.length+" demos";
-      if(emptyEl) emptyEl.classList.toggle("show", matched===0);
+      if(emptyEl) emptyEl.classList.toggle("show", matched===0 && !collapsed);
       if(moreWrap) moreWrap.style.display = (matched > shown) ? "flex" : "none";
-      if(moreBtn && matched > shown) moreBtn.textContent = "Mostrar las "+(matched-shown)+" demos restantes ↓";
+      if(moreBtn){
+        moreBtn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+        if(matched > shown){
+          moreBtn.textContent = collapsed
+            ? "Ver las " + matched + " demos de muestra ↓"
+            : "Mostrar las " + (matched-shown) + " demos restantes ↓";
+        }
+      }
     }
-    if(moreBtn) moreBtn.addEventListener("click", function(){ expanded = true; apply(); });
+    if(moreBtn) moreBtn.addEventListener("click", function(){
+      if(collapsed) collapsed = false; else expanded = true;
+      apply();
+    });
     filtersEl.addEventListener("click", function(e){
       var b = e.target.closest(".chip"); if(!b) return;
       filtersEl.querySelectorAll(".chip").forEach(function(c){ c.classList.remove("active"); });
       b.classList.add("active");
       curFilter = b.getAttribute("data-filter");
+      collapsed = false;               /* filtrar implica querer ver la grilla */
       track("filter_use", { category: curFilter || "Todos" });
       apply();
     });
@@ -389,7 +402,10 @@
       var slug = card.getAttribute("data-slug") || "";
       if(slug) track("demo_open", { slug: slug });
     });
-    if(qEl) qEl.addEventListener("input", apply);
+    if(qEl) qEl.addEventListener("input", function(){
+      if((qEl.value || "").trim()) collapsed = false;   /* buscar no puede devolver una grilla vacía */
+      apply();
+    });
     apply();
 
     /* ===== Stats count-up (datos reales del catálogo) ===== */
@@ -419,6 +435,85 @@
     if(rEl) countUp(rEl, totalCats);
   }
 
+  /* ===== Estudio · nivel 2: proyectos conceptuales ===== */
+  function initEstudio(PIEZAS){
+    var wrap = document.getElementById("estudio-conceptual");
+    var grid = document.getElementById("es-grid");
+    if(!wrap || !grid) return;
+    /* sin datos: el bloque queda oculto. Nunca un hueco ni un esqueleto roto */
+    if(!PIEZAS || !PIEZAS.length) return;
+
+    function shotBase(p){
+      var s = String(p.shot || "");
+      if(!s) return "shots/estudio/" + p.slug;
+      return s.replace(/\.(webp|jpe?g|png)$/i, "");
+    }
+    function safeUrl(u){
+      return /^https:\/\/[^\s"'<>]+$/.test(String(u || "")) ? String(u) : "";
+    }
+    function safeAccent(a){
+      return /^#[0-9a-fA-F]{3,8}$/.test(String(a || "")) ? String(a) : "";
+    }
+
+    function cardHTML(p){
+      var base = shotBase(p);
+      var url = safeUrl(p.url);
+      var acc = safeAccent(p.accent);
+      var mono = esc(String(p.name || "·").trim().charAt(0).toUpperCase());
+      var img = "<picture>"
+        + '<source srcset="' + esc(base) + '.webp" type="image/webp" />'
+        + '<img src="' + esc(base) + '.jpg" alt="Proyecto conceptual ' + esc(p.name) + ", " + esc(p.kind)
+          + " en " + esc(p.city) + '" loading="lazy" decoding="async" width="1440" height="900"'
+          + ' onerror="this.style.display=\'none\'" />'
+        + "</picture>";
+      var attrs = ' data-slug="' + esc(p.slug) + '" data-kind="' + esc(p.kind) + '"'
+        + (acc ? ' style="--acc:' + acc + '"' : "");
+      /* sin url no hay link ni evento de click: la tarjeta es solo lectura */
+      var open  = url ? '<a class="es-card" href="' + esc(url) + '" target="_blank" rel="noopener"' + attrs + ">"
+                      : '<article class="es-card"' + attrs + ">";
+      var close = url ? "</a>" : "</article>";
+      return open
+        + '<div class="es-prev">'
+          + '<div class="pf-fallback"><span class="fb-emoji">' + mono + '</span><span class="muted">' + esc(p.name) + "</span></div>"
+          + img
+          + '<span class="es-badge"><span class="dot"></span>Proyecto conceptual</span>'
+        + "</div>"
+        + '<div class="es-body">'
+          + "<h3>" + esc(p.name) + "</h3>"
+          + '<div class="sub">' + esc(p.kind) + " · " + esc(p.city) + "</div>"
+          + '<p class="es-solves">' + esc(p.solves) + "</p>"
+          + (url ? '<span class="live">Ver proyecto ↗</span>' : "")
+        + "</div>"
+        + close;
+    }
+
+    grid.innerHTML = PIEZAS.map(cardHTML).join("");
+    wrap.hidden = false;
+
+    grid.addEventListener("click", function(e){
+      var card = e.target.closest("a.es-card");
+      if(!card) return;
+      track("estudio_open", {
+        slug: card.getAttribute("data-slug") || "",
+        kind: card.getAttribute("data-kind") || ""
+      });
+    });
+  }
+
+  /* carga estudio.json; mismo patrón y mismo fallback silencioso que demos.json */
+  function loadEstudio(){
+    return fetch("estudio.json", { credentials: "same-origin" })
+      .then(function(r){ if(!r.ok) throw new Error("estudio "+r.status); return r.json(); })
+      .then(function(data){
+        if(!Array.isArray(data) || !data.length) throw new Error("estudio vacío");
+        return data;
+      })
+      .catch(function(err){
+        try{ console.warn("[DSS] estudio.json no disponible", err); }catch(e){}
+        return [];
+      });
+  }
+
   /* carga demos.json; fallback vacío + mensaje UI si fetch falla */
   function loadDemos(){
     return fetch("demos.json", { credentials: "same-origin" })
@@ -434,5 +529,6 @@
   }
 
   loadDemos().then(initPortfolio);
+  loadEstudio().then(initEstudio);
 
 })();

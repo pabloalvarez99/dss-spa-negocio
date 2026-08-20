@@ -1,0 +1,152 @@
+[
+  {
+    "slug": "brutal-arq",
+    "name": "BRUTAL",
+    "kind": "Estudio de arquitectura",
+    "city": "Coquimbo",
+    "url": null,
+    "shot": "shots/estudio/brutal-arq",
+    "solves": "Una oficina de arquitectura necesita que la obra hable sola: tipografía grande, grilla dura y cero adorno para que las fotos de hormigón ocupen la pantalla completa.",
+    "accent": "#D9FF00"
+  },
+  {
+    "slug": "observatorio-kallfu",
+    "name": "Observatorio Kallfü",
+    "kind": "Astroturismo",
+    "city": "Andacollo",
+    "url": null,
+    "shot": "shots/estudio/observatorio-kallfu",
+    "solves": "Un tour nocturno se vende de noche: fondo profundo, tipografía clara y los tres tipos de visita comparables de un vistazo antes de escribir por WhatsApp.",
+    "accent": "#A9C1FF"
+  },
+  {
+    "slug": "neon-arcade",
+    "name": "NEON ARCADE",
+    "kind": "Barcade retro-futurista",
+    "city": "Coquimbo",
+    "url": null,
+    "shot": "shots/estudio/neon-arcade",
+    "solves": "Un bar de arcades vive del ambiente: neón, contraste alto y listado de máquinas y tragos, sin que el brillo se coma la legibilidad del horario y la reserva.",
+    "accent": "#FF2BD6"
+  },
+  {
+    "slug": "speakeasy-la-vuelta",
+    "name": "La Vuelta",
+    "kind": "Bar speakeasy",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/speakeasy-la-vuelta",
+    "solves": "El misterio es el producto, pero el cliente igual necesita llegar: la carta de autor y las reglas de la casa se muestran completas y la dirección se entrega recién al reservar.",
+    "accent": "#E8CF8F"
+  },
+  {
+    "slug": "atelier-mimame",
+    "name": "Mímame",
+    "kind": "Atelier de moda y costura",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/atelier-mimame",
+    "solves": "Costura a medida no se compra por catálogo: la página ordena el trabajo por tipo de prenda y termina en agendar hora, que es la única conversión que existe.",
+    "accent": "#FF4FA8"
+  },
+  {
+    "slug": "ballet-austral",
+    "name": "Ballet Austral",
+    "kind": "Compañía de danza contemporánea",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/ballet-austral",
+    "solves": "Una compañía tiene dos públicos con urgencias distintas: la cartelera con fechas va primero y las clases quedan abajo, sin competir por el mismo botón.",
+    "accent": "#C4ADFF"
+  },
+  {
+    "slug": "galeria-umbral",
+    "name": "Umbral",
+    "kind": "Galería de arte contemporáneo",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/galeria-umbral",
+    "solves": "En una galería la web no debe competir con la obra: fondo de papel, mucho aire y la muestra actual como única pieza destacada.",
+    "accent": "#D89A4F"
+  },
+  {
+    "slug": "estudio-nova-foto",
+    "name": "Nova",
+    "kind": "Fotografía de autor",
+    "city": "Coquimbo",
+    "url": null,
+    "shot": "shots/estudio/estudio-nova-foto",
+    "solves": "Un portafolio de retrato se juzga en tres segundos: las series ocupan el ancho completo y el precio por sesión aparece antes de que haya que preguntarlo.",
+    "accent": "#E23B2E"
+  },
+  {
+    "slug": "ilustracion-marejada",
+    "name": "Marejada",
+    "kind": "Ilustración y muralismo",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/ilustracion-marejada",
+    "solves": "Un mural se cotiza por metro y por muro: la página muestra trabajos ya pintados en la ciudad y pide la foto del muro como primer paso, no un formulario largo.",
+    "accent": "#FF7A6B"
+  },
+  {
+    "slug": "ceramica-tongoy",
+    "name": "Taller Tongoy",
+    "kind": "Cerámica artesanal",
+    "city": "Guanaqueros",
+    "url": null,
+    "shot": "shots/estudio/ceramica-tongoy",
+    "solves": "Piezas únicas y clases de torno son dos negocios en una misma marca: cada uno tiene su bloque y su llamada, para no perder al que solo quiere comprar una taza.",
+    "accent": "#E07B4F"
+  },
+  {
+    "slug": "chocolateria-origen",
+    "name": "Origen",
+    "kind": "Chocolatería bean-to-bar",
+    "city": "Pisco Elqui",
+    "url": null,
+    "shot": "shots/estudio/chocolateria-origen",
+    "solves": "El bean-to-bar cobra más caro y tiene que justificarlo: la trazabilidad del cacao se cuenta como recorrido visual antes de mostrar el precio de la barra.",
+    "accent": "#C98F4F"
+  },
+  {
+    "slug": "teteria-ukiyo",
+    "name": "Ukiyo",
+    "kind": "Tetería japonesa",
+    "city": "Vicuña",
+    "url": null,
+    "shot": "shots/estudio/teteria-ukiyo",
+    "solves": "La calma es el servicio: espaciado amplio, paleta de papel y té, y una carta que se lee sin zoom en el celular mientras el visitante decide si reserva.",
+    "accent": "#8FA86A"
+  },
+  {
+    "slug": "vinilo-furia",
+    "name": "Furia Records",
+    "kind": "Tienda de vinilos y bar de escucha",
+    "city": "Coquimbo",
+    "url": null,
+    "shot": "shots/estudio/vinilo-furia",
+    "solves": "El stock cambia cada semana: la portada es un bloque de novedades editable a mano, sin sistema de inventario ni carro que el negocio no va a mantener.",
+    "accent": "#FFC400"
+  },
+  {
+    "slug": "vivero-austral",
+    "name": "Vivero Austral",
+    "kind": "Vivero y diseño de jardines",
+    "city": "La Herradura",
+    "url": null,
+    "shot": "shots/estudio/vivero-austral",
+    "solves": "Vender plantas nativas y vender proyectos de paisajismo requiere separar ticket bajo de ticket alto: catálogo arriba, asesoría a domicilio como servicio aparte.",
+    "accent": "#5FBF7F"
+  },
+  {
+    "slug": "revista-contrafuerte",
+    "name": "Contrafuerte",
+    "kind": "Revista cultural",
+    "city": "La Serena",
+    "url": null,
+    "shot": "shots/estudio/revista-contrafuerte",
+    "solves": "Una revista se lee, no se hojea: jerarquía editorial de portada, secciones fijas y la suscripción como cierre, no como pop-up que interrumpe.",
+    "accent": "#E8402F"
+  }
+]

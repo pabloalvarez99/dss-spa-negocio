@@ -13,7 +13,7 @@
     },
     "template": {
       "type": "string",
-      "enum": ["restaurant", "barber", "clinic", "services"],
+      "enum": ["restaurant", "barber", "clinic", "services", "boutique", "atelier", "nocturno"],
       "description": "Skin/rubro en templates/{template}/"
     },
     "name": { "type": "string", "minLength": 2, "description": "Nombre comercial visible" },
@@ -105,6 +105,45 @@
     "canonical_url": { "type": "string" },
     "og_image": { "type": "string" },
     "schema_type": { "type": "string", "description": "Tipo Schema.org, default LocalBusiness" },
-    "show_demo_badge": { "type": "boolean", "default": true }
+    "show_demo_badge": { "type": "boolean", "default": true },
+
+    "menu_note": {
+      "type": "string",
+      "description": "H3 · Nota al pie de la carta. Default: el del skin (meta.json)."
+    },
+    "hero_image": {
+      "type": "string",
+      "description": "H3 · Foto grande del hero (ruta relativa o URL). Default: primera de images[]; si no hay, el skin usa su fondo."
+    },
+    "facts": {
+      "type": "array",
+      "description": "H3 · Ficha de datos (capacidad, materiales, plazos…). Opcional: si falta, el bloque no la dibuja.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "description": "H3 · Proceso numerado. Opcional: default el de meta.json del skin; si tampoco hay, el bloque se omite.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "desc": { "type": "string" }
+        }
+      }
+    },
+    "steps_kicker": { "type": "string", "description": "H3 · Kicker del bloque de proceso." },
+    "steps_title": { "type": "string", "description": "H3 · Título del bloque de proceso." },
+    "quote": { "type": "string", "description": "H3 · Cita destacada. Si falta, el bloque quote no se dibuja." },
+    "quote_by": { "type": "string", "description": "H3 · Autoría de la cita." },
+    "gallery_title": { "type": "string", "description": "H3 · Título de la galería." },
+    "gallery_intro": { "type": "string", "description": "H3 · Bajada de la galería." },
+    "cta_title": { "type": "string", "description": "H3 · Título del bloque de cierre." },
+    "cta_text": { "type": "string", "description": "H3 · Texto del bloque de cierre." }
   }
 }

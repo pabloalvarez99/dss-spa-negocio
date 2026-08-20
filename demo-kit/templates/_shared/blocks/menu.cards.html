@@ -1,0 +1,22 @@
+<section class="{{blk.classes}}" id="{{blk.anchor}}">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">{{label_menu}}</p>
+      <h2>{{menu_title_html}}</h2>
+      {{#if menu_intro}}<p>{{menu_intro}}</p>{{/if}}
+    </div>
+    <div class="menu-grid">
+      {{#each menu_items}}
+      <article class="menu-card reveal">
+        {{#if this.category}}<div class="cat">{{this.category}}</div>{{/if}}
+        <h3>{{this.name}}</h3>
+        <p class="desc">{{this.desc}}</p>
+        <div class="foot">
+          <span class="price">{{this.price}}</span>
+          <a class="ask" href="{{this.wa_url}}" target="_blank" rel="noopener" data-track="item-wa">WA</a>
+        </div>
+      </article>
+      {{/each}}
+    </div>
+  </div>
+</section>

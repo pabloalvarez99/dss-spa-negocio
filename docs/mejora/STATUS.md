@@ -3,7 +3,7 @@
 > **Actualizar este archivo al cerrar cada sesión.**  
 > Es la única fuente de “qué sigue” para no gastar tokens re-descubriendo.
 
-Última actualización: 2026-07-19 (sesión cerrada — 0–E done, F blocked)
+Última actualización: 2026-07-27 (H3 fábrica skins con dirección de arte)
 
 ## Snapshot de cierre
 
@@ -62,6 +62,9 @@ Reglas:
 | E Ops comercial | `done` | 2026-07-19 | 2026-07-19 | Sheet CRM + pack cierre + EXTRAS; solo docs |
 | F Escala | `blocked` | | | Solo con ≥8 clientes pagos |
 | G Cloudflare + CI | `pending` | | | Spec aprobada 2026-07-24. G1 landing+analytics · G2 demos (cierra P002) · G3 ship · G4 CI · G5 tests · G6 guards |
+| H3 Fábrica: skins con arte | `done` | 2026-07-27 | 2026-07-27 | Shell+bloques+`sections.json`; skins `boutique`·`atelier`·`nocturno`; `restaurant` migrado; checks duros nuevos. Falta arte propio en `barber`/`clinic`/`services` |
+| H2 Vitrina 3 niveles | `done` | 2026-07-27 | 2026-07-27 | `#estudio` (nivel 1 tu-farmacia + nivel 2 15 conceptuales) antes de `#trabajo`; 123 demos colapsadas; evento `estudio_open`. **Sin deploy.** Faltan las URLs de las 15 (dependen de H1) |
+| H3 Fábrica / skins arte | `done` | 2026-07-27 | 2026-07-27 | shell+blocks+sections; skins boutique/atelier/nocturno; restaurant migrado; barber/clinic/services en classic |
 
 Estados válidos: `pending` · `in_progress` · `done` · `blocked` · `skipped`
 
@@ -77,6 +80,36 @@ Al terminar trabajo, el agente o la persona debe:
 6. Commit + push con mensaje solo de tu sprint  
 
 ## Notas de sesión (más reciente arriba)
+
+### 2026-07-27 — Sprint H3 Fábrica: skins con dirección de arte (cerrado)
+
+- `templates/_shared/layout.html` (424 líneas) **eliminado**. En su lugar: `shell.html` (chrome comercial) + `blocks/{bloque}.{variante}.html` (18 bloques) + `base.css` (invariantes) + `classic.css` (capa de compatibilidad opt-in) + `sections.default.json`.
+- Un skin ahora es `skin.css` (arte) + `meta.json` (labels/CTAs/WA/`base`) + `sections.json` (bloques, orden, variante, `anchor`, `nav`, `if`) + `hero.html` opcional (`variant: "custom"`, lo usa `nocturno`).
+- Motor propio en `build-demo.mjs`: `{{#if}}`, `{{#each}}` con anidamiento resuelto de afuera hacia adentro (lo necesita `menu.leader`). Cero deps npm, salida = un `index.html` autocontenido.
+- Skins nuevos: **boutique** (hotel/cabaña/viña/astro), **atelier** (taller/oficio de autor), **nocturno** (bar/eventos). `skin.css` de 199–247 líneas, no 14.
+- `restaurant` migrado a `base: "none"` (224 líneas). `pizzeria-ejemplo` **sin editar** y sigue buildeando.
+- Ejemplos nuevos: `cabanas-elqui-astral` (Vicuña), `orfebreria-andacollo` (Andacollo), `bar-cuarto-menguante` (La Serena).
+- `check-demo.mjs`: se mantienen los duros de C2 y se suman como duros `build`, `no_tokens`, `reduced_motion`, `contrast_aa`, `fonts_preconnect`, `no_fixed_width`. `photos` y `contrast_muted` quedan como avisos.
+- Schema: enum con los 7 skins + campos nuevos **todos opcionales** (`facts`, `steps`, `quote`, `hero_image`, `menu_note`, `cta_*`, `gallery_*`, `steps_*`).
+- Verificado: `npm run build -- --all && npm run check -- --all` → **7 demos, todos los checks duros OK, 7 avisos** (`photos`: los ejemplos van sin fotos). Revisión visual en Chrome a 360 px y 1440 px de los tres skins nuevos, del `restaurant` migrado y de `barberia-norte` (capa classic intacta); `scrollWidth == 360` en todos los medidos.
+- **Deuda declarada:** `barber`, `clinic` y `services` funcionan con el mecanismo nuevo pero siguen con `base: "classic"` y skin de 14 líneas: les falta dirección de arte propia. Detalle en [`sprints/H3-fabrica.md`](sprints/H3-fabrica.md).
+- No se tocó `website/`, `scripts/` de la raíz ni las 15 piezas a mano de `demo-kit/clients/`.
+
+### 2026-07-27 — H2: vitrina de tres niveles en la landing
+
+- Sección nueva `#estudio` **antes** de `#trabajo`: nivel 1 = `tu-farmacia.cl` (el `.pf-feat` se movió ahí), nivel 2 = 15 piezas conceptuales con badge "Proyecto conceptual" y una frase `solves` por tarjeta. Nivel 3 = las 123 demos, con su buscador, filtros y disclaimer, ahora **colapsadas** detrás de `pf-more` (el contador `pf-count` se sigue viendo siempre).
+- `app.js`: `initEstudio()` + `loadEstudio()` (mismo patrón y fallback que `demos.json`); sin datos, `#estudio-conceptual` queda oculto y el nivel 1 se mantiene. Evento nuevo `estudio_open { slug, kind }`. Nav + skip-link actualizados.
+- `demo-kit/estudio.manifest.json` no existía: `website/estudio.json` se generó desde este árbol leyendo `demo-kit/clients/*/index.html` (solo lectura). **Las 15 van con `url: null`** — ningún slug está publicado (verificado con `wrangler pages project list`). Faltan las URLs de H1.
+- Shots: `demo-kit/estudio-shots/` apareció durante la sesión (H1) con los mismos 15 slugs → se copiaron las variantes desktop a `website/shots/estudio/` (15 pares webp+jpg, 1440×900, 607 KB de webp, todas `lazy`). No se usó el fallback de emoji.
+- Verificado en local a 1280 y a 360 px: sin scroll horizontal, contraste AA medido, colapso/expansión y búsqueda OK. **Sin deploy** — lo decide el usuario. Detalle: [`sprints/H2-vitrina.md`](sprints/H2-vitrina.md).
+- Solo `website/**`. **No** se tocó `demo-kit/` (H1/H3), ni `scripts/`, ni `docs/negocio|ventas`.
+
+### 2026-07-27 — H3: skins con dirección de arte
+
+- Mecanismo: `shell.html` + `blocks/*` + `sections.json` + `base.css` / `classic.css`. Motor en `build-demo.mjs` (each/if).
+- Skins nuevos: `boutique`, `atelier`, `nocturno` + clientes ejemplo. `restaurant` con skin profundo; barber/clinic/services en `base: classic`.
+- Checks H3 duros en `check-demo.mjs`. `npm run build -- --all` + `check -- --all` → hard OK (photos soft).
+- Spec: [`sprints/H3-fabrica.md`](sprints/H3-fabrica.md). No se tocaron las 15 piezas a mano ni `website/`.
 
 ### 2026-07-24 — Sprint G: spec de Cloudflare + CI (solo diseño, sin implementar)
 

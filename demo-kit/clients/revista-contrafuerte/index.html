@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Revista Contrafuerte — Cultura del Norte · La Serena</title>
+<meta name="description" content="Contrafuerte es la revista cultural del norte de Chile: crónica, fotografía y música desde La Serena. Lee la edición Nº 24 y suscríbete por WhatsApp." />
+<meta name="theme-color" content="#f2ede2" />
+<meta property="og:title" content="Revista Contrafuerte — Cultura del Norte de Chile" />
+<meta property="og:description" content="Crónica, fotografía y música desde el norte. Edición Nº 24 ya disponible." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f2ede2; --paper2:#e9e2d2; --ink:#131313; --grey:#5c574c;
+    --red:#d52b1e; --line:#131313;
+    --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Mono',monospace;line-height:1.65;overflow-x:hidden}
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif;line-height:1.02}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+  ::selection{background:var(--red);color:var(--paper)}
+
+  /* demo badge */
+  .demo{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.14em;color:var(--paper);background:var(--red);padding:3px 8px;vertical-align:middle}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--paper);border-bottom:3px solid var(--line);transition:.3s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:12px;padding-bottom:12px}
+  nav.scrolled{box-shadow:0 10px 30px -18px rgba(0,0,0,.45)}
+  .logo{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(19px,2.4vw,26px);letter-spacing:-.01em;text-transform:uppercase}
+  .logo em{color:var(--red);font-style:normal}
+  .nav-links{display:flex;gap:26px;font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+  .nav-links a{border-bottom:2px solid transparent;padding-bottom:2px;transition:.2s}
+  .nav-links a:hover{color:var(--red);border-color:var(--red)}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:12px 24px;border:2px solid var(--ink);cursor:pointer;transition:.18s;box-shadow:4px 4px 0 var(--red)}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--red)}
+  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--red)}
+  .btn-red{background:var(--red);border-color:var(--red);box-shadow:4px 4px 0 var(--ink)}
+  .btn-red:hover{box-shadow:7px 7px 0 var(--ink)}
+  .btn-red:active{box-shadow:1px 1px 0 var(--ink)}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* masthead / hero */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 40px;position:relative}
+  .hero-rule{border-top:1px solid var(--line);border-bottom:3px solid var(--line);padding:8px 0;display:flex;justify-content:space-between;gap:14px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);flex-wrap:wrap}
+  .hero h1{font-size:clamp(52px,11.5vw,150px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em;margin:26px 0 10px}
+  .hero h1 .r{color:var(--red)}
+  .hero h1 .outline{color:transparent;-webkit-text-stroke:2px var(--ink)}
+  .hero .lead{display:grid;grid-template-columns:1.3fr .7fr;gap:34px;margin-top:18px;border-top:1px solid var(--line);padding-top:22px}
+  @media(max-width:820px){.hero .lead{grid-template-columns:1fr}}
+  .hero .lead p{font-size:clamp(15px,1.8vw,19px);max-width:56ch}
+  .hero .lead p::first-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:3.4em;float:left;line-height:.82;margin:6px 12px 0 0;color:var(--red)}
+  .hero-meta{border-left:3px solid var(--red);padding-left:20px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--grey);display:flex;flex-direction:column;gap:10px}
+  .hero-meta b{color:var(--ink);font-size:14px}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px}
+
+  /* ticker */
+  .ticker{background:var(--ink);color:var(--paper);border-block:3px solid var(--ink);overflow:hidden;padding:11px 0;transform:rotate(-1deg) scale(1.02);margin:10px 0}
+  .ticker-track{display:flex;width:max-content;animation:tick 30s linear infinite;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+  .ticker-track b{color:var(--red);margin:0 18px;font-weight:600}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:80px 0}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-bottom:3px solid var(--line);padding-bottom:14px;margin-bottom:44px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(34px,5.5vw,64px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em}
+  .sec-head h2 em{color:var(--red);font-style:italic}
+  .sec-head span{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey)}
+
+  /* feature story */
+  .feature{display:grid;grid-template-columns:1.5fr 1fr;border:3px solid var(--line);background:var(--paper2)}
+  @media(max-width:820px){.feature{grid-template-columns:1fr}}
+  .feature .f-body{padding:clamp(24px,4vw,48px);border-right:3px solid var(--line)}
+  @media(max-width:820px){.feature .f-body{border-right:none;border-bottom:3px solid var(--line)}}
+  .kicker{display:inline-block;background:var(--red);color:var(--paper);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px;margin-bottom:20px}
+  .feature h3{font-size:clamp(30px,4.5vw,54px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:18px}
+  .feature .bajada{font-size:16px;color:var(--ink);max-width:52ch;margin-bottom:22px}
+  .feature .autor{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+  .feature .f-art{position:relative;min-height:280px;overflow:hidden;background:
+    repeating-linear-gradient(-45deg,var(--ink) 0 2px,transparent 2px 14px),
+    linear-gradient(160deg,var(--red),#8f1a10)}
+  .feature .f-art span{position:absolute;inset:0;display:grid;place-items:center;font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(90px,12vw,150px);color:var(--paper);mix-blend-mode:overlay}
+
+  /* teasers newspaper grid */
+  .grid-news{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:3px solid var(--line)}
+  @media(max-width:920px){.grid-news{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid-news{grid-template-columns:1fr}}
+  .teaser{padding:28px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;transition:.2s;background:var(--paper)}
+  .teaser:hover{background:var(--ink);color:var(--paper)}
+  .teaser:hover .cat{background:var(--paper);color:var(--red)}
+  .teaser:hover .t-num{color:var(--red)}
+  .teaser .t-num{position:absolute;top:14px;right:18px;font-family:'Playfair Display',serif;font-weight:900;font-size:44px;color:var(--paper2);transition:.2s;line-height:1}
+  .teaser .cat{display:inline-block;background:var(--ink);color:var(--paper);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;margin-bottom:16px;transition:.2s}
+  .teaser h3{font-size:clamp(21px,2.4vw,27px);font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+  .teaser p{font-size:13.5px;opacity:.85;margin-bottom:16px}
+  .teaser .t-foot{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+
+  /* pull quote */
+  .quote{padding:90px 0;text-align:center;border-block:3px solid var(--line);background:var(--paper2)}
+  .quote blockquote{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(28px,5vw,56px);line-height:1.15;max-width:20ch;margin:0 auto}
+  .quote blockquote .r{color:var(--red)}
+  .quote cite{display:block;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-style:normal;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+  .quote cite::before{content:"— "}
+
+  /* columns sections */
+  .cols-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
+  .col-card{border:2px solid var(--line);padding:26px 24px;background:var(--paper);position:relative;box-shadow:6px 6px 0 var(--paper2);transition:.2s}
+  .col-card:hover{box-shadow:6px 6px 0 var(--red);transform:translate(-2px,-2px)}
+  .col-card .ico{font-size:26px}
+  .col-card h3{font-size:22px;font-weight:900;text-transform:uppercase;margin:14px 0 8px}
+  .col-card p{font-size:13px;color:var(--grey)}
+  .col-card .n{position:absolute;top:-14px;left:18px;background:var(--red);color:var(--paper);font-size:11px;font-weight:600;padding:3px 10px;letter-spacing:.12em}
+
+  /* suscripción */
+  .subs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+  .sub{border:3px solid var(--line);padding:36px 30px;background:var(--paper);position:relative;transition:.2s}
+  .sub:hover{transform:translateY(-6px)}
+  .sub.best{background:var(--ink);color:var(--paper)}
+  .sub.best .s-price{color:var(--red)}
+  .sub.best p,.sub.best li{color:#cfc9ba}
+  .sub .s-tag{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:block}
+  .sub h3{font-size:26px;font-weight:900;text-transform:uppercase;margin-bottom:6px}
+  .sub .s-price{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(38px,4vw,52px);color:var(--ink);margin:12px 0 4px}
+  .sub .s-per{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey)}
+  .sub ul{list-style:none;margin:22px 0 26px;font-size:13px}
+  .sub li{padding:8px 0;border-top:1px dashed currentColor;opacity:.85}
+  .sub li::before{content:"✳ ";color:var(--red);opacity:1}
+  .sub .btn{display:block;text-align:center}
+  .sub.best .btn{background:var(--red);border-color:var(--red);box-shadow:4px 4px 0 var(--paper)}
+  .sub.best .btn:hover{box-shadow:7px 7px 0 var(--paper)}
+
+  /* about */
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+  @media(max-width:860px){.about{grid-template-columns:1fr}}
+  .about h2{font-size:clamp(34px,5vw,58px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;position:sticky;top:110px}
+  @media(max-width:860px){.about h2{position:static}}
+  .about h2 em{color:var(--red);font-style:italic}
+  .about .a-body{columns:2;column-gap:34px;font-size:14.5px}
+  @media(max-width:600px){.about .a-body{columns:1}}
+  .about .a-body p{margin-bottom:16px;break-inside:avoid}
+  .about .a-body p:first-child::first-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:3.2em;float:left;line-height:.85;margin:5px 10px 0 0;color:var(--red)}
+
+  /* redacción */
+  .hq{border:3px solid var(--line);display:grid;grid-template-columns:1fr 1fr;background:var(--paper)}
+  @media(max-width:820px){.hq{grid-template-columns:1fr}}
+  .hq .hq-body{padding:clamp(26px,4vw,44px)}
+  .hq h3{font-size:clamp(26px,3.4vw,38px);font-weight:900;text-transform:uppercase;margin-bottom:20px}
+  .hrow{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .hrow b{font-weight:600}
+  .hq .hq-art{min-height:260px;background:
+    linear-gradient(90deg,var(--ink) 12px,transparent 12px) 0 0/24px 24px,
+    linear-gradient(var(--ink) 12px,transparent 12px) 0 0/24px 24px,
+    var(--paper2);position:relative;border-left:3px solid var(--line)}
+  @media(max-width:820px){.hq .hq-art{border-left:none;border-top:3px solid var(--line)}}
+  .hq .hq-art span{position:absolute;bottom:18px;left:18px;background:var(--red);color:var(--paper);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px}
+
+  /* cta */
+  .cta-final{text-align:center;padding:100px 0;background:var(--ink);color:var(--paper);border-top:3px solid var(--line)}
+  .cta-final h2{font-size:clamp(38px,7vw,84px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em}
+  .cta-final h2 em{color:var(--red);font-style:italic}
+  .cta-final p{color:#b7b1a2;margin:20px auto 36px;max-width:460px;font-size:14.5px}
+
+  footer{background:var(--ink);color:#8d8778;border-top:1px solid #2c2c2c;padding:30px 0;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+  footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  footer b{color:var(--red)}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.55);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #d52b1e;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Contrafuerte<em>.</em> <span class="demo">Concepto</span></a>
+    <div class="nav-links">
+      <a href="#portada">Portada</a>
+      <a href="#edicion">Edición Nº24</a>
+      <a href="#secciones">Secciones</a>
+      <a href="#suscripcion">Suscripción</a>
+    </div>
+    <a class="btn" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Revista%20Contrafuerte%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Suscribirme</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-rule">
+      <span>Edición Nº 24 — Julio 2026</span>
+      <span>La Serena · Chile</span>
+      <span>Publicación cultural independiente</span>
+    </div>
+    <h1><span class="outline">Contra</span><br /><span class="r">fuerte</span></h1>
+    <div class="lead">
+      <p>La revista que mira el norte de Chile sin pedir permiso. Crónica de largo aliento, fotografía de autor y la música que suena entre La Serena y el altiplano: cada mes, un número que se lee despacio y se guarda.</p>
+      <div class="hero-meta">
+        <span><b>Nº 24</b> en circulación</span>
+        <span><b>11 años</b> de publicación</span>
+        <span><b>14.200</b> lectores mensuales</span>
+        <span><b>100 %</b> financiada por sus lectores</span>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Revista%20Contrafuerte%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Leer edición Nº 24</a>
+      <a class="btn" href="#suscripcion" style="background:transparent;color:var(--ink);box-shadow:4px 4px 0 var(--ink)">Ver suscripciones</a>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>El puerto que se niega a morir<b>●</b>Crónica: Los últimos fareros de Punta Tortuga<b>●</b>Fotografía: Niebla sobre La Herradura<b>●</b>Música: La nueva cumbia del norte chico<b>●</b>Patrimonio: Andacollo, más que una mina<b>●</b></span>
+    <span>El puerto que se niega a morir<b>●</b>Crónica: Los últimos fareros de Punta Tortuga<b>●</b>Fotografía: Niebla sobre La Herradura<b>●</b>Música: La nueva cumbia del norte chico<b>●</b>Patrimonio: Andacollo, más que una mina<b>●</b></span>
+  </div>
+</div>
+
+<section id="portada">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Historia de <em>portada</em></h2>
+      <span>Edición Nº 24 · Reportaje central</span>
+    </div>
+    <article class="feature reveal">
+      <div class="f-body">
+        <span class="kicker">Reportaje</span>
+        <h3>El puerto que se niega a morir</h3>
+        <p class="bajada">Guanaqueros fue alguna vez el corazón pesquero de la región. Hoy sus botes se pudren en la arena y sus hijos emigran a La Serena. Pasamos tres semanas con las últimas cuatro tripulaciones que aún salen antes del alba — esto es lo que vimos.</p>
+        <p class="autor">Texto: Valentina Ossandón · Fotos: Marco Tulio Reyes · 22 páginas</p>
+      </div>
+      <div class="f-art" aria-hidden="true"><span>24</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="edicion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>En esta <em>edición</em></h2>
+      <span>Seis piezas · 96 páginas</span>
+    </div>
+    <div class="grid-news reveal">
+      <article class="teaser">
+        <span class="t-num">01</span>
+        <span class="cat">Crónica</span>
+        <h3>Los últimos fareros de Punta Tortuga</h3>
+        <p>Dos hermanos mantienen encendido un faro que la autoridad marítima ya considera obsoleto. Nadie les paga. Nadie les pide que paren.</p>
+        <span class="t-foot">Por Iván Carrasco · 12 min</span>
+      </article>
+      <article class="teaser">
+        <span class="t-num">02</span>
+        <span class="cat">Fotografía</span>
+        <h3>Niebla sobre La Herradura</h3>
+        <p>Un ensayo visual de ocho meses esperando la camanchaca: la bahía como un negativo que se revela solo a las 7 de la mañana.</p>
+        <span class="t-foot">Por Daniela Fuenzalida · 14 fotos</span>
+      </article>
+      <article class="teaser">
+        <span class="t-num">03</span>
+        <span class="cat">Música</span>
+        <h3>La nueva cumbia del norte chico</h3>
+        <p>Entre sound systems de Ovalle y tocadiscos de Vicuña, una generación rescata el chichón de los 70 y lo enchufa a un sintetizador.</p>
+        <span class="t-foot">Por Sebastián Rojas · 9 min</span>
+      </article>
+      <article class="teaser">
+        <span class="t-num">04</span>
+        <span class="cat">Patrimonio</span>
+        <h3>Andacollo, más que una mina</h3>
+        <p>Detrás del oro y de la Virgen hay una ciudad de carpinteros, devotos y astrónomos. Un retrato del pueblo que el cobre eclipsó.</p>
+        <span class="t-foot">Por Valentina Ossandón · 15 min</span>
+      </article>
+      <article class="teaser">
+        <span class="t-num">05</span>
+        <span class="cat">Entrevista</span>
+        <h3>«El diaguita no está muerto»</h3>
+        <p>Conversación con la lingüista que reconstruye el kakán desde los archivos jesuitas de La Serena. Palabra por palabra.</p>
+        <span class="t-foot">Por Marco Tulio Reyes · 11 min</span>
+      </article>
+      <article class="teaser">
+        <span class="t-num">06</span>
+        <span class="cat">Cocina</span>
+        <h3>El chivato, ese queso de cabra inmenso</h3>
+        <p>Ruta por los puestos de la ruta 41: quién madura mejor, quién ahúma con espino y dónde comprar sin que te vean la cara de turista.</p>
+        <span class="t-foot">Por Iván Carrasco · 7 min</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="quote reveal">
+  <div class="wrap">
+    <blockquote>«Acá el silencio no es vacío: <span class="r">es la noticia</span> que nadie fue a cubrir.»</blockquote>
+    <cite>Editorial, Edición Nº 24</cite>
+  </div>
+</div>
+
+<section id="secciones">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Secciones <em>fijas</em></h2>
+      <span>Todos los meses, mismas columnas</span>
+    </div>
+    <div class="cols-grid reveal">
+      <div class="col-card"><span class="n">Desde 2015</span><span class="ico">✒</span><h3>El Margen</h3><p>Opinión sin anestesia sobre lo que pasa entre Copiapó y Los Vilos. La columna que los alcaldes leen primero.</p></div>
+      <div class="col-card"><span class="n">Desde 2017</span><span class="ico">◉</span><h3>Contraluz</h3><p>Un fotógrafo de la región, una serie inédita, cero texto. El papel es nuestro museo.</p></div>
+      <div class="col-card"><span class="n">Desde 2019</span><span class="ico">♫</span><h3>Trasnoche</h3><p>Escenas, garajes y tocatas: el mapa sonoro del norte contado por quienes lo tocan.</p></div>
+      <div class="col-card"><span class="n">Desde 2021</span><span class="ico">⌂</span><h3>Adobe</h3><p>Arquitectura de tierra, iglesias olvidadas y casas que resisten. Patrimonio antes de que se caiga.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="suscripcion" style="background:var(--paper2);border-block:3px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Suscríbete</h2>
+      <span>Sin avisos · cancela cuando quieras</span>
+    </div>
+    <div class="subs">
+      <div class="sub reveal">
+        <span class="s-tag">Digital</span>
+        <h3>Lector</h3>
+        <div class="s-price">$2.500</div>
+        <span class="s-per">por mes</span>
+        <ul>
+          <li>Edición completa en PDF y web</li>
+          <li>Archivo histórico: 132 números</li>
+          <li>Newsletter dominical «El Margen»</li>
+        </ul>
+        <a class="btn" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Revista%20Contrafuerte%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Suscribirme</a>
+      </div>
+      <div class="sub best reveal">
+        <span class="s-tag">La favorita</span>
+        <h3>Papel + Digital</h3>
+        <div class="s-price">$9.990</div>
+        <span class="s-per">por trimestre</span>
+        <ul>
+          <li>Edición impresa en tu puerta (papel bondt 90 g)</li>
+          <li>Todo lo del plan digital</li>
+          <li>Póster fotográfico de regalo cada número</li>
+          <li>Invitación a lanzamientos en La Serena</li>
+        </ul>
+        <a class="btn" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Revista%20Contrafuerte%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Suscribirme</a>
+      </div>
+      <div class="sub reveal">
+        <span class="s-tag">Mecenas</span>
+        <h3>Contrafuerte Club</h3>
+        <div class="s-price">$60.000</div>
+        <span class="s-per">por año</span>
+        <ul>
+          <li>Todo lo anterior, por adelantado</li>
+          <li>Tu nombre en la página de agradecimientos</li>
+          <li>Salida anual de terreno con la redacción</li>
+        </ul>
+        <a class="btn" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Revista%20Contrafuerte%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Ser mecenas</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="wrap about">
+    <h2 class="reveal">Quién hace<br /><em>esta revista</em></h2>
+    <div class="a-body reveal">
+      <p>Contrafuerte nació en 2015 en un segundo piso de la calle Balmaceda, con tres personas, una impresora prestada y la sospecha de que el norte de Chile merecía un periodismo que no fuera de pasada. Once años después seguimos siendo chicos a propósito: seis redactores, cuatro fotógrafos y ningún avisador.</p>
+      <p>Nos financiamos con suscripciones y nada más. Eso nos permite tardarnos tres semanas en una crónica de Guanaqueros, volver dos veces a un faro si hace falta, y publicar lo que encontramos sin preguntarle a nadie si conviene.</p>
+      <p>Creemos que la región de Coquimbo no es «zona extremas» ni «norte chico»: es un territorio con literatura propia, y nuestro trabajo es transcribirla con respeto. Si algo de eso te suena, esta revista también es tuya.</p>
+    </div>
+  </div>
+</section>
+
+<section id="redaccion" style="padding-top:0">
+  <div class="wrap">
+    <div class="hq reveal">
+      <div class="hq-body">
+        <span class="kicker">La redacción</span>
+        <h3>Ven a tomar un café</h3>
+        <div class="hrow"><span>Dirección</span><b>Balmaceda 742, of. 21, La Serena</b></div>
+        <div class="hrow"><span>Horario público</span><b>Mar – Vie · 10:00 – 13:30</b></div>
+        <div class="hrow"><span>Venta de números atrasados</span><b>En redacción, $4.000 c/u</b></div>
+        <div class="hrow"><span>Propuestas y cartas</span><b>Por WhatsApp, las leemos todas</b></div>
+        <a class="btn btn-red" style="margin-top:26px" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Revista%20Contrafuerte%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Escríbenos</a>
+      </div>
+      <div class="hq-art" aria-hidden="true"><span>Balmaceda 742 · La Serena</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>Lee el <em>norte</em> distinto</h2>
+    <p>Suscríbete hoy y parte con la edición Nº 24: «El puerto que se niega a morir».</p>
+    <a class="btn btn-red" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Revista%20Contrafuerte%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Suscribirme por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Revista <b>Contrafuerte</b> · La Serena · ISSN 0719-XXXX</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Revista%20Contrafuerte%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5c.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 40); }, {passive:true});
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* stagger teasers */
+  var teasers = document.querySelectorAll('.teaser');
+  teasers.forEach(function(t, i){
+    t.style.transitionDelay = (i * 70) + 'ms';
+    t.classList.add('reveal');
+    io.observe(t);
+  });
+})();
+</script>
+</body>
+</html>

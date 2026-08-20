@@ -1,0 +1,17 @@
+<section class="{{blk.classes}}" id="{{blk.anchor}}">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">{{steps_kicker}}</p>
+      <h2>{{steps_title_html}}</h2>
+    </div>
+    <ol class="steps-grid">
+      {{#each steps}}
+      <li class="step reveal">
+        <span class="step-n">{{@n2}}</span>
+        <h3>{{this.title}}</h3>
+        <p>{{this.desc}}</p>
+      </li>
+      {{/each}}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Furia Records — Tienda de Vinilos &amp; Bar de Escucha · Coquimbo</title>
+<meta name="description" content="Tienda de vinilos y bar de escucha en Coquimbo. Nuevos y usados, tornamesas abiertas al público y schop helado. Trae tu disco, ponlo fuerte." />
+<meta name="theme-color" content="#efe6d0" />
+<meta property="og:title" content="Furia Records — Vinilos &amp; Bar de Escucha · Coquimbo" />
+<meta property="og:description" content="Vinilos nuevos y usados, tornamesas abiertas y schop helado en Coquimbo. Trae tu disco, ponlo fuerte." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Special+Elite&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#efe6d0; --paper2:#e6dabd; --ink:#171310; --red:#d92b2b; --yel:#ffc400;
+    --tape:rgba(255,214,90,.75);
+    --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Special Elite',monospace;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.shout{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:1;letter-spacing:.01em;font-weight:400}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  ::selection{background:var(--red);color:var(--paper)}
+
+  /* textura papel sucio */
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.14;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+
+  .demo-badge{position:fixed;top:14px;right:14px;z-index:80;background:var(--ink);color:var(--yel);font-family:'Anton',sans-serif;font-size:11px;letter-spacing:.25em;padding:6px 12px;transform:rotate(3deg);box-shadow:3px 3px 0 var(--red)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:70;background:var(--ink);border-bottom:4px solid var(--red)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px}
+  .logo{font-family:'Anton',sans-serif;font-size:24px;color:var(--paper);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+  .logo .disc{width:26px;height:26px;border-radius:50%;background:conic-gradient(var(--red) 0 25%,var(--yel) 0 50%,var(--red) 0 75%,var(--yel) 0);border:3px solid var(--paper);animation:spin45 1.333s linear infinite}
+  .nav-links{display:flex;gap:26px;font-family:'Anton',sans-serif;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+  .nav-links a{color:var(--paper2);transition:.15s}
+  .nav-links a:hover{color:var(--yel);transform:rotate(-2deg)}
+  .btn{display:inline-block;padding:12px 22px;font-family:'Anton',sans-serif;font-size:15px;letter-spacing:.08em;text-transform:uppercase;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:.1s}
+  .btn-red{background:var(--red);color:var(--paper)}
+  .btn-red:hover{transform:translate(4px,4px) rotate(-1deg);box-shadow:0 0 0 var(--ink)}
+  .btn-yel{background:var(--yel);color:var(--ink)}
+  .btn-yel:hover{transform:translate(4px,4px) rotate(1deg);box-shadow:0 0 0 var(--ink)}
+  nav .btn{box-shadow:3px 3px 0 var(--red);border-color:var(--paper);background:var(--yel);color:var(--ink)}
+  @media(max-width:780px){.nav-links{display:none}}
+
+  /* cinta adhesiva */
+  .tape{position:absolute;width:110px;height:30px;background:var(--tape);opacity:.9;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+
+  /* stickers */
+  .sticker{position:absolute;font-family:'Anton',sans-serif;text-transform:uppercase;padding:10px 16px;border:3px solid var(--ink);box-shadow:4px 4px 0 rgba(23,19,16,.35);z-index:5}
+
+  /* hero */
+  .hero{min-height:100svh;display:flex;align-items:center;position:relative;padding:130px 0 90px;background:
+    radial-gradient(70% 60% at 85% 15%,rgba(217,43,43,.14),transparent 65%),
+    radial-gradient(50% 45% at 10% 90%,rgba(255,196,0,.22),transparent 65%),var(--paper)}
+  .hero-inner{position:relative;z-index:4;width:100%}
+  .hero-tag{display:inline-block;background:var(--ink);color:var(--yel);font-family:'Anton',sans-serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;padding:8px 16px;transform:rotate(-2deg);margin-bottom:26px}
+  .hero h1{font-size:clamp(58px,13vw,168px)}
+  .hero h1 .l1{display:block;transform:rotate(-1.5deg)}
+  .hero h1 .l2{display:block;color:var(--red);transform:rotate(.8deg);-webkit-text-stroke:0}
+  .hero h1 .l3{display:inline-block;background:var(--yel);padding:0 .12em;transform:rotate(-.6deg)}
+  .hero-sub{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:36px}
+  .hero-sub p{max-width:44ch;font-size:15px;background:rgba(239,230,208,.85);padding:4px 2px}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:30px}
+  /* vinilo gigante del hero */
+  .hero-vinyl{position:absolute;right:-140px;top:50%;transform:translateY(-50%);width:min(52vw,540px);aspect-ratio:1;z-index:1;animation:spin45 1.333s linear infinite;opacity:.95}
+  @keyframes spin45{to{transform:rotate(360deg)}}
+  .hero-vinyl.spin{animation:spin45-t 1.333s linear infinite}
+  @keyframes spin45-t{from{transform:translateY(-50%) rotate(0)}to{transform:translateY(-50%) rotate(360deg)}}
+  .hero-vinyl .v{position:absolute;inset:0;border-radius:50%;
+    background:repeating-radial-gradient(circle at 50% 50%,#171310 0 3px,#241e19 3px 5px)}
+  .hero-vinyl .label{position:absolute;inset:33%;border-radius:50%;background:conic-gradient(var(--red) 0 40%,var(--yel) 0 65%,var(--red) 0);display:grid;place-items:center;border:4px solid var(--ink)}
+  .hero-vinyl .label::after{content:"";width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--ink)}
+  @media(max-width:900px){.hero-vinyl{right:-45%;opacity:.5}}
+  .st1{top:12%;right:8%;background:var(--red);color:var(--paper);transform:rotate(6deg)}
+  .st2{bottom:14%;right:22%;background:var(--yel);color:var(--ink);transform:rotate(-5deg)}
+  @media(max-width:900px){.st1{right:4%}.st2{display:none}}
+
+  /* marquee */
+  .marquee{background:var(--red);border-block:4px solid var(--ink);overflow:hidden;padding:12px 0;transform:rotate(-1.2deg) scale(1.02)}
+  .marquee-track{display:flex;width:max-content;animation:mq 18s linear infinite;font-family:'Anton',sans-serif;font-size:22px;color:var(--paper);text-transform:uppercase;white-space:nowrap;letter-spacing:.06em}
+  .marquee-track b{color:var(--yel);margin:0 22px;font-weight:400}
+  @keyframes mq{to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:96px 0}
+  .sec-head{margin-bottom:52px;position:relative}
+  .sec-head .kicker{display:inline-block;background:var(--ink);color:var(--paper);font-family:'Anton',sans-serif;font-size:13px;letter-spacing:.2em;padding:6px 14px;transform:rotate(-1.5deg);margin-bottom:18px;text-transform:uppercase}
+  .sec-head h2{font-size:clamp(38px,7vw,84px);transform:rotate(-.5deg)}
+  .sec-head h2 em{font-style:normal;color:var(--red)}
+  .sec-head h2 mark{background:var(--yel);color:var(--ink);padding:0 .1em}
+  .sec-head p{margin-top:16px;max-width:52ch;font-size:15px}
+
+  /* bordes rasgados */
+  .torn{background:var(--ink);color:var(--paper);position:relative}
+  .torn::before,.torn::after{content:"";position:absolute;left:0;right:0;height:14px;
+    background:linear-gradient(-45deg,var(--ink) 7px,transparent 0),linear-gradient(45deg,var(--ink) 7px,transparent 0);background-size:14px 14px}
+  .torn::before{top:-14px;transform:scaleY(-1)}
+  .torn::after{bottom:-14px}
+
+  /* vinilos */
+  .records{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:34px 26px}
+  .record{position:relative;background:var(--paper2);border:3px solid var(--ink);padding:14px;box-shadow:6px 6px 0 rgba(23,19,16,.28);transition:.15s}
+  .record:nth-child(odd){transform:rotate(-1.2deg)}
+  .record:nth-child(even){transform:rotate(1.1deg)}
+  .record:hover{transform:rotate(0) translateY(-6px);box-shadow:10px 12px 0 rgba(23,19,16,.3)}
+  .record .tape{top:-15px;left:50%;transform:translateX(-50%) rotate(-3deg)}
+  .cover{position:relative;aspect-ratio:1;border:3px solid var(--ink);overflow:hidden;cursor:pointer}
+  .cover .art{position:absolute;inset:0;transition:.3s}
+  .cover:hover .art{animation:spin45 1.333s linear infinite}
+  .cover .hole{position:absolute;top:50%;left:50%;width:14%;height:14%;transform:translate(-50%,-50%);border-radius:50%;background:var(--paper);border:3px solid var(--ink);z-index:2}
+  .cover .rpm{position:absolute;bottom:6px;right:6px;z-index:3;background:var(--ink);color:var(--yel);font-size:10px;padding:2px 7px;font-family:'Anton',sans-serif;letter-spacing:.1em;opacity:0;transition:.2s}
+  .cover:hover .rpm{opacity:1}
+  .a1{background:conic-gradient(from 20deg,var(--red) 0 90deg,var(--ink) 0 180deg,var(--yel) 0 270deg,var(--red) 0)}
+  .a2{background:repeating-linear-gradient(45deg,var(--yel) 0 18px,var(--ink) 18px 36px,var(--red) 36px 54px)}
+  .a3{background:radial-gradient(circle at 30% 30%,var(--yel) 0 20%,var(--red) 20% 45%,var(--ink) 45%)}
+  .a4{background:repeating-radial-gradient(circle at 50% 50%,var(--red) 0 14px,var(--paper) 14px 28px,var(--ink) 28px 42px)}
+  .a5{background:conic-gradient(var(--ink) 0 60deg,var(--yel) 0 120deg,var(--red) 0 200deg,var(--ink) 0 280deg,var(--yel) 0)}
+  .a6{background:repeating-conic-gradient(from 0deg,var(--red) 0 30deg,var(--ink) 30deg 60deg,var(--paper) 60deg 90deg)}
+  .rec-info{padding-top:14px}
+  .rec-info h3{font-size:19px}
+  .rec-info .artist{font-size:13px;color:#5a5148}
+  .rec-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;border-top:2px dashed var(--ink);padding-top:10px}
+  .rec-foot .genre{font-size:11px;background:var(--ink);color:var(--yel);padding:3px 9px;font-family:'Anton',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .rec-foot .price{font-family:'Anton',sans-serif;font-size:19px;color:var(--red)}
+
+  /* bar de escucha */
+  .bar-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:start}
+  @media(max-width:860px){.bar-grid{grid-template-columns:1fr}}
+  .bar-txt p{margin-bottom:18px;font-size:15px;color:#e9dfc9}
+  .bar-txt p b{color:var(--yel)}
+  .sessions{display:flex;flex-direction:column;gap:14px}
+  .session{border:3px solid var(--paper);padding:18px 20px;transform:rotate(-.6deg);background:rgba(239,230,208,.05)}
+  .session:nth-child(even){transform:rotate(.7deg)}
+  .session h3{font-size:20px;color:var(--yel)}
+  .session p{font-size:13.5px;color:#cfc4ab;margin-top:6px}
+  .session .when{display:inline-block;margin-top:10px;font-size:12px;background:var(--red);color:var(--paper);padding:3px 10px;font-family:'Anton',sans-serif;letter-spacing:.1em;text-transform:uppercase}
+  .drinks{background:var(--paper);color:var(--ink);border:3px solid var(--ink);padding:26px;position:relative;transform:rotate(1.2deg);box-shadow:8px 8px 0 var(--red)}
+  .drinks .tape{top:-15px;left:24px;transform:rotate(-4deg)}
+  .drinks h3{font-size:26px;margin-bottom:16px}
+  .drink-row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:2px dashed var(--ink);font-size:14px}
+  .drink-row:last-child{border-bottom:none}
+  .drink-row b{font-family:'Anton',sans-serif;font-weight:400;color:var(--red)}
+
+  /* manifiesto */
+  .manifiesto .big{font-family:'Anton',sans-serif;font-size:clamp(26px,4.6vw,52px);text-transform:uppercase;line-height:1.15;max-width:900px}
+  .manifiesto .big .r{color:var(--red)}
+  .manifiesto .big .y{background:var(--yel);padding:0 .1em}
+  .manifiesto .big .cut{display:inline-block;transform:rotate(-1.5deg);background:var(--ink);color:var(--paper);padding:0 .14em}
+  .manifiesto .firm{margin-top:30px;font-size:15px}
+  .manifiesto .firm::before{content:"— "}
+
+  /* visita */
+  .visita-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:4px solid var(--ink);box-shadow:8px 8px 0 rgba(23,19,16,.25)}
+  .visita-grid>div{padding:36px}
+  .visita-grid>div:first-child{border-right:4px solid var(--ink);background:var(--paper2)}
+  @media(max-width:780px){.visita-grid{grid-template-columns:1fr}.visita-grid>div:first-child{border-right:none;border-bottom:4px solid var(--ink)}}
+  .vlabel{font-family:'Anton',sans-serif;font-size:14px;letter-spacing:.2em;text-transform:uppercase;background:var(--red);color:var(--paper);display:inline-block;padding:5px 12px;transform:rotate(-1.5deg);margin-bottom:20px}
+  .addr{font-family:'Anton',sans-serif;font-size:clamp(24px,3.4vw,34px);text-transform:uppercase;line-height:1.15;margin-bottom:16px}
+  .hrow{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:2px dashed var(--ink);font-size:14px}
+  .hrow:last-child{border-bottom:none}
+  .hrow b{font-family:'Anton',sans-serif;font-weight:400;color:var(--red)}
+
+  /* cta */
+  .cta-final{background:var(--red);color:var(--paper);border-block:4px solid var(--ink);text-align:center;padding:90px 0;transform:rotate(-.6deg) scale(1.01)}
+  .cta-final h2{font-size:clamp(40px,8vw,96px);transform:rotate(1deg)}
+  .cta-final h2 span{background:var(--ink);color:var(--yel);padding:0 .12em}
+  .cta-final p{margin:22px auto 32px;max-width:48ch;font-size:15px}
+  .cta-final .btn{box-shadow:5px 5px 0 var(--ink)}
+
+  footer{background:var(--ink);color:var(--paper2);padding:30px 0;font-size:13px;border-top:4px solid var(--red)}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  .wa{position:fixed;bottom:22px;right:22px;z-index:80;width:58px;height:58px;border-radius:50%;background:var(--wa);border:3px solid var(--ink);display:grid;place-items:center;box-shadow:4px 4px 0 var(--ink);transition:.12s}
+  .wa:hover{transform:translate(3px,3px) rotate(-4deg);box-shadow:0 0 0 var(--ink)}
+  .wa svg{width:28px;height:28px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(26px) rotate(var(--rr,0deg));transition:.6s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:rotate(var(--rr,0deg))}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+    .reveal{opacity:1;transform:rotate(var(--rr,0deg))}
+    .hero-vinyl,.logo .disc{animation:none !important}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #d92b2b;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body>
+
+<div class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="disc"></span>FURIA RECORDS</a>
+    <div class="nav-links">
+      <a href="#vinilos">Vinilos</a>
+      <a href="#bar">Bar de escucha</a>
+      <a href="#visita">Dónde estamos</a>
+    </div>
+    <a class="btn btn-yel" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Furia%20Records%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Encargar disco</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-vinyl spin" aria-hidden="true"><div class="v"></div><div class="label"></div></div>
+  <span class="sticker st1">¡NUEVOS + USADOS!</span>
+  <span class="sticker st2">DESDE $6.990</span>
+  <div class="wrap hero-inner">
+    <span class="hero-tag">Tienda de vinilos &amp; bar de escucha — Coquimbo</span>
+    <h1>
+      <span class="l1">PONLO</span>
+      <span class="l2">FUERTE</span>
+      <span class="l3">O NADA.</span>
+    </h1>
+    <div class="hero-sub">
+      <p>Más de 3.000 vinilos entre novedades y joyas usadas, dos tornamesas abiertas al público y schop helado mientras escuchas. Si el disco existe, lo encontramos.</p>
+    </div>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Furia%20Records%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Encargar un disco →</a>
+      <a class="btn btn-yel" href="#vinilos">Ver novedades ↓</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>PUNK<b>★</b>CUMBIA<b>★</b>JAZZ<b>★</b>METAL<b>★</b>SOUL<b>★</b>NEW WAVE<b>★</b>CHILENO<b>★</b>BOSSA<b>★</b>HIP HOP<b>★</b></span>
+    <span>PUNK<b>★</b>CUMBIA<b>★</b>JAZZ<b>★</b>METAL<b>★</b>SOUL<b>★</b>NEW WAVE<b>★</b>CHILENO<b>★</b>BOSSA<b>★</b>HIP HOP<b>★</b></span>
+  </div>
+</div>
+
+<section id="vinilos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Recién llegados</span>
+      <h2>Esta semana en <em>la caja</em></h2>
+      <p>Revisado, limpiado y testeado en la tornamesa de la tienda. Lo que ves está disponible HOY — después no llores.</p>
+    </div>
+    <div class="records">
+      <article class="record reveal">
+        <span class="tape"></span>
+        <div class="cover"><div class="art a1"></div><span class="hole"></span><span class="rpm">33 RPM</span></div>
+        <div class="rec-info"><h3>La Polla Records</h3><span class="artist">Vol. II — reedición 180g</span>
+        <div class="rec-foot"><span class="genre">Punk</span><span class="price">$24.990</span></div></div>
+      </article>
+      <article class="record reveal">
+        <span class="tape"></span>
+        <div class="cover"><div class="art a2"></div><span class="hole"></span><span class="rpm">45 RPM</span></div>
+        <div class="rec-info"><h3>Los Prisioneros</h3><span class="artist">Pateando Piedras — original 1986</span>
+        <div class="rec-foot"><span class="genre">Chileno</span><span class="price">$39.990</span></div></div>
+      </article>
+      <article class="record reveal">
+        <span class="tape"></span>
+        <div class="cover"><div class="art a3"></div><span class="hole"></span><span class="rpm">33 RPM</span></div>
+        <div class="rec-info"><h3>Fela Kuti</h3><span class="artist">Zombie — impecable estado</span>
+        <div class="rec-foot"><span class="genre">Afrobeat</span><span class="price">$27.990</span></div></div>
+      </article>
+      <article class="record reveal">
+        <span class="tape"></span>
+        <div class="cover"><div class="art a4"></div><span class="hole"></span><span class="rpm">33 RPM</span></div>
+        <div class="rec-info"><h3>Mon Laferte</h3><span class="artist">Norma — primera prensa</span>
+        <div class="rec-foot"><span class="genre">Chileno</span><span class="price">$29.990</span></div></div>
+      </article>
+      <article class="record reveal">
+        <span class="tape"></span>
+        <div class="cover"><div class="art a5"></div><span class="hole"></span><span class="rpm">45 RPM</span></div>
+        <div class="rec-info"><h3>Joy Division</h3><span class="artist">Unknown Pleasures — UK import</span>
+        <div class="rec-foot"><span class="genre">Post-punk</span><span class="price">$34.990</span></div></div>
+      </article>
+      <article class="record reveal">
+        <span class="tape"></span>
+        <div class="cover"><div class="art a6"></div><span class="hole"></span><span class="rpm">33 RPM</span></div>
+        <div class="rec-info"><h3>Joe Arroyo</h3><span class="artist">Rebelión — usado joyita</span>
+        <div class="rec-foot"><span class="genre">Salsa</span><span class="price">$18.990</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="torn" id="bar">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" style="background:var(--red)">Bar de escucha</span>
+      <h2 style="color:var(--paper)">Tornamesa <em style="color:var(--yel)">abierta</em></h2>
+      <p style="color:#cfc4ab">Trae tu propio vinilo o saca uno de la caja y súbelo a la tornamesa. Solo hay una regla: se respeta el disco completo, lado A y lado B.</p>
+    </div>
+    <div class="bar-grid">
+      <div class="sessions">
+        <div class="session reveal">
+          <h3>Noche de Cumbia Furiosa</h3>
+          <p>Puros 45 de cumbia sonidera y chicha peruana. Se arma pista, no hay cómo evitarlo.</p>
+          <span class="when">Viernes · 21:00</span>
+        </div>
+        <div class="session reveal">
+          <h3>Domingos de Jazz &amp; Vermut</h3>
+          <p>Blue Note a todo volumen, vermut casero y siesta moralmente justificada.</p>
+          <span class="when">Domingo · 13:00</span>
+        </div>
+        <div class="session reveal">
+          <h3>Trae tu Disco</h3>
+          <p>Diez minutos por persona en la tornamesa principal. Lo que traigas, suena. Sin juicio.</p>
+          <span class="when">Miércoles · 19:00</span>
+        </div>
+      </div>
+      <div class="drinks reveal">
+        <span class="tape"></span>
+        <h3>La barra</h3>
+        <div class="drink-row"><span>Schop artesanal del puerto</span><b>$3.500</b></div>
+        <div class="drink-row"><span>Vermut casero con soda</span><b>$4.000</b></div>
+        <div class="drink-row"><span>Piscola de la casa</span><b>$3.800</b></div>
+        <div class="drink-row"><span>Negroni Furia</span><b>$6.500</b></div>
+        <div class="drink-row"><span>Café de grano (toda la tarde)</span><b>$2.500</b></div>
+        <div class="drink-row"><span>Empanada de queso-machas</span><b>$3.200</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="manifiesto">
+  <div class="wrap reveal">
+    <span class="kicker" style="display:inline-block;background:var(--ink);color:var(--paper);font-family:'Anton',sans-serif;font-size:13px;letter-spacing:.2em;padding:6px 14px;transform:rotate(-1.5deg);margin-bottom:26px">Manifiesto</span>
+    <p class="big">
+      NO VENDEMOS <span class="cut">NOSTALGIA</span>. VENDEMOS <span class="r">RUIDO</span> EN FORMATO FÍSICO. EL STREAMING SE ACABA CUANDO SE CORTA LA LUZ — EL <span class="y">VINILO</span> NO.
+    </p>
+    <p class="firm">Furia Records, desde 2018. Primero una maleta en la feria de Guayacán, hoy una casa con dos tornamesas y demasiados discos.</p>
+  </div>
+</section>
+
+<section id="visita">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Encuéntranos</span>
+      <h2>La casa <mark>amarilla</mark> del cerro</h2>
+    </div>
+    <div class="visita-grid reveal">
+      <div>
+        <span class="vlabel">Dirección</span>
+        <p class="addr">Calle Matta 449,<br />Barrio Guayacán,<br />Coquimbo</p>
+        <p style="font-size:14px">Sube por la escalera pintada con portadas de discos. Si escuchas música desde la calle, es aquí. Si no escuchas nada, llegaste muy temprano.</p>
+      </div>
+      <div>
+        <span class="vlabel">Horarios</span>
+        <div class="hrow"><span>Lunes</span><b>Cerrado (limpieza de agujas)</b></div>
+        <div class="hrow"><span>Martes – Jueves</span><b>11:00 – 20:00</b></div>
+        <div class="hrow"><span>Viernes – Sábado</span><b>11:00 – 00:00</b></div>
+        <div class="hrow"><span>Domingo</span><b>12:00 – 18:00</b></div>
+        <div class="hrow"><span>Compra de usados</span><b>Mañanas, con tasa de café incluida</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>¿BUSCAS <span>UN DISCO?</span></h2>
+    <p>Mándanos el nombre por WhatsApp. Si no lo tenemos, lo encargamos y te avisamos cuando aterrice en la caja. Encargos desde $6.990, sin costo extra.</p>
+    <a class="btn btn-yel" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Furia%20Records%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Encargar por WhatsApp →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Furia Records · Coquimbo — hecho a mano, como los buenos fanzines</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Furia%20Records%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.style.setProperty('--rr', (Math.random() * 1.6 - .8).toFixed(2) + 'deg');
+    io.observe(el);
+  });
+
+  // el vinilo del hero gira a 45rpm siempre; acelera con el scroll (toque zine)
+  const vinyl = document.querySelector('.hero-vinyl');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (vinyl && !reduce) {
+    let last = scrollY, speed = 1.333;
+    addEventListener('scroll', () => {
+      const d = Math.abs(scrollY - last); last = scrollY;
+      speed = Math.max(.5, speed - d * .004);
+      vinyl.style.animationDuration = speed.toFixed(3) + 's';
+    }, {passive:true});
+    setInterval(() => {
+      speed = Math.min(1.333, speed + .02);
+      vinyl.style.animationDuration = speed.toFixed(3) + 's';
+    }, 400);
+  }
+</script>
+</body>
+</html>

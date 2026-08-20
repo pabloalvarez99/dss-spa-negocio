@@ -1,0 +1,24 @@
+<header class="{{blk.classes}}" id="{{blk.anchor}}">
+  <div class="poster-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="poster">
+      <span class="corner tl" aria-hidden="true"></span>
+      <span class="corner tr" aria-hidden="true"></span>
+      <span class="corner bl" aria-hidden="true"></span>
+      <span class="corner br" aria-hidden="true"></span>
+      <p class="eyebrow">{{city}} · {{eyebrow}}</p>
+      <h1>{{hero_title_html}}</h1>
+      <p class="rule" aria-hidden="true"><span></span>◆<span></span></p>
+      <p class="lead">{{tagline}}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="{{wa_url}}" target="_blank" rel="noopener" data-track="hero-wa">{{cta_primary}}</a>
+        <a class="btn btn-line" href="#{{menu_anchor}}">{{cta_secondary}}</a>
+      </div>
+    </div>
+    {{#if stats_items}}
+    <div class="hero-meta">
+      {{#each stats_items}}<div class="meta-item"><b>{{this.value}}</b><span>{{this.label}}</span></div>{{/each}}
+    </div>
+    {{/if}}
+  </div>
+</header>

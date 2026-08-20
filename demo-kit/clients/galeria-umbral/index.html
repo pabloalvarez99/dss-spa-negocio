@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Umbral — Galería de Arte Contemporáneo · La Serena</title>
+<meta name="description" content="Galería de arte contemporáneo en La Serena. Pintura, escultura y obra gráfica de artistas del norte de Chile. Visitas privadas y venta de obras." />
+<meta name="theme-color" content="#f4f0e6" />
+<meta property="og:title" content="Umbral — Galería de Arte Contemporáneo" />
+<meta property="og:description" content="Arte contemporáneo del norte de Chile en el corazón de La Serena. Visitas privadas y venta de obras." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bone:#f4f0e6; --bone2:#ece6d7; --ink:#1c1a16; --muted:#6f695c;
+    --line:#d7d0be; --ochre:#a0682f; --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{background:var(--bone);color:var(--ink);font-family:'Archivo',sans-serif;line-height:1.65;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.02}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--ochre);color:var(--bone)}
+
+  .label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ochre);font-weight:600}
+  .rule{height:1px;background:var(--line);transform:scaleX(0);transform-origin:left;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .rule.in{transform:scaleX(1)}
+
+  /* demo badge */
+  .demo-badge{position:fixed;top:14px;right:16px;z-index:70;font-size:10px;letter-spacing:.24em;font-weight:600;color:var(--muted);border:1px solid var(--line);padding:5px 10px;border-radius:999px;background:rgba(244,240,230,.85);backdrop-filter:blur(6px)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:22px;padding-bottom:22px}
+  nav.scrolled{background:rgba(244,240,230,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav.scrolled .wrap{padding-top:14px;padding-bottom:14px}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:.02em;display:flex;align-items:baseline;gap:10px}
+  .logo .dot{width:7px;height:7px;background:var(--ochre);border-radius:50%}
+  .nav-links{display:flex;gap:34px;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+  .nav-links a{color:var(--muted);transition:.25s;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--ochre);transition:.3s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a:hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;border:1px solid var(--ink);transition:.3s;cursor:pointer;background:transparent}
+  .btn-solid{background:var(--ink);color:var(--bone)}
+  .btn-solid:hover{background:var(--ochre);border-color:var(--ochre)}
+  .btn-line:hover{background:var(--ink);color:var(--bone)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{min-height:100svh;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:40px;padding:130px 0 70px;position:relative}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;gap:60px}}
+  .hero-title{font-size:clamp(64px,11vw,158px);letter-spacing:-.01em}
+  .hero-title em{font-style:italic;color:var(--ochre)}
+  .hero-sub{margin-top:28px;max-width:440px;color:var(--muted);font-size:17px}
+  .hero-ctas{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+  .hero-side{position:relative;writing-mode:vertical-rl;font-size:10.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);position:absolute;right:26px;top:50%;transform:translateY(-50%)}
+  @media(max-width:1200px){.hero-side{display:none}}
+  .hero-art{position:relative;aspect-ratio:1/1.1;max-width:520px;justify-self:end;width:100%}
+  @media(max-width:900px){.hero-art{justify-self:start;max-width:420px}}
+  .ha{position:absolute;transition:transform .2s ease-out;will-change:transform}
+  .ha-circle{width:72%;aspect-ratio:1;border-radius:50%;top:4%;left:0;
+    background:radial-gradient(circle at 38% 34%,#d8a86b 0%,var(--ochre) 46%,#6e4420 100%)}
+  .ha-square{width:46%;aspect-ratio:1;right:0;bottom:8%;background:var(--bone2);border:1px solid var(--ink)}
+  .ha-line{width:1px;height:88%;right:18%;top:0;background:var(--ink)}
+  .ha-arc{width:58%;aspect-ratio:1;left:8%;bottom:0;border-radius:50%;border:1px solid var(--ochre);background:transparent}
+  .ha-caption{position:absolute;bottom:-34px;left:0;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+  /* statement */
+  .statement{padding:120px 0 90px;border-top:1px solid var(--line)}
+  .statement p{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.2vw,52px);line-height:1.25;max-width:900px;margin-top:26px}
+  .statement p em{font-style:italic;color:var(--ochre)}
+
+  /* obras */
+  .obras-sec{padding:40px 0 110px}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:64px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(40px,6vw,76px)}
+  .sec-head h2 em{font-style:italic;color:var(--ochre)}
+  .sec-head p{max-width:340px;color:var(--muted);font-size:15px}
+  .obras{display:grid;grid-template-columns:1fr 1fr;gap:70px 56px}
+  @media(max-width:760px){.obras{grid-template-columns:1fr;gap:56px}}
+  .obra:nth-child(even){margin-top:90px}
+  @media(max-width:760px){.obra:nth-child(even){margin-top:0}}
+  .art{position:relative;overflow:hidden;border:1px solid var(--line);transition:.5s}
+  .obra:hover .art{border-color:var(--ink)}
+  .art::after{content:"";position:absolute;inset:14px;border:1px solid rgba(28,26,22,.14);pointer-events:none}
+  .a1{aspect-ratio:4/5;background:
+      linear-gradient(180deg,transparent 62%,rgba(28,26,22,.85) 62.2%,rgba(28,26,22,.85) 62.6%,transparent 62.8%),
+      radial-gradient(circle at 50% 38%,#c98d4e 0%,#a0682f 40%,rgba(160,104,47,0) 41%),
+      linear-gradient(180deg,#efe9db 0%,#e3dac4 100%)}
+  .a2{aspect-ratio:1/1;background:
+      conic-gradient(from 220deg at 30% 30%,rgba(28,26,22,0) 0deg,rgba(28,26,22,0) 40deg,#1c1a16 40deg,#1c1a16 82deg,rgba(28,26,22,0) 82deg),
+      linear-gradient(150deg,#f4f0e6 55%,#ddd3bc 100%)}
+  .a3{aspect-ratio:3/4;background:
+      repeating-linear-gradient(115deg,#1c1a16 0 1px,transparent 1px 34px),
+      radial-gradient(circle at 78% 22%,#a0682f 0%,#a0682f 12%,rgba(160,104,47,0) 12.5%),
+      linear-gradient(180deg,#f0ebdf,#e7dfcb)}
+  .a4{aspect-ratio:4/5;background:
+      linear-gradient(90deg,rgba(28,26,22,0) 30%,#1c1a16 30%,#1c1a16 31%,rgba(28,26,22,0) 31%),
+      linear-gradient(180deg,rgba(28,26,22,0) 55%,#a0682f 55%,#a0682f 78%,rgba(160,104,47,0) 78%),
+      linear-gradient(160deg,#f4f0e6 0%,#e6ddc8 100%)}
+  .a5{aspect-ratio:1/1.2;background:
+      radial-gradient(circle at 62% 30%,rgba(160,104,47,.9) 0%,rgba(160,104,47,.55) 18%,rgba(160,104,47,0) 42%),
+      radial-gradient(circle at 30% 72%,#1c1a16 0%,#1c1a16 6%,rgba(28,26,22,0) 6.6%),
+      linear-gradient(200deg,#f6f2e9,#e0d6bf)}
+  .a6{aspect-ratio:1/1;background:
+      linear-gradient(180deg,rgba(28,26,22,0) 48%,#1c1a16 48%,#1c1a16 100%),
+      radial-gradient(circle at 50% 46%,#d8a86b 0%,#a0682f 26%,rgba(160,104,47,0) 27%),
+      linear-gradient(180deg,#f1ebdd,#e8dfc9)}
+  .obra figcaption{display:flex;justify-content:space-between;align-items:start;gap:20px;margin-top:18px}
+  .obra .who{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ochre);font-weight:600}
+  .obra h3{font-size:clamp(24px,2.6vw,32px);font-style:italic;margin:6px 0 4px}
+  .obra .tech{font-size:13.5px;color:var(--muted)}
+  .obra .price{font-family:'Cormorant Garamond',serif;font-size:22px;white-space:nowrap}
+
+  /* sobre */
+  .sobre{background:var(--ink);color:var(--bone);padding:110px 0}
+  .sobre .label{color:#d8a86b}
+  .sobre-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:start}
+  @media(max-width:860px){.sobre-grid{grid-template-columns:1fr;gap:44px}}
+  .sobre h2{font-size:clamp(36px,5vw,60px);margin:22px 0 26px}
+  .sobre h2 em{font-style:italic;color:#d8a86b}
+  .sobre p{color:#b9b2a2;max-width:520px}
+  .sobre .firma{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;margin-top:30px;color:var(--bone)}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(244,240,230,.16);border:1px solid rgba(244,240,230,.16)}
+  .stat{background:var(--ink);padding:30px 26px}
+  .stat b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:44px;color:#d8a86b}
+  .stat span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b9b2a2}
+
+  /* visita */
+  .visita{padding:110px 0}
+  .visita-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  @media(max-width:860px){.visita-grid{grid-template-columns:1fr}}
+  .hrow{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .hrow span{color:var(--muted)}
+  .hrow b{font-weight:600}
+  .hrow .closed{color:var(--ochre)}
+  .visita .nota{margin-top:22px;font-size:14px;color:var(--muted)}
+  .mapa{position:relative;aspect-ratio:4/3.1;border:1px solid var(--line);background:var(--bone2);overflow:hidden}
+  .mapa-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:46px 46px;opacity:.7}
+  .mapa-via{position:absolute;left:0;right:0;top:44%;height:1px;background:var(--ink);opacity:.5}
+  .mapa-via2{position:absolute;top:0;bottom:0;left:34%;width:1px;background:var(--ink);opacity:.5}
+  .pin{position:absolute;top:44%;left:34%;transform:translate(-50%,-50%);text-align:center}
+  .pin .dot{width:14px;height:14px;background:var(--ochre);border-radius:50%;margin:0 auto;box-shadow:0 0 0 7px rgba(160,104,47,.18);animation:pulse 2.2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 15px rgba(160,104,47,0)}}
+  .pin p{margin-top:12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;background:var(--bone);border:1px solid var(--line);padding:6px 14px}
+
+  /* cta */
+  .cta-final{text-align:center;padding:120px 0;border-top:1px solid var(--line)}
+  .cta-final h2{font-size:clamp(42px,7vw,90px)}
+  .cta-final h2 em{font-style:italic;color:var(--ochre)}
+  .cta-final p{color:var(--muted);margin:22px auto 40px;max-width:460px}
+  .cta-final .btn-solid{background:var(--ochre);border-color:var(--ochre)}
+  .cta-final .btn-solid:hover{background:var(--ink);border-color:var(--ink)}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;font-size:12.5px;color:var(--muted);letter-spacing:.06em}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.55);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:29px;height:29px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:.9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .rule{transform:scaleX(1)}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  @media (max-width:560px){.sobre-grid{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:minmax(0,1fr)}}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #a0682f;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body id="top">
+
+<span class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></span>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="dot"></span>Umbral</a>
+    <div class="nav-links">
+      <a href="#coleccion">Colección</a>
+      <a href="#galeria">La Galería</a>
+      <a href="#visita">Visita</a>
+    </div>
+    <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Galer%C3%ADa%20Umbral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar visita</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="hero-side">La Serena · Chile · MMXXVI</span>
+  <div class="wrap" style="display:contents">
+  </div>
+  <div class="wrap" style="position:static"></div>
+  <div style="padding-left:max(24px,calc((100vw - 1240px)/2 + 24px))">
+    <span class="label">Galería de arte contemporáneo</span>
+    <h1 class="hero-title">Um<em>bral</em></h1>
+    <p class="hero-sub">Un espacio de cruce: entre el desierto y el mar, entre el artista y quien mira. Pintura, escultura y obra gráfica del norte de Chile, en el casco histórico de La Serena.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="#coleccion">Ver colección</a>
+      <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Galer%C3%ADa%20Umbral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Visita privada</a>
+    </div>
+  </div>
+  <div class="hero-art" id="heroArt">
+    <div class="ha ha-circle" data-depth="18"></div>
+    <div class="ha ha-arc" data-depth="8"></div>
+    <div class="ha ha-square" data-depth="26"></div>
+    <div class="ha ha-line" data-depth="12"></div>
+    <span class="ha-caption">Mireya Soto — «Tierra adentro» (detalle), 2026</span>
+  </div>
+</header>
+
+<section class="statement">
+  <div class="wrap">
+    <span class="label">N° 01 — Manifiesto</span>
+    <div class="rule" style="margin:20px 0 8px"></div>
+    <p class="reveal">Creemos que una obra no se cuelga: <em>se habita.</em> Por eso cada exposición en Umbral se monta como una conversación lenta — con la luz del valle, con los muros de adobe, <em>contigo.</em></p>
+  </div>
+</section>
+
+<section class="obras-sec" id="coleccion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="label">N° 02 — Exposición actual</span>
+        <h2>«Lo que el viento <em>dejó»</em></h2>
+      </div>
+      <p>Seis artistas de la Región de Coquimbo trabajan la materia del territorio: arena, cobre, niebla. Hasta el 30 de agosto. Todas las obras disponibles para la venta.</p>
+    </div>
+    <div class="obras">
+      <figure class="obra reveal">
+        <div class="art a1"></div>
+        <figcaption>
+          <div><span class="who">Mireya Soto</span><h3>Tierra adentro</h3><span class="tech">Óleo y arena del Elqui sobre lino · 120 × 150 cm</span></div>
+          <span class="price">$1.850.000</span>
+        </figcaption>
+      </figure>
+      <figure class="obra reveal">
+        <div class="art a2"></div>
+        <figcaption>
+          <div><span class="who">Tomás Agurto</span><h3>Ángulo de espera</h3><span class="tech">Acrílico sobre madera de alerce · 90 × 90 cm</span></div>
+          <span class="price">$980.000</span>
+        </figcaption>
+      </figure>
+      <figure class="obra reveal">
+        <div class="art a3"></div>
+        <figcaption>
+          <div><span class="who">Isidora Valdés</span><h3>Camanchaca I</h3><span class="tech">Tinta y grafito sobre papel algodón · 70 × 100 cm</span></div>
+          <span class="price">$640.000</span>
+        </figcaption>
+      </figure>
+      <figure class="obra reveal">
+        <div class="art a4"></div>
+        <figcaption>
+          <div><span class="who">Sebastián Henríquez</span><h3>Corte minero</h3><span class="tech">Óxido de cobre y óleo sobre tela · 110 × 140 cm</span></div>
+          <span class="price">$2.400.000</span>
+        </figcaption>
+      </figure>
+      <figure class="obra reveal">
+        <div class="art a5"></div>
+        <figcaption>
+          <div><span class="who">Camila Fouillioux</span><h3>Sol de las once</h3><span class="tech">Serigrafía, edición de 12 · 60 × 80 cm</span></div>
+          <span class="price">$320.000</span>
+        </figcaption>
+      </figure>
+      <figure class="obra reveal">
+        <div class="art a6"></div>
+        <figcaption>
+          <div><span class="who">Andrés Pizarro</span><h3>Horizonte Guanaqueros</h3><span class="tech">Óleo sobre lino · 100 × 100 cm</span></div>
+          <span class="price">$1.450.000</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="galeria">
+  <div class="wrap sobre-grid">
+    <div class="reveal">
+      <span class="label">N° 03 — La Galería</span>
+      <h2>Ocho años abriendo <em>puertas</em></h2>
+      <p>Umbral nació en 2018 en una casona de adobe del Barrio Inglés serenense, con la convicción de que el arte del norte no necesita pedir permiso. Representamos a artistas emergentes y consagrados de la región, acompañamos coleccionistas primerizos y asesoramos a empresas que quieren vivir con arte.</p>
+      <p style="margin-top:16px">Cada obra se entrega con certificado de autenticidad, enmarcado de museo y traslado coordinado a todo Chile.</p>
+      <p class="firma">— Paloma Errázuriz, directora</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b>2018</b><span>Fundación</span></div>
+      <div class="stat"><b>46</b><span>Artistas representados</span></div>
+      <div class="stat"><b>11</b><span>Exposiciones al año</span></div>
+      <div class="stat"><b>+300</b><span>Obras en colecciones</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="visita" id="visita">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="label">N° 04 — Visita</span>
+        <h2>Casa de adobe, <em>puerta abierta</em></h2>
+      </div>
+    </div>
+    <div class="visita-grid">
+      <div class="reveal">
+        <div class="hrow"><span>Lunes</span><b class="closed">Cerrado</b></div>
+        <div class="hrow"><span>Martes – Viernes</span><b>10:30 – 19:30</b></div>
+        <div class="hrow"><span>Sábado</span><b>11:00 – 20:00</b></div>
+        <div class="hrow"><span>Domingo</span><b>11:00 – 14:00</b></div>
+        <p class="nota">📍 Calle Matta 573, Barrio Inglés, La Serena<br />Entrada liberada · Visitas guiadas sábados 12:00 hrs · Visitas privadas fuera de horario por WhatsApp.</p>
+        <div style="margin-top:26px">
+          <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Galer%C3%ADa%20Umbral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar visita privada</a>
+        </div>
+      </div>
+      <div class="mapa reveal">
+        <div class="mapa-grid"></div>
+        <div class="mapa-via"></div>
+        <div class="mapa-via2"></div>
+        <div class="pin"><div class="dot"></div><p>Calle Matta 573</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>El arte se mira <em>mejor en persona.</em></h2>
+    <p>Escríbenos y te reservamos la sala para ti: una hora, sin ruido, con café de por medio.</p>
+    <a class="btn btn-solid" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Galer%C3%ADa%20Umbral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Conversar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Galería Umbral · La Serena</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Galer%C3%ADa%20Umbral%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal, .rule').forEach(el => io.observe(el));
+
+  if(!reduce && matchMedia('(pointer:fine)').matches){
+    const art = document.getElementById('heroArt');
+    const layers = art.querySelectorAll('.ha[data-depth]');
+    addEventListener('mousemove', e => {
+      const x = (e.clientX / innerWidth - .5), y = (e.clientY / innerHeight - .5);
+      layers.forEach(l => {
+        const d = +l.dataset.depth;
+        l.style.transform = `translate(${(-x*d).toFixed(1)}px, ${(-y*d).toFixed(1)}px)`;
+      });
+    }, {passive:true});
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nova — Fotografía de Autor y Retratos · Coquimbo</title>
+<meta name="description" content="Nova Paredes, fotógrafa de autor en Coquimbo. Retrato editorial, series del territorio y prints fine art en edición limitada. Agenda tu sesión por WhatsApp." />
+<meta name="theme-color" content="#0b0a09" />
+<meta property="og:title" content="Nova — Fotografía de Autor · Coquimbo" />
+<meta property="og:description" content="Retrato editorial, series del territorio y prints fine art en edición limitada desde Coquimbo." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b0a09; --bg2:#131110; --frame:#1d1a17; --line:#2c2823;
+    --paper:#ece5d8; --muted:#8f8678; --red:#e23b2e; --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{background:var(--bg);color:var(--paper);font-family:'IBM Plex Mono',monospace;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Oswald',sans-serif;line-height:1.02;font-weight:500;text-transform:uppercase}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  ::selection{background:var(--red);color:var(--paper)}
+
+  /* film grain */
+  body::after{content:"";position:fixed;inset:-100px;pointer-events:none;z-index:99;opacity:.09;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+    animation:grain 7s steps(8) infinite}
+  @keyframes grain{
+    0%{transform:translate(0,0)}12.5%{transform:translate(-40px,30px)}25%{transform:translate(30px,-50px)}
+    37.5%{transform:translate(-60px,-20px)}50%{transform:translate(50px,40px)}62.5%{transform:translate(-30px,60px)}
+    75%{transform:translate(60px,-30px)}87.5%{transform:translate(-50px,-60px)}100%{transform:translate(0,0)}
+  }
+
+  .mono-tag{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
+
+  /* demo badge */
+  .demo-badge{position:fixed;top:14px;right:16px;z-index:70;font-size:10px;letter-spacing:.24em;color:var(--muted);border:1px solid var(--line);padding:5px 10px;background:rgba(11,10,9,.85);backdrop-filter:blur(6px)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;border-bottom:1px solid transparent}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px}
+  nav.scrolled{background:rgba(11,10,9,.9);backdrop-filter:blur(12px);border-bottom-color:var(--line)}
+  .logo{font-family:'Oswald',sans-serif;font-weight:600;font-size:22px;letter-spacing:.28em;text-transform:uppercase}
+  .logo em{color:var(--red);font-style:normal}
+  .nav-links{display:flex;gap:30px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+  .nav-links a{color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--red)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;font-family:'Oswald',sans-serif;border:1px solid var(--paper);transition:.25s;cursor:pointer;background:transparent;color:var(--paper)}
+  .btn-red{background:var(--red);border-color:var(--red);color:#fff}
+  .btn-red:hover{background:transparent;color:var(--red)}
+  .btn-line:hover{border-color:var(--red);color:var(--red)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:120px 0 60px;position:relative}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;gap:44px}}
+  .hero-kicker{display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+  .hero-kicker::before{content:"";width:10px;height:10px;background:var(--red);border-radius:50%;animation:blink 1.4s steps(2) infinite}
+  @keyframes blink{50%{opacity:.15}}
+  .hero h1{font-size:clamp(72px,13vw,180px);font-weight:600;letter-spacing:.02em;margin:18px 0 6px}
+  .hero h1 span{color:transparent;-webkit-text-stroke:1.5px var(--paper)}
+  .hero-sub{font-size:15px;color:var(--muted);max-width:460px;margin-top:20px}
+  .hero-sub b{color:var(--paper);font-weight:500}
+  .hero-ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:34px;margin-top:52px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);flex-wrap:wrap}
+  .hero-meta b{display:block;color:var(--paper);font-family:'Oswald',sans-serif;font-size:26px;font-weight:500;letter-spacing:.05em;margin-bottom:4px}
+  .hero-photo{position:relative;justify-self:end;width:100%;max-width:440px}
+  @media(max-width:900px){.hero-photo{justify-self:start;max-width:380px}}
+  .photo-frame{position:relative;border:1px solid var(--line);background:var(--frame);padding:14px 14px 46px;transition:transform .2s ease-out;will-change:transform}
+  .photo-frame::before{content:"NOVA-000 · FIG. 01";position:absolute;bottom:16px;left:16px;font-size:10px;letter-spacing:.26em;color:var(--muted)}
+  .photo-frame::after{content:"AUTORRETRATO, GUANAQUEROS";position:absolute;bottom:16px;right:16px;font-size:10px;letter-spacing:.2em;color:var(--red)}
+  .hero-img{aspect-ratio:3/3.8;position:relative;overflow:hidden;background:
+      radial-gradient(60% 38% at 50% 30%,#3d2f22 0%,rgba(61,47,34,0) 72%),
+      radial-gradient(42% 55% at 50% 62%,#191410 0%,rgba(25,20,16,0) 70%),
+      radial-gradient(90% 90% at 82% 12%,rgba(226,59,46,.34) 0%,rgba(226,59,46,0) 46%),
+      radial-gradient(70% 60% at 12% 88%,rgba(236,229,216,.08) 0%,rgba(236,229,216,0) 55%),
+      linear-gradient(165deg,#241d15 0%,#0b0a09 90%)}
+  .hero-img svg{position:absolute;inset:0;width:100%;height:100%}
+  .red-bar{position:absolute;left:-22px;top:12%;width:4px;height:56%;background:var(--red)}
+
+  /* contact strip marquee */
+  .strip{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;position:relative;padding:18px 0}
+  .strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:12px;z-index:2;
+    background-image:radial-gradient(circle,var(--bg) 3px,rgba(11,10,9,0) 3.5px);background-size:18px 12px;background-repeat:repeat-x;background-position:center}
+  .strip::before{top:4px}.strip::after{bottom:4px}
+  .strip-track{display:flex;gap:14px;width:max-content;animation:strip 30s linear infinite}
+  @keyframes strip{to{transform:translateX(-50%)}}
+  .frame-mini{width:150px;aspect-ratio:4/3;flex:none;border:1px solid var(--line);position:relative;overflow:hidden}
+  .frame-mini i{position:absolute;bottom:6px;left:8px;font-style:normal;font-size:9px;letter-spacing:.2em;color:rgba(236,229,216,.75);text-shadow:0 1px 4px rgba(0,0,0,.8)}
+  .fm1{background:radial-gradient(70% 70% at 30% 30%,#5a4630,#151110 75%)}
+  .fm2{background:linear-gradient(160deg,#33291c,#0e0c0a 70%),radial-gradient(50% 50% at 70% 60%,rgba(226,59,46,.3),rgba(226,59,46,0) 70%)}
+  .fm3{background:radial-gradient(80% 60% at 50% 90%,#6e5a3e,#131110 70%)}
+  .fm4{background:linear-gradient(200deg,#1e2a33,#0b0a09 65%),radial-gradient(40% 40% at 30% 30%,rgba(236,229,216,.14),rgba(236,229,216,0) 70%)}
+  .fm5{background:radial-gradient(60% 60% at 70% 20%,#7a3b2e,#141110 70%)}
+  .fm6{background:linear-gradient(120deg,#262019 30%,#0b0a09),radial-gradient(30% 30% at 60% 40%,rgba(226,59,46,.35),rgba(226,59,46,0) 75%)}
+
+  /* sections */
+  section{padding:100px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:end;gap:26px;margin-bottom:56px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:26px}
+  .sec-head h2{font-size:clamp(38px,6vw,72px);font-weight:600}
+  .sec-head h2 em{color:var(--red);font-style:normal}
+  .sec-head p{font-size:12.5px;color:var(--muted);max-width:360px;letter-spacing:.04em}
+
+  /* series grid */
+  .series-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:900px){.series-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.series-grid{grid-template-columns:1fr}}
+  .serie{border:1px solid var(--line);background:var(--frame);padding:12px 12px 0;transition:.35s}
+  .serie:hover{border-color:var(--red);transform:translateY(-6px)}
+  .serie .img{aspect-ratio:4/5;overflow:hidden;position:relative}
+  .serie .img>div{width:100%;height:100%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .serie:hover .img>div{transform:scale(1.05)}
+  .s1>div{background:radial-gradient(55% 42% at 50% 34%,#57432d 0%,rgba(87,67,45,0) 70%),radial-gradient(80% 60% at 88% 6%,rgba(226,59,46,.3),rgba(226,59,46,0) 50%),linear-gradient(170deg,#2a2115,#0c0a08 85%)}
+  .s2>div{background:linear-gradient(180deg,#3a4149 0%,#1a1c1f 45%,#0d0c0a 100%),radial-gradient(50% 30% at 50% 42%,rgba(236,229,216,.16),rgba(236,229,216,0) 70%)}
+  .s3>div{background:repeating-linear-gradient(100deg,rgba(236,229,216,.05) 0 2px,rgba(236,229,216,0) 2px 26px),radial-gradient(70% 55% at 40% 70%,#4a3a26,#100e0b 75%)}
+  .s4>div{background:linear-gradient(160deg,#42332a,#14100c 60%),radial-gradient(45% 45% at 68% 30%,rgba(226,59,46,.4),rgba(226,59,46,0) 68%)}
+  .s5>div{background:radial-gradient(90% 55% at 50% 100%,#33424d 0%,rgba(51,66,77,0) 60%),linear-gradient(180deg,#141a1f,#0b0a09 80%),radial-gradient(30% 20% at 30% 22%,rgba(236,229,216,.2),rgba(236,229,216,0) 70%)}
+  .s6>div{background:radial-gradient(38% 30% at 50% 58%,#8a5a34 0%,rgba(138,90,52,0) 72%),radial-gradient(70% 70% at 80% 10%,rgba(226,59,46,.24),rgba(226,59,46,0) 55%),linear-gradient(200deg,#241a10,#0c0a08)}
+  .serie figcaption{padding:14px 4px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .serie h3{font-size:17px;letter-spacing:.08em;font-weight:500}
+  .serie .n{font-size:10px;letter-spacing:.24em;color:var(--red)}
+  .serie .meta{padding:0 4px 14px;font-size:11px;color:var(--muted);letter-spacing:.08em;display:flex;justify-content:space-between;gap:10px}
+
+  /* servicios */
+  .servicios{background:var(--bg2);border-block:1px solid var(--line)}
+  .serv-list{border-top:1px solid var(--line)}
+  .serv{display:grid;grid-template-columns:70px 1fr auto;gap:24px;align-items:center;padding:26px 10px;border-bottom:1px solid var(--line);transition:.3s}
+  .serv:hover{background:rgba(226,59,46,.06);padding-left:20px}
+  .serv .idx{font-size:12px;color:var(--red);letter-spacing:.2em}
+  .serv h3{font-size:clamp(20px,3vw,30px);letter-spacing:.06em;font-weight:500}
+  .serv p{font-size:12.5px;color:var(--muted);margin-top:6px;max-width:520px}
+  .serv .pr{font-family:'Oswald',sans-serif;font-size:clamp(18px,2.4vw,24px);font-weight:500;white-space:nowrap;text-align:right}
+  .serv .pr small{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--muted);margin-top:4px}
+  @media(max-width:640px){.serv{grid-template-columns:44px 1fr;gap:14px}.serv .pr{grid-column:2;text-align:left}}
+
+  /* sobre */
+  .sobre-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  @media(max-width:860px){.sobre-grid{grid-template-columns:1fr;gap:40px}}
+  .sobre-photo{border:1px solid var(--line);background:var(--frame);padding:12px 12px 42px;position:relative;max-width:380px;transform:rotate(-1.6deg)}
+  .sobre-photo::before{content:"NOVA PAREDES · PUERTO, 2019";position:absolute;bottom:14px;left:14px;font-size:10px;letter-spacing:.22em;color:var(--muted)}
+  .sobre-img{aspect-ratio:4/4.6;background:
+      radial-gradient(50% 36% at 50% 30%,#4d3a27 0%,rgba(77,58,39,0) 68%),
+      radial-gradient(36% 48% at 50% 66%,#16110c 0%,rgba(22,17,12,0) 68%),
+      radial-gradient(80% 60% at 10% 10%,rgba(236,229,216,.1),rgba(236,229,216,0) 50%),
+      linear-gradient(160deg,#1f1811,#0b0a09)}
+  .sobre h2{font-size:clamp(34px,5vw,58px);font-weight:600;margin:16px 0 22px}
+  .sobre h2 em{color:var(--red);font-style:normal}
+  .sobre p{color:var(--muted);font-size:14.5px;max-width:520px}
+  .sobre p b{color:var(--paper);font-weight:500}
+  .sobre .quote{margin-top:28px;padding-left:18px;border-left:3px solid var(--red);font-style:italic;font-size:15px;color:var(--paper)}
+
+  /* visita */
+  .visita-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+  @media(max-width:860px){.visita-grid{grid-template-columns:1fr}}
+  .hrow{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px dashed var(--line);font-size:13px;letter-spacing:.06em}
+  .hrow span{color:var(--muted)}
+  .hrow b{font-weight:500}
+  .hrow .cita{color:var(--red)}
+  .visita .nota{margin-top:22px;font-size:12.5px;color:var(--muted);letter-spacing:.05em}
+  .mapa{position:relative;aspect-ratio:4/3;border:1px solid var(--line);background:var(--bg2);overflow:hidden}
+  .mapa-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,rgba(44,40,35,0) 1px),linear-gradient(90deg,var(--line) 1px,rgba(44,40,35,0) 1px);background-size:44px 44px;opacity:.6}
+  .mapa-sea{position:absolute;right:0;top:0;bottom:0;width:34%;background:linear-gradient(180deg,rgba(51,66,77,.5),rgba(51,66,77,.15));border-left:1px solid var(--line)}
+  .mapa-sea i{position:absolute;top:14px;left:12px;font-style:normal;font-size:10px;letter-spacing:.26em;color:var(--muted);writing-mode:vertical-rl}
+  .pin{position:absolute;top:46%;left:38%;transform:translate(-50%,-50%);text-align:center}
+  .pin .dot{width:13px;height:13px;background:var(--red);border-radius:50%;margin:0 auto;box-shadow:0 0 0 7px rgba(226,59,46,.2);animation:pulse 2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 15px rgba(226,59,46,0)}}
+  .pin p{margin-top:10px;font-size:10px;letter-spacing:.2em;background:var(--bg);border:1px solid var(--line);padding:5px 12px}
+
+  /* cta */
+  .cta-final{text-align:center;padding:120px 0;border-top:1px solid var(--line);position:relative}
+  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 55% at 50% 100%,rgba(226,59,46,.12),rgba(226,59,46,0) 70%);pointer-events:none}
+  .cta-final h2{font-size:clamp(40px,7vw,88px);font-weight:600;position:relative}
+  .cta-final h2 span{color:transparent;-webkit-text-stroke:1.5px var(--paper)}
+  .cta-final p{color:var(--muted);margin:20px auto 38px;max-width:460px;font-size:13.5px;position:relative}
+  .cta-final .btn{position:relative}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.55);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:29px;height:29px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #e23b2e;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body id="top">
+
+<span class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></span>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">NOVA<em>.</em></a>
+    <div class="nav-links">
+      <a href="#series">Series</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#estudio">Estudio</a>
+    </div>
+    <a class="btn btn-red" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Estudio%20Nova%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar sesión</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-copy">
+    <span class="hero-kicker">Rec · En sesión</span>
+    <h1>NO<span>VA</span></h1>
+    <p class="hero-sub"><b>Fotografía de autor y retratos en Coquimbo.</b> Luz dura del norte, silencio de puerto y rostros que no piden permiso. Cámara en mano desde 2014.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-red" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Estudio%20Nova%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar sesión</a>
+      <a class="btn btn-line" href="#series">Ver series ↓</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>11</b>Años de oficio</div>
+      <div><b>06</b>Series del territorio</div>
+      <div><b>15</b>Copias por edición</div>
+    </div>
+  </div>
+  <div class="hero-photo" id="heroPhoto">
+    <span class="red-bar"></span>
+    <div class="photo-frame">
+      <div class="hero-img">
+        <svg viewBox="0 0 300 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <ellipse cx="150" cy="128" rx="52" ry="64" fill="#0e0b08"/>
+          <path d="M98 132 Q150 96 202 132 L202 170 Q150 150 98 170 Z" fill="#0e0b08"/>
+          <path d="M70 380 Q80 250 150 236 Q220 250 230 380 Z" fill="#0e0b08"/>
+          <rect x="196" y="70" width="3" height="240" fill="#e23b2e" opacity=".8"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <div class="frame-mini fm1"><i>NOVA-014</i></div>
+    <div class="frame-mini fm2"><i>NOVA-022</i></div>
+    <div class="frame-mini fm3"><i>NOVA-031</i></div>
+    <div class="frame-mini fm4"><i>NOVA-045</i></div>
+    <div class="frame-mini fm5"><i>NOVA-058</i></div>
+    <div class="frame-mini fm6"><i>NOVA-063</i></div>
+    <div class="frame-mini fm1"><i>NOVA-014</i></div>
+    <div class="frame-mini fm2"><i>NOVA-022</i></div>
+    <div class="frame-mini fm3"><i>NOVA-031</i></div>
+    <div class="frame-mini fm4"><i>NOVA-045</i></div>
+    <div class="frame-mini fm5"><i>NOVA-058</i></div>
+    <div class="frame-mini fm6"><i>NOVA-063</i></div>
+  </div>
+</div>
+
+<section id="series">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="mono-tag">Archivo · 2019 — 2026</span>
+        <h2>Series del <em>territorio</em></h2>
+      </div>
+      <p>Seis cuerpos de trabajo rodados entre Guanaqueros y Pisco Elqui. Prints fine art en papel de algodón, edición limitada de 15 copias, firmadas y numeradas.</p>
+    </div>
+    <div class="series-grid">
+      <figure class="serie reveal">
+        <div class="img s1"><div></div></div>
+        <figcaption><h3>Rostros del puerto</h3><span class="n">S/01</span></figcaption>
+        <div class="meta"><span>Ed. 1/15 · 50 × 70 cm</span><span>$180.000</span></div>
+      </figure>
+      <figure class="serie reveal">
+        <div class="img s2"><div></div></div>
+        <figcaption><h3>Niebla 5:47</h3><span class="n">S/02</span></figcaption>
+        <div class="meta"><span>Ed. 3/15 · 50 × 70 cm</span><span>$160.000</span></div>
+      </figure>
+      <figure class="serie reveal">
+        <div class="img s3"><div></div></div>
+        <figcaption><h3>Salitreras</h3><span class="n">S/03</span></figcaption>
+        <div class="meta"><span>Ed. 1/15 · 60 × 80 cm</span><span>$220.000</span></div>
+      </figure>
+      <figure class="serie reveal">
+        <div class="img s4"><div></div></div>
+        <figcaption><h3>Elqui en vertical</h3><span class="n">S/04</span></figcaption>
+        <div class="meta"><span>Ed. 2/15 · 50 × 70 cm</span><span>$180.000</span></div>
+      </figure>
+      <figure class="serie reveal">
+        <div class="img s5"><div></div></div>
+        <figcaption><h3>La Herradura, invierno</h3><span class="n">S/05</span></figcaption>
+        <div class="meta"><span>Ed. 4/15 · 40 × 60 cm</span><span>$140.000</span></div>
+      </figure>
+      <figure class="serie reveal">
+        <div class="img s6"><div></div></div>
+        <figcaption><h3>Andacollo, fiesta chica</h3><span class="n">S/06</span></figcaption>
+        <div class="meta"><span>Ed. 1/15 · 60 × 80 cm</span><span>$320.000</span></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="mono-tag">Sesiones · Agenda abierta</span>
+        <h2>Servicios <em>fotográficos</em></h2>
+      </div>
+    </div>
+    <div class="serv-list">
+      <div class="serv reveal">
+        <span class="idx">01/</span>
+        <div><h3>Retrato editorial</h3><p>Sesión de 90 minutos en estudio o locación. Dirección de pose y luz, 15 fotografías finales retocadas en alta resolución.</p></div>
+        <div class="pr">$95.000<small>Por sesión</small></div>
+      </div>
+      <div class="serv reveal">
+        <span class="idx">02/</span>
+        <div><h3>Retrato familiar en exteriores</h3><p>Tarde de playa o valle, sin poses forzadas. 25 fotografías finales y un print de regalo 30 × 40 cm.</p></div>
+        <div class="pr">$130.000<small>Por sesión</small></div>
+      </div>
+      <div class="serv reveal">
+        <span class="idx">03/</span>
+        <div><h3>Matrimonio civil</h3><p>Cobertura completa de la ceremonia y sesión de pareja. Entrega en 10 días hábiles, galería online privada.</p></div>
+        <div class="pr">$350.000<small>Media jornada</small></div>
+      </div>
+      <div class="serv reveal">
+        <span class="idx">04/</span>
+        <div><h3>Foto de producto y gastronomía</h3><p>Para restaurantes, viñas y emprendimientos de la región. Pack de 20 fotografías con dirección de arte incluida.</p></div>
+        <div class="pr">$220.000<small>Por jornada</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="estudio">
+  <div class="wrap sobre-grid">
+    <div class="sobre-photo reveal"><div class="sobre-img"></div></div>
+    <div class="reveal">
+      <span class="mono-tag">La fotógrafa</span>
+      <h2>Detrás del <em>visor</em></h2>
+      <p><b>Nova Paredes</b> creció entre el puerto de Coquimbo y la oscuridad del laboratorio de su abuelo. Estudió fotografía en Santiago, volvió al norte en 2016 y desde entonces trabaja exclusivamente la luz de esta costa: dura, lateral, honesta.</p>
+      <p style="margin-top:14px">Su obra ha sido exhibida en La Serena, Ovalle y Valparaíso, y forma parte de colecciones privadas en Chile y Alemania.</p>
+      <p class="quote">«No fotografío cómo se ve la gente. Fotografío cómo se queda cuando se acaba la conversación.»</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="mono-tag">Estudio · Barrio Inglés</span>
+        <h2>Dónde <em>revelar</em></h2>
+      </div>
+    </div>
+    <div class="visita-grid">
+      <div class="reveal">
+        <div class="hrow"><span>Lunes – Viernes</span><b>10:00 – 19:00</b></div>
+        <div class="hrow"><span>Sábado</span><b>10:00 – 14:00</b></div>
+        <div class="hrow"><span>Domingo</span><b class="cita">Solo con cita</b></div>
+        <p class="nota">📍 Calle Aldunate 1024, Barrio Inglés, Coquimbo<br />Todas las sesiones se agendan con anticipación por WhatsApp. Muestras de prints disponibles en el estudio.</p>
+        <div style="margin-top:26px">
+          <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Estudio%20Nova%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Coordinar visita</a>
+        </div>
+      </div>
+      <div class="mapa reveal">
+        <div class="mapa-grid"></div>
+        <div class="mapa-sea"><i>BAHÍA DE COQUIMBO</i></div>
+        <div class="pin"><div class="dot"></div><p>CALLE ALDUNATE 1024</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>Tu cara merece <span>buena luz.</span></h2>
+    <p>Cupos limitados por mes. Escríbeme, conversamos la idea y reservamos fecha — así de simple.</p>
+    <a class="btn btn-red" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Estudio%20Nova%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nova · Fotografía de autor · Coquimbo</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Estudio%20Nova%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  if(!reduce && matchMedia('(pointer:fine)').matches){
+    const frame = document.querySelector('#heroPhoto .photo-frame');
+    addEventListener('mousemove', e => {
+      const x = (e.clientX / innerWidth - .5), y = (e.clientY / innerHeight - .5);
+      frame.style.transform = `rotateY(${(x*7).toFixed(2)}deg) rotateX(${(-y*7).toFixed(2)}deg) translate(${(x*8).toFixed(1)}px, ${(y*8).toFixed(1)}px)`;
+    }, {passive:true});
+  }
+</script>
+</body>
+</html>

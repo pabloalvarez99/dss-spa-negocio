@@ -104,7 +104,7 @@
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<a class="skip" href="#trabajo">Saltar al portafolio</a>
+<a class="skip" href="#estudio">Saltar al trabajo</a>
 
 <!-- =========== HEADER =========== -->
 <header id="site-header">
@@ -120,12 +120,12 @@
       <span><b>DSS</b><span>Desarrollo de Software y Sistemas</span></span>
     </a>
     <nav class="nav-links">
-      <a href="#trabajo">Trabajo</a>
+      <a href="#estudio">Estudio</a>
+      <a href="#trabajo">Demos</a>
       <a href="#como">Cómo funciona</a>
       <a href="#planes">Planes</a>
       <a href="#servicios">Servicios</a>
       <a href="#faq">Preguntas</a>
-      <a href="#postular">Postular</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="#postular">Postular gratis</a>
@@ -139,7 +139,8 @@
     </div>
   </div>
   <nav class="mnav" id="mnav">
-    <a href="#trabajo">Trabajo</a>
+    <a href="#estudio">Estudio · trabajo de autor</a>
+    <a href="#trabajo">Demos de muestra</a>
     <a href="#como">Cómo funciona</a>
     <a href="#planes">Planes y precios</a>
     <a href="#servicios">Servicios</a>
@@ -202,15 +203,20 @@
   <div class="ticker-track" id="ticker-track"></div>
 </div>
 
-<!-- =========== PORTFOLIO =========== -->
-<section class="sec" id="trabajo">
+<!-- =========== ESTUDIO · niveles 1 y 2 =========== -->
+<section class="sec" id="estudio">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Portafolio · Demos de muestra</span>
-      <h2>Más de 100 <span class="grad-text">demos creadas</span> para mostrar lo que hacemos.</h2>
-      <p>Estas páginas son <b style="color:var(--txt)">demos ilustrativas</b> que armamos con información pública de negocios de La Serena y Coquimbo: restaurantes, cafés, hoteles, gimnasios, clínicas, talleres, tiendas y más. No son sitios contratados por los negocios — son ejemplos de cómo podría verse la tuya. Haz clic y míralas en tu celular.</p>
+      <span class="eyebrow">El estudio · Trabajo de autor</span>
+      <h2>Lo que diseñamos cuando <span class="grad-text">decidimos todo</span> nosotros.</h2>
+      <p>Primero nuestro proyecto real, funcionando en producción con dominio propio. Después, <b style="color:var(--txt)">proyectos conceptuales</b>: negocios ficticios de la Región de Coquimbo que inventamos para mostrar hasta dónde llega nuestro diseño. No son clientes ni son demos de negocios existentes, y cada tarjeta lo dice.</p>
     </div>
-    <a class="pf-feat reveal" href="https://tu-farmacia.cl" target="_blank" rel="noopener" style="margin-bottom:24px">
+
+    <div class="es-lvl reveal">
+      <span class="es-lvl-n">Nivel 1</span>
+      <span class="es-lvl-t">Real · en producción · dominio propio</span>
+    </div>
+    <a class="pf-feat reveal" href="https://tu-farmacia.cl" target="_blank" rel="noopener">
       <div class="pf-prev">
         <div class="pf-fallback"><span class="fb-emoji">💊</span><span class="muted">tu-farmacia.cl</span></div>
         <picture>
@@ -229,6 +235,30 @@
         <span class="live">Ver sitio en vivo ↗</span>
       </div>
     </a>
+
+    <div id="estudio-conceptual" hidden>
+      <div class="es-lvl reveal">
+        <span class="es-lvl-n">Nivel 2</span>
+        <span class="es-lvl-t">Proyectos conceptuales · negocios ficticios de la región</span>
+      </div>
+      <div class="es-grid" id="es-grid"></div>
+      <p class="es-note">Los negocios de este nivel no existen: los inventamos completos —marca, textos y fotos— para resolver un problema de diseño distinto en cada uno. Es nuestro portafolio, no un catálogo de clientes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PORTFOLIO · nivel 3 =========== -->
+<section class="sec" id="trabajo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Portafolio · Demos de muestra</span>
+      <h2>Más de 100 <span class="grad-text">demos creadas</span> para mostrar lo que hacemos.</h2>
+      <p>Estas páginas son <b style="color:var(--txt)">demos ilustrativas</b> que armamos con información pública de negocios de La Serena y Coquimbo: restaurantes, cafés, hoteles, gimnasios, clínicas, talleres, tiendas y más. No son sitios contratados por los negocios — son ejemplos de cómo podría verse la tuya. Haz clic y míralas en tu celular.</p>
+    </div>
+    <div class="es-lvl reveal">
+      <span class="es-lvl-n">Nivel 3</span>
+      <span class="es-lvl-t">Demo ilustrativa · hecha con información pública</span>
+    </div>
     <div class="pf-toolbar reveal">
       <div class="pf-toolbar-row">
         <div class="pf-search">
@@ -242,7 +272,7 @@
     <div class="pf-grid" id="pf-grid"></div>
     <noscript><p class="pf-empty show">Activa JavaScript para ver el catálogo completo, o escríbenos por WhatsApp al +56 9 9364 9604.</p></noscript>
     <p class="pf-empty" id="pf-empty">No encontramos nada con esa búsqueda. Prueba con otro nombre o rubro.</p>
-    <div class="pf-more"><button type="button" class="btn btn-ghost" id="pf-more-btn">Mostrar todas las demos ↓</button></div>
+    <div class="pf-more"><button type="button" class="btn btn-ghost" id="pf-more-btn" aria-expanded="false" aria-controls="pf-grid">Ver las demos de muestra ↓</button></div>
     <div class="pf-note reveal">
       <span class="ico">⚠️</span>
       <span><b>Aviso importante:</b> las páginas de esta sección son <b>demos de muestra</b> creadas por DSS con información pública (menús, precios y fotos disponibles en internet). <b>No son sitios contratados ni encargados por los negocios mostrados.</b> Las hicimos para que veas, con ejemplos de tu ciudad, cómo podría quedar la tuya. Si eres dueño de alguno de estos negocios y quieres la web — o prefieres que la retiremos — <a id="wa-retiro" target="_blank" rel="noopener" style="color:var(--indigo-l); font-weight:600">pídenos el retiro por WhatsApp</a> (lo hacemos en ≤ 24 h hábiles).</span>
@@ -644,7 +674,8 @@
       </div>
       <div class="foot-col">
         <h4>Navegar</h4>
-        <a href="#trabajo">Trabajo</a>
+        <a href="#estudio">Estudio</a>
+        <a href="#trabajo">Demos de muestra</a>
         <a href="#como">Cómo funciona</a>
         <a href="#planes">Planes y precios</a>
         <a href="#servicios">Servicios</a>

@@ -1,0 +1,13 @@
+{
+  "$comment": "Nocturno — hero propio (hero.html, variant custom): el afiche enmarcado no sale de una variante compartida.",
+  "blocks": [
+    { "block": "hero", "variant": "custom", "anchor": "inicio" },
+    { "block": "marquee", "variant": "band", "if": "marquee_items" },
+    { "block": "menu", "variant": "leader", "anchor": "carta", "nav": "{{label_menu}}" },
+    { "block": "quote", "variant": "pull", "anchor": "cita", "if": "quote_text" },
+    { "block": "about", "variant": "editorial", "anchor": "nosotros", "nav": "La casa" },
+    { "block": "gallery", "variant": "frames", "anchor": "galeria", "nav": "Fotos", "if": "gallery_items" },
+    { "block": "contact", "variant": "split", "anchor": "contacto", "nav": "Cómo llegar" },
+    { "block": "cta", "variant": "center", "anchor": "reservar" }
+  ]
+}

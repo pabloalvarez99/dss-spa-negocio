@@ -1,0 +1,22 @@
+<header class="{{blk.classes}}" id="{{blk.anchor}}">
+  <div class="hero-frame">
+    <figure class="hero-art" aria-hidden="true">
+      {{#if hero_image}}<img src="{{hero_image}}" alt="" width="1600" height="1000" />{{/if}}
+      <span class="hero-veil"></span>
+    </figure>
+    <div class="wrap hero-copy">
+      <p class="eyebrow">{{eyebrow}} · {{city}}</p>
+      <h1>{{hero_title_html}}</h1>
+      <p class="lead">{{tagline}}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="{{wa_url}}" target="_blank" rel="noopener" data-track="hero-wa">{{cta_primary}}</a>
+        <a class="btn btn-line" href="#{{menu_anchor}}">{{cta_secondary}}</a>
+      </div>
+    </div>
+  </div>
+  {{#if stats_items}}
+  <div class="wrap hero-meta">
+    {{#each stats_items}}<div class="meta-item"><b>{{this.value}}</b><span>{{this.label}}</span></div>{{/each}}
+  </div>
+  {{/if}}
+</header>

@@ -1,0 +1,23 @@
+<section class="{{blk.classes}}" id="{{blk.anchor}}">
+  <div class="wrap about-editorial">
+    <div class="about-copy reveal">
+      <p class="kicker">Nosotros</p>
+      <h2>{{about_title_html}}</h2>
+      <p class="about-lead">{{about}}</p>
+      {{#if about_card}}<p class="about-note">{{about_card}}</p>{{/if}}
+      {{#if instagram}}
+      <p class="about-links"><a class="btn btn-line" href="{{instagram}}" target="_blank" rel="noopener">Instagram</a></p>
+      {{/if}}
+    </div>
+    <aside class="about-side reveal">
+      <p class="about-place">{{city}}</p>
+      {{#if facts}}
+      <dl class="about-facts">
+        {{#each facts}}<div><dt>{{this.label}}</dt><dd>{{this.value}}</dd></div>{{/each}}
+      </dl>
+      {{/if}}
+      {{#if hero_image}}<figure class="about-photo"><img src="{{hero_image}}" alt="{{name}}" loading="lazy" width="800" height="1000" /></figure>{{/if}}
+      <p class="about-cta"><a class="btn btn-line" href="{{wa_url}}" target="_blank" rel="noopener" data-track="about-wa">{{cta_primary}}</a></p>
+    </aside>
+  </div>
+</section>

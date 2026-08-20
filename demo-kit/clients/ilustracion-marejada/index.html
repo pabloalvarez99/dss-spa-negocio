@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marejada — Estudio de Ilustración y Muralismo · La Serena</title>
+<meta name="description" content="Estudio de ilustración y muralismo en La Serena. Murales a pedido, ilustración comercial y talleres de dibujo. Cotiza tu muro por WhatsApp." />
+<meta name="theme-color" content="#ff5d4d" />
+<meta property="og:title" content="Marejada — Estudio de Ilustración y Muralismo" />
+<meta property="og:description" content="Murales llenos de color, ilustración comercial y talleres en La Serena." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#fff6ea; --ink:#24324b;
+    --coral:#ff5d4d; --coral-d:#e8443a;
+    --turq:#0eb3a6; --turq-d:#0a8f85;
+    --sun:#ffc93c; --lila:#8d7bff;
+    --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Quicksand',sans-serif;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3{font-family:'Baloo 2',cursive;line-height:1.08}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  ::selection{background:var(--sun);color:var(--ink)}
+
+  /* dots pattern overlay */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+    background-image:radial-gradient(rgba(36,50,75,.06) 1.5px,transparent 1.5px);background-size:26px 26px}
+
+  /* demo badge */
+  .demo-badge{position:fixed;top:14px;right:14px;z-index:80;background:var(--ink);color:var(--paper);
+    font-family:'Baloo 2',cursive;font-weight:700;font-size:11px;letter-spacing:.18em;
+    padding:6px 12px;border-radius:999px;transform:rotate(3deg);box-shadow:0 4px 0 rgba(36,50,75,.25)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+  nav.scrolled{background:rgba(255,246,234,.92);backdrop-filter:blur(12px);border-bottom:3px solid var(--ink)}
+  .logo{font-family:'Baloo 2',cursive;font-weight:800;font-size:26px;display:flex;align-items:center;gap:10px}
+  .logo .wave{display:inline-block;width:30px;height:30px;background:var(--turq);border-radius:58% 42% 55% 45%/48% 60% 40% 52%;animation:morph 6s ease-in-out infinite}
+  .nav-links{display:flex;gap:26px;font-weight:700;font-size:15px}
+  .nav-links a{position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:4px;border-radius:4px;background:var(--coral);transition:.25s}
+  .nav-links a:hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;transition:.2s;border:3px solid var(--ink);cursor:pointer;box-shadow:0 5px 0 var(--ink)}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--ink)}
+  .btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--ink)}
+  .btn-coral{background:var(--coral);color:#fff}
+  .btn-sun{background:var(--sun);color:var(--ink)}
+  .btn-turq{background:var(--turq);color:#fff}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 0 90px;overflow:hidden}
+  .blob{position:absolute;pointer-events:none;animation:morph 9s ease-in-out infinite;will-change:transform}
+  @keyframes morph{
+    0%,100%{border-radius:58% 42% 55% 45%/48% 60% 40% 52%}
+    33%{border-radius:45% 55% 40% 60%/60% 45% 55% 40%}
+    66%{border-radius:52% 48% 62% 38%/42% 58% 44% 56%}
+  }
+  .blob-1{width:340px;height:340px;top:-90px;right:-70px;background:linear-gradient(135deg,var(--sun),#ffb020)}
+  .blob-2{width:420px;height:420px;bottom:-140px;left:-120px;background:linear-gradient(135deg,var(--turq),#5fe0d5)}
+  .blob-3{width:200px;height:200px;top:24%;left:6%;background:linear-gradient(135deg,var(--coral),#ff8d7e)}
+  .blob-4{width:140px;height:140px;bottom:16%;right:14%;background:linear-gradient(135deg,var(--lila),#b7aaff)}
+  .blob-5{width:90px;height:90px;top:12%;left:44%;background:var(--sun)}
+  .hero-inner{position:relative;z-index:2;max-width:720px}
+  .hero h1{font-size:clamp(44px,9vw,96px);font-weight:800;letter-spacing:-.01em}
+  .hero h1 .hl-c{color:var(--coral);position:relative;white-space:nowrap}
+  .hero h1 .hl-t{color:var(--turq)}
+  .squiggle{display:block;width:min(300px,70%);height:16px;margin-top:6px}
+  .squiggle path{stroke:var(--sun);stroke-width:7;fill:none;stroke-linecap:round}
+  .hero p{margin:26px 0 36px;font-size:19px;font-weight:500;max-width:520px;color:#4a5a77}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+  .stickers{position:absolute;z-index:1;inset:0;pointer-events:none}
+  .sticker{position:absolute;display:inline-flex;align-items:center;gap:8px;background:#fff;border:3px dashed var(--ink);border-radius:999px;padding:8px 16px;font-family:'Baloo 2',cursive;font-weight:700;font-size:14px;box-shadow:0 5px 0 rgba(36,50,75,.2);animation:floaty 5s ease-in-out infinite}
+  .sticker.s1{top:20%;right:24%;transform:rotate(8deg)}
+  .sticker.s2{bottom:26%;right:6%;transform:rotate(-7deg);animation-delay:1.2s}
+  .sticker.s3{top:58%;left:2%;transform:rotate(5deg);animation-delay:2s}
+  @keyframes floaty{50%{translate:0 -12px}}
+  @media(max-width:900px){.sticker{display:none}}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:'Baloo 2',cursive;font-weight:700;font-size:13px;letter-spacing:.14em;color:#8a97ad;animation:bob 2s ease-in-out infinite}
+  @keyframes bob{50%{transform:translate(-50%,8px)}}
+
+  /* marquee */
+  .marquee{background:var(--ink);padding:16px 0;overflow:hidden;transform:rotate(-1.2deg) scale(1.02)}
+  .marquee-track{display:flex;width:max-content;animation:mq 22s linear infinite;font-family:'Baloo 2',cursive;font-weight:800;font-size:22px;color:var(--paper);white-space:nowrap}
+  .marquee-track span{margin-right:40px}
+  .marquee-track b{font-weight:800;margin-right:40px}
+  .c-coral{color:var(--coral)} .c-sun{color:var(--sun)} .c-turq{color:#5fe0d5} .c-lila{color:var(--lila)}
+  @keyframes mq{to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:100px 0;position:relative;z-index:2}
+  .sec-head{max-width:640px;margin-bottom:54px}
+  .eyebrow{display:inline-block;font-family:'Baloo 2',cursive;font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;background:var(--sun);border:3px solid var(--ink);border-radius:999px;padding:5px 16px;margin-bottom:18px;box-shadow:0 4px 0 var(--ink);transform:rotate(-1.5deg)}
+  .eyebrow.t{background:#5fe0d5}
+  .eyebrow.c{background:var(--coral);color:#fff}
+  .sec-head h2{font-size:clamp(34px,5.5vw,58px);font-weight:800}
+  .sec-head p{margin-top:16px;font-size:17px;font-weight:500;color:#4a5a77}
+
+  /* murals */
+  .murals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+  .mural{background:#fff;border:3px solid var(--ink);border-radius:28px;overflow:hidden;box-shadow:0 8px 0 rgba(36,50,75,.15);transition:.3s}
+  .mural:hover{transform:translateY(-8px) rotate(-.6deg);box-shadow:0 14px 0 rgba(36,50,75,.15)}
+  .mural:nth-child(even):hover{transform:translateY(-8px) rotate(.6deg)}
+  .mural-art{position:relative;height:210px;overflow:hidden}
+  .mural-art .b{position:absolute;animation:morph 10s ease-in-out infinite}
+  .mural-art .tag{position:absolute;top:14px;left:14px;background:var(--ink);color:var(--paper);font-family:'Baloo 2',cursive;font-weight:700;font-size:12px;padding:5px 12px;border-radius:999px;letter-spacing:.08em}
+  .mural-body{padding:22px 24px 24px}
+  .mural-body h3{font-size:24px;font-weight:800}
+  .mural-body .meta{font-size:14px;font-weight:600;color:#8a97ad;margin-top:4px}
+  .mural-body p{font-size:15px;margin:12px 0 16px;color:#4a5a77}
+  .mural-foot{display:flex;justify-content:space-between;align-items:center;border-top:3px dashed rgba(36,50,75,.15);padding-top:14px}
+  .mural-foot .price{font-family:'Baloo 2',cursive;font-weight:800;font-size:21px;color:var(--coral)}
+  .mural-foot .size{font-size:13px;font-weight:700;color:#8a97ad}
+
+  /* services */
+  .servicios{background:var(--turq);position:relative}
+  .servicios::before,.servicios::after{content:"";position:absolute;left:0;right:0;height:28px;
+    background:radial-gradient(circle at 14px -8px,transparent 16px,var(--turq) 17px);background-size:28px 28px}
+  .servicios::before{top:0;transform:scaleY(-1);background:radial-gradient(circle at 14px 36px,transparent 16px,var(--paper) 17px)}
+  .servicios::after{bottom:0;background:radial-gradient(circle at 14px -8px,transparent 16px,var(--paper) 17px)}
+  .servicios .sec-head h2,.servicios .sec-head p{color:#fff}
+  .servicios .sec-head p{color:rgba(255,255,255,.85)}
+  .serv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+  .serv{background:#fff;border:3px solid var(--ink);border-radius:26px;padding:32px 28px;box-shadow:0 8px 0 var(--ink);transition:.25s}
+  .serv:hover{transform:translateY(-6px) rotate(-1deg)}
+  .serv .ico{width:66px;height:66px;display:grid;place-items:center;font-size:32px;border-radius:58% 42% 55% 45%/48% 60% 40% 52%;margin-bottom:18px;animation:morph 8s ease-in-out infinite}
+  .serv:nth-child(1) .ico{background:var(--coral)}
+  .serv:nth-child(2) .ico{background:var(--sun)}
+  .serv:nth-child(3) .ico{background:var(--lila)}
+  .serv h3{font-size:23px;font-weight:800}
+  .serv p{font-size:15px;color:#4a5a77;margin:10px 0 16px}
+  .serv .desde{font-family:'Baloo 2',cursive;font-weight:800;font-size:17px;color:var(--turq-d)}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px;align-items:center}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
+  .about-art{position:relative;height:380px}
+  .about-art .b{position:absolute;animation:morph 9s ease-in-out infinite}
+  .about-art .face{position:absolute;inset:0;display:grid;place-items:center;font-size:110px;z-index:2}
+  .about-txt h2{font-size:clamp(32px,5vw,52px);font-weight:800}
+  .about-txt h2 em{font-style:normal;color:var(--coral)}
+  .about-txt p{margin-top:18px;font-size:17px;color:#4a5a77;font-weight:500}
+  .about-facts{display:flex;gap:34px;margin-top:30px;flex-wrap:wrap}
+  .about-facts b{display:block;font-family:'Baloo 2',cursive;font-size:38px;font-weight:800;color:var(--turq)}
+  .about-facts span{font-size:13.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8a97ad}
+
+  /* visit */
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+  @media(max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  .hours{background:#fff;border:3px solid var(--ink);border-radius:28px;padding:34px;box-shadow:0 8px 0 rgba(36,50,75,.15)}
+  .hours h3{font-size:26px;font-weight:800;margin-bottom:16px}
+  .hrow{display:flex;justify-content:space-between;padding:13px 0;border-bottom:3px dotted rgba(36,50,75,.15);font-size:15.5px;font-weight:600}
+  .hrow:last-child{border:none}
+  .hrow span{color:#8a97ad}
+  .hrow b{color:var(--turq-d)}
+  .hrow .closed{color:var(--coral)}
+  .map-card{position:relative;border:3px solid var(--ink);border-radius:28px;overflow:hidden;min-height:300px;background:#d9f2ef;box-shadow:0 8px 0 rgba(36,50,75,.15)}
+  .map-sea{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(180deg,#5fe0d5,var(--turq))}
+  .map-sea::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px;background:radial-gradient(circle at 14px 14px,#d9f2ef 10px,transparent 11px);background-size:28px 14px}
+  .map-road{position:absolute;top:0;bottom:0;left:38%;width:26px;background:#fff;transform:skewX(-8deg)}
+  .map-pin{position:absolute;top:36%;left:44%;transform:translate(-50%,-100%);text-align:center;z-index:3}
+  .map-pin .dot{font-size:44px;display:block;animation:bob 2s ease-in-out infinite;transform-origin:bottom}
+  @keyframes bob2{50%{transform:translateY(8px)}}
+  .map-pin .dot{animation:bob2 2s ease-in-out infinite}
+  .map-pin p{margin-top:8px;font-family:'Baloo 2',cursive;font-weight:700;font-size:14px;background:var(--ink);color:var(--paper);padding:7px 16px;border-radius:999px;box-shadow:0 4px 0 rgba(36,50,75,.3)}
+
+  /* final cta */
+  .cta-final{text-align:center;padding:110px 0;position:relative;overflow:hidden}
+  .cta-final h2{font-size:clamp(38px,6.5vw,72px);font-weight:800}
+  .cta-final h2 span{color:var(--coral)}
+  .cta-final p{color:#4a5a77;font-size:18px;font-weight:500;margin:20px auto 38px;max-width:480px}
+  .cta-blob{position:absolute;width:260px;height:260px;background:var(--sun);opacity:.5;animation:morph 8s ease-in-out infinite;z-index:-1}
+  .cb1{top:-60px;left:-60px}.cb2{bottom:-80px;right:-40px;background:#5fe0d5}
+
+  footer{background:var(--ink);color:rgba(255,246,234,.75);padding:36px 0;font-size:14px;font-weight:600;position:relative;z-index:2}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer b{color:var(--sun);font-family:'Baloo 2',cursive}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:62px;height:62px;border-radius:50%;background:var(--wa);display:grid;place-items:center;border:3px solid var(--ink);box-shadow:0 6px 0 rgba(36,50,75,.35);transition:.2s}
+  .wa:hover{transform:scale(1.12) rotate(-6deg)}
+  .wa svg{width:32px;height:32px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:3px dashed var(--wa);opacity:.6;animation:wa-p 2.2s infinite}
+  @keyframes wa-p{to{transform:scale(1.3);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(30px) rotate(1deg);transition:.7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #ff5d4d;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body>
+
+<span class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></span>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="wave"></span>Marejada</a>
+    <div class="nav-links">
+      <a href="#murales">Murales</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#estudio">El estudio</a>
+      <a href="#visita">Visítanos</a>
+    </div>
+    <a class="btn btn-coral" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Marejada%20Ilustraci%C3%B3n%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Cotiza tu mural</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob blob-1" data-depth="30"></div>
+  <div class="blob blob-2" data-depth="-20"></div>
+  <div class="blob blob-3" data-depth="50"></div>
+  <div class="blob blob-4" data-depth="70"></div>
+  <div class="blob blob-5" data-depth="-40"></div>
+  <div class="stickers" aria-hidden="true">
+    <span class="sticker s1">🎨 +120 muros pintados</span>
+    <span class="sticker s2">🌊 Hecho en La Serena</span>
+    <span class="sticker s3">✏️ Talleres todos los meses</span>
+  </div>
+  <div class="wrap hero-inner">
+    <h1>Pintamos <span class="hl-c">muros</span> que le <span class="hl-t">alegran</span> el día a la ciudad.
+      <svg class="squiggle" viewBox="0 0 300 16" aria-hidden="true"><path d="M4 10 Q 30 2, 56 10 T 108 10 T 160 10 T 212 10 T 264 10 T 296 10"/></svg>
+    </h1>
+    <p>Somos un estudio de ilustración y muralismo en La Serena. Transformamos fachadas, locales, colegios y casas en pedazos de color que se sienten vivos.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-coral" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Marejada%20Ilustraci%C3%B3n%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Cotiza tu mural 🎨</a>
+      <a class="btn btn-sun" href="#murales">Ver trabajos ↓</a>
+    </div>
+  </div>
+  <span class="scroll-hint">DESLIZA ↓</span>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>MURALES <b class="c-coral">✦</b> ILUSTRACIÓN <b class="c-sun">✦</b> STICKERS <b class="c-turq">✦</b> TALLERES <b class="c-lila">✦</b> COLOR <b class="c-coral">✦</b> BUEN HUMOR <b class="c-sun">✦</b></span>
+    <span>MURALES <b class="c-coral">✦</b> ILUSTRACIÓN <b class="c-sun">✦</b> STICKERS <b class="c-turq">✦</b> TALLERES <b class="c-lila">✦</b> COLOR <b class="c-coral">✦</b> BUEN HUMOR <b class="c-sun">✦</b></span>
+  </div>
+</div>
+
+<section id="murales">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Trabajos recientes</span>
+      <h2>Murales que ya están dando vueltas por ahí</h2>
+      <p>Cada proyecto es único: visitamos el muro, boceteamos contigo y pintamos a mano alzada. Estos son algunos favoritos.</p>
+    </div>
+    <div class="murals-grid">
+      <article class="mural reveal">
+        <div class="mural-art" style="background:#fff0d6">
+          <span class="b" style="width:180px;height:180px;top:-40px;left:-30px;background:var(--coral)"></span>
+          <span class="b" style="width:130px;height:130px;bottom:-30px;right:20px;background:var(--turq);animation-delay:1s"></span>
+          <span class="b" style="width:80px;height:80px;top:40px;right:40%;background:var(--sun);animation-delay:2s"></span>
+          <span class="tag">FACHADA COMERCIAL</span>
+        </div>
+        <div class="mural-body">
+          <h3>Marea Alta</h3>
+          <span class="meta">Restaurante · Av. del Mar, La Serena</span>
+          <p>Ola gigante en coral y turquesa que envuelve toda la fachada. Se ve desde la costanera.</p>
+          <div class="mural-foot"><span class="price">$480.000</span><span class="size">24 m²</span></div>
+        </div>
+      </article>
+      <article class="mural reveal">
+        <div class="mural-art" style="background:#e6fbf8">
+          <span class="b" style="width:200px;height:200px;bottom:-60px;left:10%;background:var(--sun)"></span>
+          <span class="b" style="width:110px;height:110px;top:20px;right:8%;background:var(--lila);animation-delay:1.4s"></span>
+          <span class="b" style="width:70px;height:70px;top:60px;left:44%;background:var(--coral);animation-delay:.6s"></span>
+          <span class="tag">COLEGIO</span>
+        </div>
+        <div class="mural-body">
+          <h3>Patio de los Sueños</h3>
+          <span class="meta">Escuela pública · Coquimbo</span>
+          <p>Constelaciones, planetas y un sol dormilón para el patio de kínder. Pintura lavable y atóxica.</p>
+          <div class="mural-foot"><span class="price">$350.000</span><span class="size">18 m²</span></div>
+        </div>
+      </article>
+      <article class="mural reveal">
+        <div class="mural-art" style="background:#ffe9e6">
+          <span class="b" style="width:160px;height:160px;top:-30px;right:-20px;background:var(--turq)"></span>
+          <span class="b" style="width:120px;height:120px;bottom:-20px;left:-20px;background:var(--lila);animation-delay:1s"></span>
+          <span class="b" style="width:90px;height:90px;bottom:30px;right:34%;background:var(--coral);animation-delay:2s"></span>
+          <span class="tag">INTERIOR</span>
+        </div>
+        <div class="mural-body">
+          <h3>Bosque de Oficina</h3>
+          <span class="meta">Cowork · Barrio Inglés, La Serena</span>
+          <p>Monstruos amigables entre hojas gigantes. Los arrendatarios pelean por el puesto junto al muro.</p>
+          <div class="mural-foot"><span class="price">$290.000</span><span class="size">12 m²</span></div>
+        </div>
+      </article>
+      <article class="mural reveal">
+        <div class="mural-art" style="background:#efeaff">
+          <span class="b" style="width:170px;height:170px;bottom:-40px;right:12%;background:var(--coral)"></span>
+          <span class="b" style="width:100px;height:100px;top:16px;left:10%;background:var(--sun);animation-delay:1.2s"></span>
+          <span class="b" style="width:60px;height:60px;top:70px;left:48%;background:var(--turq);animation-delay:.4s"></span>
+          <span class="tag">CASA PARTICULAR</span>
+        </div>
+        <div class="mural-body">
+          <h3>Jardín Vertical</h3>
+          <span class="meta">Dormitorio infantil · La Herradura</span>
+          <p>Flores imposibles y un gato escondido que la dueña de casa busca todas las noches.</p>
+          <div class="mural-foot"><span class="price">$180.000</span><span class="size">7 m²</span></div>
+        </div>
+      </article>
+      <article class="mural reveal">
+        <div class="mural-art" style="background:#fff6da">
+          <span class="b" style="width:190px;height:190px;top:-50px;left:30%;background:var(--lila)"></span>
+          <span class="b" style="width:110px;height:110px;bottom:-24px;left:-16px;background:var(--coral);animation-delay:.8s"></span>
+          <span class="b" style="width:80px;height:80px;bottom:20px;right:10%;background:var(--sun);animation-delay:1.6s"></span>
+          <span class="tag">LOCAL COMERCIAL</span>
+        </div>
+        <div class="mural-body">
+          <h3>Frutas del Valle</h3>
+          <span class="meta">Juguería · Mercado La Recova</span>
+          <p>Papayas, chirimoyas y uvas del Elqui flotando en composición pop. La selfie obligada del local.</p>
+          <div class="mural-foot"><span class="price">$220.000</span><span class="size">10 m²</span></div>
+        </div>
+      </article>
+      <article class="mural reveal">
+        <div class="mural-art" style="background:#e2f7ff">
+          <span class="b" style="width:150px;height:150px;bottom:-30px;right:-10px;background:var(--turq)"></span>
+          <span class="b" style="width:130px;height:130px;top:-20px;left:-10px;background:var(--sun);animation-delay:1s"></span>
+          <span class="b" style="width:70px;height:70px;top:50%;left:42%;background:var(--coral);animation-delay:2.2s"></span>
+          <span class="tag">ESPACIO PÚBLICO</span>
+        </div>
+        <div class="mural-body">
+          <h3>Caleta Viva</h3>
+          <span class="meta">Municipalidad · Guanaqueros</span>
+          <p>Peces de colores sobre el muro de la caleta, pintado junto a los niños del sector en verano.</p>
+          <div class="mural-foot"><span class="price">Convenio</span><span class="size">40 m²</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow c">Qué hacemos</span>
+      <h2>Tres formas de llenar tu mundo de color</h2>
+      <p>Desde un muro gigante hasta el sticker de tu emprendimiento. Todo parte con una conversación y un boceto.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv reveal">
+        <span class="ico">🖌️</span>
+        <h3>Muralismo a pedido</h3>
+        <p>Fachadas, interiores, colegios y empresas. Incluye visita, boceto digital, materiales y sellador protector. Mínimo 4 m².</p>
+        <span class="desde">Desde $180.000</span>
+      </div>
+      <div class="serv reveal">
+        <span class="ico">✏️</span>
+        <h3>Ilustración comercial</h3>
+        <p>Personajes, etiquetas, menús ilustrados, packs de stickers y contenido para redes. Entregamos archivos listos para imprenta.</p>
+        <span class="desde">Desde $95.000</span>
+      </div>
+      <div class="serv reveal">
+        <span class="ico">🎨</span>
+        <h3>Talleres y cumpleaños</h3>
+        <p>Talleres mensuales de acuarela y mural en nuestro taller, y celebraciones de cumpleaños creativas para niños y niñas.</p>
+        <span class="desde">Desde $15.000 / persona</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="estudio">
+  <div class="wrap about-grid">
+    <div class="about-art reveal" aria-hidden="true">
+      <span class="b" style="width:300px;height:300px;top:8%;left:6%;background:var(--coral)"></span>
+      <span class="b" style="width:200px;height:200px;bottom:0;right:4%;background:var(--turq);animation-delay:1.2s"></span>
+      <span class="b" style="width:110px;height:110px;top:0;right:18%;background:var(--sun);animation-delay:2s"></span>
+      <span class="face">🧑‍🎨</span>
+    </div>
+    <div class="about-txt reveal">
+      <span class="eyebrow t">El estudio</span>
+      <h2>Dos ilustradoras, <em>un maremoto</em> de ideas</h2>
+      <p>Marejada nació en 2019 cuando la Fran y la Jose pintaron su primer muro en el Barrio Inglés "para probar". Desde entonces no hemos parado: más de 120 murales entre La Serena, Coquimbo y el Valle del Elqui, colaboraciones con marcas locales y un taller que siempre huele a pintura fresca.</p>
+      <p>Creemos que el color es un servicio público. Por eso pintamos con la misma energía una fachada comercial que el patio de una escuela.</p>
+      <div class="about-facts">
+        <div><b>+120</b><span>Murales</span></div>
+        <div><b>2019</b><span>Desde</span></div>
+        <div><b>2</b><span>Ilustradoras</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visita" style="padding-top:40px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Encuéntranos</span>
+      <h2>El taller, en pleno Barrio Inglés</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="hours reveal">
+        <h3>Horarios del taller</h3>
+        <div class="hrow"><span>Lunes – Viernes</span><b>10:00 – 19:00</b></div>
+        <div class="hrow"><span>Sábado</span><b>11:00 – 15:00</b></div>
+        <div class="hrow"><span>Domingo</span><b class="closed">Cerrado (andamos pintando)</b></div>
+        <p style="margin-top:20px;font-size:15px;font-weight:600;color:#4a5a77">📍 Pasaje Esmeralda 488, Barrio Inglés, La Serena<br />🎨 Taller de acuarela: último sábado de cada mes<br />🐾 La Cholita, perrita del estudio, siempre presente</p>
+      </div>
+      <div class="map-card reveal" aria-hidden="true">
+        <div class="map-road"></div>
+        <div class="map-sea"></div>
+        <div class="map-pin"><span class="dot">📍</span><p>Pasaje Esmeralda 488</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <span class="cta-blob cb1" aria-hidden="true"></span>
+  <span class="cta-blob cb2" aria-hidden="true"></span>
+  <div class="wrap reveal">
+    <h2>¿Tienes un muro <span>aburrido?</span></h2>
+    <p>Mándanos una foto del muro por WhatsApp y en 48 horas te devolvemos un boceto con presupuesto. Sin compromiso, con mucho color.</p>
+    <a class="btn btn-coral" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Marejada%20Ilustraci%C3%B3n%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Enviar foto de mi muro 🎨</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <b>Marejada</b> · Estudio de ilustración y muralismo · La Serena</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Marejada%20Ilustraci%C3%B3n%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    const hero = document.querySelector('.hero');
+    const blobs = [...document.querySelectorAll('.blob')];
+    hero.addEventListener('mousemove', e => {
+      const x = (e.clientX / innerWidth - .5), y = (e.clientY / innerHeight - .5);
+      blobs.forEach(b => {
+        const d = +b.dataset.depth || 30;
+        b.style.translate = `${x * d}px ${y * d}px`;
+      });
+    });
+  }
+</script>
+</body>
+</html>

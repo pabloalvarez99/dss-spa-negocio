@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mímame — Atelier de Moda y Costura de Autor · La Serena</title>
+<meta name="description" content="Atelier de alta costura en La Serena. Vestidos de novia a medida, colección de autor y transformaciones de prendas con historia. Agenda tu hora por WhatsApp." />
+<meta name="theme-color" content="#f6f1e7" />
+<meta property="og:title" content="Mímame — Atelier de Moda y Costura de Autor" />
+<meta property="og:description" content="Vestidos de novia a medida, colección de autor y transformaciones con historia en La Serena." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#f6f1e7; --cream2:#efe8d9; --ink:#131313; --muted:#7a7466;
+    --fux:#e0007a; --line:#d9d1c0; --wa:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;line-height:1.65;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Bodoni Moda',serif;font-weight:400;line-height:1}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 24px}
+  ::selection{background:var(--fux);color:#fff}
+
+  .tag{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--fux);font-weight:500}
+
+  /* demo badge */
+  .demo-badge{position:fixed;top:14px;right:16px;z-index:70;font-size:10px;letter-spacing:.24em;font-weight:500;color:var(--muted);border:1px solid var(--line);padding:5px 10px;border-radius:999px;background:rgba(246,241,231,.85);backdrop-filter:blur(6px)}
+
+  /* nav */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px}
+  nav.scrolled{background:rgba(246,241,231,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav.scrolled .wrap{padding-top:13px;padding-bottom:13px}
+  .logo{font-family:'Bodoni Moda',serif;font-style:italic;font-weight:700;font-size:27px}
+  .logo sup{font-style:normal;color:var(--fux);font-size:14px}
+  .nav-links{display:flex;gap:32px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:400}
+  .nav-links a{color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--fux)}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border:1px solid var(--ink);transition:.3s;cursor:pointer;background:transparent;color:var(--ink)}
+  .btn-fux{background:var(--fux);border-color:var(--fux);color:#fff}
+  .btn-fux:hover{background:var(--ink);border-color:var(--ink)}
+  .btn-line:hover{background:var(--ink);color:var(--cream)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;padding:120px 0 40px;overflow:hidden}
+  .hero-inner{position:relative;z-index:2}
+  .hero h1{font-size:clamp(84px,17vw,240px);font-style:italic;font-weight:700;letter-spacing:-.02em}
+  .hero h1 .o{color:var(--fux)}
+  .hero-row{display:flex;align-items:end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .hero-sub{max-width:400px;font-size:16.5px;color:var(--muted);padding-bottom:14px}
+  .hero-sub b{font-weight:500;color:var(--ink)}
+  .hero-ctas{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+  .hero-dress{position:absolute;right:2%;top:50%;transform:translateY(-50%);width:min(46vw,560px);opacity:.9;pointer-events:none}
+  @media(max-width:900px){.hero-dress{position:relative;right:auto;top:auto;transform:none;width:min(80vw,380px);margin:36px auto 0;display:block}}
+  .hero-dress svg{width:100%;height:auto;display:block}
+  .draw path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1)}
+  .draw.drawn path{stroke-dashoffset:0}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);animation:hint 2.4s ease-in-out infinite}
+  @keyframes hint{50%{transform:translateX(-50%) translateY(8px)}}
+
+  /* marquee */
+  .marquee{background:var(--ink);color:var(--cream);padding:20px 0;overflow:hidden;transform:rotate(-1.2deg) scale(1.02);margin:10px 0}
+  .marquee-track{display:flex;width:max-content;animation:mq 24s linear infinite;font-family:'Bodoni Moda',serif;font-style:italic;font-size:clamp(20px,3vw,30px);white-space:nowrap}
+  .marquee-track span{padding-right:18px}
+  .marquee-track i{color:var(--fux);font-style:normal;padding-right:18px}
+  @keyframes mq{to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:104px 0}
+  .sec-head{margin-bottom:60px;display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(40px,6.5vw,84px)}
+  .sec-head h2 em{font-style:italic;color:var(--fux);font-weight:400}
+  .sec-head p{max-width:360px;color:var(--muted);font-size:15px}
+
+  /* lookbook */
+  .looks{display:grid;grid-template-columns:1fr 1fr;gap:80px 60px}
+  @media(max-width:760px){.looks{grid-template-columns:1fr;gap:64px}}
+  .look{position:relative}
+  .look:nth-child(even){margin-top:100px}
+  @media(max-width:760px){.look:nth-child(even){margin-top:0}}
+  .look .num{position:absolute;top:-38px;left:-8px;font-family:'Bodoni Moda',serif;font-style:italic;font-size:clamp(70px,8vw,110px);color:transparent;-webkit-text-stroke:1px var(--line);z-index:0;line-height:1;pointer-events:none}
+  .look-card{position:relative;z-index:1;background:var(--cream2);border:1px solid var(--line);padding:34px 30px 30px;transition:.35s}
+  .look:hover .look-card{border-color:var(--ink);transform:translateY(-6px)}
+  .look-card svg{width:100%;height:auto;display:block;max-height:300px;color:var(--ink)}
+  .look-meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:20px;border-top:1px solid var(--line);padding-top:16px}
+  .look h3{font-size:clamp(26px,3vw,34px);font-style:italic}
+  .look .price{font-family:'Bodoni Moda',serif;font-size:21px;white-space:nowrap}
+  .look .desc{font-size:14px;color:var(--muted);margin-top:8px}
+  .look .fab{display:inline-block;margin-top:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--fux);font-weight:500}
+
+  /* servicios band */
+  .band{background:var(--ink);color:var(--cream);padding:104px 0}
+  .band .tag{color:#ff4da6}
+  .band-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(246,241,231,.14);border:1px solid rgba(246,241,231,.14);margin-top:50px}
+  @media(max-width:860px){.band-grid{grid-template-columns:1fr}}
+  .band-item{background:var(--ink);padding:40px 32px;transition:.3s}
+  .band-item:hover{background:#1d1d1d}
+  .band-item .n{font-family:'Bodoni Moda',serif;font-style:italic;font-size:20px;color:#ff4da6}
+  .band-item h3{font-size:27px;margin:16px 0 12px;font-style:italic}
+  .band-item p{font-size:14px;color:#a89f8d}
+  .band-item .pr{display:block;margin-top:18px;font-family:'Bodoni Moda',serif;font-size:23px;color:var(--cream)}
+  .band h2{font-size:clamp(36px,5.5vw,68px);color:var(--cream)}
+  .band h2 em{font-style:italic;color:#ff4da6}
+
+  /* sobre */
+  .sobre-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+  @media(max-width:860px){.sobre-grid{grid-template-columns:1fr;gap:40px}}
+  .sobre h2{font-size:clamp(38px,5.5vw,68px);margin:18px 0 24px}
+  .sobre h2 em{font-style:italic;color:var(--fux)}
+  .sobre p{color:var(--muted);max-width:520px;font-size:16px}
+  .sobre .firma{font-family:'Bodoni Moda',serif;font-style:italic;font-size:30px;margin-top:30px;color:var(--ink)}
+  .sobre .firma small{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+  .hilos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .hilo{aspect-ratio:1;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:end;padding:18px;background:var(--cream2);transition:.3s}
+  .hilo:hover{border-color:var(--fux);transform:translateY(-4px)}
+  .hilo b{font-family:'Bodoni Moda',serif;font-size:clamp(24px,3vw,36px);font-weight:400}
+  .hilo span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+  .hilo .swatch{width:100%;height:8px;margin-bottom:14px}
+
+  /* visita */
+  .visita-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  @media(max-width:860px){.visita-grid{grid-template-columns:1fr}}
+  .hrow{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .hrow span{color:var(--muted)}
+  .hrow b{font-weight:500}
+  .hrow .cita{color:var(--fux)}
+  .visita .nota{margin-top:22px;font-size:14px;color:var(--muted)}
+  .mapa{position:relative;aspect-ratio:4/3.1;border:1px solid var(--line);background:var(--cream2);overflow:hidden}
+  .mapa-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,rgba(217,209,192,0) 1px),linear-gradient(90deg,var(--line) 1px,rgba(217,209,192,0) 1px);background-size:44px 44px;opacity:.8}
+  .mapa-diag{position:absolute;left:-10%;top:58%;width:130%;height:1px;background:var(--ink);opacity:.4;transform:rotate(-14deg)}
+  .pin{position:absolute;top:44%;left:42%;transform:translate(-50%,-50%);text-align:center}
+  .pin .dot{width:14px;height:14px;background:var(--fux);border-radius:50%;margin:0 auto;box-shadow:0 0 0 7px rgba(224,0,122,.16);animation:pulse 2.2s infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 15px rgba(224,0,122,0)}}
+  .pin p{margin-top:12px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;background:var(--cream);border:1px solid var(--line);padding:6px 14px}
+
+  /* cta */
+  .cta-final{text-align:center;padding:124px 0;border-top:1px solid var(--line)}
+  .cta-final h2{font-size:clamp(44px,8vw,104px);font-style:italic}
+  .cta-final h2 span{color:var(--fux)}
+  .cta-final p{color:var(--muted);margin:24px auto 40px;max-width:480px;font-size:16px}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;font-size:12.5px;color:var(--muted);letter-spacing:.08em}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+  /* WA float */
+  .wa{position:fixed;bottom:22px;right:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.55);transition:.25s}
+  .wa:hover{transform:scale(1.1)}
+  .wa svg{width:29px;height:29px;fill:#fff}
+  .wa::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--wa);opacity:.5;animation:wa-p 2s infinite}
+  @keyframes wa-p{to{transform:scale(1.35);opacity:0}}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:.9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .draw path{stroke-dashoffset:0!important}
+  }
+
+  /* --- DSS · capa estudio (H1) --- */
+  html,body{overflow-x:clip}
+  @media (max-width:560px){.sobre-grid{grid-template-columns:minmax(0,1fr)}.hilos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .pc-s{display:none}
+  @media (max-width:560px){
+    .pc-l{display:none}.pc-s{display:inline}
+    /* el badge fijo se va abajo-izquierda: arriba choca con el CTA del nav */
+    .demo-badge,.demo{top:auto;bottom:14px;left:14px;right:auto}
+  }
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid #e0007a;outline-offset:3px}
+  .dss-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0ms!important;transition-duration:.01ms!important;transition-delay:0ms!important;scroll-behavior:auto!important}
+  }
+  /* --- fin capa estudio --- */
+</style>
+</head>
+<body id="top">
+
+<span class="demo-badge"><span class="pc-l">PROYECTO CONCEPTUAL</span><span class="pc-s">CONCEPTO</span></span>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Mímame<sup>®</sup></a>
+    <div class="nav-links">
+      <a href="#coleccion">Lookbook</a>
+      <a href="#servicios">A medida</a>
+      <a href="#visita">Atelier</a>
+    </div>
+    <a class="btn btn-fux" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Atelier%20M%C3%ADmame%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Pedir hora</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="tag">Atelier de moda · La Serena · Est. 2016</span>
+    <h1>Míma<span class="o">me</span></h1>
+    <div class="hero-row">
+      <div>
+        <p class="hero-sub"><b>Alta costura de autor en el corazón de La Serena.</b> Vestidos que nacen de una conversación, una tiza y tres pruebas. Nada de tallas estándar: tu medida es el patrón.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-fux" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Atelier%20M%C3%ADmame%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Pedir hora</a>
+          <a class="btn btn-line" href="#coleccion">Ver lookbook ↓</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dress draw" id="heroDress">
+    <svg viewBox="0 0 320 420" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+      <path d="M120 30 Q160 52 200 30"/>
+      <path d="M120 30 L112 90 Q110 108 126 116 L136 122"/>
+      <path d="M200 30 L208 90 Q210 108 194 116 L184 122"/>
+      <path d="M136 122 Q160 132 184 122"/>
+      <path d="M136 122 L84 380"/>
+      <path d="M184 122 L236 380"/>
+      <path d="M84 380 Q160 404 236 380"/>
+      <path d="M136 122 Q160 138 184 122 L184 128 Q160 144 136 128 Z" stroke="#e0007a"/>
+      <path d="M160 144 L160 372" opacity=".35"/>
+      <path d="M122 140 L100 372" opacity=".2"/>
+      <path d="M198 140 L220 372" opacity=".2"/>
+    </svg>
+  </div>
+  <span class="scroll-hint">Desliza</span>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Alta costura <i>✳</i> Vestidos de novia <i>✳</i> A medida <i>✳</i> Transformaciones <i>✳</i> La Serena <i>✳</i> Hecho a mano <i>✳</i></span>
+    <span>Alta costura <i>✳</i> Vestidos de novia <i>✳</i> A medida <i>✳</i> Transformaciones <i>✳</i> La Serena <i>✳</i> Hecho a mano <i>✳</i></span>
+  </div>
+</div>
+
+<section id="coleccion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="tag">Lookbook Nº 7 — «Viento de cordillera»</span>
+        <h2>La <em>colección</em></h2>
+      </div>
+      <p>Piezas únicas o series de máximo cinco. Cada prenda sale del atelier con su nombre bordado a mano en la etiqueta. Tallas a tu medida, sin costo adicional.</p>
+    </div>
+    <div class="looks">
+      <article class="look reveal">
+        <span class="num">01</span>
+        <div class="look-card draw">
+          <svg viewBox="0 0 220 260" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M78 24 Q110 42 142 24"/>
+            <path d="M78 24 L70 74 Q68 88 82 94 L90 98"/>
+            <path d="M142 24 L150 74 Q152 88 138 94 L130 98"/>
+            <path d="M90 98 Q110 106 130 98"/>
+            <path d="M90 98 L58 226"/>
+            <path d="M130 98 L162 226"/>
+            <path d="M58 226 Q110 244 162 226"/>
+            <path d="M92 116 L128 116" stroke="#e0007a"/>
+          </svg>
+          <div class="look-meta"><h3>Vestido Amanecer</h3><span class="price">$520.000</span></div>
+          <p class="desc">Lino crudo con espalda descubierta y falda de vuelo completo. Se mueve con el viento de la costanera.</p>
+          <span class="fab">Lino belga · 1 de 3</span>
+        </div>
+      </article>
+      <article class="look reveal">
+        <span class="num">02</span>
+        <div class="look-card draw">
+          <svg viewBox="0 0 220 260" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M86 30 L110 60 L134 30"/>
+            <path d="M86 30 L64 48 L58 130 L74 134 L80 84 L80 224 L140 224 L140 84 L146 134 L162 130 L156 48 L134 30"/>
+            <path d="M110 60 L110 224"/>
+            <path d="M92 176 L104 176" stroke="#e0007a"/>
+            <circle cx="110" cy="120" r="2.4"/>
+            <circle cx="110" cy="146" r="2.4"/>
+          </svg>
+          <div class="look-meta"><h3>Traje Nómade</h3><span class="price">$680.000</span></div>
+          <p class="desc">Sastre de lana fría color hueso, hombro suave y basta a mano. Para gobernar reuniones y puestas de sol.</p>
+          <span class="fab">Lana fría · Pieza única</span>
+        </div>
+      </article>
+      <article class="look reveal">
+        <span class="num">03</span>
+        <div class="look-card draw">
+          <svg viewBox="0 0 220 260" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M88 40 Q110 54 132 40"/>
+            <path d="M88 40 L60 58 Q42 92 56 118 L72 112 L78 84 L78 208 L142 208 L142 84 L148 112 L164 118 Q178 92 160 58 L132 40"/>
+            <path d="M78 208 Q110 220 142 208"/>
+            <path d="M96 88 Q110 98 124 88" stroke="#e0007a"/>
+          </svg>
+          <div class="look-meta"><h3>Blusa Jardín de Papel</h3><span class="price">$180.000</span></div>
+          <p class="desc">Algodón orgánico con mangas globo y cuello bordado con flores de papaya, teñido a mano en Vicuña.</p>
+          <span class="fab">Algodón orgánico · 1 de 5</span>
+        </div>
+      </article>
+      <article class="look reveal">
+        <span class="num">04</span>
+        <div class="look-card draw">
+          <svg viewBox="0 0 220 260" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M84 60 L136 60"/>
+            <path d="M84 60 L64 220"/>
+            <path d="M136 60 L156 220"/>
+            <path d="M64 220 Q110 236 156 220"/>
+            <path d="M96 60 L86 220" opacity=".35"/>
+            <path d="M110 60 L110 224" opacity=".35"/>
+            <path d="M124 60 L134 220" opacity=".35"/>
+            <path d="M84 60 L136 60 L136 68 L84 68 Z" stroke="#e0007a"/>
+          </svg>
+          <div class="look-meta"><h3>Falda Vendaval</h3><span class="price">$240.000</span></div>
+          <p class="desc">Plisado sol permanente en crepé negro. Gira como las gaviotas de La Herradura en febrero.</p>
+          <span class="fab">Crepé · 1 de 5</span>
+        </div>
+      </article>
+      <article class="look reveal">
+        <span class="num">05</span>
+        <div class="look-card draw">
+          <svg viewBox="0 0 220 260" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M92 22 Q110 34 128 22"/>
+            <path d="M92 22 L86 64 Q85 76 96 81 L100 84"/>
+            <path d="M128 22 L134 64 Q135 76 124 81 L120 84"/>
+            <path d="M100 84 Q110 90 120 84"/>
+            <path d="M100 84 L70 210 Q110 226 150 210 L120 84"/>
+            <path d="M70 210 Q110 250 150 210" stroke="#e0007a"/>
+            <path d="M110 96 L110 236" opacity=".25"/>
+          </svg>
+          <div class="look-meta"><h3>Novia «Votos»</h3><span class="price">desde $980.000</span></div>
+          <p class="desc">Silk mikado con cola desmontable y corsé interior invisible. Tres pruebas, cero estrés, una sola novia.</p>
+          <span class="fab">Seda mikado · Solo a medida</span>
+        </div>
+      </article>
+      <article class="look reveal">
+        <span class="num">06</span>
+        <div class="look-card draw">
+          <svg viewBox="0 0 220 260" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M84 34 L110 58 L136 34"/>
+            <path d="M84 34 L58 54 L52 150 L68 154 L76 96 L72 232 L148 232 L144 96 L152 154 L168 150 L162 54 L136 34"/>
+            <path d="M78 150 L142 150" stroke="#e0007a"/>
+            <path d="M110 58 L110 232" opacity=".3"/>
+          </svg>
+          <div class="look-meta"><h3>Abrigo Camanchaca</h3><span class="price">$430.000</span></div>
+          <p class="desc">Paño de alpaca gris niebla con cinturón fucsia de contraste. Para las mañanas que llegan del mar.</p>
+          <span class="fab">Alpaca · Pieza única</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="servicios">
+  <div class="wrap">
+    <span class="tag reveal">Servicios del atelier</span>
+    <h2 class="reveal" style="margin-top:16px">Hecho <em>a tu medida</em></h2>
+    <div class="band-grid">
+      <div class="band-item reveal">
+        <span class="n">Nº 1</span>
+        <h3>Novias a medida</h3>
+        <p>Del primer boceto a la última puntada: diseño exclusivo, tres pruebas presenciales y acompañamiento hasta el día del sí.</p>
+        <span class="pr">desde $980.000</span>
+      </div>
+      <div class="band-item reveal">
+        <span class="n">Nº 2</span>
+        <h3>Transformaciones</h3>
+        <p>El vestido de tu mamá, el abrigo heredado, la falda que ya no entras: los convertimos en algo que vuelvas a amar.</p>
+        <span class="pr">desde $45.000</span>
+      </div>
+      <div class="band-item reveal">
+        <span class="n">Nº 3</span>
+        <h3>Arreglos de autor</h3>
+        <p>Bastas invisibles, entallados finos y rescate de prendas delicadas. Cada arreglo se trata como una pieza de colección.</p>
+        <span class="pr">desde $15.000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap sobre-grid">
+    <div class="reveal">
+      <span class="tag">La casa</span>
+      <h2>Tijeras con <em>apellido</em></h2>
+      <p>Mímame nació en 2016 en una pieza con máquina de pedal, heredada de la abuela Amalia, modista de barrio en La Serena. Hoy el atelier viste novias de todo el norte y expone sus colecciones en pasarelas de autor.</p>
+      <p style="margin-top:14px">Trabajamos con telas naturales, tintes del valle de Elqui y una regla sagrada: ninguna prenda sale sin que su dueña se mire al espejo y sonría.</p>
+      <p class="firma">Mima Errázuriz<small>Diseñadora y directora creativa</small></p>
+    </div>
+    <div class="hilos reveal">
+      <div class="hilo"><span class="swatch" style="background:#131313"></span><b>9</b><span>Años de oficio</span></div>
+      <div class="hilo"><span class="swatch" style="background:#e0007a"></span><b>214</b><span>Novias vestidas</span></div>
+      <div class="hilo"><span class="swatch" style="background:#d9d1c0"></span><b>7</b><span>Colecciones</span></div>
+      <div class="hilo"><span class="swatch" style="background:#efe8d9"></span><b>3</b><span>Pruebas por prenda</span></div>
+      <div class="hilo"><span class="swatch" style="background:#7a7466"></span><b>0</b><span>Tallas estándar</span></div>
+      <div class="hilo"><span class="swatch" style="background:#f6f1e7"></span><b>1</b><span>Regla: que sonrías</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="visita" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="tag">El atelier</span>
+        <h2>Casa con <em>espejo grande</em></h2>
+      </div>
+    </div>
+    <div class="visita-grid">
+      <div class="reveal">
+        <div class="hrow"><span>Lunes – Viernes</span><b>10:00 – 19:00</b></div>
+        <div class="hrow"><span>Sábado</span><b>10:00 – 14:00</b></div>
+        <div class="hrow"><span>Domingo</span><b class="cita">Cerrado</b></div>
+        <p class="nota">📍 Calle Prat 470, oficina 12, La Serena<br />Atención solo con cita — agenda tu hora por WhatsApp. Primera consulta de diseño sin costo, con té de por medio.</p>
+        <div style="margin-top:26px">
+          <a class="btn btn-line" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Atelier%20M%C3%ADmame%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Agendar primera consulta</a>
+        </div>
+      </div>
+      <div class="mapa reveal">
+        <div class="mapa-grid"></div>
+        <div class="mapa-diag"></div>
+        <div class="pin"><div class="dot"></div><p>Calle Prat 470, Of. 12</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="wrap reveal">
+    <h2>Tu vestido empieza <span>con una conversación.</span></h2>
+    <p>Cuéntanos la ocasión, la fecha y la idea — aunque sea solo una foto guardada en el teléfono. Del resto nos encargamos nosotras.</p>
+    <a class="btn btn-fux" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Atelier%20M%C3%ADmame%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener">Conversar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Atelier Mímame · La Serena</span>
+    <span class="dss-note">Negocio ficticio. Proyecto conceptual de diseño creado por <a href="https://dss-chile.vercel.app" target="_blank" rel="noopener">DSS Chile</a>.</span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/56993649604?text=Hola%20DSS,%20vi%20el%20proyecto%20Atelier%20M%C3%ADmame%20y%20quiero%20una%20web%20as%C3%AD%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.2.5 2.5.8 3.8.8 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.2 0-2.4-.3-3.5-.8l-.8-.4-4.9.9.9-4.7-.5-.8c-.9-1.4-1.4-3.1-1.4-4.9C5.8 9.4 10.4 5 16 5s10.2 4.4 10.2 10S21.6 25 16 25zm5.6-7.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+  // preparar trazos SVG (medir longitud real)
+  document.querySelectorAll('.draw').forEach(svg => {
+    svg.querySelectorAll('path').forEach(p => {
+      const len = p.getTotalLength();
+      p.style.strokeDasharray = len;
+      p.style.strokeDashoffset = reduce ? 0 : len;
+    });
+  });
+
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const ioDraw = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){
+      e.target.querySelectorAll('path').forEach((p, i) => p.style.transitionDelay = (i * 90) + 'ms');
+      e.target.classList.add('drawn');
+      ioDraw.unobserve(e.target);
+    }
+  }), {threshold:.3});
+  document.querySelectorAll('.draw').forEach(el => ioDraw.observe(el));
+</script>
+</body>
+</html>

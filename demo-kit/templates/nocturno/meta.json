@@ -1,0 +1,26 @@
+{
+  "id": "nocturno",
+  "label": "Nocturno / bar, pub, gastronomía nocturna, eventos",
+  "base": "none",
+  "schema_type": "BarOrPub",
+  "fonts_url": "https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,800;1,6..96,500&family=Jost:wght@300;400;500;600&display=swap",
+  "defaults": {
+    "eyebrow": "Después del anochecer",
+    "label_menu": "Carta",
+    "menu_title": "Tragos y platos",
+    "menu_intro": "Coctelería y cocina de noche. Reserva mesa por WhatsApp.",
+    "menu_note": "Carta sujeta al stock de la noche. Consulta por WhatsApp.",
+    "cta_primary": "Reservar por WhatsApp",
+    "cta_secondary": "Ver la carta",
+    "cta_short": "Reservar",
+    "about_title": "La noche es el lugar",
+    "about_card": "Luz baja, buen sonido y un equipo que atiende de verdad. Demo de sitio nocturno.",
+    "contact_title": "Reservas y ubicación",
+    "gallery_title": "Ambiente",
+    "gallery_intro": "Mesas, barra y momentos.",
+    "cta_title": "¿Mesa para esta noche?",
+    "cta_text": "Escríbenos con día, hora y cuántos vienen.",
+    "wa_message": "Hola {name}, quiero reservar / consultar",
+    "hero_title": "{name}"
+  }
+}

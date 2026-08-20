@@ -1,0 +1,37 @@
+<section class="{{blk.classes}} contact-panel" id="{{blk.anchor}}">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Contacto</p>
+      <h2>{{contact_title_html}}</h2>
+      <p>Escríbenos por WhatsApp o ven a visitarnos en {{city}}.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="info-card reveal">
+        <div class="icon" aria-hidden="true">📍</div>
+        <h3>Dirección</h3>
+        <p>{{address_display}}</p>
+        {{#if maps_url}}
+        <p style="margin-top:.5rem"><a href="{{maps_url}}" target="_blank" rel="noopener">Abrir en Maps →</a></p>
+        {{/if}}
+      </div>
+      <div class="info-card reveal">
+        <div class="icon" aria-hidden="true">💬</div>
+        <h3>WhatsApp</h3>
+        <p><a href="{{wa_url}}" target="_blank" rel="noopener">{{phone_display}}</a></p>
+      </div>
+      <div class="info-card reveal">
+        <div class="icon" aria-hidden="true">🕒</div>
+        <h3>Horarios</h3>
+        <ul class="hours-list">
+          {{#each hours_rows}}<li><span>{{this.days}}</span><b>{{this.time}}</b></li>{{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="contact-ctas">
+      <a class="btn btn-wa" href="{{wa_url}}" target="_blank" rel="noopener" data-track="contact-wa">{{cta_primary}}</a>
+      {{#if maps_url}}
+      <a class="btn btn-ghost" href="{{maps_url}}" target="_blank" rel="noopener">Cómo llegar</a>
+      {{/if}}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,87 @@
+{
+  "slug": "bar-cuarto-menguante",
+  "template": "nocturno",
+  "name": "Cuarto Menguante",
+  "tagline": "Bar de coctelería y cocina de noche en el centro de La Serena, con música en vivo de jueves a sábado.",
+  "phone_wa": "56953456789",
+  "city": "La Serena",
+  "address": "Calle Prat 465, La Serena, Región de Coquimbo",
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=Calle+Prat+La+Serena",
+  "instagram": "https://instagram.com/",
+  "eyebrow": "Bar y música en vivo",
+  "hero_title": "La noche empieza en Prat",
+  "hours": [
+    { "days": "Mar–Mié", "time": "19:00–01:00" },
+    { "days": "Jue–Sáb", "time": "19:00–03:00" },
+    { "days": "Domingo", "time": "19:00–00:00" },
+    { "days": "Lunes", "time": "Cerrado" }
+  ],
+  "menu": [
+    {
+      "category": "Coctelería de autor",
+      "name": "Menguante",
+      "desc": "Pisco de Elqui, damasco tostado, limón de pica y espuma salada.",
+      "price": "$8.900"
+    },
+    {
+      "category": "Coctelería de autor",
+      "name": "Camanchaca",
+      "desc": "Gin del norte, tónica de romero y humo de espino.",
+      "price": "$9.400"
+    },
+    {
+      "category": "Coctelería de autor",
+      "name": "Faro Bajo",
+      "desc": "Ron añejo, café frío de Coquimbo y cáscara de naranja.",
+      "price": "$9.900"
+    },
+    {
+      "category": "Clásicos",
+      "name": "Negroni de la casa",
+      "desc": "Con vermut macerado en el bar durante seis semanas.",
+      "price": "$7.900"
+    },
+    {
+      "category": "Cocina de noche",
+      "name": "Empanadas de camarón queso",
+      "desc": "Cuatro unidades, masa frita, pebre de cilantro.",
+      "price": "$7.500"
+    },
+    {
+      "category": "Cocina de noche",
+      "name": "Tabla del puerto",
+      "desc": "Para compartir entre tres: pulpo, quesos y encurtidos.",
+      "price": "$18.900"
+    }
+  ],
+  "stats": [
+    { "value": "18", "label": "Tragos de autor" },
+    { "value": "Jue–Sáb", "label": "Música en vivo" },
+    { "value": "03:00", "label": "Cierre de fin de semana" }
+  ],
+  "marquee": [
+    "Coctelería de autor",
+    "Música en vivo jueves a sábado",
+    "Cocina hasta el cierre",
+    "Reservas por WhatsApp"
+  ],
+  "facts": [
+    { "label": "Capacidad", "value": "70 personas" },
+    { "label": "Reservas", "value": "Sí, por WhatsApp" },
+    { "label": "Edad mínima", "value": "18 años con carné" },
+    { "label": "Eventos privados", "value": "Lunes y martes" }
+  ],
+  "about": "Cuarto Menguante abrió en una casa antigua de calle Prat. La barra ocupa el patio techado, la cocina funciona hasta el cierre y el escenario cabe justo para un trío. No hay carta de vinos larga ni pantallas: hay barra, cocina y música.",
+  "about_title": "Una casa vieja con barra nueva",
+  "about_card": "Reservas y eventos privados se coordinan directo por WhatsApp, sin formularios.",
+  "quote": "Servimos hasta que se apaga la cocina y la cocina se apaga cuando se va el último.",
+  "quote_by": "Cuarto Menguante · La Serena",
+  "menu_intro": "Coctelería de autor, clásicos bien hechos y cocina para compartir.",
+  "cta_title": "¿Mesa para esta noche?",
+  "cta_text": "Escríbenos con día, hora y cuántos vienen y te la guardamos.",
+  "seo_title": "Cuarto Menguante · Bar de coctelería y música en vivo en La Serena",
+  "seo_description": "Bar de coctelería de autor y cocina de noche en calle Prat, La Serena. Música en vivo de jueves a sábado. Reservas por WhatsApp. Demo de sitio web.",
+  "wa_message": "Hola Cuarto Menguante, quiero reservar mesa",
+  "images": [],
+  "show_demo_badge": true
+}
