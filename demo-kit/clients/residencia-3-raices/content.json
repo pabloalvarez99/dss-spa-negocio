@@ -54,17 +54,26 @@
     { "value": "La Serena", "label": "Residencia" },
     { "value": "WA", "label": "Visita" }
   ],
-  "marquee": [
-    "Cuidado 24/7",
-    "Kinesiología",
-    "Terapia ocupacional",
-    "Nutrición",
-    "La Serena"
-  ],
+  "marquee": ["Cuidado 24/7", "Kinesiología", "Terapia ocupacional", "Nutrición", "La Serena"],
   "about": "En Residencia 3 Raíces buscan entregar certeza de que los residentes estarán en las mejores manos. El compromiso es proteger la dignidad, la salud y la felicidad de cada residente, con un equipo de profesionales dedicados a su bienestar integral. Primera versión armada con datos públicos del aviso: aún no hay dirección de calle publicada.",
   "hero_title": "Certeza de que están en buenas manos",
   "seo_title": "Residencia 3 Raíces · Cuidado de adultos mayores en La Serena",
   "seo_description": "Residencia de larga estadía en La Serena. Cuidado 24/7, kinesiología, terapia ocupacional y nutrición. Consultas y visitas por WhatsApp.",
   "wa_message": "Hola Residencia 3 Raíces, quiero consultar por una visita",
-  "show_demo_badge": true
+  "show_demo_badge": true,
+  "eyebrow": "Residencia de larga estadía · La Serena",
+  "steps": [
+    { "title": "Escríbenos por WhatsApp", "desc": "Cuéntanos la situación de tu familiar. Respondemos con calma." },
+    { "title": "Coordinamos una visita", "desc": "Te recibimos para que conozcas el hogar y al equipo." },
+    { "title": "Conversamos sin apuro", "desc": "Resolvemos dudas de cuidado, salud y estadía." }
+  ],
+  "steps_title": "Conocer el hogar es simple",
+  "steps_kicker": "Cómo funciona",
+  "cta_primary": "Escribir por WhatsApp",
+  "cta_title": "Ven a conocer el hogar",
+  "cta_text": "Escríbenos por WhatsApp y coordinamos una visita, sin compromiso.",
+  "menu_title": "Cuidado a tu medida",
+  "menu_intro": "Lo que incluye la estadía, con el equipo a cargo del bienestar de cada residente.",
+  "about_card": "Primera versión con datos públicos del aviso. Dirección de calle y fotos: cuando ellos confirmen.",
+  "schema_type": "NursingHome"
 }
