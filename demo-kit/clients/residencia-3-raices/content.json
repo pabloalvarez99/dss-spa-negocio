@@ -1,0 +1,70 @@
+{
+  "slug": "residencia-3-raices",
+  "template": "clinic",
+  "name": "Residencia 3 Raíces",
+  "tagline": "Cuidado 24/7 para adultos mayores en La Serena. Visitas y consultas por WhatsApp.",
+  "phone_wa": "56994745356",
+  "city": "La Serena",
+  "address": "La Serena",
+  "maps_url": "https://www.google.com/maps/search/?api=1&query=La+Serena+Chile",
+  "hours": [
+    { "days": "Cuidado y supervisión", "time": "24/7" },
+    { "days": "Visitas y consultas", "time": "Por WhatsApp" }
+  ],
+  "menu": [
+    {
+      "category": "Estadía",
+      "name": "Residencia de larga estadía",
+      "desc": "Cuidado y supervisión 24/7, con equipo de profesionales dedicados a su bienestar integral.",
+      "price": "$850.000 / mes"
+    },
+    {
+      "category": "Salud",
+      "name": "Control de salud integral",
+      "desc": "Evaluaciones médicas periódicas.",
+      "price": "Incluido"
+    },
+    {
+      "category": "Salud",
+      "name": "Rehabilitación y movilidad",
+      "desc": "Kinesiología para mantener y mejorar su autonomía.",
+      "price": "Incluido"
+    },
+    {
+      "category": "Bienestar",
+      "name": "Terapia ocupacional",
+      "desc": "Actividades cognitivas y físicas para una mente activa.",
+      "price": "Incluido"
+    },
+    {
+      "category": "Bienestar",
+      "name": "Nutrición especializada",
+      "desc": "Pautas de nutricionistas y comidas caseras adaptadas a sus necesidades.",
+      "price": "Incluido"
+    },
+    {
+      "category": "Complementario",
+      "name": "Podología clínica",
+      "desc": "Cuidados específicos según necesidad.",
+      "price": "Incluido"
+    }
+  ],
+  "stats": [
+    { "value": "24/7", "label": "Cuidado" },
+    { "value": "La Serena", "label": "Residencia" },
+    { "value": "WA", "label": "Visita" }
+  ],
+  "marquee": [
+    "Cuidado 24/7",
+    "Kinesiología",
+    "Terapia ocupacional",
+    "Nutrición",
+    "La Serena"
+  ],
+  "about": "En Residencia 3 Raíces buscan entregar certeza de que los residentes estarán en las mejores manos. El compromiso es proteger la dignidad, la salud y la felicidad de cada residente, con un equipo de profesionales dedicados a su bienestar integral. Primera versión armada con datos públicos del aviso: aún no hay dirección de calle publicada.",
+  "hero_title": "Certeza de que están en buenas manos",
+  "seo_title": "Residencia 3 Raíces · Cuidado de adultos mayores en La Serena",
+  "seo_description": "Residencia de larga estadía en La Serena. Cuidado 24/7, kinesiología, terapia ocupacional y nutrición. Consultas y visitas por WhatsApp.",
+  "wa_message": "Hola Residencia 3 Raíces, quiero consultar por una visita",
+  "show_demo_badge": true
+}
