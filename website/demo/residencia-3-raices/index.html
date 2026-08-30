@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Residencia 3 Raíces · Cuidado de adultos mayores en La Serena</title>
+<meta name="description" content="Residencia de larga estadía en La Serena. Cuidado 24/7, kinesiología, terapia ocupacional y nutrición. Consultas y visitas por WhatsApp." />
+<meta name="theme-color" content="#0f766e" />
+<meta name="robots" content="index,follow" />
+
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Residencia 3 Raíces · Cuidado de adultos mayores en La Serena" />
+<meta property="og:description" content="Residencia de larga estadía en La Serena. Cuidado 24/7, kinesiología, terapia ocupacional y nutrición. Consultas y visitas por WhatsApp." />
+<meta property="og:locale" content="es_CL" />
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Residencia 3 Raíces · Cuidado de adultos mayores en La Serena" />
+<meta name="twitter:description" content="Residencia de larga estadía en La Serena. Cuidado 24/7, kinesiología, terapia ocupacional y nutrición. Consultas y visitas por WhatsApp." />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap" rel="stylesheet" />
+
+<style>
+/* ─────────────────────────────────────────────────────────────
+   base.css — invariantes estructurales de la fábrica.
+   NO define dirección de arte (tipografía, ritmo, color): eso
+   vive en cada templates/{skin}/skin.css.
+   Todo lo de acá tiene que sobrevivir a cualquier skin.
+   ───────────────────────────────────────────────────────────── */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:var(--leading,1.6);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,video{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul,ol{list-style:none}
+:where(h1,h2,h3,h4){font-family:var(--font-display);line-height:var(--leading-display,1.1)}
+::selection{background:var(--primary);color:var(--on-primary)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+
+/* contenedor único: nunca ancho fijo, siempre min() */
+.wrap{width:min(var(--measure,1120px),100% - var(--gutter,2.5rem));margin-inline:auto}
+.blk{position:relative;padding-block:var(--sec-pad,5rem)}
+.u-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* nav: sólo esqueleto; el skin lo viste */
+.site-nav{position:fixed;inset:0 0 auto 0;z-index:50}
+.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1rem}
+.nav-links{display:flex;gap:1.5rem}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* footer: esqueleto */
+.site-footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+
+/* WhatsApp flotante — invariante comercial, verde de marca fijo */
+.wa-float{
+  position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.95rem 1.15rem;border-radius:999px;
+  background:#25D366;color:#fff;font-weight:700;font-size:.95rem;line-height:1;
+  box-shadow:0 14px 36px -10px rgba(37,211,102,.65);
+  transition:transform .2s ease;
+}
+.wa-float:hover{transform:translateY(-2px) scale(1.02)}
+.wa-float svg{width:1.35rem;height:1.35rem;flex:none;fill:currentColor}
+@media(max-width:480px){
+  .wa-float .wa-label{display:none}
+  .wa-float{padding:1rem;border-radius:50%}
+}
+
+/* badge demo — invariante comercial */
+.demo-badge{
+  position:fixed;left:1rem;bottom:1rem;z-index:55;
+  font-size:.7rem;font-weight:700;letter-spacing:.06em;
+  padding:.4rem .65rem;border-radius:.4rem;
+  background:color-mix(in srgb,var(--bg) 82%,transparent);
+  border:1px solid var(--line);color:var(--muted);
+  backdrop-filter:blur(8px);
+}
+
+/* motion: el skin decide la estética, la base garantiza el opt-out */
+.reveal{
+  opacity:0;transform:translateY(1.4rem);
+  transition:opacity .8s var(--ease,cubic-bezier(.2,.7,.3,1)),
+             transform .8s var(--ease,cubic-bezier(.2,.7,.3,1));
+}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+  }
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   clinic — "calma clínica con luz"
+   Único skin claro de la fábrica: marfil verdoso, tarjetas
+   blancas flotando con sombras muy suaves, Fraunces con
+   itálicas amables como acento humano, blobs orgánicos
+   difuminados y ritmo vertical amplio. Salud sin frialdad
+   de hospital. Sin capa classic: este skin se viste solo.
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --bg:#f6f8f6;
+  --bg2:#eef3ee;
+  --card:#ffffff;
+  --line:#dfe7e2;
+  --text:#14201c;
+  --muted:#5a6b64;
+  --primary:#0f766e;
+  --on-primary:#ffffff;
+  --accent:#d97706;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Source Sans 3',system-ui,sans-serif;
+  --measure:1120px;
+  --gutter:2rem;
+  --sec-pad:6.5rem;
+  --leading:1.7;
+  --leading-display:1.08;
+  --ease:cubic-bezier(.2,.72,.28,1);
+  --radius:1.25rem;
+  --shadow:0 1.5rem 3rem -1.7rem rgba(18,58,52,.26);
+  --shadow-soft:0 .8rem 2rem -1.3rem rgba(18,58,52,.15);
+}
+
+body{font-weight:400;letter-spacing:.003em}
+h1,h2,h3{font-weight:600;letter-spacing:-.012em}
+em{font-style:italic;font-weight:500;color:var(--primary)}
+
+/* luz de sala: halos verdosos y un toque cálido, nunca tocan el contenido */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(42% 34% at 86% 4%,color-mix(in srgb,var(--primary) 8%,transparent),transparent 70%),
+    radial-gradient(36% 32% at 2% 44%,color-mix(in srgb,#9dbba8 15%,transparent),transparent 70%),
+    radial-gradient(30% 26% at 94% 90%,color-mix(in srgb,var(--accent) 6%,transparent),transparent 70%);
+}
+.site-nav,main,.site-footer{position:relative;z-index:1}
+
+/* ── nav ── */
+.site-nav{transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.site-nav.is-scrolled{
+  background:color-mix(in srgb,var(--card) 88%,transparent);
+  backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
+}
+.logo{font-family:var(--font-display);font-size:1.3rem;font-weight:600;letter-spacing:-.01em}
+.logo span{color:var(--primary);font-style:italic;font-weight:500}
+.nav-links{font-size:.92rem;font-weight:600}
+.nav-links a{color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--primary)}
+.nav-cta{
+  display:inline-flex;align-items:center;padding:.7rem 1.2rem;border-radius:999px;
+  background:var(--primary);color:var(--on-primary);
+  font-weight:700;font-size:.88rem;transition:transform .2s,box-shadow .2s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 14px 28px -12px color-mix(in srgb,var(--primary) 55%,transparent)}
+
+/* ── botones ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  padding:.95rem 1.6rem;border-radius:999px;font-weight:700;font-size:.95rem;
+  border:1px solid transparent;
+  transition:transform .2s,box-shadow .2s,background .2s,border-color .2s,color .2s;
+}
+.btn-solid{background:var(--primary);color:var(--on-primary);box-shadow:0 14px 28px -14px color-mix(in srgb,var(--primary) 60%,transparent)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 18px 34px -14px color-mix(in srgb,var(--primary) 65%,transparent)}
+.btn-line,.btn-ghost{background:var(--card);border-color:color-mix(in srgb,var(--primary) 30%,var(--line));color:var(--primary)}
+.btn-line:hover,.btn-ghost:hover{border-color:var(--primary);box-shadow:var(--shadow-soft)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(37,211,102,.55)}
+
+/* ── hero editorial: aire y luz ── */
+.blk-hero--editorial{padding:0}
+/* sin foto el hero no necesita pantalla completa: evita el vacío */
+.hero-frame{position:relative;min-height:74svh;display:grid;align-items:end;overflow:hidden}
+.hero-frame:has(img){min-height:100svh}
+.hero-art{
+  position:absolute;inset:0;margin:0;
+  background:
+    radial-gradient(55% 60% at 82% 18%,color-mix(in srgb,var(--primary) 13%,transparent),transparent 72%),
+    radial-gradient(45% 50% at 8% 88%,color-mix(in srgb,#a7c4b5 24%,transparent),transparent 70%),
+    linear-gradient(180deg,var(--bg2),var(--bg));
+}
+.hero-art img{width:100%;height:100%;object-fit:cover;opacity:.55}
+/* blob orgánico que respira detrás del titular */
+.hero-art::after{
+  content:"";position:absolute;top:12%;right:6%;
+  width:min(26rem,58vw);aspect-ratio:1;
+  border-radius:62% 38% 55% 45%/48% 60% 40% 52%;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--primary) 15%,transparent),transparent);
+  animation:drift 14s ease-in-out infinite alternate;
+}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,var(--bg) 97%)}
+.hero-copy{position:relative;z-index:2;padding:9rem 0 3.5rem}
+.blk-hero--editorial .eyebrow{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--primary);margin-bottom:1.25rem;
+}
+.blk-hero--editorial .eyebrow::before{content:"";width:2rem;height:1px;background:var(--primary)}
+.blk-hero--editorial h1{font-size:clamp(2.6rem,7vw,4.8rem);max-width:15ch}
+.blk-hero--editorial .lead{margin:1.35rem 0 2rem;font-size:1.12rem;color:var(--muted);max-width:34rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem}
+/* los datos del hero flotan en una tarjeta blanca sobre el marfil */
+.blk-hero--editorial .hero-meta{
+  display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));
+  margin-bottom:3.5rem;padding:1.5rem 1.75rem;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+}
+.meta-item b{display:block;font-family:var(--font-display);font-weight:500;font-size:1.9rem;color:var(--primary);line-height:1.05}
+.meta-item span{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ── banda de datos: números grandes y amables ── */
+.blk-stats--band{background:var(--card);border-block:1px solid var(--line);padding-block:3.25rem}
+.stats-band{
+  display:grid;gap:1.5rem;text-align:center;
+  grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));
+}
+.stat b{display:block;font-family:var(--font-display);font-weight:500;font-size:clamp(2.2rem,4.5vw,3.1rem);color:var(--primary);line-height:1.05}
+.stat span{display:block;margin-top:.4rem;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* ── encabezados de sección ── */
+.sec-head{max-width:36rem;margin-bottom:2.75rem}
+.sec-head .kicker{
+  color:var(--primary);font-size:.78rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;margin-bottom:.7rem;
+}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.05rem)}
+.sec-head p{margin-top:.9rem;color:var(--muted)}
+
+/* ── prestaciones: tarjetas blancas suaves ── */
+.menu-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.menu-card{
+  display:flex;flex-direction:column;gap:.6rem;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.5rem;box-shadow:var(--shadow-soft);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s;
+}
+.menu-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--primary) 35%,var(--line))}
+.menu-card .cat{
+  align-self:flex-start;padding:.3rem .7rem;border-radius:999px;
+  background:color-mix(in srgb,var(--primary) 10%,var(--card));
+  color:var(--primary);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+}
+.menu-card h3{font-size:1.45rem}
+.menu-card .desc{color:var(--muted);font-size:.97rem;flex:1}
+.menu-card .foot{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin-top:.5rem;padding-top:.9rem;border-top:1px solid var(--line);
+}
+.menu-card .price{font-family:var(--font-display);font-size:1.25rem;font-weight:600;color:var(--primary);white-space:nowrap}
+.menu-card .ask{
+  padding:.45rem .85rem;border:1px solid var(--line);border-radius:999px;
+  color:var(--muted);font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.menu-card .ask:hover{background:var(--primary);border-color:var(--primary);color:var(--on-primary)}
+
+/* ── proceso numerado ── */
+.steps-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.step{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.6rem 1.5rem;box-shadow:var(--shadow-soft);
+}
+.step-n{
+  display:block;margin-bottom:.9rem;
+  font-family:var(--font-display);font-style:italic;font-weight:500;font-size:2.6rem;line-height:1;
+  color:color-mix(in srgb,var(--primary) 55%,var(--card));
+}
+.step h3{font-size:1.3rem;margin-bottom:.4rem}
+.step p{color:var(--muted);font-size:.96rem}
+
+/* ── nosotros ── */
+.about-grid{display:grid;gap:2.5rem;grid-template-columns:1.1fr .9fr;align-items:center}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+.blk-about--split .sec-head{max-width:none}
+.about-card{
+  position:relative;overflow:hidden;
+  background:var(--card);border:1px solid var(--line);border-radius:calc(var(--radius) + .5rem);
+  padding:2rem;box-shadow:var(--shadow);
+}
+/* blob decorativo asomando en la esquina */
+.about-card::before{
+  content:"";position:absolute;top:-3.5rem;right:-3.5rem;width:11rem;aspect-ratio:1;
+  border-radius:58% 42% 55% 45%/45% 55% 45% 55%;
+  background:color-mix(in srgb,var(--primary) 8%,transparent);
+}
+.about-card .badge{
+  display:inline-block;position:relative;padding:.35rem .85rem;border-radius:999px;margin-bottom:1rem;
+  background:color-mix(in srgb,var(--accent) 12%,var(--card));
+  color:#8f5107;font-size:.8rem;font-weight:700;letter-spacing:.04em;
+}
+.about-card p{position:relative;color:var(--muted);font-size:1.05rem}
+
+/* ── contacto en panel ── */
+.contact-panel{background:var(--bg2);border-block:1px solid var(--line)}
+.contact-grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.info-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.5rem;box-shadow:var(--shadow-soft);
+}
+.info-card .icon{
+  width:2.6rem;aspect-ratio:1;display:grid;place-items:center;margin-bottom:.9rem;
+  border-radius:50%;background:color-mix(in srgb,var(--primary) 10%,var(--card));font-size:1.15rem;
+}
+.info-card h3{font-size:1.15rem;margin-bottom:.4rem}
+.info-card p,.info-card a{color:var(--muted)}
+.info-card a:hover{color:var(--primary)}
+.hours-list{display:grid;gap:.45rem}
+.hours-list li{display:flex;justify-content:space-between;gap:1rem;font-size:.95rem;color:var(--muted)}
+.hours-list b{color:var(--text);font-weight:600}
+.contact-ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+
+/* ── cierre ── */
+.blk-cta--center{text-align:center;position:relative;overflow:hidden;background:var(--card);border-top:1px solid var(--line)}
+.blk-cta--center::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(48% 62% at 50% 115%,color-mix(in srgb,var(--primary) 11%,transparent),transparent 70%);
+}
+.blk-cta--center .wrap{position:relative}
+.blk-cta--center h2{font-size:clamp(2rem,5vw,3.2rem)}
+.blk-cta--center p{color:var(--muted);margin:1rem auto 1.75rem;max-width:32rem}
+
+/* ── footer ── */
+.site-footer{padding:2rem 0 7rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.site-footer strong{color:var(--text);font-weight:600}
+
+/* ── motion ── */
+.reveal{transition-duration:.9s}
+.hero-copy{animation:rise 1s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(1.3rem)}to{opacity:1;transform:none}}
+@keyframes drift{from{transform:translate(0,0) rotate(0deg)}to{transform:translate(-6%,8%) rotate(8deg)}}
+@media (prefers-reduced-motion: reduce){
+  .hero-copy{animation:none}
+  .hero-art::after{animation:none}
+}
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NursingHome",
+  "name": "Residencia 3 Raíces",
+  "description": "Cuidado 24/7 para adultos mayores en La Serena. Visitas y consultas por WhatsApp.",
+  "telephone": "+56994745356",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "La Serena",
+    "addressLocality": "La Serena",
+    "addressCountry": "CL"
+  }
+}
+</script>
+</head>
+<body class="skin-clinic">
+  <a class="u-sr" href="#contenido">Ir al contenido</a>
+
+  <nav class="site-nav" id="nav" aria-label="Principal">
+    <div class="wrap">
+      <a class="logo" href="#inicio">Residencia 3 <span>Raíces</span></a>
+      
+      <div class="nav-links">
+        <a href="#prestaciones">Prestaciones</a><a href="#como-funciona">Cómo funciona</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
+      </div>
+      
+      <a class="nav-cta" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="nav-wa">Agendar</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+<header class="blk blk-hero blk-hero--editorial" id="inicio">
+  <div class="hero-frame">
+    <figure class="hero-art" aria-hidden="true">
+      
+      <span class="hero-veil"></span>
+    </figure>
+    <div class="wrap hero-copy">
+      <p class="eyebrow">Residencia de larga estadía · La Serena · La Serena</p>
+      <h1>Certeza de que están en buenas <em>manos</em></h1>
+      <p class="lead">Cuidado 24/7 para adultos mayores en La Serena. Visitas y consultas por WhatsApp.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-solid" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="hero-wa">Escribir por WhatsApp</a>
+        <a class="btn btn-line" href="#prestaciones">Ver prestaciones</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="wrap hero-meta">
+    <div class="meta-item"><b>24/7</b><span>Cuidado</span></div><div class="meta-item"><b>La Serena</b><span>Residencia</span></div><div class="meta-item"><b>WA</b><span>Visita</span></div>
+  </div>
+  
+</header>
+
+<section class="blk blk-stats blk-stats--band" id="datos" aria-label="Datos">
+  <div class="wrap stats-band">
+    
+    <div class="stat reveal"><b>24/7</b><span>Cuidado</span></div>
+    
+    <div class="stat reveal"><b>La Serena</b><span>Residencia</span></div>
+    
+    <div class="stat reveal"><b>WA</b><span>Visita</span></div>
+    
+  </div>
+</section>
+
+<section class="blk blk-menu blk-menu--cards" id="prestaciones">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Prestaciones</p>
+      <h2>Cuidado a tu <em>medida</em></h2>
+      <p>Lo que incluye la estadía, con el equipo a cargo del bienestar de cada residente.</p>
+    </div>
+    <div class="menu-grid">
+      
+      <article class="menu-card reveal">
+        <div class="cat">Estadía</div>
+        <h3>Residencia de larga estadía</h3>
+        <p class="desc">Cuidado y supervisión 24/7, con equipo de profesionales dedicados a su bienestar integral.</p>
+        <div class="foot">
+          <span class="price">$850.000 / mes</span>
+          <a class="ask" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="item-wa">WA</a>
+        </div>
+      </article>
+      
+      <article class="menu-card reveal">
+        <div class="cat">Salud</div>
+        <h3>Control de salud integral</h3>
+        <p class="desc">Evaluaciones médicas periódicas.</p>
+        <div class="foot">
+          <span class="price">Incluido</span>
+          <a class="ask" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="item-wa">WA</a>
+        </div>
+      </article>
+      
+      <article class="menu-card reveal">
+        <div class="cat">Salud</div>
+        <h3>Rehabilitación y movilidad</h3>
+        <p class="desc">Kinesiología para mantener y mejorar su autonomía.</p>
+        <div class="foot">
+          <span class="price">Incluido</span>
+          <a class="ask" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="item-wa">WA</a>
+        </div>
+      </article>
+      
+      <article class="menu-card reveal">
+        <div class="cat">Bienestar</div>
+        <h3>Terapia ocupacional</h3>
+        <p class="desc">Actividades cognitivas y físicas para una mente activa.</p>
+        <div class="foot">
+          <span class="price">Incluido</span>
+          <a class="ask" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="item-wa">WA</a>
+        </div>
+      </article>
+      
+      <article class="menu-card reveal">
+        <div class="cat">Bienestar</div>
+        <h3>Nutrición especializada</h3>
+        <p class="desc">Pautas de nutricionistas y comidas caseras adaptadas a sus necesidades.</p>
+        <div class="foot">
+          <span class="price">Incluido</span>
+          <a class="ask" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="item-wa">WA</a>
+        </div>
+      </article>
+      
+      <article class="menu-card reveal">
+        <div class="cat">Complementario</div>
+        <h3>Podología clínica</h3>
+        <p class="desc">Cuidados específicos según necesidad.</p>
+        <div class="foot">
+          <span class="price">Incluido</span>
+          <a class="ask" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="item-wa">WA</a>
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<section class="blk blk-steps blk-steps--numbered" id="como-funciona">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Cómo funciona</p>
+      <h2>Conocer el hogar es <em>simple</em></h2>
+    </div>
+    <ol class="steps-grid">
+      
+      <li class="step reveal">
+        <span class="step-n">01</span>
+        <h3>Escríbenos por WhatsApp</h3>
+        <p>Cuéntanos la situación de tu familiar. Respondemos con calma.</p>
+      </li>
+      
+      <li class="step reveal">
+        <span class="step-n">02</span>
+        <h3>Coordinamos una visita</h3>
+        <p>Te recibimos para que conozcas el hogar y al equipo.</p>
+      </li>
+      
+      <li class="step reveal">
+        <span class="step-n">03</span>
+        <h3>Conversamos sin apuro</h3>
+        <p>Resolvemos dudas de cuidado, salud y estadía.</p>
+      </li>
+      
+    </ol>
+  </div>
+</section>
+
+<section class="blk blk-about blk-about--split" id="nosotros">
+  <div class="wrap about-grid">
+    <div class="sec-head reveal" style="margin-bottom:0">
+      <p class="kicker">Nosotros</p>
+      <h2>Atención <em>cercana</em></h2>
+      <p>En Residencia 3 Raíces buscan entregar certeza de que los residentes estarán en las mejores manos. El compromiso es proteger la dignidad, la salud y la felicidad de cada residente, con un equipo de profesionales dedicados a su bienestar integral. Primera versión armada con datos públicos del aviso: aún no hay dirección de calle publicada.</p>
+      
+    </div>
+    <div class="about-card reveal">
+      <span class="badge">La Serena</span>
+      <p>Primera versión con datos públicos del aviso. Dirección de calle y fotos: cuando ellos confirmen.</p>
+    </div>
+  </div>
+</section>
+
+<section class="blk blk-contact blk-contact--panel contact-panel" id="contacto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="kicker">Contacto</p>
+      <h2>Agenda y <em>contacto</em></h2>
+      <p>Escríbenos por WhatsApp o ven a visitarnos en La Serena.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="info-card reveal">
+        <div class="icon" aria-hidden="true">📍</div>
+        <h3>Dirección</h3>
+        <p>La Serena</p>
+        
+        <p style="margin-top:.5rem"><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Serena+Chile" target="_blank" rel="noopener">Abrir en Maps →</a></p>
+        
+      </div>
+      <div class="info-card reveal">
+        <div class="icon" aria-hidden="true">💬</div>
+        <h3>WhatsApp</h3>
+        <p><a href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener">+56 9 9474 5356</a></p>
+      </div>
+      <div class="info-card reveal">
+        <div class="icon" aria-hidden="true">🕒</div>
+        <h3>Horarios</h3>
+        <ul class="hours-list">
+          <li><span>Cuidado y supervisión</span><b>24/7</b></li><li><span>Visitas y consultas</span><b>Por WhatsApp</b></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contact-ctas">
+      <a class="btn btn-wa" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="contact-wa">Escribir por WhatsApp</a>
+      
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=La+Serena+Chile" target="_blank" rel="noopener">Cómo llegar</a>
+      
+    </div>
+  </div>
+</section>
+
+<section class="blk blk-cta blk-cta--center" id="agendar">
+  <div class="wrap reveal">
+    <h2>Ven a conocer el <em>hogar</em></h2>
+    <p>Escríbenos por WhatsApp y coordinamos una visita, sin compromiso.</p>
+    <a class="btn btn-solid" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" data-track="cta-wa">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p><strong>Residencia 3 Raíces</strong> · La Serena</p>
+      <p>Demo web · DSS Chile</p>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/56994745356?text=Hola%20Residencia%203%20Ra%C3%ADces%2C%20quiero%20consultar%20por%20una%20visita" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-track="float-wa">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.85 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="wa-label">WhatsApp</span>
+  </a>
+
+  
+  <div class="demo-badge">Demo · no es el sitio final</div>
+  
+
+  <script>
+  (function(){
+    var nav=document.getElementById('nav');
+    if(nav){
+      var onScroll=function(){nav.classList.toggle('is-scrolled',window.scrollY>12)};
+      onScroll();
+      window.addEventListener('scroll',onScroll,{passive:true});
+    }
+    var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets=document.querySelectorAll('.reveal');
+    if(reduced||!('IntersectionObserver' in window)){
+      for(var i=0;i<targets.length;i++)targets[i].classList.add('in');
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    targets.forEach(function(el){io.observe(el)});
+  })();
+  </script>
+</body>
+</html>
